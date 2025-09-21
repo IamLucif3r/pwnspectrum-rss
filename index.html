@@ -6,7 +6,7 @@
 <title>pwnspectrum Tech Digest</title>
 <style>
 	body { font-family: "Courier New", monospace; margin: 20px; background:#0d1117; color:#c9d1d9; }
-	h1 { text-align:center; color:#58a6ff; font-family: monospace; }
+	h1 { text-align:center; color:#58a6ff; }
 	h2 { color:#39d353; border-bottom:1px solid #30363d; padding-bottom:5px; }
 	.segment { margin-top:40px; }
 	.article { border-bottom:1px solid #30363d; padding:20px 0; display:flex; gap:20px; }
@@ -22,14 +22,14 @@
 <h1>pwnspectrum Tech Digest</h1>
 
 <div class="segment">
-	<h2>Hacking Tools</h2>
+	<h2>AI &amp; Prompt Injection</h2>
 	
 	<div class="article">
 		<div class="content">
-			<h3>gospray - Simple LDAP bind-based password spray tool</h3>
-			<p>gospray is a low-profile, Go-based password spray tool leveraging LDAP bind authentication against domain controllers. The tool facilitates concurrent credential attempts by utilizing configurable Go routines. It operates without reliance on SMB or other intermediary servers, minimizing network footprint and operational noise. This technique can be employed for reconnaissance and credential stuffing activities.</p>
+			<h3>Indirect Prompt Injection via YouTube Transcripts</h3>
+			<p>Recent analysis reveals an emerging vulnerability related to Indirect Prompt Injection (IPI) leveraging YouTube transcripts accessed via ChatGPT plugins. The architecture demonstrates an attacker injecting malicious prompts within YouTube transcripts, which are then subsequently processed by ChatGPT, leading to unintended prompt execution. This represents a novel vector for IPI exploitation, highlighting the risks associated with third-party integrations and the potential for prompt injection attacks via external data sources. The demonstration validates the vulnerability and underscores the need for robust input sanitization and prompt engineering controls.</p>
 			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2022/gospray-active-directory-ldap-password-spraying/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 18 Sep 2022
+				Source: <a href="https://embracethered.com/blog/posts/2023/chatgpt-plugin-youtube-indirect-prompt-injection/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 14 May 2023
 			</div>
 		</div>
 		
@@ -37,11 +37,107 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Go routines</code>: <a href="" target="_blank">Read this article to understand Go routines in action.</a></li>
+				<li><code>Indirect Prompt Injection (IPI)</code>: One-line explanation: Indirect Prompt Injection (IPI) is relevant to this article&#39;s context.</li>
 			
-				<li><code>LDAP bind</code>: <a href="" target="_blank">Read this article to understand LDAP bind in action.</a></li>
+				<li><code>Input Sanitization</code>: One-line explanation: Input Sanitization is relevant to this article&#39;s context.</li>
 			
-				<li><code>credential stuffing</code>: <a href="" target="_blank">Read this article to understand credential stuffing in action.</a></li>
+				<li><code>Prompt Engineering</code>: One-line explanation: Prompt Engineering is relevant to this article&#39;s context.</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="article">
+		<div class="content">
+			<h3>Don&#39;t blindly trust LLM responses. Threats to chatbots.</h3>
+			<p>This analysis investigates the vulnerabilities associated with Large Language Model (LLM) outputs, specifically addressing the risk of prompt injection attacks. The research highlights the susceptibility of LLMs to manipulated inputs resulting in unintended behaviors, including the generation of arbitrary text and the execution of simulated &#39;Doge&#39; speech.  The findings emphasize the critical need for robust input validation and sanitization techniques to mitigate the potential for adversarial manipulation of LLM responses.</p>
+			<div class="source">
+				Source: <a href="https://embracethered.com/blog/posts/2023/ai-injections-threats-context-matters/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 16 Apr 2023
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>Adversarial Manipulation</code>: One-line explanation: Adversarial Manipulation is relevant to this article&#39;s context.</li>
+			
+				<li><code>LLM</code>: One-line explanation: LLM is relevant to this article&#39;s context.</li>
+			
+				<li><code>Prompt Injection</code>: One-line explanation: Prompt Injection is relevant to this article&#39;s context.</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="article">
+		<div class="content">
+			<h3>Adversarial Prompting: Tutorial and Lab</h3>
+			<p>This tutorial and accompanying lab, implemented as a Jupyter Notebook, demonstrates adversarial prompting techniques. The lab facilitates experimentation with techniques including prompt injection, specifically focusing on JSON object injection, Cross-Site Scripting (XSS), mail recipient spoofing, and OrderBot manipulation. The objective is to analyze and mitigate vulnerabilities arising from malicious prompt input designed to induce unintended behavior within deployed AI systems.</p>
+			<div class="source">
+				Source: <a href="https://embracethered.com/blog/posts/2023/adversarial-prompting-tutorial-and-lab/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 12 May 2023
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>Cross-Site Scripting (XSS)</code>: One-line explanation: Cross-Site Scripting (XSS) is relevant to this article&#39;s context.</li>
+			
+				<li><code>Jupyter Notebook</code>: One-line explanation: Jupyter Notebook is relevant to this article&#39;s context.</li>
+			
+				<li><code>adversarial prompting</code>: One-line explanation: adversarial prompting is relevant to this article&#39;s context.</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="article">
+		<div class="content">
+			<h3>AI Injections: Direct and Indirect Prompt Injections and Their Implications</h3>
+			<p>The article details successful prompt injection attacks leveraging system override and prompt manipulation techniques. Specifically, it outlines a scenario where a targeted system was coerced into executing arbitrary instructions, including the forced adoption of a solely emoji-based response format via a staged system override and subsequent prompt modification. This demonstrates a critical vulnerability in conversational AI models where malicious actors can alter the intended behavior through crafted prompts.</p>
+			<div class="source">
+				Source: <a href="https://embracethered.com/blog/posts/2023/ai-injections-direct-and-indirect-prompt-injection-basics/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 30 Mar 2023
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>conversational AI models</code>: One-line explanation: conversational AI models is relevant to this article&#39;s context.</li>
+			
+				<li><code>prompt injection</code>: One-line explanation: prompt injection is relevant to this article&#39;s context.</li>
+			
+				<li><code>system override</code>: One-line explanation: system override is relevant to this article&#39;s context.</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="article">
+		<div class="content">
+			<h3>Exploit ChatGPT and Enter the Matrix to Learn about AI Security</h3>
+			<p>This article details a demonstration of an Indirect Prompt Injection (IPI) attack leveraging ChatGPT. The author created a custom application, accessible through a URL, designed to trigger and amplify IPI vulnerabilities within the ChatGPT environment. The application facilitates an interactive experience, referred to as ‘entering the matrix,’ which highlights the potential for adversarial manipulation via crafted prompts. The core technical demonstration relies on exploiting the model’s inherent capability to execute dynamic code based on user-supplied input, showcasing a critical vulnerability in large language model (LLM) security.</p>
+			<div class="source">
+				Source: <a href="https://embracethered.com/blog/posts/2023/chatgpt-vulns-enter-the-matrix/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 11 Jun 2023
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>Adversarial Manipulation</code>: One-line explanation: Adversarial Manipulation is relevant to this article&#39;s context.</li>
+			
+				<li><code>Indirect Prompt Injection (IPI)</code>: One-line explanation: Indirect Prompt Injection (IPI) is relevant to this article&#39;s context.</li>
+			
+				<li><code>Large Language Model (LLM)</code>: One-line explanation: Large Language Model (LLM) is relevant to this article&#39;s context.</li>
 			
 			</ul>
 		</div>
@@ -51,12 +147,75 @@
 </div>
 
 <div class="segment">
-	<h2>Latest CVEs</h2>
+	<h2>Malware &amp; Ransomware</h2>
+	
+	<div class="article">
+		<div class="content">
+			<h3>[remote] Belkin F9K1009 F9K1010 2.00.04/2.00.09 - Hard Coded Credentials</h3>
+			<p>A vulnerability has been identified in Belkin F9K1009 and F9K1010 firmware versions 2.00.04/2.00.09. The device contains hard-coded credentials, specifically user names and passwords, stored directly within the firmware image. This represents a significant supply-chain risk, exposing potential attackers to unauthorized access via privilege escalation. Remediation involves immediate firmware upgrades to mitigate the plaintext credential exposure. The issue demonstrates a critical failure in the device’s initial security posture and highlights the importance of rigorous vulnerability assessments during the device’s development lifecycle.</p>
+			<div class="source">
+				Source: <a href="https://www.exploit-db.com/exploits/52407" target="_blank">https://www.exploit-db.com/rss.xml</a> | Published: 11 Aug 2025
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>Firmware</code>: One-line explanation: Firmware is relevant to this article&#39;s context.</li>
+			
+				<li><code>Privilege escalation</code>: One-line explanation: Privilege escalation is relevant to this article&#39;s context.</li>
+			
+				<li><code>Supply-chain risk</code>: One-line explanation: Supply-chain risk is relevant to this article&#39;s context.</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="article">
+		<div class="content">
+			<h3>[webapps] Gandia Integra Total 4.4.2236.1 - SQL Injection</h3>
+			<p>The Gandia Integra Total 4.4.2236.1 software is vulnerable to SQL Injection attacks. Specifically, the application’s source code contains insufficient input sanitization, allowing malicious actors to execute arbitrary SQL queries. This vulnerability can be leveraged to compromise the underlying database, potentially leading to data exfiltration, unauthorized data modification, or complete system compromise. Remediation requires immediate patching and stringent input validation practices to prevent future exploitation via this OWASP Top 10 vulnerability.</p>
+			<div class="source">
+				Source: <a href="https://www.exploit-db.com/exploits/52388" target="_blank">https://www.exploit-db.com/rss.xml</a> | Published: 03 Aug 2025
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>Input Sanitization</code>: One-line explanation: Input Sanitization is relevant to this article&#39;s context.</li>
+			
+				<li><code>OWASP Top 10</code>: One-line explanation: OWASP Top 10 is relevant to this article&#39;s context.</li>
+			
+				<li><code>SQL Injection</code>: One-line explanation: SQL Injection is relevant to this article&#39;s context.</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+</div>
+
+<div class="segment">
+	<h2>Security Research &amp; Breaches</h2>
+	
+</div>
+
+<div class="segment">
+	<h2>Tools &amp; Offensive Techniques</h2>
+	
+</div>
+
+<div class="segment">
+	<h2>Zero-Day &amp; Exploits</h2>
 	
 	<div class="article">
 		<div class="content">
 			<h3>Samsungs image library flaw opens a zero-click backdoor</h3>
-			<p>Samsung has disclosed a critical vulnerability, CVE-2025-21043, impacting libimagecodec.quram.so, a Samsung-specific image parsing library used across Android 13-16 devices. This out-of-bounds write vulnerability allows for remote code execution (RCE) via specially crafted image files. Meta/WhatsApp privately reported the issue in August, highlighting messaging apps as a potential vector. The CVSS score of 8.8 indicates a high severity. Without patching, the flaw poses a significant risk, potentially enabling access to sensitive business apps, email accounts, and corporate data, especially within BYOD or mixed-managed environments. Organizations need to prioritize patching and implement robust mobile device management (MDM) strategies to mitigate this risk.</p>
+			<p>Samsung has disclosed a critical vulnerability (CVE-2025-21043) impacting libimagecodec.quram.so, a Samsung-specific image parsing library utilized across numerous Android devices (versions 13-16). The flaw represents an out-of-bounds write vulnerability, enabling remote code execution (RCE) via specially crafted image files. This RCE path is exacerbated by the widespread use of the library within system apps (Gallery, Camera) and third-party applications. The vulnerability was privately reported to Samsung by Meta/WhatsApp in August, and the CVSS score (8.8) highlights the significant risk.  Organizations must prioritize patching and implement robust mobile device management (MDM) strategies to mitigate potential breaches involving unauthorized access to corporate data and systems. Remediation is particularly critical in bring-your-own-device (BYOD) environments where patch compliance can be challenging.</p>
 			<div class="source">
 				Source: <a href="https://www.csoonline.com/article/4057050/samsungs-image-library-flaw-opens-a-zero-click-backdoor.html" target="_blank">https://www.csoonline.com/feed</a> | Published: 15 Sep 2025
 			</div>
@@ -66,11 +225,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>CVE-2025-21043</code>: <a href="" target="_blank">Read this article to understand CVE-2025-21043 in action.</a></li>
+				<li><code>mobile device management (MDM)</code>: One-line explanation: mobile device management (MDM) is relevant to this article&#39;s context.</li>
 			
-				<li><code>CVSS</code>: <a href="" target="_blank">Read this article to understand CVSS in action.</a></li>
+				<li><code>out-of-bounds write</code>: One-line explanation: out-of-bounds write is relevant to this article&#39;s context.</li>
 			
-				<li><code>RCE</code>: <a href="" target="_blank">Read this article to understand RCE in action.</a></li>
+				<li><code>remote code execution (RCE)</code>: One-line explanation: remote code execution (RCE) is relevant to this article&#39;s context.</li>
 			
 			</ul>
 		</div>
@@ -80,7 +239,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>The Ongoing Fallout from a Breach at AI Chatbot Maker Salesloft</h3>
-			<p>Following a significant data exfiltration event targeting Salesloft, a breach involving the theft of multi-factor authentication (MFA) tokens has triggered widespread remediation efforts. Initial assessments indicate compromised credentials extend beyond Salesforce integration, encompassing access to numerous third-party services including Slack, Google Workspace, Amazon S3, Microsoft Azure, and OpenAI via API keys. Organizations are engaged in a rapid patching cycle to mitigate the risk of lateral movement and potential account takeover attacks, emphasizing the criticality of IAM controls and continuous monitoring.</p>
+			<p>Following a significant data exfiltration event involving Salesloft’s authentication tokens, organizations are undertaking rapid credential revocation processes to mitigate potential lateral movement vectors. Initial investigations reveal the attackers leveraged compromised tokens to gain unauthorized access to a diverse range of third-party services, encompassing SaaS platforms like Slack and Google Workspace, alongside cloud infrastructure providers such as Amazon S3 and Microsoft Azure. Furthermore, indications suggest access was gained to OpenAI’s API via the stolen tokens, creating a broadened attack surface and potential for sophisticated exploitation leveraging prompt injection vulnerabilities.</p>
 			<div class="source">
 				Source: <a href="https://krebsonsecurity.com/2025/09/the-ongoing-fallout-from-a-breach-at-ai-chatbot-maker-salesloft/" target="_blank">https://krebsonsecurity.com/feed/</a> | Published: 01 Sep 2025
 			</div>
@@ -90,11 +249,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Account takeover attacks</code>: <a href="" target="_blank">Read this article to understand Account takeover attacks in action.</a></li>
+				<li><code>SaaS platforms</code>: One-line explanation: SaaS platforms is relevant to this article&#39;s context.</li>
 			
-				<li><code>IAM controls</code>: <a href="" target="_blank">Read this article to understand IAM controls in action.</a></li>
+				<li><code>authentication tokens</code>: One-line explanation: authentication tokens is relevant to this article&#39;s context.</li>
 			
-				<li><code>Multi-factor authentication (MFA)</code>: <a href="" target="_blank">Read this article to understand Multi-factor authentication (MFA) in action.</a></li>
+				<li><code>lateral movement vectors</code>: One-line explanation: lateral movement vectors is relevant to this article&#39;s context.</li>
 			
 			</ul>
 		</div>
@@ -104,7 +263,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>[webapps] Adobe ColdFusion 2023.6 - Remote File Read</h3>
-			<p>Adobe ColdFusion 2023.6 contains a critical Remote File Read (FRR) vulnerability. Exploitation of this flaw could allow an unauthenticated attacker to leverage the application’s file system traversal capabilities. Specifically, the vulnerability resides within the processing of URL parameters, enabling potential access to sensitive files outside of the intended application directory. Remediation involves immediate patching and implementing WAF rules to mitigate potential exploitation via HTTP requests.</p>
+			<p>A critical vulnerability exists within Adobe ColdFusion 2023.6, specifically a Remote File Read (FRR) flaw. This allows an unauthenticated attacker to leverage a crafted HTTP request to gain unauthorized access to sensitive files on the server. The vulnerability stems from insufficient input validation, resulting in a bypass of intended access controls. Mitigation strategies involve immediate patching and implementation of Web Application Firewalls (WAFs) with signatures targeting this specific exploit pattern. Analyzing the attack vector involves examining the HTTP request for malicious payloads attempting to leverage the deserialization process.</p>
 			<div class="source">
 				Source: <a href="https://www.exploit-db.com/exploits/52387" target="_blank">https://www.exploit-db.com/rss.xml</a> | Published: 28 Jul 2025
 			</div>
@@ -114,11 +273,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>HTTP requests</code>: <a href="" target="_blank">Read this article to understand HTTP requests in action.</a></li>
+				<li><code>Deserialization</code>: One-line explanation: Deserialization is relevant to this article&#39;s context.</li>
 			
-				<li><code>Remote File Read (FRR)</code>: <a href="" target="_blank">Read this article to understand Remote File Read (FRR) in action.</a></li>
+				<li><code>HTTP Request</code>: One-line explanation: HTTP Request is relevant to this article&#39;s context.</li>
 			
-				<li><code>WAF</code>: <a href="" target="_blank">Read this article to understand WAF in action.</a></li>
+				<li><code>Web Application Firewall (WAF)</code>: One-line explanation: Web Application Firewall (WAF) is relevant to this article&#39;s context.</li>
 			
 			</ul>
 		</div>
@@ -128,7 +287,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>[remote] Ivanti Endpoint Manager Mobile 12.5.0.0 - Authentication Bypass</h3>
-			<p>This article details a critical vulnerability impacting Ivanti Endpoint Manager Mobile 12.5.0.0, specifically a bypass of the authentication mechanism. Exploitation of this flaw could permit unauthorized access to the system. Further investigation into the exploit vector and potential impact on affected environments is warranted. Remediation efforts should prioritize patching and implementing compensating controls.</p>
+			<p>A critical vulnerability has been identified within Ivanti Endpoint Manager Mobile 12.5.0.0, specifically an authentication bypass that allows unauthorized access to the system. Initial analysis suggests a flaw in the application’s protocol handling, potentially enabling an attacker to circumvent standard authentication mechanisms and gain privileged access. Further investigation is required to determine the full scope of exploitation and potential impact on impacted systems. Remediation is strongly advised.</p>
 			<div class="source">
 				Source: <a href="https://www.exploit-db.com/exploits/52421" target="_blank">https://www.exploit-db.com/rss.xml</a> | Published: 26 Aug 2025
 			</div>
@@ -138,11 +297,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>authentication bypass</code>: <a href="" target="_blank">Read this article to understand authentication bypass in action.</a></li>
+				<li><code>authentication bypass</code>: One-line explanation: authentication bypass is relevant to this article&#39;s context.</li>
 			
-				<li><code>compensating controls</code>: <a href="" target="_blank">Read this article to understand compensating controls in action.</a></li>
+				<li><code>privileged access</code>: One-line explanation: privileged access is relevant to this article&#39;s context.</li>
 			
-				<li><code>exploit vector</code>: <a href="" target="_blank">Read this article to understand exploit vector in action.</a></li>
+				<li><code>protocol handling</code>: One-line explanation: protocol handling is relevant to this article&#39;s context.</li>
 			
 			</ul>
 		</div>
@@ -152,7 +311,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>Cursor IDE: Arbitrary Data Exfiltration Via Mermaid (CVE-2025-54132)</h3>
-			<p>A critical vulnerability (CVE-2025-54132) was identified within the Cursor IDE, impacting its ability to render Mermaid diagrams. This flaw allows for unauthorized data exfiltration via the manipulation of the diagram&#39;s underlying graph data structure. Specifically, malicious actors can leverage the diagram rendering process to inject and subsequently exfiltrate sensitive information. Remediation involved a fix targeting the parsing of the Mermaid syntax and sanitization of the generated graph data, effectively mitigating the risk of this graph-based data exfiltration vector.</p>
+			<p>This report details a critical vulnerability (CVE-2025-54132) within the Cursor IDE, stemming from the insecure handling of Mermaid diagram rendering. Specifically, the application was susceptible to arbitrary data exfiltration via a manipulated Mermaid diagram. The exploit leveraged the rendering engine&#39;s ability to execute arbitrary code during the parsing and rendering of complex Mermaid syntax. Following detection, a patch was implemented to mitigate the vulnerability by restricting the execution context of the rendering engine and sanitizing input data to prevent code injection.</p>
 			<div class="source">
 				Source: <a href="https://embracethered.com/blog/posts/2025/cursor-data-exfiltration-with-mermaid/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 04 Aug 2025
 			</div>
@@ -162,112 +321,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>graph data structure</code>: <a href="" target="_blank">Read this article to understand graph data structure in action.</a></li>
+				<li><code>Mermaid rendering engine</code>: One-line explanation: Mermaid rendering engine is relevant to this article&#39;s context.</li>
 			
-				<li><code>graph-based data exfiltration vector</code>: <a href="" target="_blank">Read this article to understand graph-based data exfiltration vector in action.</a></li>
+				<li><code>code injection</code>: One-line explanation: code injection is relevant to this article&#39;s context.</li>
 			
-				<li><code>parsing</code>: <a href="" target="_blank">Read this article to understand parsing in action.</a></li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-</div>
-
-<div class="segment">
-	<h2>Latest News</h2>
-	
-	<div class="article">
-		<div class="content">
-			<h3>GOLD BLADE remote DLL sideloading attack deploys RedLoader</h3>
-			<p>A sophisticated supply-chain attack, utilizing a modified version of the GOLD BLADE remote DLL sideloading payload (RedLoader), experienced a significant surge in activity during July 2025. The threat actor leveraged a combination of malicious LNK files and a repurposed WebDAV protocol for lateral movement and persistence within compromised systems. Initial investigations indicate the exploitation of vulnerabilities in user-mode applications, specifically targeting Windows environments. Further analysis is underway to determine the precise exploitation vectors and associated impact.</p>
-			<div class="source">
-				Source: <a href="https://news.sophos.com/en-us/2025/07/29/gold-blade-remote-dll-sideloading-attack-deploys-redloader/" target="_blank">https://news.sophos.com/en-us/category/threat-research/feed/</a> | Published: 29 Jul 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>LNK files</code>: <a href="" target="_blank">Read this article to understand LNK files in action.</a></li>
-			
-				<li><code>WebDAV protocol</code>: <a href="" target="_blank">Read this article to understand WebDAV protocol in action.</a></li>
-			
-				<li><code>supply-chain attack</code>: <a href="" target="_blank">Read this article to understand supply-chain attack in action.</a></li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>UK and allies expose Russian intelligence services for cyber campaign of attempted political interference</h3>
-			<p>UK and allied intelligence agencies have attributed a coordinated cyber campaign to Russian Foreign Intelligence Service (SVR) operatives, specifically targeting critical infrastructure and government entities within the United Kingdom. The campaign involved sophisticated phishing attempts, credential stuffing, and potential exploitation of known vulnerabilities to compromise systems and gather intelligence related to political processes and democratic institutions. Attribution was based on forensic analysis of malware signatures and confirmed IOCs (Indicators of Compromise).</p>
-			<div class="source">
-				Source: <a href="https://www.ncsc.gov.uk/news/uk-and-allies-expose-cyber-campaign-attempted-political-interference" target="_blank">https://www.ncsc.gov.uk/api/1/services/v1/news-rss-feed.xml</a> | Published: 01 Jan 0001
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>IOCs</code>: <a href="" target="_blank">Read this article to understand IOCs in action.</a></li>
-			
-				<li><code>credential stuffing</code>: <a href="" target="_blank">Read this article to understand credential stuffing in action.</a></li>
-			
-				<li><code>malware signatures</code>: <a href="" target="_blank">Read this article to understand malware signatures in action.</a></li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>You will always remember this as the day you finally caught FamousSparrow</h3>
-			<p>ESET threat researchers have identified and documented the attack chain employed by the FamousSparrow Advanced Persistent Threat (APT) group. This investigation revealed a suite of malware assets, including two previously uncharacterized iterations of the ‘SparrowDoor’ backdoor – designated as Variants 1 and 2. Analysis of the artifacts indicates a sophisticated exploitation of known vulnerabilities, employing techniques such as lateral movement and command and control (C2) channel obfuscation. Further investigation is ongoing to assess the full scope of the group&#39;s activity and potential impact.</p>
-			<div class="source">
-				Source: <a href="https://www.welivesecurity.com/en/eset-research/you-will-always-remember-this-as-the-day-you-finally-caught-famoussparrow/" target="_blank">https://www.welivesecurity.com/feed/</a> | Published: 26 Mar 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>APT</code>: <a href="" target="_blank">Read this article to understand APT in action.</a></li>
-			
-				<li><code>Backdoor</code>: <a href="" target="_blank">Read this article to understand Backdoor in action.</a></li>
-			
-				<li><code>C2</code>: <a href="" target="_blank">Read this article to understand C2 in action.</a></li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>UK and allies uncover Russian military unit carrying out cyber attacks and digital sabotage for the first time</h3>
-			<p>The National Cyber Security Centre (NCSC) and international partners have identified and attributed a persistent, state-sponsored cyber espionage campaign to Russian military intelligence, specifically Unit 29155 of the GRU. Investigations reveal a coordinated series of malicious cyber activities dating back to 2020, characterized by advanced persistent threat (APT) techniques and targeting of critical infrastructure and government entities. Indicators of compromise (IOCs) and telemetry are currently being analyzed for further intelligence gathering and mitigation strategies.</p>
-			<div class="source">
-				Source: <a href="https://www.ncsc.gov.uk/news/uk-allies-uncover-russian-military-carrying-out-cyber-attacks-digital-sabotage" target="_blank">https://www.ncsc.gov.uk/api/1/services/v1/news-rss-feed.xml</a> | Published: 01 Jan 0001
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>APT</code>: <a href="" target="_blank">Read this article to understand APT in action.</a></li>
-			
-				<li><code>GRU</code>: <a href="" target="_blank">Read this article to understand GRU in action.</a></li>
-			
-				<li><code>NCSC</code>: <a href="" target="_blank">Read this article to understand NCSC in action.</a></li>
+				<li><code>rendering engine</code>: One-line explanation: rendering engine is relevant to this article&#39;s context.</li>
 			
 			</ul>
 		</div>
