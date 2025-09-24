@@ -22,12 +22,41 @@
 <h1>pwnspectrum Tech Digest</h1>
 
 <div class="segment">
+	<h2></h2>
+	
+	<div class="article">
+		<div class="content">
+			<h3>Fortra patches critical GoAnywhere MFT flaw akin to past ransomware exploits</h3>
+			<p>Fortra has released a patch for a critical vulnerability (CVE-2025-10035) in its GoAnywhere MFT solution. This flaw, similar to a previous zero-day exploit, stems from insecure deserialization and allows attackers to execute arbitrary commands if they gain access to the Admin Console and forge a license response. The vulnerability has prompted concerns among security professionals about potential exploitation by ransomware groups, mirroring previous attacks targeting similar MFT solutions. While no active exploitation is currently known, proactive patching is strongly advised to mitigate the risk.</p>
+			<div class="source">
+				Source: <a href="https://www.csoonline.com/article/4060276/fortra-patches-critical-goanywhere-mft-flaw-akin-to-past-ransomware-exploits.html" target="_blank">https://www.csoonline.com/feed</a> | Published: 19 Sep 2025
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>Admin Console: A centralized interface for managing and configuring applications.</code>: Admin Console: A centralized interface for managing and configuring applications.</li>
+			
+				<li><code>Deserialization: The process of converting data from a serialized format back into its original form.</code>: Deserialization: The process of converting data from a serialized format back into its original form.</li>
+			
+				<li><code>License Response: A digitally signed confirmation of authorized usage.</code>: License Response: A digitally signed confirmation of authorized usage.</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+</div>
+
+<div class="segment">
 	<h2>AI &amp; Prompt Injection</h2>
 	
 	<div class="article">
 		<div class="content">
 			<h3>Wrap Up: The Month of AI Bugs</h3>
-			<p>This article summarizes a month-long investigation into vulnerabilities within various AI models, primarily focusing on prompt injection attacks. The research revealed multiple instances where attackers were able to exfiltrate sensitive data, including chat history, secrets, and execute arbitrary code through manipulated prompts. Specifically, vulnerabilities were identified in models such as ChatGPT, Claude, Amazon Q, and Google Jules, alongside related agents and tools, demonstrating the risk of indirect prompt injection and subsequent data breaches. The findings highlight the need for robust input validation and security controls when utilizing AI models.</p>
+			<p>This article summarizes a month-long investigation into vulnerabilities within various AI models, primarily focusing on prompt injection attacks leading to data exfiltration and remote code execution. The findings highlighted critical security weaknesses across models including ChatGPT, Claude, Amazon Q, and others, demonstrating the potential for attackers to leverage prompt injection to compromise systems and extract sensitive information. The research detailed techniques such as DNS requests, memory persistent exploits, and invisible prompt injection. It underscores the need for robust security measures when utilizing these AI tools.</p>
 			<div class="source">
 				Source: <a href="https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 31 Aug 2025
 			</div>
@@ -37,11 +66,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Data Exfiltration: Secret information being stolen</code>: Data Exfiltration: Secret information being stolen</li>
+				<li><code>Data Exfiltration: Secret information being stolen from a system.</code>: Data Exfiltration: Secret information being stolen from a system.</li>
 			
-				<li><code>Indirect Prompt Injection: Vulnerability exploited through intermediaries</code>: Indirect Prompt Injection: Vulnerability exploited through intermediaries</li>
+				<li><code>Prompt Injection: Exploiting AI&#39;s understanding to bypass security.</code>: Prompt Injection: Exploiting AI&#39;s understanding to bypass security.</li>
 			
-				<li><code>Prompt Injection: Manipulating AI behavior via crafted prompts</code>: Prompt Injection: Manipulating AI behavior via crafted prompts</li>
+				<li><code>Remote Code Execution: Allowing attackers to run code on a target system.</code>: Remote Code Execution: Allowing attackers to run code on a target system.</li>
 			
 			</ul>
 		</div>
@@ -51,7 +80,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>ChatGPT: Hacking Memories with Prompt Injection</h3>
-			<p>OpenAI&#39;s new memory feature in ChatGPT introduces a vulnerability known as Indirect Prompt Injection. Attackers can potentially manipulate the AI to retain incorrect data, introduce biases, or execute malicious instructions by crafting specific prompts. This allows for data corruption and control of the AI&#39;s behavior.</p>
+			<p>OpenAI’s new memory feature in ChatGPT introduces a vulnerability: Indirect Prompt Injection. Attackers can potentially manipulate the model&#39;s memory, introducing false data, biases, or commands, compromising its reliability and intended use. This allows for the malicious alteration of the model&#39;s operational parameters.</p>
 			<div class="source">
 				Source: <a href="https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 22 May 2024
 			</div>
@@ -61,11 +90,9 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>AI Agent: A conversational AI assistant</code>: AI Agent: A conversational AI assistant</li>
+				<li><code>Operational Parameters: The settings governing an AI&#39;s behavior</code>: Operational Parameters: The settings governing an AI&#39;s behavior</li>
 			
-				<li><code>Indirect Prompt Injection: A specific type of prompt injection</code>: Indirect Prompt Injection: A specific type of prompt injection</li>
-			
-				<li><code>Prompt Injection: Injecting malicious commands through prompts</code>: Prompt Injection: Injecting malicious commands through prompts</li>
+				<li><code>Prompt Injection: Inserting malicious instructions via user input</code>: Prompt Injection: Inserting malicious instructions via user input</li>
 			
 			</ul>
 		</div>
@@ -75,7 +102,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>Hacking Google Bard - From Prompt Injection to Data Exfiltration</h3>
-			<p>Recent updates to Google Bard, specifically the introduction of Extensions, have expanded its capabilities to integrate with services like YouTube, Google Drive, Docs, and Gmail. This integration creates vulnerabilities to prompt injection attacks, where malicious prompts can manipulate the model’s behavior. The article demonstrates this vulnerability through testing with existing user data and YouTube videos.</p>
+			<p>Recent updates to Google Bard, including the introduction of Extensions, have expanded its capabilities but also introduced potential vulnerabilities. These Extensions allow Bard to interact with external services like YouTube and access user data, such as Drive, Docs, and Gmail. This expanded access coupled with Prompt Injection, allows for potential data exfiltration via malicious prompts.</p>
 			<div class="source">
 				Source: <a href="https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 03 Nov 2023
 			</div>
@@ -85,9 +112,9 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Indirect Prompt Injection: A specific type of vulnerability</code>: Indirect Prompt Injection: A specific type of vulnerability</li>
+				<li><code>Data Exfiltration: Illegally obtaining sensitive information</code>: Data Exfiltration: Illegally obtaining sensitive information</li>
 			
-				<li><code>Prompt Injection: Manipulating the AI&#39;s responses</code>: Prompt Injection: Manipulating the AI&#39;s responses</li>
+				<li><code>Prompt Injection: Manipulating the AI&#39;s response</code>: Prompt Injection: Manipulating the AI&#39;s response</li>
 			
 			</ul>
 		</div>
@@ -97,7 +124,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>Image to Prompt Injection with Google Bard</h3>
-			<p>Researchers have demonstrated a vulnerability in Google Bard where image uploads can be leveraged to execute indirect prompt injection attacks. By adding instructions within an image, the AI model is compelled to disregard its original programming and adhere to these novel, potentially malicious, commands. This represents a significant escalation in prompt injection risks.</p>
+			<p>Recent testing revealed a vulnerability in Google Bard where instructions embedded within images could be interpreted and executed by the chatbot. This demonstrates a potential risk of Indirect Prompt Injection attacks leveraging visual inputs, highlighting a new vector for malicious manipulation of the AI model.</p>
 			<div class="source">
 				Source: <a href="https://embracethered.com/blog/posts/2023/google-bard-image-to-prompt-injection/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 14 Jul 2023
 			</div>
@@ -107,11 +134,9 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>AI Model: The core program driving the chatbot</code>: AI Model: The core program driving the chatbot</li>
+				<li><code>AI Model: The underlying computational structure of an AI</code>: AI Model: The underlying computational structure of an AI</li>
 			
-				<li><code>Image Analysis: Assessing content within an uploaded image</code>: Image Analysis: Assessing content within an uploaded image</li>
-			
-				<li><code>Prompt Injection: Manipulating AI instructions</code>: Prompt Injection: Manipulating AI instructions</li>
+				<li><code>Prompt Injection: Injecting instructions into a system</code>: Prompt Injection: Injecting instructions into a system</li>
 			
 			</ul>
 		</div>
@@ -120,10 +145,10 @@
 	
 	<div class="article">
 		<div class="content">
-			<h3>ASCII Smuggler Tool: Crafting Invisible Text and Decoding Hidden Codes</h3>
-			<p>Riley Goodside identified a vulnerability where carefully crafted Unicode characters, specifically from the Tags Unicode Block, can be used to inject instructions into Large Language Models (LLMs) like ChatGPT. This technique leverages prompt injection to trigger unintended actions, such as invoking external tools like DALL-E to generate images. The underlying mechanism involves manipulating the model’s interpretation of text data.</p>
+			<h3>Malicious ChatGPT Agents: How GPTs Can Quietly Grab Your Data (Demo)</h3>
+			<p>This article details a demonstration of a malicious GPT (Generative Pre-trained Transformer) agent created by leveraging ChatGPT’s capabilities. The agent was designed to covertly capture user conversations and solicit sensitive data, such as email addresses and passwords, by utilizing the model’s ability to access and process information from external websites. This highlights a potential vulnerability related to the model’s reliance on external data sources.</p>
 			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 15 Jan 2024
+				Source: <a href="https://embracethered.com/blog/posts/2023/openai-custom-malware-gpt/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 13 Dec 2023
 			</div>
 		</div>
 		
@@ -131,11 +156,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>LLM: Large Language Model - a type of AI</code>: LLM: Large Language Model - a type of AI</li>
+				<li><code>Data exfiltration: Unauthorized transfer of data</code>: Data exfiltration: Unauthorized transfer of data</li>
 			
-				<li><code>Prompt Injection: Manipulating a system’s response to a prompt</code>: Prompt Injection: Manipulating a system’s response to a prompt</li>
+				<li><code>GPT: A large language model</code>: GPT: A large language model</li>
 			
-				<li><code>Unicode: A standard for representing characters in digital communication</code>: Unicode: A standard for representing characters in digital communication</li>
+				<li><code>Prompt injection: Malicious manipulation of model input</code>: Prompt injection: Malicious manipulation of model input</li>
 			
 			</ul>
 		</div>
@@ -150,7 +175,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>Self-Replicating &#39;Shai-hulud&#39; Worm Targets NPM Packages</h3>
-			<p>A novel worm, dubbed &#39;Shai-hulud&#39;, has rapidly propagated through numerous open-source software packages via NPM. The malware leverages its self-replicating capabilities to exfiltrate credentials and compromise dependent components, exhibiting minimal direct user interaction. This highlights vulnerabilities within package management ecosystems.</p>
+			<p>A previously unknown worm, dubbed ‘Shai-hulud,’ is rapidly propagating through open-source software packages via compromised NPM packages. The worm is leveraging vulnerabilities to replicate and exfiltrate credentials, autonomously infecting dependent systems. This demonstrates a sophisticated lateral movement strategy.</p>
 			<div class="source">
 				Source: <a href="https://www.darkreading.com/application-security/self-replicating-shai-hulud-worm-npm-packages" target="_blank">https://www.darkreading.com/rss.xml</a> | Published: 01 Jan 0001
 			</div>
@@ -160,35 +185,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>NPM: Node Package Manager, a software registry</code>: NPM: Node Package Manager, a software registry</li>
+				<li><code>exfiltration: Stealing data from a system</code>: exfiltration: Stealing data from a system</li>
 			
-				<li><code>exfiltration: The act of secretly removing data</code>: exfiltration: The act of secretly removing data</li>
+				<li><code>lateral movement: Moving through a network after initial entry</code>: lateral movement: Moving through a network after initial entry</li>
 			
-				<li><code>worm: A self-replicating malware program</code>: worm: A self-replicating malware program</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Verified Steam game steals streamer&#39;s cancer treatment donations</h3>
-			<p>A user’s cryptocurrency wallet was compromised following the download of a verified game, &#39;BlockBlasters,&#39; from Steam. The application initiated unauthorized transactions, resulting in a significant financial loss. This highlights the risk of malicious applications leveraging legitimate platforms for fraudulent activities.</p>
-			<div class="source">
-				Source: <a href="https://www.bleepingcomputer.com/news/security/verified-steam-game-steals-streamers-cancer-treatment-donations/" target="_blank">https://www.bleepingcomputer.com/feed/</a> | Published: 22 Sep 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>cryptocurrency wallet: A digital account for holding cryptocurrencies</code>: cryptocurrency wallet: A digital account for holding cryptocurrencies</li>
-			
-				<li><code>fraudulent activities: Deceptive practices to gain something illegally</code>: fraudulent activities: Deceptive practices to gain something illegally</li>
-			
-				<li><code>malicious application: A program designed to cause harm</code>: malicious application: A program designed to cause harm</li>
+				<li><code>worm: A malicious program that replicates itself</code>: worm: A malicious program that replicates itself</li>
 			
 			</ul>
 		</div>
@@ -197,10 +198,10 @@
 	
 	<div class="article">
 		<div class="content">
-			<h3>Guess Who Would Be Stupid Enough To Rob The Same Vault Twice? Pre-Auth RCE Chains in Commvault</h3>
-			<p>This article details the discovery of pre-authentication Remote Code Execution (RCE) vulnerabilities within Commvault enterprise solutions. The research involved identifying chains of exploitation leveraging existing credentials to gain unauthorized control. The findings highlight the ongoing need for rigorous security assessments of critical infrastructure software.</p>
+			<h3>WatchGuard patches critical VPN flaw in firewalls that could lead to compromise</h3>
+			<p>WatchGuard has released a critical security advisory (WGSA-2025-00015) addressing a remote code exploit (RCE) vulnerability, CVE-2025-9242, within its Firebox firewall systems. This flaw, affecting IKEv2 configurations used in mobile and branch office VPNs, allows attackers to bypass authentication. Despite potential lack of current usage, systems previously configured with vulnerable IKEv2 settings remain at risk due to persistent configuration data. The CVSS score is 9.3, highlighting the urgency for patching. This vulnerability aligns with a broader trend of firewall exploitation, mirroring recent attacks targeting backup systems and older firewall configurations. WatchGuard provides mitigation steps for customers unable to update immediately.</p>
 			<div class="source">
-				Source: <a href="https://labs.watchtowr.com/guess-who-would-be-stupid-enough-to-rob-the-same-vault-twice-pre-auth-rce-chains-in-commvault/" target="_blank">https://0dayfans.com/feed.rss</a> | Published: 20 Aug 2025
+				Source: <a href="https://www.csoonline.com/article/4059623/watchguard-patches-critical-vpn-flaw-in-firewalls-that-could-lead-to-compromise.html" target="_blank">https://www.csoonline.com/feed</a> | Published: 18 Sep 2025
 			</div>
 		</div>
 		
@@ -208,11 +209,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Exploitation: Taking advantage of a vulnerability to cause harm or gain unauthorized access.</code>: Exploitation: Taking advantage of a vulnerability to cause harm or gain unauthorized access.</li>
+				<li><code>CVSS: Common Vulnerability Scoring System – A standard for measuring the severity of software vulnerabilities.</code>: CVSS: Common Vulnerability Scoring System – A standard for measuring the severity of software vulnerabilities.</li>
 			
-				<li><code>Pre-authentication: Using existing user logins to bypass security.</code>: Pre-authentication: Using existing user logins to bypass security.</li>
+				<li><code>IKEv2: Internet Key Exchange version 2 – A protocol used for secure key exchange in VPNs.</code>: IKEv2: Internet Key Exchange version 2 – A protocol used for secure key exchange in VPNs.</li>
 			
-				<li><code>Remote Code Execution (RCE): Ability to execute arbitrary code on a remote system.</code>: Remote Code Execution (RCE): Ability to execute arbitrary code on a remote system.</li>
+				<li><code>Remote Code Exploit (RCE): Allows an attacker to execute code on a target system remotely.</code>: Remote Code Exploit (RCE): Allows an attacker to execute code on a target system remotely.</li>
 			
 			</ul>
 		</div>
@@ -221,10 +222,10 @@
 	
 	<div class="article">
 		<div class="content">
-			<h3>First known AI-powered ransomware uncovered by ESET Research</h3>
-			<p>ESET Research has identified PromptLock, a novel ransomware variant utilizing artificial intelligence (AI) to enhance its capabilities. The research demonstrates a potential future threat landscape where AI is leveraged to accelerate attacks and improve obfuscation. This highlights the need for proactive defense strategies against sophisticated, AI-driven malware.</p>
+			<h3>Affiliates Flock to Soulless Scam Gambling Machine</h3>
+			<p>A coordinated network of fraudulent online gambling websites, facilitated by the &#34;Gambler Panel&#34; affiliate program, has emerged. These sites utilize deceptive tactics – offering free credits – to attract users and subsequently steal cryptocurrency deposits. Investigations reveal a deliberate and organized scheme designed to exploit users’ trust.</p>
 			<div class="source">
-				Source: <a href="https://www.welivesecurity.com/en/ransomware/first-known-ai-powered-ransomware-uncovered-eset-research/" target="_blank">https://www.welivesecurity.com/feed/</a> | Published: 26 Aug 2025
+				Source: <a href="https://krebsonsecurity.com/2025/08/affiliates-flock-to-soulless-scam-gambling-machine/" target="_blank">https://krebsonsecurity.com/feed/</a> | Published: 28 Aug 2025
 			</div>
 		</div>
 		
@@ -232,9 +233,9 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>AI: Artificial Intelligence: Computer systems that can perform tasks that normally require human intelligence.</code>: AI: Artificial Intelligence: Computer systems that can perform tasks that normally require human intelligence.</li>
+				<li><code>affiliate program: A network of partners promoting a product or service</code>: affiliate program: A network of partners promoting a product or service</li>
 			
-				<li><code>Obfuscation: Hiding the true nature of something, typically malware, to avoid detection.</code>: Obfuscation: Hiding the true nature of something, typically malware, to avoid detection.</li>
+				<li><code>cryptocurrency: Digital or virtual currency.</code>: cryptocurrency: Digital or virtual currency.</li>
 			
 			</ul>
 		</div>
@@ -243,10 +244,10 @@
 	
 	<div class="article">
 		<div class="content">
-			<h3>Backdoor users on Linux with uid=0</h3>
-			<p>This article details a Linux security vulnerability where an attacker can elevate privileges by modifying a user&#39;s uid (user ID) to 0, effectively granting them root access. Exploitation involves altering the /etc/passwd file or utilizing commands like ‘usermod’ to assign a uid of 0 to a user account, bypassing standard security controls.</p>
+			<h3>The Ongoing Fallout from a Breach at AI Chatbot Maker Salesloft</h3>
+			<p>A recent security breach at Salesloft, a chatbot platform utilized by numerous businesses, resulted in the exfiltration of authentication tokens. These tokens granted unauthorized access to Salesloft&#39;s systems and subsequently enabled access to integrated services like Slack, Google Workspace, and Amazon S3. Threat actors are actively attempting to leverage these compromised credentials for malicious activities, highlighting the potential for widespread impact and necessitating immediate remediation efforts.</p>
 			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2021/linux-user-uid-zero-backdoor/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 30 Aug 2021
+				Source: <a href="https://krebsonsecurity.com/2025/09/the-ongoing-fallout-from-a-breach-at-ai-chatbot-maker-salesloft/" target="_blank">https://krebsonsecurity.com/feed/</a> | Published: 01 Sep 2025
 			</div>
 		</div>
 		
@@ -254,9 +255,33 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>uid: User ID – a numerical identifier for a user account.</code>: uid: User ID – a numerical identifier for a user account.</li>
+				<li><code>authentication tokens: Credentials used to verify user identity</code>: authentication tokens: Credentials used to verify user identity</li>
 			
-				<li><code>usermod: Command-line tool for modifying user account attributes.</code>: usermod: Command-line tool for modifying user account attributes.</li>
+				<li><code>exfiltration: The unauthorized removal of data</code>: exfiltration: The unauthorized removal of data</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="article">
+		<div class="content">
+			<h3>18 Popular Code Packages Hacked, Rigged to Steal Crypto</h3>
+			<p>Multiple widely-used JavaScript code packages, downloaded billions of times weekly, experienced a brief compromise. A phishing attack targeted a developer, leading to the injection of cryptocurrency-stealing malware. While contained, this incident highlights the vulnerability of popular open-source projects and the potential for escalated attacks with more damaging payloads. Remediation efforts are underway, focusing on patching affected packages and strengthening developer security protocols.</p>
+			<div class="source">
+				Source: <a href="https://krebsonsecurity.com/2025/09/18-popular-code-packages-hacked-rigged-to-steal-crypto/" target="_blank">https://krebsonsecurity.com/feed/</a> | Published: 08 Sep 2025
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>malware: Malicious software designed to harm a computer system.</code>: malware: Malicious software designed to harm a computer system.</li>
+			
+				<li><code>payload: The data or code delivered by a malicious program.</code>: payload: The data or code delivered by a malicious program.</li>
+			
+				<li><code>phishing: Tricking someone into giving away their login details.</code>: phishing: Tricking someone into giving away their login details.</li>
 			
 			</ul>
 		</div>
@@ -271,7 +296,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>Microsoft Entra ID flaw allowed hijacking any company&#39;s tenant</h3>
-			<p>A vulnerability within Microsoft Entra ID’s architecture enabled an attacker to potentially gain unauthorized access to any organization’s Entra ID tenant. The flaw leveraged interconnected legacy components, creating a pathway for complete control. Remediation efforts have been implemented to address this security risk. </p>
+			<p>A vulnerability within Microsoft Entra ID’s architecture enabled an attacker to potentially gain unauthorized access to tenant environments. The issue stemmed from a confluence of older components, raising concerns about systemic weaknesses in identity management platforms. Remediation efforts are underway to address the identified flaw and bolster security posture.</p>
 			<div class="source">
 				Source: <a href="https://www.bleepingcomputer.com/news/security/microsoft-entra-id-flaw-allowed-hijacking-any-companys-tenant/" target="_blank">https://www.bleepingcomputer.com/feed/</a> | Published: 21 Sep 2025
 			</div>
@@ -281,11 +306,33 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Authentication: The process of verifying a user&#39;s identity.</code>: Authentication: The process of verifying a user&#39;s identity.</li>
+				<li><code>authentication: The process of verifying a user&#39;s identity.</code>: authentication: The process of verifying a user&#39;s identity.</li>
 			
-				<li><code>Legacy Components: Older parts of software that may not be updated with the latest security patches.</code>: Legacy Components: Older parts of software that may not be updated with the latest security patches.</li>
+				<li><code>tenant: A managed environment for services.</code>: tenant: A managed environment for services.</li>
 			
-				<li><code>Tenant: A user account or system within a larger organization.</code>: Tenant: A user account or system within a larger organization.</li>
+				<li><code>vulnerability: A weakness in a system that can be exploited.</code>: vulnerability: A weakness in a system that can be exploited.</li>
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="article">
+		<div class="content">
+			<h3>Guess Who Would Be Stupid Enough To Rob The Same Vault Twice? Pre-Auth RCE Chains in Commvault</h3>
+			<p>This article details the discovery of pre-authentication Remote Code Execution (RCE) vulnerabilities within Commvault enterprise solutions. The research involved chaining exploits to demonstrate the potential for unauthorized access and control. The findings highlight the importance of secure configuration and ongoing vulnerability management within complex software systems.</p>
+			<div class="source">
+				Source: <a href="https://labs.watchtowr.com/guess-who-would-be-stupid-enough-to-rob-the-same-vault-twice-pre-auth-rce-chains-in-commvault/" target="_blank">https://0dayfans.com/feed.rss</a> | Published: 20 Aug 2025
+			</div>
+		</div>
+		
+		<div class="jargon">
+			<h3>Tech Jargons</h3>
+			<ul>
+			
+				<li><code>Pre-authentication: Accessing a system before proper login</code>: Pre-authentication: Accessing a system before proper login</li>
+			
+				<li><code>Remote Code Execution (RCE): Allowing attackers to execute code on a target system remotely</code>: Remote Code Execution (RCE): Allowing attackers to execute code on a target system remotely</li>
 			
 			</ul>
 		</div>
@@ -295,7 +342,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>CISA Releases Thirty-Two Industrial Control Systems Advisories</h3>
-			<p>CISA has published thirty-two new Industrial Control Systems (ICS) advisories detailing security vulnerabilities in various Siemens and Rockwell Automation products. These advisories provide critical information to help organizations proactively address potential risks and implement appropriate safeguards. Users and administrators are strongly advised to review these advisories for specific details and recommended mitigation strategies.</p>
+			<p>CISA has issued thirty-two new Industrial Control Systems (ICS) advisories detailing security vulnerabilities and potential exploits affecting various Siemens and Rockwell Automation products. These advisories provide critical information to help organizations proactively address and mitigate these risks. Users and administrators are strongly encouraged to review these advisories for detailed technical information and recommended actions.</p>
 			<div class="source">
 				Source: <a href="https://www.cisa.gov/news-events/alerts/2025/08/14/cisa-releases-thirty-two-industrial-control-systems-advisories" target="_blank">https://www.cisa.gov/uscert/ncas/current-activity.xml</a> | Published: 01 Jan 0001
 			</div>
@@ -305,9 +352,9 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Advisory: A notification or recommendation issued by a security organization to alert users to a potential risk.</code>: Advisory: A notification or recommendation issued by a security organization to alert users to a potential risk.</li>
+				<li><code>Exploit: A technique used to take advantage of a vulnerability.</code>: Exploit: A technique used to take advantage of a vulnerability.</li>
 			
-				<li><code>Mitigation: Actions taken to reduce the likelihood or impact of a security threat.</code>: Mitigation: Actions taken to reduce the likelihood or impact of a security threat.</li>
+				<li><code>Mitigation: Actions taken to reduce the impact of a risk or threat.</code>: Mitigation: Actions taken to reduce the impact of a risk or threat.</li>
 			
 				<li><code>Vulnerability: A weakness in a system that can be exploited.</code>: Vulnerability: A weakness in a system that can be exploited.</li>
 			
@@ -319,7 +366,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>Microsoft Copilot: From Prompt Injection to Exfiltration of Personal Information</h3>
-			<p>The article details a significant vulnerability within Microsoft 365 Copilot that enabled attackers to exfiltrate user data, including emails, through a complex attack chain. The exploit leveraged recently discovered techniques, prompting a detailed investigation and subsequent disclosure following MSRC approval.</p>
+			<p>This report details a significant vulnerability within Microsoft 365 Copilot, enabling unauthorized access to user data, specifically emails and personal information. The exploit leverages recent attack methods, highlighting the ongoing need for proactive security measures. The vulnerability was initially reported to Microsoft in January 2024 and fully disclosed following MSRC approval.</p>
 			<div class="source">
 				Source: <a href="https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 27 Aug 2024
 			</div>
@@ -329,35 +376,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>MSRC: Microsoft Security Response Center</code>: MSRC: Microsoft Security Response Center</li>
+				<li><code>Data Exfiltration: The unauthorized transfer of data, typically sensitive information.</code>: Data Exfiltration: The unauthorized transfer of data, typically sensitive information.</li>
 			
-				<li><code>attack chain: A sequence of steps an attacker uses to compromise a system</code>: attack chain: A sequence of steps an attacker uses to compromise a system</li>
+				<li><code>Exploit: An attack that takes advantage of a vulnerability</code>: Exploit: An attack that takes advantage of a vulnerability</li>
 			
-				<li><code>exfiltration: Transferring data secretly</code>: exfiltration: Transferring data secretly</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>The Ongoing Fallout from a Breach at AI Chatbot Maker Salesloft</h3>
-			<p>A recent security incident at Salesloft, a provider of AI chatbots integrated with CRM systems, resulted in the theft of authentication tokens for numerous platforms. This expanded access has created a significant risk for impacted organizations, requiring immediate remediation to prevent unauthorized access and potential exploitation. The compromised tokens granted access to services like Slack, Google Workspace, and AWS S3, demanding swift action to mitigate the associated vulnerabilities.</p>
-			<div class="source">
-				Source: <a href="https://krebsonsecurity.com/2025/09/the-ongoing-fallout-from-a-breach-at-ai-chatbot-maker-salesloft/" target="_blank">https://krebsonsecurity.com/feed/</a> | Published: 01 Sep 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>CRM: Customer Relationship Management system</code>: CRM: Customer Relationship Management system</li>
-			
-				<li><code>authentication tokens: Digital keys granting access to online services</code>: authentication tokens: Digital keys granting access to online services</li>
-			
-				<li><code>exploitation: Taking advantage of a vulnerability for malicious purposes</code>: exploitation: Taking advantage of a vulnerability for malicious purposes</li>
+				<li><code>MSRC: Microsoft Security Research Center</code>: MSRC: Microsoft Security Research Center</li>
 			
 			</ul>
 		</div>
@@ -377,7 +400,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>CVE-2025-57440</h3>
-			<p>The Blackmagic ATEM Mini Pro 2.7 contains a vulnerability – CVE-2025-57440 – due to an exposed Telnet service on TCP port 9993. This allows unauthorized access, enabling attackers to execute commands, potentially leading to system compromise and data loss. The lack of authentication and encryption creates a significant security risk.</p>
+			<p>This vulnerability, CVE-2025-57440, in the Blackmagic ATEM Mini Pro 2.7 involves an unsecured Telnet service. Attackers can leverage this exposed port (TCP 9993) to gain unauthorized remote control of the device, allowing for command execution, data erasure, and system reboots without authentication.</p>
 			<div class="source">
 				Source: <a href="https://github.com/shiky8/my--cve-vulnerability-research/tree/main/CVE-2025-57440" target="_blank">NVD</a> | Published: 01 Jan 0001
 			</div>
@@ -387,11 +410,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Authentication: Verifying user identity.</code>: Authentication: Verifying user identity.</li>
+				<li><code>Authentication: Verification of user identity</code>: Authentication: Verification of user identity</li>
 			
-				<li><code>Encryption: Protecting data during transmission.</code>: Encryption: Protecting data during transmission.</li>
+				<li><code>Command Execution: Running instructions on a system</code>: Command Execution: Running instructions on a system</li>
 			
-				<li><code>Telnet: A network protocol for remote access.</code>: Telnet: A network protocol for remote access.</li>
+				<li><code>Telnet: Network protocol for remote access</code>: Telnet: Network protocol for remote access</li>
 			
 			</ul>
 		</div>
@@ -401,7 +424,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>ChatGPT Custom Instructions: Persistent Data Exfiltration Demo</h3>
-			<p>The Custom Instructions feature in ChatGPT is susceptible to a data exfiltration technique utilizing image markdown injections. An attacker can leverage this feature to establish a persistent backdoor, specifically targeting sensitive data through crafted image prompts. This highlights a potential vulnerability amplified by the addition of new functionalities within the ChatGPT platform.</p>
+			<p>This article demonstrates a persistent data exfiltration technique targeting ChatGPT leveraging image markdown injection vulnerabilities. Specifically, newly implemented Custom Instructions functionality introduces an opportunity for adversaries to establish a backdoor, exploiting the existing vulnerability for ongoing data extraction. The technique relies on embedding malicious code within image formats.</p>
 			<div class="source">
 				Source: <a href="https://embracethered.com/blog/posts/2023/chatgpt-custom-instruction-post-exploitation-data-exfiltration/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 24 Jul 2023
 			</div>
@@ -411,11 +434,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>backdoor: Secret access point for unauthorized access.</code>: backdoor: Secret access point for unauthorized access.</li>
+				<li><code>backdoor: A secret entry point for unauthorized access</code>: backdoor: A secret entry point for unauthorized access</li>
 			
-				<li><code>image markdown injection: A technique using images to inject malicious code.</code>: image markdown injection: A technique using images to inject malicious code.</li>
+				<li><code>exfiltration: The act of secretly removing data</code>: exfiltration: The act of secretly removing data</li>
 			
-				<li><code>vulnerability: Weakness in a system that can be exploited.</code>: vulnerability: Weakness in a system that can be exploited.</li>
+				<li><code>image markdown injection: Inserting malicious code in image files</code>: image markdown injection: Inserting malicious code in image files</li>
 			
 			</ul>
 		</div>
@@ -436,7 +459,7 @@
 	<div class="article">
 		<div class="content">
 			<h3>CVE-2025-57432</h3>
-			<p>The Blackmagic Web Presenter 3.3 software contains a vulnerability – CVE-2025-57432 – allowing unauthorized remote access. Attackers can exploit this unauthenticated Telnet service (port 9977) to modify stream configurations and potentially compromise device operations. This represents a significant risk due to the absence of security controls.</p>
+			<p>Blackmagic Web Presenter 3.3 contains a vulnerability allowing unauthorized remote access via an unauthenticated Telnet service (port 9977). Attackers can then modify stream settings and potentially disrupt device operations. This represents a significant risk due to the lack of security controls.</p>
 			<div class="source">
 				Source: <a href="https://github.com/shiky8/my--cve-vulnerability-research/tree/main/CVE-2025-57432" target="_blank">NVD</a> | Published: 01 Jan 0001
 			</div>
@@ -446,11 +469,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>Stream Settings: Configuration parameters for media playback.</code>: Stream Settings: Configuration parameters for media playback.</li>
+				<li><code>Authentication: Verifying user identity</code>: Authentication: Verifying user identity</li>
 			
-				<li><code>Telnet: A network protocol for remote access.</code>: Telnet: A network protocol for remote access.</li>
+				<li><code>Telnet: Network protocol for remote access</code>: Telnet: Network protocol for remote access</li>
 			
-				<li><code>Vulnerability: A weakness in a system that can be exploited.</code>: Vulnerability: A weakness in a system that can be exploited.</li>
+				<li><code>Vulnerability: Weakness in a system’s security</code>: Vulnerability: Weakness in a system’s security</li>
 			
 			</ul>
 		</div>
@@ -459,10 +482,10 @@
 	
 	<div class="article">
 		<div class="content">
-			<h3>CVE-2025-10776</h3>
-			<p>The LionCoders SalePro POS software (versions up to 5.5.0) contains a vulnerability where the Login component transmits sensitive data in plaintext. This allows for remote exploitation, presenting a significant risk. The vulnerability is publicly disclosed and the vendor has not responded.</p>
+			<h3>Verified Steam game steals streamer&#39;s cancer treatment donations</h3>
+			<p>A user&#39;s cryptocurrency wallet was compromised following the download of a seemingly legitimate game, &#39;BlockBlasters,&#39; from Steam. The game contained malicious code that exploited a vulnerability, likely via a drive-by download or a zero-day attack, resulting in significant financial loss. This highlights the risks associated with downloading software from unofficial sources or without proper verification.</p>
 			<div class="source">
-				Source: <a href="https://github.com/PlsRevert/CVEs/issues/1" target="_blank">NVD</a> | Published: 01 Jan 0001
+				Source: <a href="https://www.bleepingcomputer.com/news/security/verified-steam-game-steals-streamers-cancer-treatment-donations/" target="_blank">https://www.bleepingcomputer.com/feed/</a> | Published: 22 Sep 2025
 			</div>
 		</div>
 		
@@ -470,11 +493,11 @@
 			<h3>Tech Jargons</h3>
 			<ul>
 			
-				<li><code>plaintext: Unencrypted data</code>: plaintext: Unencrypted data</li>
+				<li><code>cryptocurrency wallet: Digital storage for cryptocurrencies</code>: cryptocurrency wallet: Digital storage for cryptocurrencies</li>
 			
-				<li><code>remote exploitation: Attack from a distance</code>: remote exploitation: Attack from a distance</li>
+				<li><code>drive-by download: Downloading software without intended action</code>: drive-by download: Downloading software without intended action</li>
 			
-				<li><code>vulnerability: Weakness in the software</code>: vulnerability: Weakness in the software</li>
+				<li><code>zero-day attack: A previously unknown vulnerability</code>: zero-day attack: A previously unknown vulnerability</li>
 			
 			</ul>
 		</div>
