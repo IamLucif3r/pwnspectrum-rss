@@ -5,364 +5,66 @@
 <meta charset="UTF-8">
 <title>pwnspectrum Tech Digest</title>
 <style>
-	body { font-family: "Courier New", monospace; margin: 20px; background:#0d1117; color:#c9d1d9; }
+	body { font-family: "Courier New", monospace; background:#0d1117; color:#c9d1d9; margin:0; }
+	.centered {
+		max-width: 700px;
+		margin: 40px auto;
+		background: #161b22;
+		border-radius: 12px;
+		box-shadow: 0 0 24px #000a;
+		padding: 32px 24px;
+	}
 	h1 { text-align:center; color:#58a6ff; }
 	h2 { color:#39d353; border-bottom:1px solid #30363d; padding-bottom:5px; }
 	.segment { margin-top:40px; }
-	.article { border-bottom:1px solid #30363d; padding:20px 0; display:flex; gap:20px; }
-	.content { flex:3; }
-	.jargon { flex:1; background:#161b22; padding:10px; border-radius:5px; color:#ff7b72; }
-	a { color:#58a6ff; text-decoration:none; }
-	a:hover { text-decoration:underline; }
-	.source { font-size:0.85em; color:#8b949e; margin-top:10px; }
-	code { background:#161b22; padding:2px 4px; border-radius:3px; }
+	.article { border-bottom:1px solid #30363d; padding:24px 0; }
+	.content { }
+	.tech-jargon {
+		border-bottom: 1px dotted #ff7b72;
+		cursor: help;
+		text-decoration: none;
+		color: #ff7b72;
+		position: relative;
+	}
+	.tech-jargon:hover .jargon-expl {
+		display: block;
+	}
+	.jargon-expl {
+		display: none;
+		position: absolute;
+		left: 0;
+		background: #21262d;
+		color: #c9d1d9;
+		padding: 8px 12px;
+		border-radius: 6px;
+		box-shadow: 0 2px 8px #000a;
+		z-index: 10;
+		min-width: 180px;
+		max-width: 320px;
+		font-size: 0.95em;
+		margin-top: 6px;
+	}
+	@media (max-width: 800px) {
+		.centered { max-width: 98vw; padding: 8vw 2vw; }
+	}
 </style>
 </head>
 <body>
+<div class="centered">
 <h1>pwnspectrum Tech Digest</h1>
 
 <div class="segment">
 	<h2>AI &amp; Prompt Injection</h2>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Wrap Up: The Month of AI Bugs</h3>
-			<p>This article details a series of vulnerabilities discovered across various AI models, primarily focusing on the exploitation of prompt injection techniques. The research highlighted instances of data exfiltration, remote code execution, and unauthorized access to internal systems via manipulated prompts. Key findings included vulnerabilities in models such as ChatGPT, Claude, Amazon Q, and GitHub Copilot, demonstrating the potential for attackers to leverage AI for malicious activities. The report underscores the importance of robust input validation and security controls when utilizing AI systems.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 31 Aug 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>Data Exfiltration: Stealing information</code>: Data Exfiltration: Stealing information</li>
-			
-				<li><code>Prompt Injection: Manipulating AI responses</code>: Prompt Injection: Manipulating AI responses</li>
-			
-				<li><code>Remote Code Execution: Running external code</code>: Remote Code Execution: Running external code</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Amazon Q Developer for VS Code Vulnerable to Invisible Prompt Injection</h3>
-			<p>The Amazon Q Developer VS Code extension has been identified with a vulnerability allowing attackers to perform prompt injection. Specifically, the exploit utilizes invisible Unicode tags to bypass security measures, potentially leading to data exfiltration and system compromise by executing arbitrary code. This highlights a critical risk associated with the extension’s functionality.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/amazon-q-developer-interprets-hidden-instructions/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 20 Aug 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>Unicode Tag: Invisible characters within text</code>: Unicode Tag: Invisible characters within text</li>
-			
-				<li><code>arbitrary code: Code not specifically designed for a particular task</code>: arbitrary code: Code not specifically designed for a particular task</li>
-			
-				<li><code>prompt injection: Malicious manipulation of an AI system&#39;s instructions</code>: prompt injection: Malicious manipulation of an AI system&#39;s instructions</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Google Jules is Vulnerable To Invisible Prompt Injection</h3>
-			<p>This article details a vulnerability in Google’s Gemini models (specifically, Google Jules) where hidden Unicode Tag characters are interpreted as instructions. Attackers can leverage this to inject malicious commands or backdoor code into prompts, potentially compromising the model and applications built upon it. The issue, reported over a year ago, remains unaddressed at the core model level.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/google-jules-invisible-prompt-injection/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 15 Aug 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>API: An interface for accessing software functionality</code>: API: An interface for accessing software functionality</li>
-			
-				<li><code>Prompt Injection: Introducing unintended instructions</code>: Prompt Injection: Introducing unintended instructions</li>
-			
-				<li><code>Unicode Tag: A character that Gemini misinterprets</code>: Unicode Tag: A character that Gemini misinterprets</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773)</h3>
-			<p>This article details a vulnerability (CVE-2025-53773) within GitHub Copilot and VS Code, caused by prompt injection. Specifically, modifying the projects settings.json file to enable &#39;YOLO mode&#39; allows for remote code execution, leading to potential system compromise. The discovery highlights a risk associated with agents that can alter their configuration and update security settings.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 12 Aug 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>YOLO mode: A configuration setting enabling Copilot to generate code based on immediate user input.</code>: YOLO mode: A configuration setting enabling Copilot to generate code based on immediate user input.</li>
-			
-				<li><code>configuration: The settings that determine the operation of a system or software.</code>: configuration: The settings that determine the operation of a system or software.</li>
-			
-				<li><code>prompt injection: Injecting malicious instructions into a system through prompts.</code>: prompt injection: Injecting malicious instructions into a system through prompts.</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Amazon Q Developer: Remote Code Execution with Prompt Injection</h3>
-			<p>The Amazon Q Developer VS Code extension exhibited a vulnerability to indirect prompt injection, enabling unauthorized remote code execution. This flaw, analogous to the Microsoft GitHub Copilot CVE-2025-53773, allowed an attacker to execute commands on the host system. Notably, AWS did not assign a CVE to this patch.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/amazon-q-developer-remote-code-execution/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 19 Aug 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>CVE: A unique identifier for security vulnerabilities.</code>: CVE: A unique identifier for security vulnerabilities.</li>
-			
-				<li><code>Prompt Injection: A technique exploiting AI&#39;s ability to interpret and execute user input.</code>: Prompt Injection: A technique exploiting AI&#39;s ability to interpret and execute user input.</li>
-			
-				<li><code>Remote Code Execution: The ability to run commands on another system.</code>: Remote Code Execution: The ability to run commands on another system.</li>
-			
-			</ul>
-		</div>
-		
-	</div>
 	
 </div>
 
 <div class="segment">
 	<h2>Malware &amp; Ransomware</h2>
 	
-	<div class="article">
-		<div class="content">
-			<h3>Jules Zombie Agent: From Prompt Injection to Remote Control</h3>
-			<p>This research demonstrates escalating attack vectors targeting the Jules Zombie Agent. It expands upon prior prompt injection vulnerabilities, showcasing the agent&#39;s ability to be manipulated into executing malicious code downloads and establishing a remote command and control (C&amp;C) connection. The findings were presented to Google in May 2025.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/google-jules-remote-code-execution-zombai/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 14 Aug 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>kill chain: A framework detailing the stages of an attack.</code>: kill chain: A framework detailing the stages of an attack.</li>
-			
-				<li><code>prompt injection: An attack leveraging vulnerabilities in AI models.</code>: prompt injection: An attack leveraging vulnerabilities in AI models.</li>
-			
-				<li><code>remote command &amp;amp; control: A system where an attacker controls a compromised device remotely.</code>: remote command &amp;amp; control: A system where an attacker controls a compromised device remotely.</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Fake Malwarebytes, LastPass, and others on GitHub serve malware</h3>
-			<p>A widespread campaign is utilizing deceptive GitHub repositories to distribute malicious software, mimicking legitimate applications like Malwarebytes and LastPass. This campaign specifically targets macOS users, leveraging compromised repositories to deliver malware.</p>
-			<div class="source">
-				Source: <a href="https://www.malwarebytes.com/blog/news/2025/09/fake-malwarebytes-lastpass-and-others-on-github-serve-malware" target="_blank">https://blog.malwarebytes.com/feed/</a> | Published: 01 Jan 0001
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>malware: Malicious software designed to harm a computer system.</code>: malware: Malicious software designed to harm a computer system.</li>
-			
-				<li><code>repository: A location for storing code and files.</code>: repository: A location for storing code and files.</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Cloudflare mitigates new record-breaking 22.2 Tbps DDoS attack</h3>
-			<p>Cloudflare successfully defended against a sophisticated DDoS attack reaching 22.2 Tbps and 10.6 billion Bpps. The incident highlights the ongoing challenge of protecting against volumetric attacks and underscores the effectiveness of Cloudflare&#39;s network infrastructure in absorbing and neutralizing malicious traffic.</p>
-			<div class="source">
-				Source: <a href="https://www.bleepingcomputer.com/news/security/cloudflare-mitigates-new-record-breaking-222-tbps-ddos-attack/" target="_blank">https://www.bleepingcomputer.com/feed/</a> | Published: 23 Sep 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>DDoS: Distributed Denial of Service - An attack aimed at overwhelming a server with traffic.</code>: DDoS: Distributed Denial of Service - An attack aimed at overwhelming a server with traffic.</li>
-			
-				<li><code>Tbps: Terabits per second - A unit of data transfer rate.</code>: Tbps: Terabits per second - A unit of data transfer rate.</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>NPM package caught using QR Code to fetch cookie-stealing malware</h3>
-			<p>A recently identified npm package, ‘fezbox,’ utilizes QR codes for steganography, concealing a secondary payload designed to extract user cookies. This package, presented as a utility library, employs this technique to exfiltrate sensitive data, potentially compromising user credentials on a system.</p>
-			<div class="source">
-				Source: <a href="https://www.bleepingcomputer.com/news/security/npm-package-caught-using-qr-code-to-fetch-cookie-stealing-malware/" target="_blank">https://www.bleepingcomputer.com/feed/</a> | Published: 23 Sep 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>exfiltration: Secretly removing data</code>: exfiltration: Secretly removing data</li>
-			
-				<li><code>payload: Data delivered during an attack</code>: payload: Data delivered during an attack</li>
-			
-				<li><code>steganography: Hiding data within other data</code>: steganography: Hiding data within other data</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>First known AI-powered ransomware uncovered by ESET Research</h3>
-			<p>ESET Research has identified PromptLock, the first known instance of ransomware leveraging AI models for enhanced capabilities. This discovery highlights the potential for AI to significantly amplify attacks, particularly through optimized lateral movement and payload generation. The research emphasizes the evolving threat landscape and the need for proactive defenses against AI-driven malicious activity.</p>
-			<div class="source">
-				Source: <a href="https://www.welivesecurity.com/en/ransomware/first-known-ai-powered-ransomware-uncovered-eset-research/" target="_blank">https://www.welivesecurity.com/feed/</a> | Published: 26 Aug 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>AI: Artificial Intelligence - Computer systems that can perform tasks that typically require human intelligence</code>: AI: Artificial Intelligence - Computer systems that can perform tasks that typically require human intelligence</li>
-			
-				<li><code>Lateral Movement: Process of an attacker moving within a network after initial compromise</code>: Lateral Movement: Process of an attacker moving within a network after initial compromise</li>
-			
-				<li><code>Payload: The malicious code delivered by a ransomware attack</code>: Payload: The malicious code delivered by a ransomware attack</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
 </div>
 
 <div class="segment">
 	<h2>Security Research &amp; Breaches</h2>
-	
-	<div class="article">
-		<div class="content">
-			<h3>UK and allies uncover Russian military unit carrying out cyber attacks and digital sabotage for the first time</h3>
-			<p>The UK’s National Cyber Security Centre (NCSC), in collaboration with international partners, has identified and publicly attributed a sustained cyber campaign to Russian military intelligence (GRU) unit 29155. This campaign, active since at least 2020, involved malicious cyber activities targeting critical infrastructure and government entities. The findings represent a significant escalation in the attribution of state-sponsored cyber operations.</p>
-			<div class="source">
-				Source: <a href="https://www.ncsc.gov.uk/news/uk-allies-uncover-russian-military-carrying-out-cyber-attacks-digital-sabotage" target="_blank">https://www.ncsc.gov.uk/api/1/services/v1/news-rss-feed.xml</a> | Published: 01 Jan 0001
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>GRU: Russian military intelligence agency</code>: GRU: Russian military intelligence agency</li>
-			
-				<li><code>attribution: linking an attack to a specific actor</code>: attribution: linking an attack to a specific actor</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Actively protecting pen testers and pen testing assets</h3>
-			<p>This article highlights the importance of proactive monitoring and protection strategies when utilizing penetration testing (pen testing) activities. Recent incidents involving unauthorized access to internal red team tools underscore the vulnerability of these assets. The key concern is early detection – identifying adversary activity before it escalates and leads to a breach.  Robust logging, continuous monitoring, and rapid incident response are crucial for mitigating this risk.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2020/protecting-the-pentester/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 08 Dec 2020
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>incident response: Steps taken after a security breach</code>: incident response: Steps taken after a security breach</li>
-			
-				<li><code>pen testing: Simulated attacks to find vulnerabilities</code>: pen testing: Simulated attacks to find vulnerabilities</li>
-			
-				<li><code>red teaming: Internal security team mimicking attacks</code>: red teaming: Internal security team mimicking attacks</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Airline data broker selling 5 billion passenger records to US government</h3>
-			<p>A data broker is facilitating the sale of approximately 5 billion airline passenger records to U.S. government entities. This represents a significant breach of data privacy and highlights the risk of unauthorized access to sensitive Personally Identifiable Information (PII). Investigations are underway to determine the scope of the data leak and the vulnerabilities exploited.</p>
-			<div class="source">
-				Source: <a href="https://www.malwarebytes.com/blog/news/2025/09/airline-data-broker-selling-5-billion-passenger-records-to-us-government" target="_blank">https://blog.malwarebytes.com/feed/</a> | Published: 01 Jan 0001
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>Breach: Unauthorized access to data</code>: Breach: Unauthorized access to data</li>
-			
-				<li><code>PII: Personal Identifiable Information</code>: PII: Personal Identifiable Information</li>
-			
-				<li><code>Vulnerability: Weakness in a system that can be exploited</code>: Vulnerability: Weakness in a system that can be exploited</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Ex-lobbyist for Meta becomes Irish data protection commissioner</h3>
-			<p>The Irish Data Protection Commission (DPC) has appointed Niamh Sweeney, a former Meta lobbyist, as a member. This appointment has sparked controversy due to her prior advocacy for Meta, a company with a history of GDPR violations and fines issued by the DPC. Recent actions by Meta, including a significant data breach fine, highlight ongoing concerns about compliance with data protection regulations. The situation underscores the challenges of independent oversight and enforcement within the EU’s data protection landscape.</p>
-			<div class="source">
-				Source: <a href="https://www.csoonline.com/article/4061016/ex-lobbyist-for-meta-becomes-data-protection-commissioner.html" target="_blank">https://www.csoonline.com/feed</a> | Published: 22 Sep 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>Data Breach: An unauthorized access and exposure of sensitive information.</code>: Data Breach: An unauthorized access and exposure of sensitive information.</li>
-			
-				<li><code>Fines: Monetary penalties for non-compliance.</code>: Fines: Monetary penalties for non-compliance.</li>
-			
-				<li><code>GDPR: A comprehensive data protection law.</code>: GDPR: A comprehensive data protection law.</li>
-			
-			</ul>
-		</div>
-		
-	</div>
 	
 </div>
 
@@ -374,99 +76,8 @@
 <div class="segment">
 	<h2>Zero-Day &amp; Exploits</h2>
 	
-	<div class="article">
-		<div class="content">
-			<h3>Cline: Vulnerable To Data Exfiltration And How To Protect Your Data</h3>
-			<p>Cline is quite a popular AI coding agent, according to the product website it has 2&#43; million downloads and over 47k stars on GitHub.Unfortunately, Cline is vulnerable to data exfiltration through the rendering of markdown images from untrusted domains in the chat box.This allows an adversary to exfiltrate sensitive user information during a prompt injection attack by reading sensitive data (e.g. .env file) and appending its contents to the URL of an image.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/cline-vulnerable-to-data-exfiltration/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 27 Aug 2025
-			</div>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>AWS Kiro: Arbitrary Code Execution via Indirect Prompt Injection</h3>
-			<p>On the day AWS Kiro was released, I couldn&amp;rsquo;t resist putting it through some of my Month of AI Bugs security tests for coding agents.AWS Kiro was vulnerable to arbitrary command execution via indirect prompt injection. This means that a remote attacker, who controls data that Kiro processes, could hijack it to run arbitrary operating system commands or write and run custom code.In particular two attack paths that enabled this with AWS Kiro were identified:</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/aws-kiro-aribtrary-command-execution-with-indirect-prompt-injection/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 26 Aug 2025
-			</div>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>How Deep Research Agents Can Leak Your Data</h3>
-			<p>This article investigates the potential for data leakage when utilizing Deep Research agents like ChatGPT. It examines how these agents, equipped with web search access and internal server connections (MCP servers), can inadvertently expose sensitive information during autonomous research operations. The research highlights vulnerabilities related to data transmission across these interconnected systems.</p>
-			<div class="source">
-				Source: <a href="https://embracethered.com/blog/posts/2025/chatgpt-deep-research-connectors-data-spill-and-leaks/" target="_blank">https://embracethered.com/blog/index.xml</a> | Published: 25 Aug 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>Data transmission: The process of exchanging information</code>: Data transmission: The process of exchanging information</li>
-			
-				<li><code>MCP servers: Internal servers facilitating tool access</code>: MCP servers: Internal servers facilitating tool access</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Kernel-hack-drill and a new approach to exploiting CVE-2024-50264 in the Linux kernel</h3>
-			<p>This article details a novel approach to exploiting a critical memory corruption vulnerability, CVE-2024-50264, within the Linux kernel. The author developed &#39;kernel-hack-drill&#39;, a tool designed to facilitate the exploration and exploitation of such complex vulnerabilities. The project achieved recognition with the Pwnie Award 2025 for Best Privilege Escalation, highlighting the tool&#39;s effectiveness in identifying and leveraging these challenging security flaws.</p>
-			<div class="source">
-				Source: <a href="https://a13xp0p0v.github.io/2025/09/02/kernel-hack-drill-and-CVE-2024-50264.html" target="_blank">https://0dayfans.com/feed.rss</a> | Published: 02 Sep 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>Exploitation: Taking advantage of a weakness to cause harm.</code>: Exploitation: Taking advantage of a weakness to cause harm.</li>
-			
-				<li><code>Privilege Escalation: Raising user permissions.</code>: Privilege Escalation: Raising user permissions.</li>
-			
-				<li><code>Race Condition: A timing issue causing unpredictable behavior.</code>: Race Condition: A timing issue causing unpredictable behavior.</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
-	<div class="article">
-		<div class="content">
-			<h3>Kernel-hack-drill and a new approach to exploiting CVE-2024-50264 in the Linux kernel</h3>
-			<p>This article details a successful technique for exploiting a previously unknown vulnerability, CVE-2024-50264, within the Linux kernel. The research involved meticulous ‘kernel-hack-drill’, focusing on a complex memory corruption issue. The findings resulted in a Pwnie Award recognition, demonstrating the difficulty and importance of analyzing and mitigating such vulnerabilities. It highlights the challenge of exploiting race conditions and system crashes.</p>
-			<div class="source">
-				Source: <a href="https://swarm.ptsecurity.com/kernel-hack-drill-and-a-new-approach-to-exploiting-cve-2024-50264-in-the-linux-kernel/" target="_blank">https://0dayfans.com/feed.rss</a> | Published: 02 Sep 2025
-			</div>
-		</div>
-		
-		<div class="jargon">
-			<h3>Tech Jargons</h3>
-			<ul>
-			
-				<li><code>kernel-hack-drill: Deep analysis of a kernel vulnerability.</code>: kernel-hack-drill: Deep analysis of a kernel vulnerability.</li>
-			
-				<li><code>race conditions: Timing-dependent errors in concurrent programs.</code>: race conditions: Timing-dependent errors in concurrent programs.</li>
-			
-				<li><code>system crashes: Unexpected termination of a program or system.</code>: system crashes: Unexpected termination of a program or system.</li>
-			
-			</ul>
-		</div>
-		
-	</div>
-	
 </div>
 
+</div>
 </body>
 </html>
