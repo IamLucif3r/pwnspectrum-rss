@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwnspectrum | Daily Cybersecurity Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --text-primary: #00ff41;
+            --text-secondary: #00d9ff;
+            --text-muted: #888;
+            --border-color: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg-primary);
+            color: #ccc;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Particle Network Background */
+        #particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            filter: blur(2px);
+            opacity: 0.3;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--text-primary);
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .issue-date {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .author {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .author a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .author a:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+        }
+
+        /* Greeting Section */
+        .greeting {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #fff;
+            margin-bottom: 50px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--text-primary);
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .category-number {
+            color: var(--text-secondary);
+            margin-right: 10px;
+        }
+
+        /* Article */
+        .article {
+            margin-bottom: 0;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+        }
+
+        .article:hover {
+            padding-left: 10px;
+            background: rgba(0, 255, 65, 0.02);
+        }
+
+        .article-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .article-commentary {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+
+        .article-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+        }
+
+        .article-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 2px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .footer-author {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+
+            .greeting {
+                font-size: 14px;
+            }
+
+            .category-title {
+                font-size: 16px;
+            }
+
+            .article-title {
+                font-size: 14px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particle Network Background -->
+    <canvas id="particle-bg"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">PWNSPECTRUM</div>
+            <div class="tagline">Daily Cybersecurity Journal</div>
+            <div class="issue-date">Issue Date: <span id="timestamp"></span></div>
+            <div class="author">
+                by <strong>Anmol Singh Yadav</strong> (@IamLucif3r) |
+                <a href="https://github.com/IamLucif3r_" target="_blank">GitHub</a> |
+                <a href="http://linkedin.com/in/anmolsinghyadav" target="_blank">LinkedIn</a>
+            </div>
+        </header>
+
+        <!-- Greeting (LLM-generated) -->
+        <div class="greeting" id="greeting">
+            <!-- Greeting will be injected here by JavaScript -->
+        </div>
+
+        <!-- Newsletter Content -->
+        <div id="newsletter-content">
+
+<script>
+    document.getElementById('greeting').innerHTML = "\"Greetings, fellow code warriors! 🚀 Let's dive into some seriously twisted stuff today...\"";
+    document.getElementById('greeting').textContent = "\"Greetings, fellow code warriors! 🚀 Let's dive into some seriously twisted stuff today...\"";
+    document.getElementById('timestamp').textContent = "\"07 Dec 2025, 01:42 IST\"";
+</script>
+
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">💀</span>
+        ZERO-DAYS &amp; EXPLOITS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Sharpening the knife: GOLD BLADEs strategic evolution</div>
+        <div class="article-commentary">Yo, check out this report on GOLD BLADE - they&#39;re stepping up their game big time! Basically, they&#39;re abusing recruitment sites to spread malware, messing with their infection chains, and now they&#39;re doing both data theft *and* ransomware – talk about a double-whammy! This is a huge shift for this group and shows they&#39;re becoming way more sophisticated. Seriously, you need to read the full article to understand the implications. 👉 [Insert Link Here - Placeholder for a hypothetical link]</div>
+        <a href="https://news.sophos.com/en-us/2025/12/05/sharpening-the-knife-gold-blades-strategic-evolution/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/05/sharpening-the-knife-gold-blades-strategic-evolution/
+        </a>
+        <div class="article-meta">
+            <span>Source: https://news.sophos.com/en-us/category/threat-research/feed/</span>
+            <span>05 Dec 2025</span>
+        </div>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Introducing Sophos Intelix for Microsoft 365 Copilot</div>
+        <div class="article-commentary">Seriously pumped about this! Sophos is now injecting their threat intel straight into Microsoft 365 Copilot. That means Copilot can proactively spot and block threats in real-time – huge win for security teams!  This is a game changer for proactive defense.  Check out the full details here: [insert link here - Placeholder for now]!</div>
+        <a href="https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-365-copilot/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-365-copilot/
+        </a>
+        <div class="article-meta">
+            <span>Source: https://news.sophos.com/en-us/category/security-operations/feed/</span>
+            <span>05 Dec 2025</span>
+        </div>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Introducing Sophos Intelix for Microsoft Security Copilot</div>
+        <div class="article-commentary">So, Sophos just dropped some serious intel into Microsoft Security Copilot! Basically, they&#39;re turbocharging threat intelligence for everyone using Copilot – huge win for security pros. This means better detection and faster response to attacks. Seriously cool stuff – check out the full details here: [Insert Link Here - Placeholder]!</div>
+        <a href="https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-security-copilot/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-security-copilot/
+        </a>
+        <div class="article-meta">
+            <span>Source: https://news.sophos.com/en-us/category/security-operations/feed/</span>
+            <span>05 Dec 2025</span>
+        </div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">🦠</span>
+        MALWARE &amp; RANSOMWARE
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Sharpening the knife: GOLD BLADEs strategic evolution</div>
+        <div class="article-commentary">Woah, check out this report on GOLD BLADE – they’re getting seriously sophisticated! Seems they&#39;re abusing recruitment platforms to spread malware and mixing data theft with ransomware. Seriously alarming stuff for us security folks to watch out for. Gotta dive deeper - you can read all about it here: [Insert Link Here]!</div>
+        <a href="https://news.sophos.com/en-us/2025/12/05/sharpening-the-knife-gold-blades-strategic-evolution/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/05/sharpening-the-knife-gold-blades-strategic-evolution/
+        </a>
+        <div class="article-meta">
+            <span>Source: https://news.sophos.com/en-us/category/threat-research/feed/</span>
+            <span>05 Dec 2025</span>
+        </div>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Introducing Sophos Intelix for Microsoft 365 Copilot</div>
+        <div class="article-commentary">Seriously pumped about this! Sophos Intelix now fuels Microsoft 365 Copilot, meaning real-time threat intel is getting directly into the hands of your analysts. That&#39;s a game-changer for proactive detection and response - no more stale data! Check out the full details here: [Link to Article Placeholder]</div>
+        <a href="https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-365-copilot/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-365-copilot/
+        </a>
+        <div class="article-meta">
+            <span>Source: https://news.sophos.com/en-us/category/security-operations/feed/</span>
+            <span>05 Dec 2025</span>
+        </div>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Introducing Sophos Intelix for Microsoft Security Copilot</div>
+        <div class="article-commentary">Just saw that Sophos is turbocharging Microsoft Security Copilot with Intelix! Basically, they&#39;re feeding Copilot *serious* threat intelligence, making it way smarter at catching baddies. This is huge for security pros – faster, more accurate detection means less work and fewer breaches. Seriously, check out the link to learn more and level up your threat hunting game! [Link to article - Placeholder]</div>
+        <a href="https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-security-copilot/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-security-copilot/
+        </a>
+        <div class="article-meta">
+            <span>Source: https://news.sophos.com/en-us/category/security-operations/feed/</span>
+            <span>05 Dec 2025</span>
+        </div>
+    </article>
+    
+</section>
+
+
+    </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-author">Written by Anmol Singh Yadav (@IamLucif3r)</div>
+            <div>Daily insights from the cybersecurity trenches</div>
+            <div class="footer-links">
+                <a href="https://github.com/IamLucif3r_" target="_blank">GitHub</a>
+                <a href="http://linkedin.com/in/anmolsinghyadav" target="_blank">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Particle Network Animation
+        const canvas = document.getElementById('particle-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 80;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#00ff41';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 255, 65, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+
+</html>
