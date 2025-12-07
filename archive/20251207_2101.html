@@ -2,19 +2,9 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-N9ZF36FC9M');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pwnspectrum | Daily Cybersecurity Journal</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
@@ -326,8 +316,8 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hello hackers, I am excited to share what happened last day? It’s crazy!\n\nYo security squad! \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\"\u003eAnmol\u003c/a\u003e here, and let me tell you – it’s been a whirlwind! We’re diving headfirst into a tsunami of zero-day exploits – CISA just dropped two massive vulnerabilities, Apache Tika is exploding with an XXE issue, and React2Shell is wreaking havoc! Plus, state-sponsored actors are running rampant, from Chinese spies targeting VMware to the Russian GRU’s calculated assaults. We've got Ghost Ransomware, Medusa Ransomware, and LummaC2 malware wreaking havoc, alongside a mind-blowing 30+ AI-powered vulnerabilities and attacks on Next.js services! It’s a chaotic, urgent situation, and we’re breaking down every single detail. Let's get to work!";
-    document.getElementById('timestamp').textContent = "07 Dec 2025, 21:03 IST";
+    document.getElementById('greeting').innerHTML = "Hello hackers, I am excited to share what happened last day? It’s crazy!\n\nYo security squad! \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\"\u003eAnmol\u003c/a\u003e here, and let me tell you – it’s been a *wild* ride! We’re diving headfirst into a tsunami of zero-day exploits – Apache Tika, React2Shell, and a terrifying unauthenticated RCE in React and Next.js are just the tip of the iceberg. Simultaneously, state-sponsored actors like the Chinese GRU and Russian GRU are relentlessly targeting global networks, while ransomware gangs like Medusa continue their silent assaults. And hold on tight, because AI coding tools are being weaponized and AI is creeping into our CI/CD pipelines, creating a whole new layer of risk! We’re talking major vulnerabilities in systems like Apache Tika, the SignalGate scandal, and the devastating MOVEit Transfer breach – it’s a chaotic landscape, and we're going to break down exactly what you need to know. Let’s get to it! \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\"\u003eAnmol\u003c/a\u003e";
+    document.getElementById('timestamp').textContent = "07 Dec 2025, 20:54 IST";
 </script>
 
 
@@ -339,40 +329,48 @@
     
     
     <article class="article">
-        <div class="article-title">CISA Adds Two Explosive Vulnerabilities – Time to Patch!</div>
-        <div class="article-commentary">The threat landscape just got hotter! CISA&#39;s latest additions to the KEV catalog reveal that attackers are actively exploiting these weaknesses. This isn’t a drill – these vulnerabilities are being actively used, putting organizations at immediate risk of compromise. The hackers are testing the waters, seeking entry points, and the defenders must act fast to contain the damage and prevent further exploitation. The attackers, shadowy figures lurking in the dark web, are relentlessly probing, and our response determines whether we maintain control or succumb to their digital intrusion.</div>
+        <div class="article-title">CISA Adds Two Explosive Vulnerabilities to the KEV Catalog!</div>
+        <div class="article-commentary">The bad guys are relentless! CISA just added two vulnerabilities to its Known Exploited Vulnerabilities Catalog, confirming that attackers are actively exploiting these systems. This means your network is under immediate threat – systems are being targeted, and patches are desperately needed. Imagine a phantom shadow, silently probing for weaknesses in your defenses. This vulnerability is a breach in the core of your infrastructure’s security, potentially allowing unauthorized access.</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/12/02/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/12/02/cisa-adds-two-known-exploited-vulnerabilities-catalog
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Another Critical Vulnerability Spotted – Don’t Delay!</div>
-        <div class="article-commentary">A fresh threat surfaces, and CISA swiftly adds another vulnerability to its catalog. This rapid escalation underscores the urgency of maintaining a vigilant security posture. The attackers, opportunistic and skilled, are patiently waiting for the right moment to strike. Our defense relies on proactive patching and continuous monitoring – failing to address these issues exposes us to serious risk.</div>
+        <div class="article-title">Another Critical Vulnerability Surfaces - Stay Alert!</div>
+        <div class="article-commentary">CISA just added one more to the growing list of exploited vulnerabilities. It’s a classic scenario: a backdoor is discovered, and malicious actors are already using it. The timing is concerning, highlighting the speed at which threats can spread. The attacker is like a skilled locksmith, finding and using the most efficient way to compromise your security. The defender must race to patch before the system is completely breached.</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/19/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/19/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Apache Tika Explodes: A Catastrophic XXE Vulnerability!</div>
-        <div class="article-commentary">Hold on tight! Apache Tika, a widely used component, has a critical XXE vulnerability – CVE-2025-66516. Attackers could gain full control of servers, injecting malicious code and stealing sensitive data. It&#39;s a digital landmine, and the defenders must neutralize it swiftly before it detonates.</div>
+        <div class="article-title">AI Coding Tools Become Weaponized – Beware the Data Theft!</div>
+        <div class="article-commentary">The rise of AI coding assistants has unleashed a terrifying new threat. Researchers have uncovered over 30 vulnerabilities in popular AI-powered IDEs, allowing attackers to steal sensitive data and even take control of your systems. The attacker utilizes a seemingly helpful tool, turning it into a sophisticated weapon for data exfiltration and remote code execution.  The hero must be vigilant, ensuring their development environment remains secure.</div>
+        <a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Apache Tika: A Critical Vulnerability Unleashed – Immediate Action Required!</div>
+        <div class="article-commentary">A massive, 10.0 CVSS-rated vulnerability has been discovered in Apache Tika, a widely-used library. Attackers can now completely take over servers. This is a critical and immediate threat. The attacker is like a key-holder to your most trusted software, silently unlocking access and control.  Patching is no longer an option, but a necessity to prevent catastrophic consequences.</div>
         <a href="https://thehackernews.com/2025/12/critical-xxe-bug-cve-2025-66516-cvss.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/critical-xxe-bug-cve-2025-66516-cvss.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">React2Shell – The Rogue Code Execution Threat!</div>
-        <div class="article-commentary">A dangerous game is being played with React Server Components (RSC). Attackers have found a way to trigger remote code execution, potentially hijacking applications and systems. The exploit, now added to the KEV catalog, is a wake-up call. We must bolster our defenses and limit the impact of this devastating attack.</div>
+        <div class="article-title">React2Shell: The Unpatched Nightmare – Systems at Immediate Risk!</div>
+        <div class="article-commentary">The React2Shell vulnerability, now officially recognized by CISA, is actively being exploited. This RCE vulnerability allows unauthorized code execution, posing a serious risk to systems utilizing React Server Components (RSC).  The attacker is a ghost in the machine, silently executing commands and gaining control. Defenders must act fast to limit the scope of this attack.</div>
         <a href="https://thehackernews.com/2025/12/critical-react2shell-flaw-added-to-cisa.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/critical-react2shell-flaw-added-to-cisa.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">React2Shell – The Unauthenticated RCE Nightmare!</div>
-        <div class="article-commentary">Unauthenticated remote code execution – a terrifying scenario. Attackers are exploiting a flaw in React Server Components (RSC) to gain access to systems without needing credentials. This vulnerability is a serious breach of security, and rapid patching is absolutely critical to prevent widespread damage.</div>
+        <div class="article-title">Unauthenticated RCE in React and Next.js: A Security Nightmare!</div>
+        <div class="article-commentary">A maximum-severity vulnerability in React Server Components (RSC) allows attackers to run code on your system without any authentication. This is a massive security breach, opening the door for complete system compromise. The attacker is a master hacker, bypassing all security measures and directly taking control of your network.</div>
         <a href="https://thehackernews.com/2025/12/critical-rsc-bugs-in-react-and-nextjs.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/critical-rsc-bugs-in-react-and-nextjs.html
         </a>
@@ -383,37 +381,45 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x02]</span>
-        STATE-SPONSORED ATTACKS
+        STATE-SPONSORED THREATS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Chinese Spies Go Global: Network Espionage on a Massive Scale!</div>
-        <div class="article-commentary">The threat is no longer confined to our borders. Chinese state-sponsored actors are systematically targeting networks worldwide, gathering intelligence and potentially disrupting critical infrastructure. This is a long-term campaign designed to steal secrets and maintain a strategic advantage – we are fighting a silent, persistent battle.</div>
+        <div class="article-title">Chinese Spies Target Global Networks – A Silent Invasion!</div>
+        <div class="article-commentary">The PRC is engaging in a systematic campaign to steal information from networks around the world. This isn’t a random attack; it’s a targeted, long-term espionage effort.  The attacker is like a patient, persistent infiltrator, slowly gathering intelligence and establishing a foothold for future operations.  Defense requires vigilance and proactive monitoring.</div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Lessons Learned: CISA&#39;s Incident Response – A Critical Warning!</div>
-        <div class="article-commentary">The Department of Defense isn&#39;t immune to attack.  A recent incident response engagement highlighted vulnerabilities and operational gaps. This isn&#39;t a failure; it&#39;s an opportunity to learn and strengthen our defenses before the next breach occurs. The attackers are constantly adapting, and we must evolve with them.</div>
+        <div class="article-title">CISA Shares Incident Response Lessons – Learn From the Damage!</div>
+        <div class="article-commentary">This advisory provides crucial insights into a recent incident response engagement, detailing the steps taken to contain a malicious activity. It&#39;s a valuable reminder of the importance of rapid detection and containment, showcasing how quickly threats can escalate. The defender learns from the attacker&#39;s methods to build a better defense.</div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Russian GRU Targeting Western Logistics – A Calculated Assault!</div>
-        <div class="article-commentary">A coordinated cyber campaign by the Russian GRU is disrupting Western logistics and technology companies, aiming to interfere with the flow of goods and services.  This is a strategic maneuver designed to undermine our economy and sow chaos – our defense is our resilience.</div>
+        <div class="article-title">Russian GRU Targets Western Logistics – A Calculated Strike!</div>
+        <div class="article-commentary">The Russian GRU is conducting a sophisticated cyber campaign targeting Western logistics entities and technology companies. This coordinated effort is designed to disrupt supply chains and steal sensitive information.  The attacker is a strategic planner, exploiting weaknesses in global operations. The hero’s responsibility is to protect critical infrastructure.</div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141a" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141a
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Chinese Spies Target VMware: Persistent Stealth!</div>
-        <div class="article-commentary">Attackers are relentlessly pursuing a foothold within VMware vSphere, aiming for long-term persistence and access to sensitive data.  This isn&#39;t a one-time hack; it’s a methodical strategy – our defenses must be layered and robust to prevent this sophisticated intrusion.</div>
+        <div class="article-title">#StopRansomware: Medusa Ransomware – The Silent Threat</div>
+        <div class="article-commentary">This joint Cybersecurity Advisory details a new ransomware variant, Medusa, highlighting its tactics and techniques. This is a key part of the ongoing #StopRansomware effort, providing defenders with critical information to combat this rapidly evolving threat. The attacker’s goal is to cripple systems and demand a hefty ransom.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Chinese Spies Target VMware vSphere – A Persistent Assault!</div>
+        <div class="article-commentary">Chinese state-sponsored actors are systematically targeting VMware vSphere, seeking to establish long-term access and maintain persistent surveillance capabilities. This is a strategic move, aiming to establish a deep foothold within critical networks. The attacker’s objective is to remain undetected, gathering intelligence for years to come.</div>
         <a href="https://www.csoonline.com/article/4101866/chinese-cyberspies-target-vmware-vsphere-for-long-term-persistence.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.csoonline.com/article/4101866/chinese-cyberspies-target-vmware-vsphere-for-long-term-persistence.html
         </a>
@@ -424,55 +430,31 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x03]</span>
-        RANSOMWARE &amp; THREAT ACTORS
+        CRITICAL VULNERABILITIES &amp; EXPLOITS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Stop Ransomware Now: A Joint Effort to Combat the Threat!</div>
-        <div class="article-commentary">The #StopRansomware campaign continues, issuing vital advisories to network defenders – a constant, coordinated response is crucial. The ransomware landscape is evolving rapidly, and our defenses must adapt to stay ahead of these digital criminals.</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-203a" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-203a
+        <div class="article-title">SignalGate Scandal: The Department of Defense&#39;s Security Failure!</div>
+        <div class="article-commentary">The Signalgate scandal reveals a serious security vulnerability in the Signal messaging app used by the Department of Defense. This breach underscores the importance of carefully vetting third-party applications and the potential risks associated with unapproved software. The attacker uses a seemingly harmless communication tool to gain access to sensitive information.</div>
+        <a href="https://www.csoonline.com/article/4101859/insecure-use-of-signal-app-part-of-wider-department-of-defense-problem-suggests-senate-report.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4101859/insecure-use-of-signal-app-part-of-wider-department-of-defense-problem-suggests-senate-report.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Ghost Ransomware – A Stealthy New Threat Emerges!</div>
-        <div class="article-commentary">A new ransomware variant, Ghost (Cring), is wreaking havoc, highlighting the need for proactive detection and rapid response. This isn’t just a technical challenge; it’s a strategic game of cat and mouse.</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-050a" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-050a
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Medusa Ransomware – Disrupting Networks Worldwide!</div>
-        <div class="article-commentary">A new ransomware variant, Medusa, is spreading rapidly, showcasing the urgent need for comprehensive network protection. Our response must be swift and decisive to contain the damage and prevent further infections.</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">LummaC2 Malware – Data Theft on a Massive Scale!</div>
-        <div class="article-commentary">The FBI and CISA are jointly releasing TTPs and IOCs associated with the LummaC2 malware, alerting network defenders to the tactics employed by threat actors.  This is a critical intelligence update, enabling proactive defense.</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Barts Health Data Breach: The Cost of a Zero-Day Exploit!</div>
-        <div class="article-commentary">A Clop ransomware attack has exposed sensitive data from Barts Health NHS Trust, demonstrating the devastating impact of exploiting zero-day vulnerabilities. This breach underscores the critical importance of proactive patching and robust security measures.</div>
-        <a href="https://www.bleepingcomputer.com/news/security/barts-health-nhs-discloses-data-breach-after-oracle-zero-day-hack/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/barts-health-nhs-discloses-data-breach-after-oracle-zero-day-hack/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">NCSC Statement: MOVEit Transfer Vulnerability – A Critical Warning!</div>
-        <div class="article-commentary">The NCSC&#39;s statement highlights a critical vulnerability in MOVEit Transfer, triggering a widespread alert and demanding immediate action from affected organizations. This vulnerability could lead to massive data compromises, requiring swift and decisive mitigation efforts.</div>
+        <div class="article-title">NCSC Statement on MOVEit Transfer Vulnerability – Immediate Action Required!</div>
+        <div class="article-commentary">The NCSC has issued a critical statement regarding a vulnerability in the MOVEit Transfer platform, impacting countless organizations worldwide. This represents a significant security risk, opening the door for unauthorized access and data theft. The attacker exploits a known weakness to gain control of vulnerable systems.</div>
         <a href="https://www.ncsc.gov.uk/news/moveit-transfer-vulnerability" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.ncsc.gov.uk/news/moveit-transfer-vulnerability
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Barts Health Data Breach: Clop Ransomware Strikes Again!</div>
+        <div class="article-commentary">The Barts Health NHS Trust has suffered a devastating data breach, attributed to the Clop ransomware attack exploiting a vulnerability in its Oracle E-business Suite software. This highlights the pervasive threat of ransomware and the importance of maintaining up-to-date security patches. The attacker gains access through a known software weakness, demonstrating the dangers of outdated systems.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/barts-health-nhs-discloses-data-breach-after-oracle-zero-day-hack/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/barts-health-nhs-discloses-data-breach-after-oracle-zero-day-hack/
         </a>
     </article>
     
@@ -481,71 +463,23 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x04]</span>
-        MALWARE &amp; VULNERABILITIES
+        AI &amp; SECURITY
     </h2>
     
     
     <article class="article">
-        <div class="article-title">30&#43; AI-Powered Vulnerabilities – A Game Changer in Cybersecurity!</div>
-        <div class="article-commentary">Over 30 vulnerabilities in AI coding tools represent a new frontier in cyberattacks. Attackers are weaponizing AI itself, seeking to exploit its sophistication to steal data and execute malicious code – we need to adapt our defenses accordingly.</div>
-        <a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html
+        <div class="article-title">AI in CI/CD Pipelines – A Dangerous Double-Edged Sword!</div>
+        <div class="article-commentary">The integration of AI agents into CI/CD pipelines can be tricked into behaving badly, creating security vulnerabilities. The attacker exploits the automation process, introducing malicious code and compromising the entire development lifecycle. The hero must be vigilant and implement robust security controls to prevent this type of attack.</div>
+        <a href="https://www.csoonline.com/article/4101751/ai-in-ci-cd-pipelines-can-be-tricked-into-behaving-badly-2.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4101751/ai-in-ci-cd-pipelines-can-be-tricked-into-behaving-badly-2.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">React2Shell Exploit – 77,000 IP Addresses Compromised!</div>
-        <div class="article-commentary">Over 77,000 internet-exposed IP addresses are vulnerable to the React2Shell remote code execution flaw.  This is a massive risk, and rapid patching is crucial to prevent widespread damage.</div>
-        <a href="https://www.bleepingcomputer.com/news/security/react2shell-flaw-exploited-to-breach-30-orgs-77k-ip-addresses-vulnerable/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/react2shell-flaw-exploited-to-breach-30-orgs-77k-ip-addresses-vulnerable/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Palo Alto GlobalProtect Attacks – A Targeted Campaign!</div>
-        <div class="article-commentary">A campaign is targeting Palo Alto GlobalProtect portals with login attempts and scanning activity – attackers are meticulously mapping out the network to gain access.  We must enhance our intrusion detection and prevention systems.</div>
-        <a href="https://www.bleepingcomputer.com/news/security/new-wave-of-vpn-login-attempts-targets-palo-alto-globalprotect-portals/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/new-wave-of-vpn-login-attempts-targets-palo-alto-globalprotect-portals/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Russian University Linked to a  Essay Mill – A Curious Connection!</div>
-        <div class="article-commentary">A sprawling academic cheating network connected to a Kremlin-connected oligarch demonstrates the far-reaching implications of cybercrime. The attackers are cleverly leveraging financial networks to achieve their goals, and our defenses must be equally sophisticated.</div>
-        <a href="https://krebsonsecurity.com/2025/12/drones-to-diplomas-how-russias-largest-private-university-is-linked-to-a-25m-essay-mill/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://krebsonsecurity.com/2025/12/drones-to-diplomas-how-russias-largest-private-university-is-linked-to-a-25m-essay-mill/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">2.15M Next.js Services Exposed – Immediate Action Required!</div>
-        <div class="article-commentary">Security teams are scrambling to patch systems after the disclosure of a critical React vulnerability. This widespread exposure represents a significant security risk, and immediate patching is absolutely essential.</div>
-        <a href="https://gbhackers.com/2-15m-next-js-web-services-exposed-online-active-attacks-reported/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/2-15m-next-js-web-services-exposed-online-active-attacks-reported/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">FvncBot Android Malware – Stealing Keystrokes and Injecting Harmful Payloads!</div>
-        <div class="article-commentary">A newly discovered Android banking trojan, FvncBot, is targeting mobile banking users – we must educate users about the risks of downloading suspicious apps and implement robust mobile security measures.</div>
-        <a href="https://gbhackers.com/fvncbot-android-malware-steals-keystrokes/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/fvncbot-android-malware-steals-keystrokes/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">React2Shell – Attackers Are Already Exploiting This Vulnerability!</div>
-        <div class="article-commentary">Plugging the React2Shell hole is a race against time. Attackers are actively exploiting this vulnerability, meaning our systems are already at risk—we must implement immediate mitigation strategies.</div>
-        <a href="https://www.csoonline.com/article/4101890/warning-react2shell-vulnerability-already-being-exploited-by-threat-actors.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4101890/warning-react2shell-vulnerability-already-being-exploited-by-threat-actors.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Signalgate Scandal: Department of Defense Vulnerabilities Exposed!</div>
-        <div class="article-commentary">The Signalgate scandal reveals vulnerabilities within the Department of Defense, emphasizing the need for a more robust security posture and continuous vigilance—it’s a wake-up call for cybersecurity across the board.</div>
-        <a href="https://www.csoonline.com/article/4101859/insecure-use-of-signal-app-part-of-wider-department-of-defense-problem-suggests-senate-report.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4101859/insecure-use-of-signal-app-part-of-wider-department-of-defense-problem-suggests-senate-report.html
+        <div class="article-title">Avoiding Technical Debt: Building AI Governance Before It Breaks!</div>
+        <div class="article-commentary">The rapid advancement of AI demands proactive governance to prevent security vulnerabilities and maintain control. The ‘AI rush’ is creating significant technical debt, and addressing this issue is crucial for long-term security.  The defender must anticipate and mitigate the risks associated with this transformative technology.</div>
+        <a href="https://www.csoonline.com/article/4101145/avoiding-the-next-technical-debt-building-ai-governance-before-it-breaks.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4101145/avoiding-the-next-technical-debt-building-ai-governance-before-it-breaks.html
         </a>
     </article>
     
@@ -557,13 +491,6 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-author">Written by Anmol Singh Yadav (alias: IamLucif3r)</div>
-            <div style="margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                <p>I am a Cybersecurity Researcher and Ethical Hacker with a passion for securing the digital world.
-                    With expertise in VAPT, Red Teaming, and Cloud Security, I strive to uncover vulnerabilities before
-                    the bad guys do.</p>
-                <p style="margin-top: 10px;">Enjoyed this journal? <strong>Share it with your friends and
-                        community!</strong> Let's build a safer internet together.</p>
-            </div>
             <div>Daily insights from the cybersecurity trenches</div>
             <div class="footer-links">
                 <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
