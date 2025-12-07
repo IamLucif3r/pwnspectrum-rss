@@ -76,7 +76,11 @@
             margin-bottom: 5px;
         }
 
-
+        .issue-date {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
 
         .author {
             font-size: 12px;
@@ -271,8 +275,9 @@
         <header class="header">
             <div class="logo">PWNSPECTRUM</div>
             <div class="tagline">Daily Cybersecurity Journal</div>
+            <div class="issue-date">Issue Date: <span id="timestamp"></span></div>
             <div class="author">
-                by <strong>Anmol Singh Yadav</strong> (alias: IamLucif3r) | Issue Date: <span id="timestamp"></span>
+                by <strong>Anmol Singh Yadav</strong> (alias: IamLucif3r)
             </div>
             <div class="social-links">
                 <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
@@ -316,64 +321,221 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').textContent = "Hey everyone, Anmol Singh Yadav here – let's dive into today’s cyber landscape!";
-    document.getElementById('timestamp').textContent = "07 Dec 2025, 10:15 IST";
+    document.getElementById('greeting').innerHTML = "\"Yo security squad! Today's journal is all about staying ahead of the curve – we're breaking down a new vulnerability added to CISA’s KEV Catalog and the importance of patching ASAP!\"";
+    document.getElementById('greeting').textContent = "\"Yo security squad! Today's journal is all about staying ahead of the curve – we're breaking down a new vulnerability added to CISA’s KEV Catalog and the importance of patching ASAP!\"";
+    document.getElementById('timestamp').textContent = "\"07 Dec 2025, 09:59 IST\"";
 </script>
 
 
 <section class="category">
     <h2 class="category-title">
-        <span class="category-number">[0x01]</span>
+        <span class="category-number">💀</span>
         ZERO-DAYS &amp; EXPLOITS
     </h2>
     
     
     <article class="article">
         <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
-        <div class="article-commentary">Yo, CISA just added a new vulnerability – CVE-2025-61757 – to their KEV Catalog, meaning someone’s actively exploiting it! This is a HUGE deal for security pros because it highlights a known weakness in Oracle Fusion Middleware. Basically, if you&#39;re using this software, you *need* to patch it ASAP to avoid being targeted. CISA is keeping a close eye on this, and they’ll be adding more vulnerabilities to the catalog as they&#39;re confirmed – so stay vigilant!</div>
+        <div class="article-commentary">Alright, so CISA just added CVE-2025-61757 to their KEV Catalog, meaning it’s actively being exploited. This is a big deal because it&#39;s a vulnerability in Oracle Fusion Middleware, and bad actors are already taking advantage of it. Basically, agencies (and really anyone using Oracle Fusion Middleware) need to get patching – CISA’s BOD 22-01 is pushing for rapid remediation. Seriously, don&#39;t wait, this is a direct threat!</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
     </article>
     
     <article class="article">
         <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
-        <div class="article-commentary">Yo! CISA just added CVE-2025-58034 – a Fortinet FortiWeb vulnerability – to the KEV Catalog because it&#39;s actively being exploited. This means a command injection flaw is being used, posing a serious risk, especially to federal agencies. Seriously, security teams need to prioritize patching this *immediately*, especially given the recommendations outlined in BOD 23-02. Check out the full details to understand the impact and mitigation steps!</div>
+        <div class="article-commentary">Yo! CISA just added CVE-2025-58034, a critical command injection vulnerability in Fortinet FortiWeb, to their KEV Catalog because it&#39;s actively being exploited. This means organizations need to react *fast* – a one-week remediation window is recommended. Seriously, patching these known risks is non-negotiable for security pros; it&#39;s how we stop attackers from gaining a foothold. Read more to learn how this impacts your security posture!</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/18/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/18/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
     </article>
     
     <article class="article">
         <div class="article-title">CISA Adds Two Known Exploited Vulnerabilities to Catalog</div>
-        <div class="article-commentary">Yo! CISA just added two more juicy vulnerabilities – CVE-2025-11371 and CVE-2025-48703 – to their Known Exploited Vulnerabilities Catalog. This means these flaws are actively being exploited, posing a serious threat to organizations.  It’s a reminder that staying on top of these KEVs is absolutely crucial for security pros; proactive patching is the only way to seriously mitigate the risk! Check out the full details to understand the potential impact.</div>
+        <div class="article-commentary">Yo! CISA just added two more juicy vulnerabilities to their Known Exploited Vulnerabilities Catalog – Gladinet CentreStack and CWP Control Web Panel. This means attackers are actively targeting these systems, which is a HUGE deal for security pros. It&#39;s another reminder to always prioritize patching and vulnerability management to stay ahead of the threat. Check out the full details to see how you can protect your systems!</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/04/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/04/cisa-adds-two-known-exploited-vulnerabilities-catalog
         </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
     </article>
     
     <article class="article">
         <div class="article-title">Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System</div>
-        <div class="article-commentary">This report details a fascinating series of vulnerabilities, primarily targeting Cisco devices like routers and firewalls. Basically, attackers were exploiting weaknesses related to how these devices manage passwords, network configurations, and communication. The key takeaway? Cisco devices, particularly older versions, are frequently targeted because of their widespread use and known configuration issues. It’s a stark reminder that simply having a great product isn’t enough – you need to constantly monitor, patch, and harden your systems to defend against evolving threats. The report highlights the importance of granular controls, like limiting network access and carefully managing credentials, to minimize the potential damage from these kinds of exploits. It&#39;s a really valuable resource for anyone responsible for securing networks relying on Cisco infrastructure.</div>
+        <div class="article-commentary">This report details a series of vulnerabilities exploited against Cisco devices, primarily routers, and it&#39;s a serious reminder about the importance of meticulous device hardening. The key takeaway is that these vulnerabilities – including command injection and credential bypass – often stem from poorly configured devices and a lack of robust security practices.  Essentially, attackers were able to gain unauthorized access and control by leveraging weaknesses that, with proper setup, shouldn’t exist.  Security pros need to really focus on regular patching, strong password policies, and comprehensive network segmentation to prevent similar incidents. Read more to learn about specific steps you can take to mitigate these risks!</div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
         </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
     </article>
     
     <article class="article">
         <div class="article-title">Researchers Uncover 30&#43; Flaws in AI Coding Tools Enabling Data Theft and RCE Attacks</div>
-        <div class="article-commentary">Woah, this IDEsaster is seriously alarming! Researchers found over 30 flaws in AI coding tools that hackers could exploit to steal data and even run commands on your system. This highlights a huge vulnerability – AI isn&#39;t inherently safe, and attackers are finding clever ways to abuse legitimate features. Read more to learn how easily these tools can be weaponized!</div>
+        <div class="article-commentary">Woah, this is HUGE! Researchers found over 30 flaws in AI coding tools – basically, hackers can use them to steal data and even run commands on your computer. This ‘IDEsaster’ highlights a serious risk for developers and anyone using these tools. It’s a stark reminder to be incredibly cautious and constantly monitor for vulnerabilities as AI becomes more integrated into our workflows. Read more to learn...</div>
         <a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html
         </a>
+        <div class="article-meta">
+            <span>Source: https://feeds.feedburner.com/TheHackersNews</span>
+            <span>06 Dec 2025</span>
+        </div>
     </article>
     
     <article class="article">
         <div class="article-title">Critical XXE Bug CVE-2025-66516 (CVSS 10.0) Hits Apache Tika, Requires Urgent Patch</div>
-        <div class="article-commentary">Woah, a massive XXE vulnerability in Apache Tika! This means attackers could potentially inject malicious XML, leading to serious data breaches. Seriously, a CVSS 10.0 score is *never* something to ignore – it’s a complete system compromise waiting to happen.  Teams need to patch these modules ASAP to avoid a whole lot of trouble!</div>
+        <div class="article-commentary">Woah, hold up! Apache Tika just got hit with a massive Critical XXE vulnerability (CVE-2025-66516) – basically, an attacker could potentially run wild with XML parsing. This is a 10.0 CVSS score, meaning it&#39;s a *serious* risk, especially for anyone using Apache Tika or its modules. Seriously, patch ASAP – it’s a game-changer for attackers.</div>
         <a href="https://thehackernews.com/2025/12/critical-xxe-bug-cve-2025-66516-cvss.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/critical-xxe-bug-cve-2025-66516-cvss.html
         </a>
+        <div class="article-meta">
+            <span>Source: https://feeds.feedburner.com/TheHackersNews</span>
+            <span>05 Dec 2025</span>
+        </div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">🦠</span>
+        MALWARE &amp; RANSOMWARE
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
+        <div class="article-commentary">Yo! CISA just added CVE-2025-61757 – a serious missing authentication flaw in Oracle Fusion Middleware – to their KEV Catalog. This means active exploitation is happening, which is a HUGE red flag for security pros. Agencies are already under BOD 22-01, but this underscores the importance of consistently reviewing and patching vulnerabilities. Seriously, keep your systems secure!</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog
+        </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
+        <div class="article-commentary">Yo! CISA just added CVE-2025-58034 – a Fortinet FortiWeb command injection vulnerability – to the KEV Catalog because it&#39;s actively being exploited. This means security pros need to prioritize patching, especially given the one-week remediation timeframe. It’s a stark reminder that vulnerabilities in widely-used products are constantly being targeted, and we need to stay on top of updates to minimize risk! Read more to learn...</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2025/11/18/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2025/11/18/cisa-adds-one-known-exploited-vulnerability-catalog
+        </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Adds Two Known Exploited Vulnerabilities to Catalog</div>
+        <div class="article-commentary">Yo, CISA just added two more vulnerabilities to their Known Exploited Vulnerabilities Catalog – Gladinet CentreStack and CWP Control Web Panel. This means these actively exploited flaws are now officially on the radar and pose a serious risk to organizations. It’s crucial for us security pros to stay on top of this, constantly monitoring the KEV Catalog and ensuring rapid remediation to protect our systems from these active threats. Read more to learn...</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2025/11/04/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2025/11/04/cisa-adds-two-known-exploited-vulnerabilities-catalog
+        </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System</div>
+        <div class="article-commentary">This report details a series of vulnerabilities primarily affecting Cisco devices – particularly routers – and how attackers could exploit them. The core issue revolves around weaknesses in how these devices manage network traffic and authentication. Essentially, attackers could gain unauthorized access by tricking the devices into accepting malicious commands or credentials.  It’s a big deal because Cisco equipment is *everywhere* in enterprise networks, so a successful attack could disrupt services and compromise sensitive data.  The report highlights the importance of strong configuration, regular patching, and robust monitoring to prevent these types of breaches.  You can read more to learn about the specific CVEs and mitigation strategies.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">🤖</span>
+        AI SECURITY
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Researchers Uncover 30&#43; Flaws in AI Coding Tools Enabling Data Theft and RCE Attacks</div>
+        <div class="article-commentary">Woah, this IDEsaster discovery is HUGE! Basically, AI coding tools are being exploited through clever prompt injection to steal data and even run malicious code. This throws a massive wrench into our expectations of AI security and highlights the urgent need for robust testing. Seriously, developers and security teams need to pay VERY close attention – it&#39;s a game changer!</div>
+        <a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html
+        </a>
+        <div class="article-meta">
+            <span>Source: https://feeds.feedburner.com/TheHackersNews</span>
+            <span>06 Dec 2025</span>
+        </div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">🔧</span>
+        TOOLS &amp; TECHNIQUES
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System</div>
+        <div class="article-commentary">Okay, so this document breaks down a significant threat landscape focusing on Cisco devices – specifically routers – and how attackers are exploiting them. Essentially, it details a series of vulnerabilities that allow attackers to gain unauthorized access, steal data, and potentially take control of the network. The core issue is that attackers are leveraging things like command injection, credential bypass, and even tunneling to move around the network undetected.  It’s a serious reminder that even seemingly well-established devices like Cisco routers have weaknesses that need constant monitoring and patching.  Security professionals should absolutely review this to understand the potential attack vectors and prioritize mitigation strategies - especially around software updates and hardening configurations.  Read more to learn how attackers are exploiting these vulnerabilities!</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">📊</span>
+        SECURITY RESEARCH
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System</div>
+        <div class="article-commentary">This report details a series of vulnerabilities primarily affecting Cisco devices, particularly routers and firewalls. Essentially, attackers could exploit weaknesses in how these devices manage their configurations and handle network traffic. The key takeaways are that misconfigured devices, weak passwords, and outdated software are major risks.  Security pros need to really focus on hardening these devices – think strong authentication, limiting network access, and keeping software up-to-date – to prevent these kinds of breaches. Check out the full details to learn how to mitigate these risks!</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+        <div class="article-meta">
+            <span>Source: https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+            <span>01 Jan 0001</span>
+        </div>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Researchers Uncover 30&#43; Flaws in AI Coding Tools Enabling Data Theft and RCE Attacks</div>
+        <div class="article-commentary">Woah, hold up! Researchers just found over 30 security holes in AI coding tools – basically, hackers can use these smart IDEs to steal your data or run commands on your system. This is a HUGE deal for anyone building or using AI-powered development environments. Seriously, we need to be extremely careful about how we’re leveraging these tools, it&#39;s a massive risk!</div>
+        <a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html
+        </a>
+        <div class="article-meta">
+            <span>Source: https://feeds.feedburner.com/TheHackersNews</span>
+            <span>06 Dec 2025</span>
+        </div>
     </article>
     
 </section>
