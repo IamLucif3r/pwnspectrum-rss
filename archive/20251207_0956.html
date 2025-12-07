@@ -85,39 +85,17 @@
         .author {
             font-size: 12px;
             color: var(--text-muted);
-            margin-bottom: 15px;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .social-links a {
+        .author a {
             color: var(--text-secondary);
             text-decoration: none;
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
         }
 
-        .social-links a:hover {
+        .author a:hover {
             color: var(--text-primary);
             text-shadow: 0 0 10px var(--text-primary);
-            transform: translateY(-2px);
-        }
-
-        .social-links svg {
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover svg {
-            filter: drop-shadow(0 0 8px var(--text-primary));
         }
 
         /* Greeting Section */
@@ -277,38 +255,9 @@
             <div class="tagline">Daily Cybersecurity Journal</div>
             <div class="issue-date">Issue Date: <span id="timestamp"></span></div>
             <div class="author">
-                by <strong>Anmol Singh Yadav</strong> (alias: IamLucif3r)
-            </div>
-            <div class="social-links">
-                <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10" />
-                        <path
-                            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                    </svg>
-                    Portfolio
-                </a>
-                <a href="https://github.com/iamlucif3r" target="_blank" title="GitHub">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
-                    GitHub
-                </a>
-                <a href="https://linkedin.com/in/anmolsinghyadav" target="_blank" title="LinkedIn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="https://x.com/IamLucif3r_" target="_blank" title="X (Twitter)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                    X
-                </a>
+                by <strong>Anmol Singh Yadav</strong> (@IamLucif3r) |
+                <a href="https://github.com/IamLucif3r_" target="_blank">GitHub</a> |
+                <a href="http://linkedin.com/in/anmolsinghyadav" target="_blank">LinkedIn</a>
             </div>
         </header>
 
@@ -321,9 +270,9 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "\"Yo security squad! Today's journal is all about staying ahead of the curve – we're breaking down a new vulnerability added to CISA’s KEV Catalog and the importance of patching ASAP!\"";
-    document.getElementById('greeting').textContent = "\"Yo security squad! Today's journal is all about staying ahead of the curve – we're breaking down a new vulnerability added to CISA’s KEV Catalog and the importance of patching ASAP!\"";
-    document.getElementById('timestamp').textContent = "\"07 Dec 2025, 09:59 IST\"";
+    document.getElementById('greeting').innerHTML = "\"What's up, security nerds! 💀 Let's dive into some digital danger!\"";
+    document.getElementById('greeting').textContent = "\"What's up, security nerds! 💀 Let's dive into some digital danger!\"";
+    document.getElementById('timestamp').textContent = "\"07 Dec 2025, 04:08 IST\"";
 </script>
 
 
@@ -336,7 +285,7 @@
     
     <article class="article">
         <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
-        <div class="article-commentary">Alright, so CISA just added CVE-2025-61757 to their KEV Catalog, meaning it’s actively being exploited. This is a big deal because it&#39;s a vulnerability in Oracle Fusion Middleware, and bad actors are already taking advantage of it. Basically, agencies (and really anyone using Oracle Fusion Middleware) need to get patching – CISA’s BOD 22-01 is pushing for rapid remediation. Seriously, don&#39;t wait, this is a direct threat!</div>
+        <div class="article-commentary">Yo, CISA just added CVE-2025-61757 to their KEV Catalog – basically, a serious Oracle vulnerability is being actively exploited! This means hackers are actively trying to use it, which is a HUGE red flag.  Seriously, this is why we gotta stay on top of vulnerability management, and CISA&#39;s doing a good job tracking these things.  Don&#39;t sleep on this one – check out the link to see the full details and how this impacts you! ➡️ [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
@@ -348,7 +297,7 @@
     
     <article class="article">
         <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
-        <div class="article-commentary">Yo! CISA just added CVE-2025-58034, a critical command injection vulnerability in Fortinet FortiWeb, to their KEV Catalog because it&#39;s actively being exploited. This means organizations need to react *fast* – a one-week remediation window is recommended. Seriously, patching these known risks is non-negotiable for security pros; it&#39;s how we stop attackers from gaining a foothold. Read more to learn how this impacts your security posture!</div>
+        <div class="article-commentary">Yo, CISA just added CVE-2025-58034 – a Fortinet FortiWeb command injection vulnerability – to their KEV Catalog, meaning it’s actively being exploited! This is a big deal for anyone dealing with FortiWeb or similar devices, especially since it ties into BOD 23-02. Seriously, gotta prioritize patching – the clock’s ticking! Check out the full details and directives here: [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/18/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/18/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
@@ -360,7 +309,7 @@
     
     <article class="article">
         <div class="article-title">CISA Adds Two Known Exploited Vulnerabilities to Catalog</div>
-        <div class="article-commentary">Yo! CISA just added two more juicy vulnerabilities to their Known Exploited Vulnerabilities Catalog – Gladinet CentreStack and CWP Control Web Panel. This means attackers are actively targeting these systems, which is a HUGE deal for security pros. It&#39;s another reminder to always prioritize patching and vulnerability management to stay ahead of the threat. Check out the full details to see how you can protect your systems!</div>
+        <div class="article-commentary">CISA just added two critical vulnerabilities – CVE-2025-11371 and CVE-2025-48703 – to their KEV Catalog because they&#39;re seeing active exploitation! This means attackers are already targeting these flaws, so it’s a huge deal for security pros. Seriously, you NEED to check out the link to see exactly what’s at risk and how to protect your systems. Click here: [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/04/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/04/cisa-adds-two-known-exploited-vulnerabilities-catalog
         </a>
@@ -372,7 +321,7 @@
     
     <article class="article">
         <div class="article-title">Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System</div>
-        <div class="article-commentary">This report details a series of vulnerabilities exploited against Cisco devices, primarily routers, and it&#39;s a serious reminder about the importance of meticulous device hardening. The key takeaway is that these vulnerabilities – including command injection and credential bypass – often stem from poorly configured devices and a lack of robust security practices.  Essentially, attackers were able to gain unauthorized access and control by leveraging weaknesses that, with proper setup, shouldn’t exist.  Security pros need to really focus on regular patching, strong password policies, and comprehensive network segmentation to prevent similar incidents. Read more to learn about specific steps you can take to mitigate these risks!</div>
+        <div class="article-commentary">This report details a serious vulnerability landscape targeting Cisco devices, particularly routers. Essentially, attackers can exploit flaws to gain unauthorized access, escalate privileges, and potentially take complete control of these devices – which are critical for network operations.  It highlights how important proactive monitoring, patching, and strong configuration hardening are to protect against these kinds of threats.  Want to dive deeper into the specific techniques and CVEs being used? Check out the full report!</div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
         </a>
@@ -384,7 +333,7 @@
     
     <article class="article">
         <div class="article-title">Researchers Uncover 30&#43; Flaws in AI Coding Tools Enabling Data Theft and RCE Attacks</div>
-        <div class="article-commentary">Woah, this is HUGE! Researchers found over 30 flaws in AI coding tools – basically, hackers can use them to steal data and even run commands on your computer. This ‘IDEsaster’ highlights a serious risk for developers and anyone using these tools. It’s a stark reminder to be incredibly cautious and constantly monitor for vulnerabilities as AI becomes more integrated into our workflows. Read more to learn...</div>
+        <div class="article-commentary">Whoa, hold up! Researchers just dropped a massive bombshell – over 30 flaws in AI coding tools are letting hackers steal data and run malicious code! Seriously, this &#39;IDEsaster&#39; is a HUGE deal for security pros and highlights how easily AI can be weaponized. Click here to dive deep and see exactly how these vulnerabilities work – it&#39;s mind-blowing! [Insert Link Here]</div>
         <a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html
         </a>
@@ -396,7 +345,7 @@
     
     <article class="article">
         <div class="article-title">Critical XXE Bug CVE-2025-66516 (CVSS 10.0) Hits Apache Tika, Requires Urgent Patch</div>
-        <div class="article-commentary">Woah, hold up! Apache Tika just got hit with a massive Critical XXE vulnerability (CVE-2025-66516) – basically, an attacker could potentially run wild with XML parsing. This is a 10.0 CVSS score, meaning it&#39;s a *serious* risk, especially for anyone using Apache Tika or its modules. Seriously, patch ASAP – it’s a game-changer for attackers.</div>
+        <div class="article-commentary">Woah, hold up! Apache Tika just got hit with a MASSIVE critical XXE vulnerability (CVE-2025-66516)! This means attackers could potentially wreak havoc by injecting malicious XML – seriously serious stuff. As security pros, we *need* to understand this and apply the patch ASAP. Click the link to dive deeper and stay ahead of the curve! 🔥</div>
         <a href="https://thehackernews.com/2025/12/critical-xxe-bug-cve-2025-66516-cvss.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/critical-xxe-bug-cve-2025-66516-cvss.html
         </a>
@@ -417,7 +366,7 @@
     
     <article class="article">
         <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
-        <div class="article-commentary">Yo! CISA just added CVE-2025-61757 – a serious missing authentication flaw in Oracle Fusion Middleware – to their KEV Catalog. This means active exploitation is happening, which is a HUGE red flag for security pros. Agencies are already under BOD 22-01, but this underscores the importance of consistently reviewing and patching vulnerabilities. Seriously, keep your systems secure!</div>
+        <div class="article-commentary">Yo! CISA just added CVE-2025-61757 to the KEV Catalog – a sneaky Oracle Fusion Middleware vulnerability being actively exploited. Seriously, this means malicious actors are *already* targeting it, and it&#39;s a major red flag for everyone&#39;s security posture. Gotta stay vigilant and prioritize patching! Check out the full details here: &lt;https://www.cisa.gov/known-exploited-vulnerabilities-catalog&gt;</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
@@ -429,7 +378,7 @@
     
     <article class="article">
         <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
-        <div class="article-commentary">Yo! CISA just added CVE-2025-58034 – a Fortinet FortiWeb command injection vulnerability – to the KEV Catalog because it&#39;s actively being exploited. This means security pros need to prioritize patching, especially given the one-week remediation timeframe. It’s a stark reminder that vulnerabilities in widely-used products are constantly being targeted, and we need to stay on top of updates to minimize risk! Read more to learn...</div>
+        <div class="article-commentary">Big news! CISA just added CVE-2025-58034 – a critical Fortinet FortiWeb vulnerability – to their KEV Catalog because it&#39;s actively being exploited. This means a major attack vector is now officially recognized and tracked. Seriously, security pros, this is a huge deal as it directly impacts the federal enterprise and highlights the constant need for vigilance. Check out the link to see the full details and learn how you can protect your systems: [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/18/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/18/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
@@ -441,7 +390,7 @@
     
     <article class="article">
         <div class="article-title">CISA Adds Two Known Exploited Vulnerabilities to Catalog</div>
-        <div class="article-commentary">Yo, CISA just added two more vulnerabilities to their Known Exploited Vulnerabilities Catalog – Gladinet CentreStack and CWP Control Web Panel. This means these actively exploited flaws are now officially on the radar and pose a serious risk to organizations. It’s crucial for us security pros to stay on top of this, constantly monitoring the KEV Catalog and ensuring rapid remediation to protect our systems from these active threats. Read more to learn...</div>
+        <div class="article-commentary">CISA&#39;s added two more juicy vulnerabilities – CVE-2025-11371 and CVE-2025-48703 – to their KEV Catalog, meaning they&#39;re actively being exploited! This is a massive deal for security pros, showing attackers are targeting these systems. Seriously, you need to check out the full details and the BOD 22-01 directive – it’s vital for patching and protecting your networks. Click here to dive in: [https://www.cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)</div>
         <a href="https://www.cisa.gov/news-events/alerts/2025/11/04/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/alerts/2025/11/04/cisa-adds-two-known-exploited-vulnerabilities-catalog
         </a>
@@ -453,7 +402,7 @@
     
     <article class="article">
         <div class="article-title">Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System</div>
-        <div class="article-commentary">This report details a series of vulnerabilities primarily affecting Cisco devices – particularly routers – and how attackers could exploit them. The core issue revolves around weaknesses in how these devices manage network traffic and authentication. Essentially, attackers could gain unauthorized access by tricking the devices into accepting malicious commands or credentials.  It’s a big deal because Cisco equipment is *everywhere* in enterprise networks, so a successful attack could disrupt services and compromise sensitive data.  The report highlights the importance of strong configuration, regular patching, and robust monitoring to prevent these types of breaches.  You can read more to learn about the specific CVEs and mitigation strategies.</div>
+        <div class="article-commentary">This report details a serious situation involving vulnerabilities in Cisco devices, specifically routers and firewalls. Essentially, attackers could exploit weaknesses to gain control of these devices, potentially leading to data breaches and disruption of network services.  It highlights the importance of regularly patching and hardening network infrastructure.  Want to dive deeper and see exactly how these vulnerabilities work? Click the link to explore the details and countermeasures!</div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
         </a>
@@ -474,7 +423,7 @@
     
     <article class="article">
         <div class="article-title">Researchers Uncover 30&#43; Flaws in AI Coding Tools Enabling Data Theft and RCE Attacks</div>
-        <div class="article-commentary">Woah, this IDEsaster discovery is HUGE! Basically, AI coding tools are being exploited through clever prompt injection to steal data and even run malicious code. This throws a massive wrench into our expectations of AI security and highlights the urgent need for robust testing. Seriously, developers and security teams need to pay VERY close attention – it&#39;s a game changer!</div>
+        <div class="article-commentary">Woah, this is HUGE! Researchers found over 30 flaws in AI coding tools – basically, bad actors can use them to steal data and run malicious code. This is a massive wake-up call for developers and security pros, showing how quickly AI tools can be exploited. Seriously, you *need* to read about the ‘IDEsaster’ – check out the link and let’s stay ahead of the curve! [Link to Article]</div>
         <a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html
         </a>
@@ -495,7 +444,7 @@
     
     <article class="article">
         <div class="article-title">Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System</div>
-        <div class="article-commentary">Okay, so this document breaks down a significant threat landscape focusing on Cisco devices – specifically routers – and how attackers are exploiting them. Essentially, it details a series of vulnerabilities that allow attackers to gain unauthorized access, steal data, and potentially take control of the network. The core issue is that attackers are leveraging things like command injection, credential bypass, and even tunneling to move around the network undetected.  It’s a serious reminder that even seemingly well-established devices like Cisco routers have weaknesses that need constant monitoring and patching.  Security professionals should absolutely review this to understand the potential attack vectors and prioritize mitigation strategies - especially around software updates and hardening configurations.  Read more to learn how attackers are exploiting these vulnerabilities!</div>
+        <div class="article-commentary">This report outlines a serious situation involving exploitation of vulnerabilities in Cisco devices, primarily using techniques like command injection and privilege escalation. It’s a classic example of attackers leveraging known weaknesses to gain control of network infrastructure. The fact that CVE-2023-20273 and CVE-2024-3400 are highlighted – especially with the potential for RCE – is a major red flag.  Security pros need to understand these tactics and focus on hardening their Cisco devices, implementing strong authentication, and regularly monitoring for suspicious activity.  Click the link to dive deeper and see how these vulnerabilities can be mitigated!</div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
         </a>
@@ -516,7 +465,7 @@
     
     <article class="article">
         <div class="article-title">Countering Chinese State-Sponsored Actors Compromise of Networks Worldwide to Feed Global Espionage System</div>
-        <div class="article-commentary">This report details a series of vulnerabilities primarily affecting Cisco devices, particularly routers and firewalls. Essentially, attackers could exploit weaknesses in how these devices manage their configurations and handle network traffic. The key takeaways are that misconfigured devices, weak passwords, and outdated software are major risks.  Security pros need to really focus on hardening these devices – think strong authentication, limiting network access, and keeping software up-to-date – to prevent these kinds of breaches. Check out the full details to learn how to mitigate these risks!</div>
+        <div class="article-commentary">This report details a serious situation involving vulnerabilities in Cisco devices – specifically routers – and how attackers could exploit them. Essentially, attackers could gain unauthorized access and control of these routers, potentially leading to data breaches or disrupting network operations.  It&#39;s a reminder that even seemingly secure devices need constant monitoring and proactive hardening. You should click the link to understand the specific vulnerabilities and how to mitigate the risks - it’s crucial for any organization that relies on these devices.</div>
         <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
         </a>
@@ -528,7 +477,7 @@
     
     <article class="article">
         <div class="article-title">Researchers Uncover 30&#43; Flaws in AI Coding Tools Enabling Data Theft and RCE Attacks</div>
-        <div class="article-commentary">Woah, hold up! Researchers just found over 30 security holes in AI coding tools – basically, hackers can use these smart IDEs to steal your data or run commands on your system. This is a HUGE deal for anyone building or using AI-powered development environments. Seriously, we need to be extremely careful about how we’re leveraging these tools, it&#39;s a massive risk!</div>
+        <div class="article-commentary">Woah, this is HUGE! Researchers found over 30 security holes in AI coding tools – basically, hackers can trick them into leaking data or running malicious code. Seriously concerning for anyone using these tools, and it highlights how quickly AI security needs to catch up. Check out Ari Marzouk&#39;s &#39;IDEsaster&#39; report - you gotta see this! [Link to article - Placeholder: www.example.com/idesaster]</div>
         <a href="https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2025/12/researchers-uncover-30-flaws-in-ai.html
         </a>
@@ -545,38 +494,11 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="footer-author">Written by Anmol Singh Yadav (alias: IamLucif3r)</div>
+            <div class="footer-author">Written by Anmol Singh Yadav (@IamLucif3r)</div>
             <div>Daily insights from the cybersecurity trenches</div>
             <div class="footer-links">
-                <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10" />
-                        <path
-                            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                    </svg>
-                    Portfolio
-                </a>
-                <a href="https://github.com/iamlucif3r" target="_blank" title="GitHub">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
-                    GitHub
-                </a>
-                <a href="https://linkedin.com/in/anmolsinghyadav" target="_blank" title="LinkedIn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="https://x.com/IamLucif3r_" target="_blank" title="X (Twitter)">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                    X
-                </a>
+                <a href="https://github.com/IamLucif3r_" target="_blank">GitHub</a>
+                <a href="http://linkedin.com/in/anmolsinghyadav" target="_blank">LinkedIn</a>
             </div>
         </footer>
     </div>
