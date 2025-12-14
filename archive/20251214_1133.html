@@ -326,127 +326,47 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hello hackers, I am excited to share what happened last day? It’s crazy! \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and buckle up because we've got a whirlwind of explosive vulnerabilities and real-world impacts to unpack! This week, we’re diving deep into everything from Microsoft's massive bug bounty surge and darknet data breaches – like that Rathaus hack – to the evolving tactics of North Korean shadow hackers and the urgent need for robust Zero-Trust strategies. We're also analyzing how companies like Sophos and Rubrik are leading the charge in protecting Microsoft 365, and frankly, it's a battleground we need to understand intimately. Let’s get to the heart of the matter – cybersecurity is a constant evolution, and we're here to stay one step ahead!";
-    document.getElementById('timestamp').textContent = "14 Dec 2025, 11:34 UTC";
+    document.getElementById('greeting').innerHTML = "Hello hackers, I am excited to share what happened last day? It's crazy! \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let me tell you – it’s been a *bonkers* week in the world of cybersecurity! We’re talking ZERO-DAY MADNESS with massive bug blowouts, sneaky Lanscope attacks, and a WSUS breach that’s sending shivers down everyone’s spines. Then there’s the RANSOMWARE RAMPAGE, fueled by Gold Salem’s evolution and terrifying EDR killers like Shanya. But don’t despair – we’re diving into how Sophos XDR and Intelix are building a 100% detection defense, uncovering North Korean threats, and using Sophos’ incredible story to combat Phake Phishing. Let’s get started, because frankly, we need to be ready!";
+    document.getElementById('timestamp').textContent = "13 Dec 2025, 11:34 UTC";
 </script>
 
 
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        EXPLOSIVE VULNERABILITIES
+        ZERO-DAY MADNESS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Microsoft Unleashes the Floodgates: Bug Bounties Go Mainstream!</div>
-        <div class="article-commentary">Microsoft&#39;s bold move – making *all* vulnerabilities fair game for bug bounties – is sending shockwaves through the cybersecurity world. Imagine a scenario: a shadowy hacker discovers a critical flaw in Windows. Normally, this would remain secret until Microsoft patches it, potentially leaving millions vulnerable. Now, anyone can report it, incentivizing rapid discovery and a quicker defense. The &#39;villain&#39; here is the delay – the time between a vulnerability&#39;s existence and its correction. The &#39;hero&#39; is the proactive community, rewarded for vigilance.</div>
-        <a href="https://www.csoonline.com/article/4105950/microsoft-flips-security-script-in-scope-by-default-makes-all-vulnerabilities-fair-game-for-bug-bounties.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4105950/microsoft-flips-security-script-in-scope-by-default-makes-all-vulnerabilities-fair-game-for-bug-bounties.html
+        <div class="article-title">Patch Tuesday Inferno: The Year&#39;s Biggest Bug Blowout!</div>
+        <div class="article-commentary">December’s Patch Tuesday delivered a shocking silence – no Critical Windows bugs! But the aftermath was a deluge of Mariner mop-up vulnerabilities, highlighting the relentless pressure on security teams. This demonstrated a sophisticated attacker prioritizing widespread exploitation, a dangerous game with potentially catastrophic consequences.</div>
+        <a href="https://news.sophos.com/en-us/2025/12/11/a-big-finish-to-2025-in-decembers-patch-tuesday/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/11/a-big-finish-to-2025-in-decembers-patch-tuesday/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Home Depot&#39;s Secret Door: A Year of Internal Chaos!</div>
-        <div class="article-commentary">A single leaked credential, carelessly exposed, opened the door to a year of devastating access for attackers. This isn’t just about a password; it&#39;s about the insidious nature of prolonged access. The &#39;villain&#39; is complacency – the failure to rotate credentials or implement robust access controls. The &#39;hero&#39; is the organization&#39;s defensive posture, ultimately realizing this vulnerability and mitigating the damage. The ripple effect demonstrates the persistent danger of compromised credentials.</div>
-        <a href="https://www.csoonline.com/article/4105940/leaked-home-depot-credential-exposed-internal-systems-for-a-year.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4105940/leaked-home-depot-credential-exposed-internal-systems-for-a-year.html
+        <div class="article-title">React2Shell Unleashed: Remote Takeover Chaos!</div>
+        <div class="article-commentary">The React2Shell exploit, now in the wild, is a ticking time bomb. Opportunistic attackers are already deploying this code, promising to infiltrate systems with ease. This highlights the urgency of patching and proactive vulnerability management – a single misstep can open the door to a full-blown system compromise.</div>
+        <a href="https://news.sophos.com/en-us/2025/12/11/react2shell-flaw-cve-2025-55182-exploited-for-remote-code-execution/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/11/react2shell-flaw-cve-2025-55182-exploited-for-remote-code-execution/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Gladinet&#39;s Hidden Backdoor: Remote Code Execution Nightmare!</div>
-        <div class="article-commentary">Enterprises relying on Gladinet servers unwittingly exposed themselves to a catastrophic risk: remote code execution. Attackers exploited this seemingly innocuous file-sharing service, gaining the power to commandeer systems and steal data. The ‘villain’ is the inherent risk of third-party software, the ‘hero’ is the vigilant security team actively monitoring and controlling access.</div>
-        <a href="https://www.csoonline.com/article/4105766/gladinet-servers-file-sharing-servers-allow-remote-code-execution.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4105766/gladinet-servers-file-sharing-servers-allow-remote-code-execution.html
+        <div class="article-title">LANSCOPE Zero-Day: A Stealthy Assault!</div>
+        <div class="article-commentary">BRONZE BUTLER unleashed a silent strike against LANSCOPE, exploiting a zero-day vulnerability. This tactic – targeting legacy systems with unpatched vulnerabilities – is a hallmark of advanced persistent threats, demonstrating a cold, calculated approach to gaining access.</div>
+        <a href="https://news.sophos.com/en-us/2025/10/30/bronze-butler-exploits-japanese-asset-management-software-vulnerability/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/10/30/bronze-butler-exploits-japanese-asset-management-software-vulnerability/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Zero-Trust Now: Communication is Your Shield!</div>
-        <div class="article-commentary">Implementing a Zero-Trust model isn’t just about technology; it&#39;s about establishing clear communication pathways. Without it, organizations become vulnerable to escalating threats. The &#39;villain&#39; is a breach spreading through implicit trust, while the &#39;hero&#39; is a robust communication strategy that quickly identifies and isolates the problem.</div>
-        <a href="https://www.csoonline.com/article/4105647/zero-trust-umsetzung-die-richtige-kommunikation-zahlt.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4105647/zero-trust-umsetzung-die-richtige-kommunikation-zahlt.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">DragonForce Strikes Back: Ransomware Targets MSPs!</div>
-        <div class="article-commentary">Ransomware actor DragonForce exploited SimpleHelp vulnerabilities to attack MSPs and their customers, amplifying the impact exponentially. This isn&#39;t just about one company’s loss – it&#39;s about a cascading effect, demonstrating the interconnectedness of modern systems. The &#39;villain&#39; is the vulnerability itself, the &#39;hero&#39; is proactive monitoring and rapid response.</div>
-        <a href="https://news.sophos.com/en-us/2025/05/27/dragonforce-actors-target-simplehelp-vulnerabilities-to-attack-msp-customers/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://news.sophos.com/en-us/2025/05/27/dragonforce-actors-target-simplehelp-vulnerabilities-to-attack-msp-customers/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">North Korean Shadow Hackers: A CISO&#39;s Playbook</div>
-        <div class="article-commentary">Are North Korean threat actors lurking within your organization? This playbook provides a critical toolkit for detection and avoidance – a proactive defense against a sophisticated and persistent adversary. The &#39;villain&#39; is the stealthy, targeted nature of North Korean cyberattacks, while the &#39;hero&#39; is a diligent CISO utilizing advanced threat intelligence.</div>
-        <a href="https://news.sophos.com/en-us/2025/11/05/detecting-fraudulent-north-korean-hires-a-ciso-playbook/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://news.sophos.com/en-us/2025/11/05/detecting-fraudulent-north-korean-hires-a-ciso-playbook/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">When Cybersecurity Gets Phished: A Defense in Depth Strategy</div>
-        <div class="article-commentary">A Sophos employee fell victim to a phishing attack, but a layered defense process swiftly neutralized the threat. This demonstrates the absolute necessity of a defense-in-depth strategy – one that doesn&#39;t rely solely on individual vigilance. The ‘villain’ is the cunning of a phishing scam, the ‘hero’ is a robust layered defense system.</div>
-        <a href="https://news.sophos.com/en-us/2025/09/22/what-happens-when-a-cybersecurity-company-gets-phished/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://news.sophos.com/en-us/2025/09/22/what-happens-when-a-cybersecurity-company-gets-phished/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Intelix for Microsoft Copilot: Threat Intelligence Amplified!</div>
-        <div class="article-commentary">Sophos Intelix directly injects critical threat intelligence into Microsoft 365 Copilot, transforming it into a proactive defender. This isn&#39;t simply about alerts – it’s about predictive defense, anticipating attacks before they materialize. The &#39;villain&#39; is the lag time between a new threat and its detection, while the ‘hero’ is the real-time intelligence-driven response.</div>
-        <a href="https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-security-copilot/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-security-copilot/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Rathaus Hacked: Darknet Data Exposed!</div>
-        <div class="article-commentary">A cyberattack on a city hall resulted in sensitive data being leaked onto the darknet, highlighting the vulnerability of public sector organizations. This isn’t just about stolen data; it’s about the erosion of public trust and the potential for serious harm. The &#39;villain&#39; is the careless exposure of data, while the ‘hero’ is proactive vulnerability management.</div>
-        <a href="https://www.csoonline.com/article/4105535/cyberangriff-auf-rathaus-hacker-veroffentlichen-daten-im-darknet.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4105535/cyberangriff-auf-rathaus-hacker-veroffentlichen-daten-im-darknet.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Simplify Cybersecurity: Identity Management is Key</div>
-        <div class="article-commentary">Effective identity management – the cornerstone of a robust cybersecurity strategy. Without it, organizations become exposed to a multitude of threats. The &#39;villain&#39; is inadequate access control, while the ‘hero’ is strong identity governance.</div>
-        <a href="https://www.csoonline.com/article/4104438/how-to-simplify-enterprise-cybersecurity-through-effective-identity-management.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4104438/how-to-simplify-enterprise-cybersecurity-through-effective-identity-management.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Intelix for Microsoft 365 Copilot: Instant Threat Protection</div>
-        <div class="article-commentary">Bringing Sophos threat intelligence directly into Microsoft 365 Copilot provides immediate protection.  This is about transforming security from reactive to proactive. The ‘villain’ is delayed threat detection, while the ‘hero’ is intelligence-driven defense.</div>
-        <a href="https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-365-copilot/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-365-copilot/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">ConsentFix: The Phishing Attack Evolves!</div>
-        <div class="article-commentary">A new phishing variant, ConsentFix, demonstrates the ever-evolving tactics of cybercriminals. It’s a reminder that vigilance is a continuous pursuit. The ‘villain’ is the sophistication of social engineering, the ‘hero’ is an updated awareness training program.</div>
-        <a href="https://www.csoonline.com/article/4105230/meet-consentfix-a-new-twist-on-the-clickfix-phishing-attack.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4105230/meet-consentfix-a-new-twist-on-the-clickfix-phishing-attack.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Manipulated Networks: The Subtle Art of Control</div>
-        <div class="article-commentary">Cyberattacks are no longer just about brute force – they’re about subtly manipulating networks and systems.  This demonstrates the insidious nature of modern threats. The ‘villain’ is the deceptive nature of network manipulation, the ‘hero’ is a network monitoring system to identify anomalies.</div>
-        <a href="https://www.csoonline.com/article/4104620/wie-im-netz-gezielt-manipuliert-wird.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4104620/wie-im-netz-gezielt-manipuliert-wird.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">SAML Broken: A Critical System Under Siege</div>
-        <div class="article-commentary">Researchers uncovered a serious flaw in SAML authentication, exposing systems to catastrophic damage. This illustrates the inherent risk of relying on complex, legacy protocols. The ‘villain’ is a weak authentication system, the ‘hero’ is a transition to stronger authentication methods.</div>
-        <a href="https://www.csoonline.com/article/4105030/saml-authentication-broken-almost-beyond-repair.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4105030/saml-authentication-broken-almost-beyond-repair.html
+        <div class="article-title">WSUS Breach: Data Heist in Plain Sight!</div>
+        <div class="article-commentary">CVE-2025-59287 became a gateway for a data breach, fueled by public disclosure. Attackers swiftly capitalized, showcasing the vulnerability of relying on outdated systems and the importance of robust access control measures. This is a stark reminder of the risks associated with unmanaged updates and shared vulnerabilities.</div>
+        <a href="https://news.sophos.com/en-us/2025/10/29/windows-server-update-services-wsus-vulnerability-abused-to-harvest-sensitive-data/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/10/29/windows-server-update-services-wsus-vulnerability-abused-to-harvest-sensitive-data/
         </a>
     </article>
     
@@ -455,31 +375,112 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x02]</span>
-        REAL-WORLD IMPACT
+        RANSOMWARE RAMPAGE
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Sophos: Clarity, Context, and Confidence in a Threat-Ridden World!</div>
-        <div class="article-commentary">From MDR services to open threat intelligence frameworks, Sophos is delivering the clarity, context, and confidence organizations need to stay ahead of evolving threats.  This isn’t just about technology – it’s about empowering security teams. The &#39;villain&#39; is the increasing complexity of cyber threats, while the ‘hero’ is a holistic security strategy.</div>
+        <div class="article-title">GOLD SALEM’s Evolution: A Ransomware Masterclass</div>
+        <div class="article-commentary">The GOLD SALEM tradecraft, meticulously analyzed over six months, reveals a constantly evolving threat. Their use of recruitment platforms and modified infection chains demonstrates a strategic approach, blurring the lines between data theft and ransomware deployment.  This speaks to a ransomware group’s adaptability, requiring constant vigilance.</div>
+        <a href="https://news.sophos.com/en-us/2025/12/11/gold-salem-tradecraft-for-deploying-warlock-ransomware/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/11/gold-salem-tradecraft-for-deploying-warlock-ransomware/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Shanya: The EDR Killer Arrives!</div>
+        <div class="article-commentary">Shanya, a packer-as-a-service, is a game-changer in the ransomware scene, threatening to overwhelm even the most sophisticated EDR solutions. This illustrates the difficulty in detecting and blocking malware disguised as legitimate software, demanding layered security defenses.</div>
+        <a href="https://news.sophos.com/en-us/2025/12/06/inside-shanya-a-packer-as-a-service-fueling-modern-attacks/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/06/inside-shanya-a-packer-as-a-service-fueling-modern-attacks/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Counter Threat Units: A Bimonthly Threat Scan</div>
+        <div class="article-commentary">The Counter Threat Units report illuminates the July/August threat landscape, revealing a surge in activity – a critical indicator for proactive security teams. It’s a snapshot of the evolving battlefield, showing attackers are increasingly coordinated and persistent.</div>
+        <a href="https://news.sophos.com/en-us/2025/10/17/threat-intelligence-executive-report-volume-2025-number-5/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/10/17/threat-intelligence-executive-report-volume-2025-number-5/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Sophos Intelix: Clarity in the Chaos</div>
+        <div class="article-commentary">Sophos’s delivery of cybersecurity clarity to Microsoft environments – MDR services, open threat intelligence – is key. Organizations can now respond with confidence, understanding exactly what’s at risk. It&#39;s a tangible shift from reactive to proactive security.</div>
         <a href="https://news.sophos.com/en-us/2025/11/18/advancing-cybersecurity-for-microsoft-environments/" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://news.sophos.com/en-us/2025/11/18/advancing-cybersecurity-for-microsoft-environments/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Rubrik &amp; Sophos: Shielding Microsoft 365 from Rising Cyber Attacks!</div>
-        <div class="article-commentary">With cyberattacks skyrocketing, particularly against Microsoft 365, Rubrik and Sophos are providing a robust defense. The &#39;villain&#39; is the constant escalation of cyber threats, while the ‘hero’ is a combined defense strategy.</div>
+        <div class="article-title">Rubrik &amp; Sophos: Microsoft 365 Under Siege</div>
+        <div class="article-commentary">With account takeovers and email compromise surging, Rubrik and Sophos offer a vital defense.  Organizations are under siege – a clear picture of the threats to Microsoft 365 highlights the urgency of robust security strategies and access controls.</div>
         <a href="https://news.sophos.com/en-us/2025/08/04/rubrik-sophos-enhance-cyber-resilience-for-microsoft-365/" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://news.sophos.com/en-us/2025/08/04/rubrik-sophos-enhance-cyber-resilience-for-microsoft-365/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Sophos Secure by Design 2025: Progress on a Critical Commitment!</div>
-        <div class="article-commentary">One year into their secure-by-design initiatives, Sophos is demonstrating tangible progress, reinforcing their commitment to robust security. The ‘villain’ is ongoing cyber threats, while the ‘hero’ is a sustained security strategy.</div>
-        <a href="https://news.sophos.com/en-us/2025/07/28/sophos-secure-by-design-2025-progress/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://news.sophos.com/en-us/2025/07/28/sophos-secure-by-design-2025-progress/
+        <div class="article-title">DragonForce: MSPs and Customers Targeted</div>
+        <div class="article-commentary">The DragonForce actors exploited SimpleHelp vulnerabilities to strike at MSPs and their customers – a targeted attack showcasing the risks of relying on outdated RMM systems. This demonstrates the importance of timely patching and rigorous vendor management.</div>
+        <a href="https://news.sophos.com/en-us/2025/05/27/dragonforce-actors-target-simplehelp-vulnerabilities-to-attack-msp-customers/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/05/27/dragonforce-actors-target-simplehelp-vulnerabilities-to-attack-msp-customers/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        DEFENSE &amp; DETECTION
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Sophos XDR: 100% Detection – A New Standard!</div>
+        <div class="article-commentary">Sophos XDR achieving 100% detection coverage in the MITRE ATT&amp;CK Evaluation is a monumental achievement, signaling a new standard for threat detection. It highlights the power of a comprehensive, adaptive security solution, transforming how organizations respond to attacks.</div>
+        <a href="https://news.sophos.com/en-us/2025/12/10/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/10/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Sophos Intelix for Microsoft 365 Copilot: Threat Intelligence Amplified!</div>
+        <div class="article-commentary">Bringing Sophos threat intelligence directly into Microsoft 365 Copilot creates a proactive defense layer. It’s a strategic partnership, empowering users with real-time insights to prevent attacks before they happen – a game-changer in a world of increasingly sophisticated phishing attempts.</div>
+        <a href="https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-365-copilot/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-365-copilot/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Sophos Intelix for Microsoft Security Copilot: Elevating Threat Intelligence</div>
+        <div class="article-commentary">Elevating threat intelligence for all Security Copilot users strengthens Microsoft’s entire security ecosystem.  It&#39;s a broader defense, ensuring that every user benefits from the latest threat information, dramatically improving overall security posture.</div>
+        <a href="https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-security-copilot/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/12/05/introducing-sophos-intelix-for-microsoft-security-copilot/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISO Playbook: North Korean Hires – A Critical Warning</div>
+        <div class="article-commentary">Detecting North Korean threat actors infiltrating your organization is now a critical priority. Sharing a dedicated playbook provides the tools and guidance needed to proactively identify and mitigate this escalating risk – a crucial step in safeguarding national security and intellectual property.</div>
+        <a href="https://news.sophos.com/en-us/2025/11/05/detecting-fraudulent-north-korean-hires-a-ciso-playbook/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/11/05/detecting-fraudulent-north-korean-hires-a-ciso-playbook/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Phake Phishing: The Debate Continues</div>
+        <div class="article-commentary">The ongoing debate around phake phishing simulations underscores the challenge of training users to identify sophisticated attacks. Sophos’s analysis offers a clear-eyed perspective, informing a more effective phishing philosophy – a cornerstone of any robust security strategy.</div>
+        <a href="https://news.sophos.com/en-us/2025/10/31/phake-phishing-phundamental-or-pholly/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/10/31/phake-phishing-phundamental-or-pholly/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Phished: A Real-World Defense – The Sophos Story</div>
+        <div class="article-commentary">When a Sophos employee was phished, our end-to-end defense process immediately kicked in, showcasing the power of rapid response. This isn’t just a story about a single incident; it’s a demonstration of our commitment to proactive security and a continuously evolving defense.</div>
+        <a href="https://news.sophos.com/en-us/2025/09/22/what-happens-when-a-cybersecurity-company-gets-phished/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://news.sophos.com/en-us/2025/09/22/what-happens-when-a-cybersecurity-company-gets-phished/
         </a>
     </article>
     
