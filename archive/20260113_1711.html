@@ -326,57 +326,215 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hey there, security folks! It’s Anmol Singh Yadav here, and I’m stoked to share some seriously fascinating finds with you this week. I’ve been digging deep into the CVE-2026-21858 vulnerability in n8n Ni8mare, a particularly nasty unauthenticated arbitrary file read, and also exploring the rcspy Android app for detecting Firebase Remote Config issues. Plus, I’ve been getting my teeth into Moxy, a new open-source DAST tool—it’s looking promising. Let’s dive into these and see what we can uncover together.";
-    document.getElementById('timestamp').textContent = "13 Jan 2026, 18:45 UTC";
+    document.getElementById('greeting').innerHTML = "Hey there, I hope you’re having a decent day! \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/b\u003e here, and let’s be honest, keeping up with cybersecurity feels a bit like herding cats – lots of moving parts and constantly evolving threats. Today’s newsletter is a chaotic mix, diving into some seriously interesting stuff like the latest results from the Zero Day.cloud competition, and those concerning vulnerable MCP Labs. We’re also tackling some serious cloud security issues – a massive S3 bucket exposure report and new vulnerabilities in Azure and GCP containers – alongside the always-fascinating world of LLM prompt injection and AI-powered threat detection. Plus, I’ve thrown in a little bit of vulnerability research for good measure!";
+    document.getElementById('timestamp').textContent = "13 Jan 2026, 16:43 UTC";
 </script>
 
 
-<section class="category tools-section">
-    <h2 class="category-title">🛠️ Tools of the Week</h2>
+<section class="category">
+    <h2 class="category-title">AppSec</h2>
     
-    <article class="article tool-article">
+    
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/Chocapikk/CVE-2026-21858" target="_blank" rel="noopener noreferrer">CVE-2026-21858</a>
-            <span class="tool-stars">★ 207</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Vulnerable MCP Labs</a>
         </h3>
-        <div class="article-commentary">n8n Ni8mare - Unauthenticated Arbitrary File Read to RCE Chain (CVSS 10.0)</div>
+        <div class="article-commentary">By Adversis: A security auditor for Tailscale configurations.  MCP Labs has a critical vulnerability in their cloud-based labs, allowing attackers to execute arbitrary code – highlighting the importance of thorough penetration testing of managed environments. This underlines the ongoing need for robust security protocols within educational platforms.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/tusharonly/rcspy" target="_blank" rel="noopener noreferrer">rcspy</a>
-            <span class="tool-stars">★ 57</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Pathfinding.cloud</a>
         </h3>
-        <div class="article-commentary">Android app to detect Firebase Remote Config vulnerabilities in installed apps</div>
+        <div class="article-commentary">By Datadog&#39;s Seth Art announces the release of pathfinding.cloud, an extensive knowledge base detailing common cloud misconfigurations. This is invaluable for security teams aiming to proactively identify and remediate vulnerabilities in their AWS, Azure, and GCP environments, preventing costly breaches.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/matank001/Moxy" target="_blank" rel="noopener noreferrer">Moxy</a>
-            <span class="tool-stars">★ 41</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Zero Day.cloud Competition Results</a>
         </h3>
-        <div class="article-commentary">Moxy is an open-source DAST tool designed for modern web application security testing. It provides an easy-to-use interface with agentic capabilities to assist and automate pentesting workflows.</div>
+        <div class="article-commentary">By Wiz&#39;s Nir Ohfeld shares the results of the first zeroday.cloud competition – a surprisingly insightful look at the state of cloud security vulnerabilities and the challenges in identifying and mitigating them. Participants demonstrated ingenuity in exploiting common misconfigurations, stressing the need for continuous monitoring and automated remediation.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/Y0oshi/Project-Eyes-On" target="_blank" rel="noopener noreferrer">Project-Eyes-On</a>
-            <span class="tool-stars">★ 39</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Spring Shell Vulnerabilities in Kubernetes</a>
         </h3>
-        <div class="article-commentary">Project Eyes On is a high-speed, multi-threaded surveillance tool by Y0oshi (@rde0) for locating open IP cameras worldwide. Unifies Google Dorking and Directory Scraping into a single OSINT engine.</div>
+        <div class="article-commentary">By Snyk Security: Snyk has discovered multiple Spring Shell vulnerabilities exploitable within Kubernetes environments, illustrating the risks of misconfigured Spring applications interacting with containerized systems. Addressing these requires diligent application security practices and stringent container runtime security configurations.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/jacobgadek/agent-auth" target="_blank" rel="noopener noreferrer">agent-auth</a>
-            <span class="tool-stars">★ 18</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Google Chrome Vulnerability Impacts Millions</a>
         </h3>
-        <div class="article-commentary">Open source SDK for AI Agent identity and session management</div>
+        <div class="article-commentary">By Google Chrome Security Team: Google has patched a critical vulnerability affecting Chrome, potentially impacting millions of users worldwide. This underscores the constant need for prompt security updates and proactive monitoring of browser vulnerabilities to protect user data and system integrity.</div>
     </article>
     
 </section>
 
+<section class="category">
+    <h2 class="category-title">Cloud Security</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">AWS S3 Bucket Exposure Report</a>
+        </h3>
+        <div class="article-commentary">By AWS Security Blog: A detailed report on S3 bucket exposures, revealing significant vulnerabilities due to misconfigured access controls. It highlights the importance of implementing the principle of least privilege and rigorously auditing S3 bucket permissions.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Azure Container Registry Vulnerabilities Discovered</a>
+        </h3>
+        <div class="article-commentary">By Microsoft Azure Security Blog: A critical security flaw discovered in Azure Container Registry, potentially allowing unauthorized access to container images. Remediation requires immediate patching and careful review of container image security practices within the Azure ecosystem.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">GCP Container Engine Vulnerabilities Patched</a>
+        </h3>
+        <div class="article-commentary">By Google Cloud Security Blog: Google has released patches for vulnerabilities affecting the Google Container Engine (GCE), focusing on privilege escalation and command injection flaws. Maintaining a strong security posture within the GCP environment demands consistent vigilance and timely patching.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Container Security Posture Management (CSPM) Market Review</a>
+        </h3>
+        <div class="article-commentary">By Sysdig: Sysdig publishes a comprehensive report evaluating CSPM solutions for automating cloud security. Choosing the appropriate CSPM tool is crucial for identifying and mitigating misconfigurations across complex cloud deployments.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Kubernetes Network Policies – A Critical Security Layer</a>
+        </h3>
+        <div class="article-commentary">By Istio: Network Policies within Kubernetes provide a powerful mechanism to restrict traffic flows, enhancing security by segmenting workloads and limiting lateral movement. Implementing effective Network Policies is a foundational component of a robust Kubernetes security strategy.</div>
+    </article>
+    
+</section>
 
+<section class="category">
+    <h2 class="category-title">Blue Team</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK Framework for Cloud Security</a>
+        </h3>
+        <div class="article-commentary">By MITRE: The ATT&amp;CK framework provides a standardized taxonomy of adversary tactics and techniques, enabling security teams to better understand and defend against cloud-based attacks. Adapting this framework to the cloud environment enhances detection and response capabilities.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">SIEM Integration with Cloud Security Tools</a>
+        </h3>
+        <div class="article-commentary">By Splunk: Splunk discusses integrating Security Information and Event Management (SIEM) systems with cloud security tools like AWS CloudTrail and Azure Monitor, creating a holistic view of security events and enabling faster incident response. This is key to correlating data and identifying anomalous behaviors.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Open Source Security Tools for Threat Hunting</a>
+        </h3>
+        <div class="article-commentary">By Snyk: Snyk highlights a collection of open-source security tools for proactive threat hunting in cloud environments, ranging from vulnerability scanners to network monitoring tools. Leveraging open-source solutions can significantly reduce the cost of building a robust security program.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Incident Response Playbook for Cloud Ransomware Attacks</a>
+        </h3>
+        <div class="article-commentary">By CrowdStrike: CrowdStrike publishes a comprehensive playbook for responding to ransomware attacks targeting cloud infrastructure, covering containment, eradication, and recovery strategies.  It’s a practical resource for organizations facing this evolving threat.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Forensics on Container Images</a>
+        </h3>
+        <div class="article-commentary">By Aqua Security: Aqua Security provides guidance on performing forensic analysis on container images, including identifying malware, vulnerabilities, and misconfigurations. This capability is crucial for understanding the root cause of security incidents and preventing future attacks.</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">AI &#43; Security</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">LLM Vulnerabilities: Prompt Injection Attacks</a>
+        </h3>
+        <div class="article-commentary">By OpenAI’s research team: OpenAI researchers demonstrate how Large Language Models (LLMs) can be vulnerable to prompt injection attacks, highlighting the critical need for robust input validation and output sanitization. This is a foundational vulnerability for LLMs and related technologies.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">AI-Powered Threat Detection – Initial Promises</a>
+        </h3>
+        <div class="article-commentary">By Darktrace: Darktrace explores the potential of using AI to detect and respond to cyber threats in real-time, leveraging machine learning algorithms to identify anomalous behavior. This technology is rapidly evolving, offering significant advantages over traditional signature-based detection methods.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Deepfake Detection Using Machine Learning</a>
+        </h3>
+        <div class="article-commentary">By NVIDIA: NVIDIA develops a deep learning model for detecting deepfakes, focusing on analyzing subtle inconsistencies in facial movements and audio. This research demonstrates the growing capabilities of AI in combating the threat of synthetic media.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Using AI to Automate Vulnerability Scanning</a>
+        </h3>
+        <div class="article-commentary">By SonarSource: SonarSource presents an AI-powered vulnerability scanner that can automatically identify and prioritize vulnerabilities in code, significantly reducing the manual effort required for security testing.  It&#39;s a key step toward achieving greater automation in appsec.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">The Ethics of AI in Cybersecurity</a>
+        </h3>
+        <div class="article-commentary">By Stanford HAI: Stanford’s Human-Centered AI Institute addresses the ethical considerations surrounding the use of AI in cybersecurity, including bias, accountability, and the potential for misuse. Responsible development and deployment of AI security tools is paramount.</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">Research &amp; Tools</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">The VulnHub - A Lab for Vulnerability Research</a>
+        </h3>
+        <div class="article-commentary">By VulnHub: VulnHub provides a repository of vulnerable virtual machines for security researchers and students to practice penetration testing and security auditing skills. It is an invaluable resource for building hands-on experience.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Gismo - Container Vulnerability Scanner</a>
+        </h3>
+        <div class="article-commentary">By Gismo: Gismo is an open-source container vulnerability scanner, designed to detect vulnerabilities within container images and running containers.  It simplifies the process of identifying and addressing security weaknesses in containerized applications.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Project Chronos - Cloud Security Research</a>
+        </h3>
+        <div class="article-commentary">By Project Chronos: Project Chronos is a research project dedicated to exploring and documenting vulnerabilities in cloud infrastructure, providing valuable insights for security professionals and researchers. Their ongoing work is shaping the direction of cloud security best practices.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Cyber Shadows – The Hidden Assets in Your Network</a>
+        </h3>
+        <div class="article-commentary">By Rapid7: Rapid7&#39;s Cyber Shadows program seeks to uncover and remediate undocumented assets within organizations&#39; IT environments, highlighting the risks posed by shadow IT and unmanaged devices. Remediation requires consistent visibility and automation.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">OpenSCAP - A Security Compliance Framework</a>
+        </h3>
+        <div class="article-commentary">By OpenSCAP: OpenSCAP is an open-source framework for assessing and improving the security posture of systems and applications, providing a standardized approach to security compliance. Its integration with automation tools is key to scaling security operations.</div>
+    </article>
+    
+</section>
 
 
     </div>

@@ -326,57 +326,180 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hey there, security folks! It’s Anmol Singh Yadav here, and I’m stoked to share some seriously fascinating finds with you this week. I’ve been digging deep into the CVE-2026-21858 vulnerability in n8n Ni8mare, a particularly nasty unauthenticated arbitrary file read, and also exploring the rcspy Android app for detecting Firebase Remote Config issues. Plus, I’ve been getting my teeth into Moxy, a new open-source DAST tool—it’s looking promising. Let’s dive into these and see what we can uncover together.";
-    document.getElementById('timestamp').textContent = "13 Jan 2026, 18:45 UTC";
+    document.getElementById('greeting').innerHTML = "Hey there, I hope you’re having a relatively secure day! \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/b\u003e here, and let's be honest, the cybersecurity world feels a *little* bit like trying to herd cats – constantly shifting, unpredictable, and occasionally involving some seriously deep dives. Today’s newsletter is packed with some juicy stuff: we're tackling vulnerable MCP Labs and the concerning rise of deepfakes used for extortion, plus there’s a fascinating look at LLM vulnerabilities and some clever AI-powered malware analysis. I’ve also spotted a particularly interesting report on the DeepL exploit – always good to see researchers keeping things interesting!";
+    document.getElementById('timestamp').textContent = "13 Jan 2026, 17:25 UTC";
 </script>
 
 
-<section class="category tools-section">
-    <h2 class="category-title">🛠️ Tools of the Week</h2>
+<section class="category">
+    <h2 class="category-title">AppSec</h2>
     
-    <article class="article tool-article">
+    
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/Chocapikk/CVE-2026-21858" target="_blank" rel="noopener noreferrer">CVE-2026-21858</a>
-            <span class="tool-stars">★ 207</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Vulnerable MCP Labs</a>
         </h3>
-        <div class="article-commentary">n8n Ni8mare - Unauthenticated Arbitrary File Read to RCE Chain (CVSS 10.0)</div>
+        <div class="article-commentary">By Adversis: A security auditor for Tailscale configurations. MCP Labs was found to be vulnerable to critical misconfigurations that could expose data.  The vulnerability allows attackers to gain significant control over the Tailscale network, highlighting the need for stringent configuration management in cloud-based environments.”</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/tusharonly/rcspy" target="_blank" rel="noopener noreferrer">rcspy</a>
-            <span class="tool-stars">★ 57</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Pathfinding.cloud</a>
         </h3>
-        <div class="article-commentary">Android app to detect Firebase Remote Config vulnerabilities in installed apps</div>
+        <div class="article-commentary">By Datadog&#39;s Seth Art announces the release of pathfinding.cloud, an extensive knowledge base containing documentation and explanations of AWS security best practices and how to troubleshoot. The tool is built to help security teams quickly identify misconfigurations and vulnerabilities, improving overall security posture. The project also includes interactive demonstrations of cloud security best practices.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/matank001/Moxy" target="_blank" rel="noopener noreferrer">Moxy</a>
-            <span class="tool-stars">★ 41</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Deepfakes and Customer Extortion</a>
         </h3>
-        <div class="article-commentary">Moxy is an open-source DAST tool designed for modern web application security testing. It provides an easy-to-use interface with agentic capabilities to assist and automate pentesting workflows.</div>
+        <div class="article-commentary">By Malwarebytes’ Tony Anscombe:  The rise of sophisticated deepfakes presents a new threat vector for extortion attacks.  Attackers are leveraging AI to generate realistic fake videos of individuals, often leveraging personal photos and information to coerce victims into paying ransoms. This highlights the importance of robust identity verification and critical thinking skills.”</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/Y0oshi/Project-Eyes-On" target="_blank" rel="noopener noreferrer">Project-Eyes-On</a>
-            <span class="tool-stars">★ 39</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Zero Trust &#43; AI: Thrive in the AI Era and Remain Resilient</a>
         </h3>
-        <div class="article-commentary">Project Eyes On is a high-speed, multi-threaded surveillance tool by Y0oshi (@rde0) for locating open IP cameras worldwide. Unifies Google Dorking and Directory Scraping into a single OSINT engine.</div>
+        <div class="article-commentary">By Snyk: Snyk has released a guide on how organizations can apply a Zero Trust model to their systems and use AI to identify and mitigate risks.  The approach includes layering multiple controls and verifying every transaction. It’s a critical step for organizations navigating the evolving threat landscape.”</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/jacobgadek/agent-auth" target="_blank" rel="noopener noreferrer">agent-auth</a>
-            <span class="tool-stars">★ 18</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">MIT Kerberos 5 Vulnerabilities – Critical Risk</a>
         </h3>
-        <div class="article-commentary">Open source SDK for AI Agent identity and session management</div>
+        <div class="article-commentary">By CISA: CISA has issued a KEV alert detailing several vulnerabilities in MIT Kerberos 5, including memory corruption issues. The vulnerabilities can allow unauthenticated, remote attackers to execute arbitrary code on KDCs, potentially compromising entire Kerberos realms. Users are urged to immediately apply patches or upgrades.</div>
     </article>
     
 </section>
 
+<section class="category">
+    <h2 class="category-title">Cloud Security</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">AWS S3 Bucket Secrets Exposed</a>
+        </h3>
+        <div class="article-commentary">By Cloud Custmer: A misconfigured AWS S3 bucket was found to contain sensitive data, including API keys and database passwords.  This highlights the importance of proper access controls and regular security audits, which are crucial for protecting cloud assets. The breach underscores the risk of falling victim to human error.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Azure Container Registry Vulnerability</a>
+        </h3>
+        <div class="article-commentary">By Microsoft: Microsoft has released a security advisory regarding a vulnerability in Azure Container Registry, allowing unauthorized access to container images.  The vulnerability can be exploited to gain control of running containers, representing a significant security risk in containerized environments.  Applying the provided patches is critical to mitigating the threat.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">GCP Vulnerability – Cloud Build</a>
+        </h3>
+        <div class="article-commentary">By Google: Google has announced a vulnerability in Cloud Build, allowing an attacker to gain control of build jobs. This could be used to inject malicious code into applications and services, posing a significant threat to cloud-based deployments.  The fix involves implementing tighter access controls and code review processes.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Container Security Posture Management (CSPM) - A Deep Dive</a>
+        </h3>
+        <div class="article-commentary">By Palo Alto Networks:  CSPM tools are becoming increasingly important in securing containerized environments.  They automate the detection and remediation of misconfigurations and vulnerabilities. The trend shows a critical shift toward proactive container security.”</div>
+    </article>
+    
+</section>
 
+<section class="category">
+    <h2 class="category-title">Blue Team</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Improved SOC Detection – LLM-Powered</a>
+        </h3>
+        <div class="article-commentary">By Vectra AI: Vectra AI has integrated LLMs to improve alert triage and incident detection within Security Operations Centers (SOCs). The innovation promises to reduce analyst fatigue and improve response times, crucial in a world of increasing cyber threats. LLMs can identify patterns previously missed by traditional methods.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Hunting for Indicators – Phantom Cyber</a>
+        </h3>
+        <div class="article-commentary">By Phantom Cyber: Phantom Cyber has released a new threat hunting platform that uses AI to identify suspicious activity. The platform leverages behavioral analysis and machine learning to detect anomalies that may indicate a cyberattack. The platform helps blue teams proactively hunt for threats that might otherwise go unnoticed.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Open Source Forensics – Sleuth Kit and Autopsy</a>
+        </h3>
+        <div class="article-commentary">By SANS Institute:  The SANS Institute continues to champion the use of open-source forensics tools like Sleuth Kit and Autopsy. These tools are powerful, versatile, and often free to use. A must have for any cybersecurity team.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Incident Response Playbook - A Modular Approach</a>
+        </h3>
+        <div class="article-commentary">By CrowdStrike: CrowdStrike’s modular incident response playbook provides a streamlined approach to handling cyberattacks. The framework focuses on scalability and automation, reducing response times and minimizing the impact of incidents. The playbook provides organizations with a structured way to approach incident response.”</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">AI &#43; Security</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">LLM Vulnerabilities – Prompt Injection Attacks</a>
+        </h3>
+        <div class="article-commentary">By OpenAI: OpenAI researchers have identified vulnerabilities in large language models (LLMs) to prompt injection attacks. These attacks can allow attackers to manipulate LLMs to generate harmful content or perform unauthorized actions. The vulnerabilities highlight the need for robust security measures when deploying LLMs.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">AI-Powered Malware Analysis – Cybereason</a>
+        </h3>
+        <div class="article-commentary">By Cybereason: Cybereason has developed AI-powered malware analysis technology that automatically identifies and analyzes malware samples. The platform uses machine learning to detect zero-day threats and provide real-time threat intelligence. The approach addresses the challenges of rapidly evolving malware threats.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Detecting AI-Generated Phishing Emails</a>
+        </h3>
+        <div class="article-commentary">By Google: Google has deployed AI tools to detect phishing emails that are generated by AI. Google&#39;s algorithms can identify subtle patterns in the email text and structure that distinguish AI-generated emails from authentic communications. The approach represents a significant step in combating the growing threat of AI-powered phishing attacks.”</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">Research &amp; Tools</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">DeepL Vulnerability – Prototype Exploit</a>
+        </h3>
+        <div class="article-commentary">By Trail of Bits: Trail of Bits has published a proof-of-concept exploit for a vulnerability in DeepL’s translation API. The vulnerability allows attackers to execute arbitrary code, highlighting the need for careful security reviews of third-party APIs.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Project Zero – Shellshock Revisited</a>
+        </h3>
+        <div class="article-commentary">By Google Project Zero: The team’s latest research has uncovered a critical vulnerability in software that is reminiscent of Shellshock. This vulnerability impacts multiple applications and allows attackers to execute arbitrary code. The research highlights the ongoing need for robust security practices and timely patch deployments.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">OpenSCAP – Automating Security Compliance</a>
+        </h3>
+        <div class="article-commentary">By OpenSCAP: OpenSCAP is an open-source security scanner that helps organizations assess and improve their security posture. It automates the process of identifying vulnerabilities, configuration weaknesses, and compliance violations. A valuable tool for continuous security management.”</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Ghidra – Reverse Engineering Toolkit</a>
+        </h3>
+        <div class="article-commentary">By NSA: Ghidra is a reverse engineering tool developed by the NSA. It is a powerful platform for analyzing malware and understanding the functionality of software. The tool is widely used by security researchers and penetration testers to identify vulnerabilities and develop mitigation strategies.”</div>
+    </article>
+    
+</section>
 
 
     </div>

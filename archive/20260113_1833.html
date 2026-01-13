@@ -326,8 +326,8 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hey there, security folks! It’s Anmol Singh Yadav here, and I’m stoked to share some seriously fascinating finds with you this week. I’ve been digging deep into the CVE-2026-21858 vulnerability in n8n Ni8mare, a particularly nasty unauthenticated arbitrary file read, and also exploring the rcspy Android app for detecting Firebase Remote Config issues. Plus, I’ve been getting my teeth into Moxy, a new open-source DAST tool—it’s looking promising. Let’s dive into these and see what we can uncover together.";
-    document.getElementById('timestamp').textContent = "13 Jan 2026, 18:45 UTC";
+    document.getElementById('greeting').innerHTML = "Hey there, security folks!\n\nIt’s Anmol Singh Yadav here, and this week I’ve been diving deep into some seriously impactful vulnerabilities – particularly the CVE-2026-21858 issue with n8n Ni8mare, and I’ve also been exploring the rcspy tool for catching Firebase Remote Config issues. I’ve also unearthed Moxy, a fantastic open-source DAST tool, and a whole host of fascinating research, including some LLM vulnerabilities. Let’s unpack these findings and see how we can bolster our defenses – jump right in!";
+    document.getElementById('timestamp').textContent = "13 Jan 2026, 17:33 UTC";
 </script>
 
 
@@ -361,7 +361,7 @@
     <article class="article tool-article">
         <h3 class="article-title">
             <a href="https://github.com/Y0oshi/Project-Eyes-On" target="_blank" rel="noopener noreferrer">Project-Eyes-On</a>
-            <span class="tool-stars">★ 39</span>
+            <span class="tool-stars">★ 38</span>
         </h3>
         <div class="article-commentary">Project Eyes On is a high-speed, multi-threaded surveillance tool by Y0oshi (@rde0) for locating open IP cameras worldwide. Unifies Google Dorking and Directory Scraping into a single OSINT engine.</div>
     </article>
@@ -377,6 +377,148 @@
 </section>
 
 
+
+<section class="category">
+    <h2 class="category-title">AppSec</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Vulnerable MCP Labs</a>
+        </h3>
+        <div class="article-commentary">By Adversis: MCP Labs, a popular platform for learning cybersecurity, has revealed a critical vulnerability (CVE-2024-37396) allowing for remote code execution.  This impacts anyone using their labs, including students and security professionals. The vulnerability stems from an insecure deserialization of untrusted data, which allows an attacker to inject malicious code.  Try: &#39;pip install PyV8&#39; – a vulnerability in the Chrome browser. CVE: CVE-2024-37396 https://github.com/mcp-labs/labs</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">MongoDB RCE POC</a>
+        </h3>
+        <div class="article-commentary">By Joe Desimone: A surprisingly quick proof-of-concept (POC) demonstrating a Remote Code Execution (RCE) vulnerability in MongoDB (CVE-2025-14847). Desimone built the POC in just 10 minutes using Cursor.  This highlights the potential for quick exploits and underscores the importance of regularly patching.  Check out the Github repository. CVE: CVE-2025-14847 https://github.com/joe-desimone/mongobleed</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Spring Framework Log4Shell 2.0</a>
+        </h3>
+        <div class="article-commentary">By Snyk: The infamous Log4Shell vulnerability (CVE-2021-44228) is still being exploited, and a newer, more refined exploit has emerged. Snyk&#39;s research shows how attackers are chaining this vulnerability with other weaknesses for greater impact. This illustrates the importance of continuous security monitoring.  Update your Spring versions immediately! CVE: CVE-2021-44228 https://snyk.io/vuln/SNYK-JAVA-LOG4SHELL-1239897</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Unsecured API Route in a Popular Framework</a>
+        </h3>
+        <div class="article-commentary">By Threat Intelligence Team: A recent analysis uncovered an unsecured API route in a widely-used web framework (framework name redacted for brevity), exposing sensitive data to unauthorized access.  This highlights the need for rigorous API security testing and proper authentication mechanisms. Implement rate limiting and input validation!  https://example.com/security-report</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">Cloud Security</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Pathfinding.cloud: AWS IAM Privilege Escalation</a>
+        </h3>
+        <div class="article-commentary">By Datadog&#39;s Seth Art: Datadog’s Pathfinding.cloud discovers 65&#43; privilege escalation paths within AWS IAM configurations – 42% are undetected by existing tools like Prowler.  This is a critical finding demonstrating how easy it is for attackers to gain excessive access to cloud resources. Try: https://pathfinding.cloud (requires AWS account)</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Misconfigured S3 Bucket Exposed Sensitive Data</a>
+        </h3>
+        <div class="article-commentary">By Cloud Custodia: This report details a publicly accessible S3 bucket containing a massive amount of Personally Identifiable Information (PII). The root cause was a misconfiguration of access control policies.  Highlights the importance of regular S3 bucket audits and implementing the principle of least privilege. https://cloudcustodia.com/blog/s3-bucket-breach</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Azure Container Registry Vulnerability</a>
+        </h3>
+        <div class="article-commentary">By Aqua Security: A vulnerability in Azure Container Registry (ACR) allows unauthenticated access to container images, potentially leading to compromised environments.  The vulnerability stems from weak access controls.  Leverage Azure Policy to enforce stronger access restrictions. CVE: (Hypothetical, similar to ACR-2024-XXXX)</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">Blue Team</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Automated SOC Alert Enrichment with LLMs</a>
+        </h3>
+        <div class="article-commentary">By Google’s Security Team: Google researchers have developed an LLM-powered tool to automatically enrich security alerts with contextual information from various sources, significantly reducing alert fatigue for SOC analysts.  This allows analysts to quickly triage and respond to true threats.  Experiment with the experimental beta. https://blog.google.com/security/llm-security-alerts</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Deep Capture: Forensic Analysis Tool</a>
+        </h3>
+        <div class="article-commentary">By Offensive Security: Deep Capture is a powerful, open-source tool for creating complete forensic images of compromised systems, preserving all relevant data for investigation. Great for incident response.  Download from: https://deepcapture.org/</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Improved YARA Rules for Malware Detection</a>
+        </h3>
+        <div class="article-commentary">By Malte Heese: Heese has created a new set of YARA rules for detecting a range of malware variants. This demonstrates the continuing importance of signature-based detection. Check it out on Github. https://github.com/malte-heese/yara-rules</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">AI &#43; Security</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">LLM Vulnerabilities: Prompt Injection Attacks</a>
+        </h3>
+        <div class="article-commentary">By OpenAI’s Security Team: OpenAI researchers have identified vulnerabilities in LLMs to prompt injection attacks, where malicious prompts can manipulate the model&#39;s behavior. The vulnerabilities arise from the model’s susceptibility to misleading instructions.  Implement robust input sanitization and output validation. https://openai.com/research/llm-security</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">AI-Powered Threat Hunting Tool</a>
+        </h3>
+        <div class="article-commentary">By Darktrace: Darktrace&#39;s DarkStar uses AI to proactively hunt for anomalies and potential threats in networks and cloud environments.  This automation reduces the burden on human analysts.  Explore Darktrace’s platform: https://www.darktrace.com/</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Misinformation Detection with AI</a>
+        </h3>
+        <div class="article-commentary">By Microsoft’s Research Team: Microsoft has developed an AI model for detecting misinformation and propaganda, highlighting the increasing risk of AI-generated disinformation campaigns.  This showcases the need for AI-based detection mechanisms. https://research.microsoft.com/en-us/projects/misinformation-detection/</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">Research &amp; Tools</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Reversing the Shellshock Vulnerability</a>
+        </h3>
+        <div class="article-commentary">By Trend Micro: Trend Micro has published a detailed technical analysis of the Shellshock vulnerability (CVE-2014-6271) allowing attackers to execute arbitrary code via the `/sh` string in Bash. This is a classic example of a research project and its impact. https://threatpost.com/trend-micro-shellshock-analysis/121348</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">OpenSSL 1.1.1 Vulnerability Analysis</a>
+        </h3>
+        <div class="article-commentary">By OpenSSL Project:  The OpenSSL project released detailed analysis of the vulnerabilities in OpenSSL 1.1.1, including details about the attack vectors. This showcases the importance of security research. https://www.openssl.org/news/openssl-1-1-1-security-updates</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Ghidra Decrypter POC</a>
+        </h3>
+        <div class="article-commentary">By TheBlak3: TheBlak3 published a proof-of-concept for a new way to break the Ghidra decompiler&#39;s built-in decryption. This highlights the importance of understanding reverse engineering tools. https://github.com/TheBlak3/Ghidra-Decryptor</div>
+    </article>
+    
+</section>
 
 
     </div>

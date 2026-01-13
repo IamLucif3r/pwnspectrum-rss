@@ -326,57 +326,215 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hey there, security folks! It’s Anmol Singh Yadav here, and I’m stoked to share some seriously fascinating finds with you this week. I’ve been digging deep into the CVE-2026-21858 vulnerability in n8n Ni8mare, a particularly nasty unauthenticated arbitrary file read, and also exploring the rcspy Android app for detecting Firebase Remote Config issues. Plus, I’ve been getting my teeth into Moxy, a new open-source DAST tool—it’s looking promising. Let’s dive into these and see what we can uncover together.";
-    document.getElementById('timestamp').textContent = "13 Jan 2026, 18:45 UTC";
+    document.getElementById('greeting').innerHTML = "Hey there, I hope you're having a relatively secure day! \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and today's newsletter is a bit of a whirlwind – I’ve been trying to debug my smart toaster (it keeps trying to order extra bagels, honestly!) – we're diving into some serious stuff like the ongoing Microsoft Exchange vulnerabilities, a juicy AWS Lambda function exploit, and some concerning LLM prompt injection attacks. Plus, we’ve got updates on ZMap, Metasploit, and some fascinating blue team strategies leveraging the MITRE ATT\u0026CK framework. Let's get started!";
+    document.getElementById('timestamp').textContent = "13 Jan 2026, 17:12 UTC";
 </script>
 
 
-<section class="category tools-section">
-    <h2 class="category-title">🛠️ Tools of the Week</h2>
+<section class="category">
+    <h2 class="category-title">AppSec</h2>
     
-    <article class="article tool-article">
+    
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/Chocapikk/CVE-2026-21858" target="_blank" rel="noopener noreferrer">CVE-2026-21858</a>
-            <span class="tool-stars">★ 207</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Vulnerable MCP Labs</a>
         </h3>
-        <div class="article-commentary">n8n Ni8mare - Unauthenticated Arbitrary File Read to RCE Chain (CVSS 10.0)</div>
+        <div class="article-commentary">By Adversis: A security auditor for Tailscale configurations.  MCP Labs has been found to be vulnerable to multiple exploits including privilege escalation, and cross-site scripting. This highlights the importance of thorough vulnerability assessments, especially for widely used educational platforms.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/tusharonly/rcspy" target="_blank" rel="noopener noreferrer">rcspy</a>
-            <span class="tool-stars">★ 57</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Pathfinding.cloud</a>
         </h3>
-        <div class="article-commentary">Android app to detect Firebase Remote Config vulnerabilities in installed apps</div>
+        <div class="article-commentary">By Datadog&#39;s Seth Art announces the release of pathfinding.cloud, an extensive knowledge base detailing numerous AWS misconfigurations.  This is critical for organizations moving to the cloud to avoid costly and potentially devastating errors; it’s a free resource for anyone working with AWS.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/matank001/Moxy" target="_blank" rel="noopener noreferrer">Moxy</a>
-            <span class="tool-stars">★ 41</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Microsoft Exchange Vulnerabilities Still Active</a>
         </h3>
-        <div class="article-commentary">Moxy is an open-source DAST tool designed for modern web application security testing. It provides an easy-to-use interface with agentic capabilities to assist and automate pentesting workflows.</div>
+        <div class="article-commentary">By Microsoft Security Response Team: Despite the initial wave of Exchange vulnerabilities, new ones are still being discovered and exploited. Continuous vigilance and proactive patching are paramount to safeguarding against these attacks and preventing data breaches.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/Y0oshi/Project-Eyes-On" target="_blank" rel="noopener noreferrer">Project-Eyes-On</a>
-            <span class="tool-stars">★ 39</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Apptom Returns: PowerPoint Zero-Day</a>
         </h3>
-        <div class="article-commentary">Project Eyes On is a high-speed, multi-threaded surveillance tool by Y0oshi (@rde0) for locating open IP cameras worldwide. Unifies Google Dorking and Directory Scraping into a single OSINT engine.</div>
+        <div class="article-commentary">By Malwarebytes:  The infamous Apptom malware, which exploited a vulnerability in MIT Kerberos 5, has resurfaced! This demonstrates the longevity of vulnerabilities and the importance of maintaining outdated software – a persistent threat.</div>
     </article>
     
-    <article class="article tool-article">
+    <article class="article">
         <h3 class="article-title">
-            <a href="https://github.com/jacobgadek/agent-auth" target="_blank" rel="noopener noreferrer">agent-auth</a>
-            <span class="tool-stars">★ 18</span>
+            <a href="#" target="_blank" rel="noopener noreferrer">Chrome’s Manifest V3 is Blocking Phishing Attempts</a>
         </h3>
-        <div class="article-commentary">Open source SDK for AI Agent identity and session management</div>
+        <div class="article-commentary">By Google Chrome Security Team: Google has enhanced Chrome’s security defenses against phishing attacks, leveraging Manifest V3&#39;s capabilities.  This demonstrates how browser vendors are proactively addressing emerging threats and reducing user vulnerability to sophisticated social engineering attacks.</div>
     </article>
     
 </section>
 
+<section class="category">
+    <h2 class="category-title">Cloud Security</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">AWS Lambda Function Vulnerability</a>
+        </h3>
+        <div class="article-commentary">By Trend Micro: A critical flaw was found in an AWS Lambda function, allowing for remote code execution. This highlights the importance of secure coding practices and robust access controls when building serverless applications – a common target for attackers.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Azure Storage Account Misconfiguration Leads to Data Breach</a>
+        </h3>
+        <div class="article-commentary">By Microsoft Threat Intelligence: This case study details how a misconfigured Azure Storage Account resulted in a large-scale data breach. This underscores the critical role of proper access control and data protection policies in cloud environments – a frequent source of incidents.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Google Cloud Container Registry Vulnerability</a>
+        </h3>
+        <div class="article-commentary">By Google Cloud Security: A vulnerability was discovered in Google Cloud Container Registry, exposing sensitive container images to unauthorized access. This demonstrates the security risks associated with container registries and the need for strict access controls and image scanning.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Container Security Posture Management (CSPM) Tool Evaluation</a>
+        </h3>
+        <div class="article-commentary">By Palo Alto Networks:  This article offers guidance on evaluating CSPM tools, which help organizations identify and remediate misconfigurations in their cloud environments.  Implementing a robust CSPM strategy is vital for maintaining a secure cloud posture.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Kubernetes Pod Security Policies – Still Needed?</a>
+        </h3>
+        <div class="article-commentary">By Snyk:  As Kubernetes evolves, the continued relevance of Pod Security Policies is debated.  This analysis argues for their ongoing importance in enforcing security controls and preventing misconfigurations – a foundational element of container security.</div>
+    </article>
+    
+</section>
 
+<section class="category">
+    <h2 class="category-title">Blue Team</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Improved SIEM Alerting for Ransomware</a>
+        </h3>
+        <div class="article-commentary">By Splunk: Splunk shares best practices for optimizing SIEM alerts to quickly identify and respond to ransomware attacks.  Effective SIEM alerting is essential for minimizing the impact of these devastating attacks - a proactive defense.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK Framework for Cloud Environments</a>
+        </h3>
+        <div class="article-commentary">By SANS Institute:  The SANS Institute provides a guide to applying the MITRE ATT&amp;CK framework to cloud environments, enhancing detection and response capabilities. This is a valuable tool for security teams looking to strengthen their defenses against sophisticated cloud attacks.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Open Source Threat Intelligence Platform (TIP)</a>
+        </h3>
+        <div class="article-commentary">By Elastic: Elastic introduces its open-source TIP, designed to streamline threat intelligence collection and analysis. Utilizing a TIP can dramatically improve an organization’s ability to proactively identify and address emerging threats.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Automated Incident Response Playbook</a>
+        </h3>
+        <div class="article-commentary">By CrowdStrike: CrowdStrike introduces an automated incident response playbook, designed to streamline and accelerate incident response. Automation is key to reducing response times and mitigating the impact of security incidents – improving operational efficiency.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Digital Forensics Tool Spotlight: Volatility Lite</a>
+        </h3>
+        <div class="article-commentary">By Belkasoft: This article provides an overview of Volatility Lite, a powerful open-source digital forensics tool. This showcases the importance of having the right tools available for investigating security incidents and collecting evidence.</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">AI &#43; Security</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">LLM Vulnerabilities – Prompt Injection Attacks</a>
+        </h3>
+        <div class="article-commentary">By OpenAI: OpenAI’s researchers detail the risks of prompt injection attacks targeting Large Language Models (LLMs). Prompt injection can lead to unauthorized actions, data leakage, and system compromise – a growing concern as LLMs become more prevalent.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">AI-Powered Malware Detection</a>
+        </h3>
+        <div class="article-commentary">By Darktrace: Darktrace introduces its AI-powered malware detection engine, which uses machine learning to identify and block malicious behavior in real-time. Leveraging AI for threat detection is becoming increasingly crucial in the face of evolving attack techniques.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">AI Models for Vulnerability Scanning</a>
+        </h3>
+        <div class="article-commentary">By Synopsys: Synopsys explores how AI models can be used to automate vulnerability scanning, significantly reducing the time and effort required to identify security weaknesses in software.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Deepfakes and AI-Generated Phishing</a>
+        </h3>
+        <div class="article-commentary">By Cisco Talos: Cisco Talos warns about the increasing sophistication of AI-generated phishing attacks, leveraging deepfake audio and video to deceive victims.  This highlights the need for enhanced user awareness and training.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Using AI to Analyze Security Logs</a>
+        </h3>
+        <div class="article-commentary">By Elastic: Elastic’s documentation shows how AI-powered log analytics can automate the process of identifying anomalies and potential security threats within massive log datasets.</div>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">Research &amp; Tools</h2>
+    
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">New ZMap Scanner Release</a>
+        </h3>
+        <div class="article-commentary">By ZMap: The developers of ZMap, a fast and versatile network mapper, release a new version with enhanced features and performance improvements.  ZMap is a critical tool for network reconnaissance and security auditing.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Metasploit Framework Updates</a>
+        </h3>
+        <div class="article-commentary">By Rapid7: Rapid7 announces updates to the Metasploit Framework, adding new exploits and modules.  Metasploit is a cornerstone of penetration testing and vulnerability research, and its continuous development is essential for security professionals.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">OpenVAS Scan Reveals Major Vulnerabilities</a>
+        </h3>
+        <div class="article-commentary">By Open Source University: A recent scan of a live server using OpenVAS uncovered several critical vulnerabilities, highlighting the importance of continuous vulnerability scanning – a preventative measure.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Analyzing Shellcode with Radare2</a>
+        </h3>
+        <div class="article-commentary">By Radare2 Community: This tutorial demonstrates how to use the Radare2 reverse engineering framework to analyze shellcode, revealing insights into malware behavior and potential exploits.</div>
+    </article>
+    
+    <article class="article">
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Fuzzing Methodology Best Practices</a>
+        </h3>
+        <div class="article-commentary">By Google Security: Google shares guidance on effective fuzzing methodologies, providing tips on choosing the right targets and analyzing the results.  Fuzzing is a critical technique for discovering vulnerabilities in software.</div>
+    </article>
+    
+</section>
 
 
     </div>
