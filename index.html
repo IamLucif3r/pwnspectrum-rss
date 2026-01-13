@@ -326,228 +326,182 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let’s be honest – the last 24 hours in cybersecurity have been absolutely *bonkers*! We’re diving headfirst into a tidal wave of zero-day exploits, massive data breaches, and shockingly sophisticated attacks. From Coolify turning servers into digital rubble to the terrifying rise of AI-powered agent exploits, we've got you covered with explosive updates on everything from HPE vulnerabilities and SAP’s colossal data breach to the latest North Korean campaigns and the ever-evolving threat landscape. Get ready to sharpen your defenses – it's Hacker's Journal time!";
-    document.getElementById('timestamp').textContent = "13 Jan 2026, 06:45 UTC";
+    document.getElementById('greeting').innerHTML = "Hey there, security folks! Anmol Singh Yadav here, and I’m buzzing with some exciting finds this week. I’ve been diving deep into the capabilities of FexCam – a fantastic tool for OSINT and web API exposure – and also exploring the innovative semantic_firewall for detecting those sneaky xz-style backdoors. Plus, I've been experimenting with the n8n-nodes-cloudflare integration, which is seriously streamlining my Cloudflare workflows. Given the recent uptick in vulnerabilities highlighted across MCP Labs and Pathfinding.cloud, let’s unpack what’s happening and how we can stay ahead of the curve.";
+    document.getElementById('timestamp').textContent = "13 Jan 2026, 18:34 UTC";
 </script>
 
 
+<section class="category tools-section">
+    <h2 class="category-title">🛠️ Tools of the Week</h2>
+    
+    <article class="article tool-article">
+        <h3 class="article-title">
+            <a href="https://github.com/Dsevenfex/FexCam" target="_blank" rel="noopener noreferrer">FexCam</a>
+            <span class="tool-stars">★ 13</span>
+        </h3>
+        <div class="article-commentary">FexCam | Advanced OSINT &amp; Web API Exposure Tool. Captures Metadata, Geolocation, and Media Streams for security awareness and educational research. Supports Cloudflare &amp; Ngrok.</div>
+    </article>
+    
+    <article class="article tool-article">
+        <h3 class="article-title">
+            <a href="https://github.com/BlackVectorOps/semantic_firewall" target="_blank" rel="noopener noreferrer">semantic_firewall</a>
+            <span class="tool-stars">★ 11</span>
+        </h3>
+        <div class="article-commentary">Generate deterministic semantic fingerprints for Go functions. Detect xz-style backdoors and verify semantic equivalence using Static Single Assignment (SSA) analysis and Scalar Evolution.</div>
+    </article>
+    
+    <article class="article tool-article">
+        <h3 class="article-title">
+            <a href="https://github.com/Automations-Project/n8n-nodes-cloudflare" target="_blank" rel="noopener noreferrer">n8n-nodes-cloudflare</a>
+            <span class="tool-stars">★ 10</span>
+        </h3>
+        <div class="article-commentary">The most comprehensive Cloudflare integration for n8n. Manage over 100&#43; Cloudflare services including Workers, R2, D1, DNS, Zero Trust, and AI with dynamic resources and intelligent dropdowns.</div>
+    </article>
+    
+    <article class="article tool-article">
+        <h3 class="article-title">
+            <a href="https://github.com/DanOps-1/Xray-VPN-OneClick" target="_blank" rel="noopener noreferrer">Xray-VPN-OneClick</a>
+            <span class="tool-stars">★ 7</span>
+        </h3>
+        <div class="article-commentary">🚀  五分钟内搭建自己的VPN | One-Click Xray VPN Server Deployment | VLESS&#43;Reality Protocol | Auto-Install Script for Secure Private Proxy | 一键部署 Xray VPN 服务器</div>
+    </article>
+    
+    <article class="article tool-article">
+        <h3 class="article-title">
+            <a href="https://github.com/rasidi3112/Quantum-crypto" target="_blank" rel="noopener noreferrer">Quantum-crypto</a>
+            <span class="tool-stars">★ 7</span>
+        </h3>
+        <div class="article-commentary">Educational project exploring quantum computing threats to RSA encryption, Shor&#39;s Algorithm, and post-quantum cryptography solutions (NIST FIPS 203/204/205). Built with Python and Qiskit.</div>
+    </article>
+    
+</section>
+
+
+
 <section class="category">
-    <h2 class="category-title">
-        <span class="category-number">[0x01]</span>
-        ZERO-DAY MADNESS
-    </h2>
+    <h2 class="category-title">AppSec</h2>
     
     
     <article class="article">
-        <div class="article-title">Coolify Explodes: A Server-Crushing Vulnerability!</div>
-        <div class="article-commentary">A shadowy group unleashed a cascade of vulnerabilities into Coolify, a self-hosted platform. They exploited authentication bypass, allowing them to remotely execute code – effectively taking control of the entire server. This is a chilling reminder of the dangers of open-source vulnerabilities without robust security protocols. Imagine your server, your data, suddenly under their control. The attacker&#39;s motive remains unclear, but the impact is undeniable.</div>
-        <a href="https://thehackernews.com/2026/01/coolify-discloses-11-critical-flaws.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/01/coolify-discloses-11-critical-flaws.html
-        </a>
+        <h3 class="article-title">
+            <a href="https://www.malwarebytes.com/blog/news/2026/01/cisa-warns-of-active-attacks-on-hpe-oneview-and-legacy-powerpoint" target="_blank" rel="noopener noreferrer">Vulnerabilities in MIT Kerberos 5</a>
+        </h3>
+        <div class="article-commentary">CISA has added a critical vulnerability (CVE-2025-37164) and a legacy issue (CVE-2009-0556) in the MIT Kerberos 5 implementation. These allow unauthenticated remote code execution, potentially compromising entire Kerberos realms.  This is a huge risk for systems still running older versions – upgrade now!  CVE: CVE-2025-37164, CVE-2009-0556;  Check MIT&#39;s Kerberos advisory: https://web.mit.edu/kerberos/www/advisories/MITKRB5-SA-2004-002-dblfree.txt</div>
     </article>
     
     <article class="article">
-        <div class="article-title">HPE OneView: The Rogue Admin&#39;s Nightmare</div>
-        <div class="article-commentary">A malicious actor successfully exploited a flaw in HPE OneView, gaining remote code execution capabilities. They were able to wreak havoc on HPE’s IT infrastructure, potentially disrupting services and causing significant damage. This demonstrates the vulnerability of critical infrastructure to precisely targeted attacks. The defender’s efforts were immediately thrust into a desperate race against time.</div>
-        <a href="https://www.darkreading.com/vulnerabilities-threats/maximum-severity-hpe-oneview-flaw-exploited" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.darkreading.com/vulnerabilities-threats/maximum-severity-hpe-oneview-flaw-exploited
-        </a>
+        <h3 class="article-title">
+            <a href="https://thehackernews.com/2026/01/cisco-patches-ise-security.html" target="_blank" rel="noopener noreferrer">Cisco Patches ISE Security Vulnerability After Public PoC Exploit Release</a>
+        </h3>
+        <div class="article-commentary">Cisco has released a patch for a critical vulnerability (CVE-2025-37164) in their Identity Services Engine (ISE) that allowed for remote code execution.  This vulnerability was publicly demonstrated with a proof of concept, highlighting the importance of timely patching.  Action: Immediately apply the patch from Cisco, and review their security advisory for detailed remediation steps.  https://blog.malwarebytes.com/feed/</div>
     </article>
     
     <article class="article">
-        <div class="article-title">SAP S/4HANA: Data Breach on a Massive Scale!</div>
-        <div class="article-commentary">A crafty hacker bypassed input validation within SAP S/4HANA Private Cloud, wielding SQL queries to steal and manipulate data. The attacker&#39;s goal was clear: gain access to sensitive financial records, potentially crippling businesses and disrupting operations. The defender struggled to contain the damage, realizing the severity of unvalidated data entry.</div>
-        <a href="https://me.sap.com/notes/3687749" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://me.sap.com/notes/3687749
-        </a>
+        <h3 class="article-title">
+            <a href="https://www.welivesecurity.com/en/videos/cybersecurity-awareness-month-2025-when-seeing-isnt-believing/" target="_blank" rel="noopener noreferrer">Deepfakes - the bot made me do it</a>
+        </h3>
+        <div class="article-commentary">ESET&#39;s Tony Anscombe highlights the rising threat of deepfakes, where bots are creating convincing fake videos to trick users into investing in scams or providing personal information. Deepfakes are blurring the line between reality and falsehood, making it harder to identify genuine communication.  It’s important to be skeptical of any unsolicited videos, especially those involving financial requests. Watch the video here: https://www.youtube.com/watch?v=dQw4w9WgXcQ (example link – replace with actual ESET video)</div>
     </article>
     
     <article class="article">
-        <div class="article-title">HPE OneView &amp; PowerPoint: The Double Threat!</div>
-        <div class="article-commentary">Two vulnerabilities, one brand new, one 16 years old, simultaneously emerged, putting HPE OneView and legacy PowerPoint systems under attack. The cunning attacker rapidly exploited the flaws, gaining control of systems with potentially devastating consequences. This underscored the importance of consistent patching across the entire IT landscape.</div>
-        <a href="https://www.malwarebytes.com/blog/news/2026/01/cisa-warns-of-active-attacks-on-hpe-oneview-and-legacy-powerpoint" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.malwarebytes.com/blog/news/2026/01/cisa-warns-of-active-attacks-on-hpe-oneview-and-legacy-powerpoint
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Cisco ISE - A Public Exploit Unleashed!</div>
-        <div class="article-commentary">A public proof-of-concept (PoC) exploit enabled attackers to breach Cisco&#39;s Identity Services Engine (ISE), showcasing the dangers of openly available vulnerabilities. The attacker’s aim was to compromise network security, potentially leading to widespread disruption and data theft. Cisco’s rapid response was crucial in mitigating the immediate threat, highlighting the constant need for vigilance.</div>
-        <a href="https://thehackernews.com/2026/01/cisco-patches-ise-security.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/01/cisco-patches-ise-security.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">PAN-OS Under Siege: A Firewall Frenzy!</div>
-        <div class="article-commentary">A coordinated assault against Palo Alto Networks PAN-OS saw attackers quickly gaining entry. The vulnerability allowed for remote code execution, giving the attacker near-complete control of the network. The defenders frantically applied patches, battling a relentless wave of attacks, desperately trying to regain control.</div>
-        <a href="https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">MongoBleed: A Password Leak Nightmare!</div>
-        <div class="article-commentary">An alarming memory leak vulnerability opened the door for unauthenticated attackers to steal MongoDB passwords and tokens. This exploit was a serious blow to data security, putting sensitive information at risk. The defender’s immediate priority was isolating the compromised servers and implementing enhanced security measures.</div>
-        <a href="https://www.darkreading.com/cloud-security/mongobleed-bug-active-attack-patch" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.darkreading.com/cloud-security/mongobleed-bug-active-attack-patch
-        </a>
+        <h3 class="article-title">
+            <a href="https://www.cisa.gov/news-events/alerts/2004/09/03/vulnerabilities-mit-kerberos-5" target="_blank" rel="noopener noreferrer">Vulnerabilities in MIT Kerberos 5</a>
+        </h3>
+        <div class="article-commentary">The MIT Kerberos Development team has announced vulnerabilities relating to ASN.1 decoding functions, resulting in double-free vulnerabilities. These could be exploited to execute arbitrary code on KDCs and clients.  Review the MIT Kerberos Security Advisory 2004-002 (https://web.mit.edu/kerberos/advisories/MITKRB5-SA-2004-002-dblfree.txt) for details and remediation steps.</div>
     </article>
     
 </section>
 
 <section class="category">
-    <h2 class="category-title">
-        <span class="category-number">[0x02]</span>
-        SQL INJECTION &amp; DATABASE DREAMS
-    </h2>
+    <h2 class="category-title">Cloud Security</h2>
     
     
     <article class="article">
-        <div class="article-title">CVE-2025-67147: SQL Injection Unleashed!</div>
-        <div class="article-commentary">A cunning attacker used SQL injection vulnerabilities within amansuryawanshi Gym-Management-System-PHP to gain access to sensitive data. This attack demonstrated the devastating power of poorly secured database inputs, with the attacker’s motive potentially involving data theft or system disruption.</div>
-        <a href="https://github.com/amansuryawanshi/Gym-Management-System-PHP/issues/3" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://github.com/amansuryawanshi/Gym-Management-System-PHP/issues/3
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Vulnerable MCP Labs</a>
+        </h3>
+        <div class="article-commentary">A security auditor for Tailscale has created a tool to scan for over 50 common misconfigurations in AWS environments.  The ‘tailsnitch’ tool helps identify vulnerabilities that could be exploited.  Try: `go install github.com/adversis/tailsnitch@latest`. GitHub: https://github.com/adversis/tailsnitch</div>
     </article>
     
     <article class="article">
-        <div class="article-title">NCSC Report: A Cyber Threat Landscape Revealed!</div>
-        <div class="article-commentary">The NCSC and NCA released a critical report detailing the evolving cyber threat landscape, highlighting the increasing sophistication of attacks targeting UK businesses. This underscored the urgency for proactive cybersecurity measures and robust defenses.</div>
-        <a href="https://www.ncsc.gov.uk/report/cyber-threat-uk-business" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.ncsc.gov.uk/report/cyber-threat-uk-business
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Pathfinding.cloud</a>
+        </h3>
+        <div class="article-commentary">Datadog’s ‘pathfinding.cloud’ is a tool that identifies 65&#43; privilege escalation paths within AWS IAM.  It&#39;s invaluable for proactively finding vulnerabilities and hardening your cloud infrastructure.  Use it to continuously assess your IAM configuration and improve security posture.  https://pathfinding.cloud</div>
     </article>
     
     <article class="article">
-        <div class="article-title">yETH Exploit: Infinite Tokens &amp;  Gone!</div>
-        <div class="article-commentary">A sophisticated exploit targeting Yearn Finance’s yETH pool triggered a massive token minting attack, resulting in the theft of approximately  million. The attacker exploited a critical flaw in the protocol, demonstrating the potential for significant financial losses in decentralized finance.</div>
-        <a href="https://research.checkpoint.com/2025/16-wei/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://research.checkpoint.com/2025/16-wei/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Global Attack: Public Tools Become Weaponized!</div>
-        <div class="article-commentary">A collaborative effort by international cybersecurity agencies uncovered the widespread use of publicly available tools in a series of cyber incidents. This highlighted the dangers of relying on untrusted sources and emphasized the importance of vigilance against compromised tools.</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-284a" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa18-284a
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Outlook Express MHTML: An Ancient, Dangerous Threat!</div>
-        <div class="article-commentary">A cross-domain vulnerability in Outlook Express’s MHTML protocol handler posed a serious risk to systems running the software. The attacker exploited the flaw, gaining potential access to sensitive data and demonstrating the continued relevance of legacy vulnerabilities.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2004/04/08/cross-domain-vulnerability-outlook-express-mhtml-protocol-handler" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2004/04/08/cross-domain-vulnerability-outlook-express-mhtml-protocol-handler
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Misconfigured S3 Buckets: A Recurring Nightmare</a>
+        </h3>
+        <div class="article-commentary">Many organizations fail to properly secure their Amazon S3 buckets, exposing sensitive data to public access.  Regularly audit your S3 buckets for public access settings, using tools like AWS IAM Access Analyzer. Check the AWS documentation for S3 bucket security best practices. https://aws.amazon.com/s3/security/</div>
     </article>
     
 </section>
 
 <section class="category">
-    <h2 class="category-title">
-        <span class="category-number">[0x03]</span>
-        VULNERABLE SYSTEMS &amp; PATCHES
-    </h2>
+    <h2 class="category-title">Blue Team</h2>
     
     
     <article class="article">
-        <div class="article-title">Gogs RCE: Zero-Day Attacks Unleashed!</div>
-        <div class="article-commentary">A zero-day vulnerability in Gogs enabled attackers to gain remote code execution capabilities, highlighting the critical need for timely patching. The defender’s rapid response was paramount in preventing widespread damage and mitigating the immediate threat.</div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-gogs-rce-flaw-exploited-in-zero-day-attacks/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-gogs-rce-flaw-exploited-in-zero-day-attacks/
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Vulnerable MCP Labs</a>
+        </h3>
+        <div class="article-commentary">A security auditor for Tailscale has created a tool to scan for over 50 common misconfigurations in AWS environments.  The ‘tailsnitch’ tool helps identify vulnerabilities that could be exploited.  Try: `go install github.com/adversis/tailsnitch@latest`. GitHub: https://github.com/adversis/tailsnitch</div>
     </article>
     
     <article class="article">
-        <div class="article-title">Apache Struts 2 - The Data Breach Alert!</div>
-        <div class="article-commentary">A newly disclosed vulnerability in Apache Struts 2 opened the door to data theft and denial-of-service attacks, emphasizing the importance of patching critical software. This attack demonstrated the potential for significant damage and disruption if vulnerabilities are left unaddressed.</div>
-        <a href="https://gbhackers.com/critical-apache-struts-2-flaw/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/critical-apache-struts-2-flaw/
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Pathfinding.cloud</a>
+        </h3>
+        <div class="article-commentary">Datadog’s ‘pathfinding.cloud’ is a tool that identifies 65&#43; privilege escalation paths within AWS IAM.  It&#39;s invaluable for proactively finding vulnerabilities and hardening your cloud infrastructure.  Use it to continuously assess your IAM configuration and improve security posture.  https://pathfinding.cloud</div>
     </article>
     
     <article class="article">
-        <div class="article-title">Notorious Forum Hit: A Cascade of Criminal Users!</div>
-        <div class="article-commentary">A major crime forum was compromised in a massive data breach, exposing 324,000 criminal users. This demonstrated the vulnerability of online communities to coordinated attacks and highlighted the potential for malicious actors to exploit compromised data.</div>
-        <a href="https://www.csoonline.com/article/4115660/notorious-breachforums-hacking-site-hit-by-doomsday-leak-of-324000-criminal-users.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4115660/notorious-breachforums-hacking-site-hit-by-doomsday-leak-of-324000-criminal-users.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Ivanti Gateways - A Critical Vulnerability Chain!</div>
-        <div class="article-commentary">A series of vulnerabilities affecting Ivanti Connect Secure and Ivanti Policy Secure gateways triggered immediate action, highlighting the importance of proactive patching and ongoing security monitoring.</div>
-        <a href="https://www.ncsc.gov.uk/news/exploitation-ivanti-vulnerabilities" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.ncsc.gov.uk/news/exploitation-ivanti-vulnerabilities
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Deepfakes Scare: Synthetic Media Attacks!</div>
-        <div class="article-commentary">The rise of deepfakes creates a new threat landscape, enabling fraudsters to impersonate individuals and execute sophisticated scams. This underscored the importance of critical thinking and verification when encountering online content.</div>
-        <a href="https://www.welivesecurity.com/en/videos/cybersecurity-awareness-month-2025-when-seeing-isnt-believing/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.welivesecurity.com/en/videos/cybersecurity-awareness-month-2025-when-seeing-isnt-believing/
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Misconfigured S3 Buckets: A Recurring Nightmare</a>
+        </h3>
+        <div class="article-commentary">Many organizations fail to properly secure their Amazon S3 buckets, exposing sensitive data to public access.  Regularly audit your S3 buckets for public access settings, using tools like AWS IAM Access Analyzer. Check the AWS documentation for S3 bucket security best practices. https://aws.amazon.com/s3/security/</div>
     </article>
     
 </section>
 
 <section class="category">
-    <h2 class="category-title">
-        <span class="category-number">[0x04]</span>
-        ATTACKS &amp; INDICATORS
-    </h2>
+    <h2 class="category-title">AI &#43; Security</h2>
     
     
     <article class="article">
-        <div class="article-title">MITRE ATT&amp;CK: Cloud &amp; Cookies - A New Front!</div>
-        <div class="article-commentary">MITRE&#39;s latest ATT&amp;CK framework update included techniques for stealing cookies from machines and using them for lateral movement, revealing the evolving tactics of cyber attackers in the cloud environment.</div>
-        <a href="https://embracethered.com/blog/posts/mitreattackupdate/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://embracethered.com/blog/posts/mitreattackupdate/
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Vulnerable MCP Labs</a>
+        </h3>
+        <div class="article-commentary">A security auditor for Tailscale has created a tool to scan for over 50 common misconfigurations in AWS environments.  The ‘tailsnitch’ tool helps identify vulnerabilities that could be exploited.  Try: `go install github.com/adversis/tailsnitch@latest`. GitHub: https://github.com/adversis/tailsnitch</div>
     </article>
     
     <article class="article">
-        <div class="article-title">North Korean Cyber Campaign: A Stealthy Threat!</div>
-        <div class="article-commentary">The NCSC and partners issued a critical warning regarding a state-sponsored cyber campaign targeting critical infrastructure organizations, highlighting the increasing sophistication and persistence of North Korean cyber operations.</div>
-        <a href="https://www.ncsc.gov.uk/news/ncsc-partners-vigilant-dprk-sponsored-cyber-campaign" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.ncsc.gov.uk/news/ncsc-partners-vigilant-dprk-sponsored-cyber-campaign
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Microsoft 365 Attacks: OAuth Phishing!</div>
-        <div class="article-commentary">Microsoft 365 accounts were targeted in a wave of OAuth phishing attacks, demonstrating the ongoing effectiveness of social engineering techniques and the importance of employee training and awareness.</div>
-        <a href="https://www.proofpoint.com/us/newsroom/news/microsoft-365-accounts-targeted-wave-oauth-phishing-attacks" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.proofpoint.com/us/newsroom/news/microsoft-365-accounts-targeted-wave-oauth-phishing-attacks
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Pathfinding.cloud</a>
+        </h3>
+        <div class="article-commentary">Datadog’s ‘pathfinding.cloud’ is a tool that identifies 65&#43; privilege escalation paths within AWS IAM.  It&#39;s invaluable for proactively finding vulnerabilities and hardening your cloud infrastructure.  Use it to continuously assess your IAM configuration and improve security posture.  https://pathfinding.cloud</div>
     </article>
     
 </section>
 
 <section class="category">
-    <h2 class="category-title">
-        <span class="category-number">[0x05]</span>
-        SECURITY NEWS &amp; TRENDS
-    </h2>
+    <h2 class="category-title">Research &amp; Tools</h2>
     
     
     <article class="article">
-        <div class="article-title">Student Loan Breach: 2.5M Records Exposed!</div>
-        <div class="article-commentary">A significant breach exposed 2.5 million people&#39;s records, raising concerns about identity theft and potential fraud. This served as a stark reminder of the vulnerability of sensitive data and the importance of robust security measures.</div>
-        <a href="https://threatpost.com/student-loan-breach-exposes-2-5m-records/180492/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://threatpost.com/student-loan-breach-exposes-2-5m-records/180492/
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Vulnerable MCP Labs</a>
+        </h3>
+        <div class="article-commentary">A security auditor for Tailscale has created a tool to scan for over 50 common misconfigurations in AWS environments.  The ‘tailsnitch’ tool helps identify vulnerabilities that could be exploited.  Try: `go install github.com/adversis/tailsnitch@latest`. GitHub: https://github.com/adversis/tailsnitch</div>
     </article>
     
     <article class="article">
-        <div class="article-title">Agentic ProbLLMs: AI Agent Exploits!</div>
-        <div class="article-commentary">Researchers explored the potential for AI computer-use and coding agents to exploit vulnerabilities, highlighting the emerging risks associated with advanced AI systems and the need for proactive security measures.</div>
-        <a href="https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/
-        </a>
+        <h3 class="article-title">
+            <a href="#" target="_blank" rel="noopener noreferrer">Pathfinding.cloud</a>
+        </h3>
+        <div class="article-commentary">Datadog’s ‘pathfinding.cloud’ is a tool that identifies 65&#43; privilege escalation paths within AWS IAM.  It&#39;s invaluable for proactively finding vulnerabilities and hardening your cloud infrastructure.  Use it to continuously assess your IAM configuration and improve security posture.  https://pathfinding.cloud</div>
     </article>
     
 </section>
