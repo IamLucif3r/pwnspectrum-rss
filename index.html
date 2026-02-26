@@ -326,57 +326,239 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hey there, security folks!\n\nIt’s Anmol Singh Yadav here, and I’m buzzing with excitement after digging into some really interesting developments this week. I’ve been particularly fascinated by the capabilities of romek for AI Agent management, and I’ve also come across the awesome-offensive-mcp list – a fantastic resource for red teaming. I’ve also added a few new tools to my arsenal and found some fantastic articles on deception techniques. Let’s dive into what’s shaping the cybersecurity landscape – are you ready to explore?";
-    document.getElementById('timestamp').textContent = "14 Jan 2026, 07:17 UTC";
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let’s dive straight into today’s “Hacker’s Journal”! We’re dealing with a *massive* surge in zero-day vulnerabilities – CISA’s adding threats faster than we can patch them, GitHub Copilot is proving to be a dev's nightmare, and shadowy campaigns like UNC2814 are targeting high-value targets with terrifying precision! Plus, ransomware groups like Medusa and Interlock are evolving, coupled with huge data breaches like CarGurus and exploits in tools like Flowise 3.0.4 – it's a chaotic, exhilarating, and frankly, concerning landscape we need to dissect together! Let’s get to work!";
+    document.getElementById('timestamp').textContent = "26 Feb 2026, 17:56 UTC";
 </script>
 
 
-<section class="category tools-section">
-    <h2 class="category-title">🛠️ Tools of the Week</h2>
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x01]</span>
+        ZERO-DAY MADNESS
+    </h2>
     
-    <article class="article tool-article">
-        <h3 class="article-title">
-            <a href="https://github.com/jacobgadek/romek" target="_blank" rel="noopener noreferrer">romek</a>
-            <span class="tool-stars">★ 19</span>
-        </h3>
-        <div class="article-commentary">Open source SDK for AI Agent identity and session management</div>
+    
+    <article class="article">
+        <div class="article-title">CISA Adds Two More Vulnerabilities - The Threat is Rising!</div>
+        <div class="article-commentary">CISA just added two known vulnerabilities to their catalog, which means attackers are now armed with two new ways to compromise systems. It&#39;s like giving a burglar two extra keys – suddenly, your fortress is much less secure. This accelerates the cycle of patching and exploitation, creating a dangerous feedback loop for organizations.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/01/07/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/01/07/cisa-adds-two-known-exploited-vulnerabilities-catalog
+        </a>
     </article>
     
-    <article class="article tool-article">
-        <h3 class="article-title">
-            <a href="https://github.com/R00T-Kim/awesome-offensive-mcp" target="_blank" rel="noopener noreferrer">awesome-offensive-mcp</a>
-            <span class="tool-stars">★ 6</span>
-        </h3>
-        <div class="article-commentary">A curated list of Offensive Security MCP Servers for Red Teaming &amp; Pentesting.</div>
+    <article class="article">
+        <div class="article-title">Another Vulnerability Spotted – CISA&#39;s Watch List Grows!</div>
+        <div class="article-commentary">CISA has identified yet another exploit, adding to their ever-growing list of critical vulnerabilities. This highlights the constant pressure organizations face – a single unpatched flaw can be the doorway to a devastating attack. It&#39;s a race against time, and right now, attackers are winning.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/01/29/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/01/29/cisa-adds-one-known-exploited-vulnerability-catalog
+        </a>
     </article>
     
-    <article class="article tool-article">
-        <h3 class="article-title">
-            <a href="https://github.com/tracebit-com/awesome-deception" target="_blank" rel="noopener noreferrer">awesome-deception</a>
-            <span class="tool-stars">★ 6</span>
-        </h3>
-        <div class="article-commentary">An awesome collection of articles, papers, conferences, guides, and tools relating to deception in cybersecurity.</div>
+    <article class="article">
+        <div class="article-title">UAT-8616: The Shadowy Threat Now in Full Swing!</div>
+        <div class="article-commentary">The highly sophisticated UAT-8616 threat actor is actively exploiting a critical zero-day in Cisco SD-WAN, granting them deep access to enterprise networks. This is a serious escalation, demonstrating a coordinated, persistent attack aimed at disrupting critical operations. Imagine a phantom intruder silently infiltrating your most secure systems.</div>
+        <a href="https://gbhackers.com/critical-cisco-sd-wan-0-day-exploited/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/critical-cisco-sd-wan-0-day-exploited/
+        </a>
     </article>
     
-    <article class="article tool-article">
-        <h3 class="article-title">
-            <a href="https://github.com/canmitm/JavaScript-De-obfuscator-DOM-Sink-Analyzer" target="_blank" rel="noopener noreferrer">JavaScript-De-obfuscator-DOM-Sink-Analyzer</a>
-            <span class="tool-stars">★ 6</span>
-        </h3>
-        <div class="article-commentary">⚡ Tactical JS analysis engine to de-obfuscate bundles and map Source-to-Sink flows for DOM-based vulnerability discovery. Specialized for modern web architectures.</div>
+    <article class="article">
+        <div class="article-title">CVE-2026-20127: Zero-Day Attacks Continue to Exploit SD-WAN Weaknesses!</div>
+        <div class="article-commentary">Cisco is desperately trying to contain a zero-day vulnerability (CVE-2026-20127) in their SD-WAN products, but attackers are already leveraging it to compromise controllers and introduce malicious peers. This indicates a significant vulnerability in how networks are managed, opening the door to widespread disruption and control.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/critical-cisco-sd-wan-bug-exploited-in-zero-day-attacks-since-2023/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/critical-cisco-sd-wan-bug-exploited-in-zero-day-attacks-since-2023/
+        </a>
     </article>
     
-    <article class="article tool-article">
-        <h3 class="article-title">
-            <a href="https://github.com/N0vachr0n0/Infinity-Stack" target="_blank" rel="noopener noreferrer">Infinity-Stack</a>
-            <span class="tool-stars">★ 6</span>
-        </h3>
-        <div class="article-commentary">🚀 The ultimate curated repository of a decade-long journey through Dev, DevOps, Sysadmin Linux, and CyberSecurity. A living &#34;Alibaba’s Cave&#34; of high-value resources, frameworks, and battle-tested tools. 🏴‍☠️</div>
+    <article class="article">
+        <div class="article-title">GitHub Copilot: Prompt Injection – A Dev’s Nightmare!</div>
+        <div class="article-commentary">A scary discovery has revealed that GitHub Copilot can be exploited via prompt injection, leading to full system compromise.  Developers now face the unsettling realization that their coding tools could become conduits for attackers. This is a critical wake-up call about the security risks associated with increasingly powerful AI assistants.</div>
+        <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/
+        </a>
     </article>
     
 </section>
 
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        ESPIONAGE OPERATIONS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">UNC2814 Strikes Again - A Global Espionage Campaign!</div>
+        <div class="article-commentary">Google has disrupted the UNC2814 espionage group, which has been relentlessly targeting organizations worldwide. This demonstrates the scale and sophistication of nation-state cyberattacks, highlighting the need for robust network defenses and proactive threat intelligence.  The attacker’s goal isn’t just data; it’s control.</div>
+        <a href="https://thehackernews.com/2026/02/google-disrupts-unc2814-gridtide.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/02/google-disrupts-unc2814-gridtide.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">WinRAR Zero-Day: Targeting High-Value Targets with Precision!</div>
+        <div class="article-commentary">Attackers are using a zero-day vulnerability in WinRAR to target high-value organizations across Europe and Canada. This shows how attackers are adapting their tactics, leveraging readily available tools (like WinRAR) to conduct sophisticated espionage operations. The vulnerability opens a backdoor for covert data extraction.</div>
+        <a href="https://www.welivesecurity.com/en/videos/winrar-zero-day-exploited-espionage-attacks-high-value-targets/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/videos/winrar-zero-day-exploited-espionage-attacks-high-value-targets/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Angular Vulnerability Exposed – A Web App Security Nightmare!</div>
+        <div class="article-commentary">A critical cross-site scripting (XSS) vulnerability in the Angular internationalization (i18n) pipeline is being exploited. Attackers can inject malicious scripts into web applications, potentially gaining control of user accounts and sensitive data. A classic web app flaw, but one that&#39;s still causing significant damage.</div>
+        <a href="https://github.com/angular/angular/commit/306f367899dfc2e04238fecd3455547b5d54075d" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://github.com/angular/angular/commit/306f367899dfc2e04238fecd3455547b5d54075d
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Network Takeovers in Minutes: The Speed of Modern Attacks!</div>
+        <div class="article-commentary">CrowdStrike is reporting a frightening trend: attackers can now compromise networks in as little as 29 minutes, leveraging credential misuse and AI-powered tools. This dramatically reduces the time attackers have to detect and respond to breaches, putting organizations at immediate risk. It&#39;s a new era of speed and agility for cybercriminals.</div>
+        <a href="https://www.darkreading.com/cyber-risk/attackers-now-need-just-29-minutes-to-own-a-network" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/cyber-risk/attackers-now-need-just-29-minutes-to-own-a-network
+        </a>
+    </article>
+    
+</section>
 
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        RANSOMWARE THREATS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">#StopRansomware: Medusa Ransomware – A Growing Threat!</div>
+        <div class="article-commentary">Cybersecurity defenders are grappling with the rise of Medusa ransomware, a joint effort to combat this increasingly prevalent threat. The advisory provides critical information for network defenders to identify and mitigate attacks. It&#39;s a collaborative effort to slow the spread of ransomware.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-071a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">#StopRansomware: Interlock – Understanding Ransomware Tactics!</div>
+        <div class="article-commentary">Another vital advisory from the #StopRansomware initiative sheds light on the tactics employed by Interlock ransomware. This information is crucial for security teams to understand how these attacks are carried out and develop effective defenses. It&#39;s a continuing battle against evolving threats.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-203a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-203a
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        DATA BREACHES &amp; EXPLOITS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CarGurus Data Breach: Millions of Accounts Exposed – A Huge Privacy Risk!</div>
+        <div class="article-commentary">The ShinyHunters extortion group has dumped personal information from over 12 million CarGurus accounts. This massive data breach underscores the vulnerability of online marketplaces to cyberattacks and the importance of robust data protection measures. It&#39;s a devastating reminder of the potential consequences of poor security practices.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/cargurus-data-breach-exposes-information-of-124-million-accounts/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/cargurus-data-breach-exposes-information-of-124-million-accounts/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">BeyondTrust Flaw Unleashed – Remote Access Attacks on the Rise!</div>
+        <div class="article-commentary">The BeyondTrust vulnerability is being exploited to conduct a wide range of malicious activities, including deploying VShell – a remote access tool. This highlights the risks associated with remote access products and the need for strict security controls and monitoring. It&#39;s a serious threat to enterprise security.</div>
+        <a href="https://thehackernews.com/2026/02/beyondtrust-flaw-used-for-web-shells.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/02/beyondtrust-flaw-used-for-web-shells.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">[webapps] Flowise 3.0.4 – Remote Code Execution (RCE) – A Dev’s Risk!</div>
+        <div class="article-commentary">The Flowise 3.0.4 platform contains a Remote Code Execution (RCE) vulnerability, allowing attackers to execute arbitrary code on a developer’s machine. This is a critical risk for developers using Flowise, demanding immediate patching and careful security practices.</div>
+        <a href="https://www.exploit-db.com/exploits/52440" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52440
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        SECURITY ADVISORIES &amp; RESEARCH
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CISA Adds Two More Vulnerabilities – The Threat is Rising!</div>
+        <div class="article-commentary">CISA just added two known vulnerabilities to their catalog, which means attackers are now armed with two new ways to compromise systems. It&#39;s like giving a burglar two extra keys – suddenly, your fortress is much less secure. This accelerates the cycle of patching and exploitation, creating a dangerous feedback loop for organizations.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/01/07/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/01/07/cisa-adds-two-known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Another Vulnerability Spotted – CISA&#39;s Watch List Grows!</div>
+        <div class="article-commentary">CISA has identified yet another exploit, adding to their ever-growing list of critical vulnerabilities. This highlights the constant pressure organizations face – a single unpatched flaw can be the doorway to a devastating attack. It&#39;s a race against time, and right now, attackers are winning.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/01/29/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/01/29/cisa-adds-one-known-exploited-vulnerability-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">So rechtfertigen Sie Ihre Security-Investitionen - Key to protecting your company</div>
+        <div class="article-commentary">This article lays out the critical need to demonstrate the value of your security investments, tying them to tangible business outcomes. It’s a simple message, but one that organizations need to communicate clearly to secure budgets and prioritize security initiatives.</div>
+        <a href="https://www.csoonline.com/article/4051211/so-rechtfertigen-sie-ihre-security-investitionen.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4051211/so-rechtfertigen-sie-ihre-security-investitionen.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">NCSC and partners issue warning over North Korean state-sponsored cyber campaign to steal military and nuclear secrets</div>
+        <div class="article-commentary">Critical infrastructure organisations are strongly encouraged to stay vigilant to DPRK-sponsored cyber operations.  This is a serious warning about the threat of nation-state actors targeting sensitive infrastructure and data.</div>
+        <a href="https://www.ncsc.gov.uk/news/advisory-badbazaar-moonshine" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.ncsc.gov.uk/news/advisory-badbazaar-moonshine
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">NCSC and partners issue warning over North Korean state-sponsored cyber campaign to steal military and nuclear secrets</div>
+        <div class="article-commentary">Critical infrastructure organisations are strongly encouraged to stay vigilant to DPRK-sponsored cyber operations.  This is a serious warning about the threat of nation-state actors targeting sensitive infrastructure and data.</div>
+        <a href="https://www.ncsc.gov.uk/news/ncsc-partners-vigilant-dprk-sponsored-cyber-campaign" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.ncsc.gov.uk/news/ncsc-partners-vigilant-dprk-sponsored-cyber-campaign
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Roblox gives predators ‘powerful tools’ to target children, says LA County</div>
+        <div class="article-commentary">Los Angeles County&#39;s lawsuit against Roblox highlights a critical concern about online safety: the potential for predatory behavior on popular platforms. This underscores the need for robust moderation and safeguards to protect children from harm.</div>
+        <a href="https://www.malwarebytes.com/blog/news/2026/02/roblox-gives-predators-powerful-tools-to-target-children-says-la-county" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.malwarebytes.com/blog/news/2026/02/roblox-gives-predators-powerful-tools-to-target-children-says-la-county
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">NISTs Living Reference Material Could Accelerate R&amp;D of Lifesaving Biological Drugs</div>
+        <div class="article-commentary">The NIST reference material, called NISTCHO, will help the biopharmaceutical industry develop new drugs more quickly and ensure that they are safe and effective.  This accelerated research will undoubtedly bring faster, safer treatments to those in need.</div>
+        <a href="https://www.nist.gov/news-events/news/2025/09/nists-living-reference-material-could-accelerate-rd-lifesaving-biological" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.nist.gov/news-events/news/2025/09/nists-living-reference-material-could-accelerate-rd-lifesaving-biological
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Smashing Security podcast #451: I hacked the government, and your headphones are next</div>
+        <div class="article-commentary">The story of this cybercriminal’s audacious hacks – including the Supreme Court and Veterans Affairs – is a chilling reminder of the potential impact of skilled attackers. The public disclosure of personal information further emphasizes the importance of data security and responsible disclosure.</div>
+        <a href="https://grahamcluley.com/smashing-security-podcast-451/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://grahamcluley.com/smashing-security-podcast-451/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">VoidLink: Evidence That the Era of Advanced AI-Generated Malware Has Begun</div>
+        <div class="article-commentary">VoidLink’s framework marks the first evidence of fully AI-designed and built advanced malware, beginning a new era of AI-generated malware – a significant shift in the threat landscape that demands a change in defense strategies.</div>
+        <a href="https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/
+        </a>
+    </article>
+    
+</section>
 
 
     </div>
