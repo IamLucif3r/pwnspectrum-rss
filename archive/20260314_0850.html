@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-N9ZF36FC9M');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwnspectrum | Daily Cybersecurity Journal</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --text-primary: #00ff41;
+            --text-secondary: #00d9ff;
+            --text-muted: #888;
+            --border-color: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg-primary);
+            color: #ccc;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Particle Network Background */
+        #particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            filter: blur(2px);
+            opacity: 0.3;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--text-primary);
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+
+
+        .author {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+        }
+
+        .social-links a:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .social-links svg {
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover svg {
+            filter: drop-shadow(0 0 8px var(--text-primary));
+        }
+
+        /* Greeting Section */
+        .greeting {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #fff;
+            margin-bottom: 50px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--text-primary);
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .category-number {
+            color: var(--text-secondary);
+            margin-right: 10px;
+        }
+
+        /* Article */
+        .article {
+            margin-bottom: 0;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+        }
+
+        .article:hover {
+            padding-left: 10px;
+            background: rgba(0, 255, 65, 0.02);
+        }
+
+        .article-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .article-commentary {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+
+        .article-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+        }
+
+        .article-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 2px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .footer-author {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+
+            .greeting {
+                font-size: 14px;
+            }
+
+            .category-title {
+                font-size: 16px;
+            }
+
+            .article-title {
+                font-size: 14px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particle Network Background -->
+    <canvas id="particle-bg"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">PWNSPECTRUM</div>
+            <div class="tagline">Daily Cybersecurity Journal</div>
+            <div class="author">
+                by <strong>Anmol Singh Yadav</strong> (alias: IamLucif3r) | Issue Date: <span id="timestamp"></span>
+            </div>
+            <div class="social-links">
+                <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path
+                            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    Portfolio
+                </a>
+                <a href="https://github.com/iamlucif3r" target="_blank" title="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/anmolsinghyadav" target="_blank" title="LinkedIn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://x.com/IamLucif3r_" target="_blank" title="X (Twitter)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    X
+                </a>
+            </div>
+        </header>
+
+        <!-- Greeting (LLM-generated) -->
+        <div class="greeting" id="greeting">
+            <!-- Greeting will be injected here by JavaScript -->
+        </div>
+
+        <!-- Newsletter Content -->
+        <div id="newsletter-content">
+
+<script>
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let’s dive straight into today’s “Hacker’s Journal”! We’re talking ZERO-DAY MADNESS – from rogue GitHub Copilot exploits to devastating WinRAR attacks and that sneaky motionEye RCE! – and it’s clear state-sponsored threats are ramping up with the A0Backdoor and ongoing Chinese espionage. Plus, vulnerabilities in Budibase and Keygraph Shannon are causing serious headaches, alongside the evolving danger of AI assistants. \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e is going to break down all of this chaos and help you stay ahead of the curve – buckle up, it's going to be a wild ride!";
+    document.getElementById('timestamp').textContent = "10 Mar 2026, 06:32 UTC";
+</script>
+
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x01]</span>
+        ZERO-DAY MADNESS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CISA Alert: New Exploits Are Out in the Wild!</div>
+        <div class="article-commentary">The bad guys are moving fast! CISA just added two critical vulnerabilities to their KEV catalog, meaning attackers are actively exploiting them right now. This is a race against time – patch those systems or face imminent compromise. Imagine a digital burglar, quietly picking locks and stealing valuable data.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/02/25/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/02/25/cisa-adds-two-known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Four New Vulnerabilities Ignite the Fire!</div>
+        <div class="article-commentary">CISA isn&#39;t stopping! They&#39;ve added another four vulnerabilities to the KEV catalog, amplifying the threat landscape. These aren&#39;t just technical issues; they&#39;re opportunities for sophisticated attackers to wreak havoc. Think of it as a domino effect – one vulnerability leads to many.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/01/22/cisa-adds-four-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/01/22/cisa-adds-four-known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">GitHub Copilot: A Rogue AI Assistant!</div>
+        <div class="article-commentary">Hold on tight! This discovery reveals a serious flaw in GitHub Copilot – a vulnerability that allows attackers to completely take over a developer’s machine through prompt injection. It&#39;s like giving a weaponized chatbot full control of your digital life. This is a chilling reminder of the risks of trusting AI without careful oversight.</div>
+        <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">WinRAR Zero-Day: Spies Strike!</div>
+        <div class="article-commentary">A devastating zero-day vulnerability in WinRAR is being exploited by spies targeting high-value organizations. Attackers are disguising malicious code as seemingly innocent job application documents, silently compromising systems. This highlights the importance of vigilance and cautious handling of attachments.</div>
+        <a href="https://www.welivesecurity.com/en/videos/winrar-zero-day-exploited-espionage-attacks-high-value-targets/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/videos/winrar-zero-day-exploited-espionage-attacks-high-value-targets/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">motionEye RCE: Hackers Take Control!</div>
+        <div class="article-commentary">motionEye 0.43.1b4 has a critical RCE vulnerability. Attackers can now remotely control your security camera system. This is a massive security breach that could allow an attacker to view and record video or access network data.</div>
+        <a href="https://www.exploit-db.com/exploits/52481" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52481
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Divide and Conquer: Keenadu Unmasked!</div>
+        <div class="article-commentary">Kaspersky uncovered Keenadu, a new backdoor targeting tablet firmware and Google Play apps, revealing connections to major Android botnets. This is a sophisticated operation that highlights the growing threat of malware targeting mobile devices and the critical need for robust security measures on these platforms.</div>
+        <a href="https://securelist.com/keenadu-android-backdoor/118913/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/keenadu-android-backdoor/118913/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Q4 2025: Vulnerabilities in the Spotlight!</div>
+        <div class="article-commentary">A deep dive into the vulnerabilities published during Q4 2025 reveals a concerning trend: APTs are increasingly using C2 frameworks to enhance their attacks. This underscores the importance of comprehensive threat intelligence and proactive defense strategies.</div>
+        <a href="https://securelist.com/vulnerabilities-and-exploits-in-q4-2025/119105/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/vulnerabilities-and-exploits-in-q4-2025/119105/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">WinRAR Attack: RomCom&#39;s Hidden Threat!</div>
+        <div class="article-commentary">ESET Research uncovered a zero-day exploit in WinRAR used to target victims with malicious archives, demonstrating how even familiar software can be weaponized. This emphasizes the importance of staying updated with security patches and verifying the source of downloaded files.</div>
+        <a href="https://www.welivesecurity.com/en/eset-research/update-winrar-tools-now-romcom-and-others-exploiting-zero-day-vulnerability/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/eset-research/update-winrar-tools-now-romcom-and-others-exploiting-zero-day-vulnerability/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Signal and WhatsApp Hijacking: The Russian Threat!</div>
+        <div class="article-commentary">Russian state-sponsored hackers are using Signal and WhatsApp to hijack accounts and gain access to sensitive messages. This demonstrates how sophisticated attackers can exploit communication platforms to steal information and disrupt operations, posing a risk to governments, military personnel and journalists.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/dutch-govt-warns-of-signal-whatsapp-account-hijacking-attacks/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/dutch-govt-warns-of-signal-whatsapp-account-hijacking-attacks/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        STATE-SPONSORED THREATS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Microsoft Teams Under Siege: The A0Backdoor Attack!</div>
+        <div class="article-commentary">Hackers are using Microsoft Teams to trick employees into granting remote access and deploying malware. This is a classic social engineering attack that exploits trust and access, illustrating the vulnerability of even widely used collaboration tools. The &#39;villain&#39; is the attacker, exploiting the reliance on trusted software.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/microsoft-teams-phishing-targets-employees-with-backdoors/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/microsoft-teams-phishing-targets-employees-with-backdoors/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Ransomware as a Service: The Growing Threat!</div>
+        <div class="article-commentary">Ransomware-as-a-service is evolving into a major problem. This highlights the dangers of increasingly sophisticated ransomware attacks.</div>
+        <a href="https://www.csoonline.com/article/3838121/the-dirty-dozen-12-worst-ransomware-groups-active-today.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/3838121/the-dirty-dozen-12-worst-ransomware-groups-active-today.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Iran&#39;s Cyber Shadow: Escalating Attacks!</div>
+        <div class="article-commentary">Iran-linked hackers are escalating cyber operations against U.S. and allied networks amid regional conflict. This highlights the growing risk of state-sponsored cyberattacks and the need for robust defense measures. The attacker here is clearly a nation-state determined to inflict damage.</div>
+        <a href="https://gbhackers.com/iran-linked-hackers/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/iran-linked-hackers/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Chinese State Actors: Global Espionage Network!</div>
+        <div class="article-commentary">The Peoples Republic of China (PRC) is engaging in global espionage through state-sponsored cyber attacks. This is a disturbing reminder that cybersecurity is a matter of national security, with far-reaching implications for critical infrastructure and sensitive data. The &#39;villain&#39; is the nation-state, prioritizing information dominance.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">KONNI&#39;s AI Backdoors: A North Korean Threat!</div>
+        <div class="article-commentary">KONNI, a North Korean threat group, is employing AI-generated malware to target blockchain sectors. This highlights the evolving tactics of cybercriminals and the need for advanced threat detection capabilities. The actor here is leveraging AI to automate and enhance their attacks.</div>
+        <a href="https://research.checkpoint.com/2026/konni-targets-developers-with-ai-malware/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://research.checkpoint.com/2026/konni-targets-developers-with-ai-malware/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        VULNERABILITY EXPLOITS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Budibase Breach: A Low-Code Nightmare!</div>
+        <div class="article-commentary">A path traversal vulnerability in Budibase allows attackers to read sensitive data. This showcases the risks of using low-code platforms without proper security controls. It&#39;s a reminder that even seemingly simple tools can be exploited if not carefully managed.</div>
+        <a href="https://github.com/Budibase/budibase/security/advisories/GHSA-pqcr-jmfv-c9cp" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://github.com/Budibase/budibase/security/advisories/GHSA-pqcr-jmfv-c9cp
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Pickling the Mailbox: A Cisco Security Incident!</div>
+        <div class="article-commentary">CVE-2025-20393 represents a critical vulnerability in Cisco Secure Email Gateway, enabling attackers to compromise systems. This highlights the importance of regularly patching and monitoring security systems.</div>
+        <a href="https://starlabs.sg/blog/2026/01-pickling-the-mailbox-a-deep-dive-into-cve-2025-20393/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://starlabs.sg/blog/2026/01-pickling-the-mailbox-a-deep-dive-into-cve-2025-20393/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">The End of AI Bugs? A Month of Warnings!</div>
+        <div class="article-commentary">This reflects the growing trend of AI assistants becoming security threats. The month of AI bugs highlights that AI is not always reliable, and the need to keep AI systems in check.</div>
+        <a href="https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">FBI and CISA Warn of New Threat TTPs!</div>
+        <div class="article-commentary">The FBI and CISA have issued an advisory detailing the tactics, techniques and procedures used by threat actors. This is a critical update for security professionals, providing insights into the latest attack methods and enabling proactive defenses. The ‘villain’ is the constantly evolving threat landscape.”</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Keygraph Shannon: A Router Vulnerability!</div>
+        <div class="article-commentary">A hard-coded API key in Keygraph Shannon allows network attackers to compromise systems. This highlights the need for developers to carefully review and secure their applications, particularly those with exposed endpoints.</div>
+        <a href="https://github.com/KeygraphHQ/shannon/issues/186" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://github.com/KeygraphHQ/shannon/issues/186
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Q4 2025: APTs and C2 Frameworks!</div>
+        <div class="article-commentary">This report reveals a trend: APTs are increasingly utilizing C2 frameworks. This emphasizes the need for robust threat intelligence and proactive defense strategies to combat these advanced attacks.</div>
+        <a href="https://securelist.com/vulnerabilities-and-exploits-in-q4-2025/119105/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/vulnerabilities-and-exploits-in-q4-2025/119105/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        MALWARE &amp; ATTACKS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">A0Backdoor: The Team-Assist Threat!</div>
+        <div class="article-commentary">Hackers are leveraging Microsoft Teams to trick employees into granting remote access and deploying a new piece of malware called A0Backdoor. This is a dangerous combination of social engineering and malware, highlighting the importance of employee training and secure access controls.</div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: #
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        SHAPING THE FUTURE
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">AI Assistants: The Security Goalposts Shift!</div>
+        <div class="article-commentary">AI-based assistants are growing in popularity, but as headlines show, they pose significant security risks. This emphasizes the need for careful consideration of the potential vulnerabilities associated with these technologies, urging caution and robust security measures.</div>
+        <a href="https://krebsonsecurity.com/2026/03/how-ai-assistants-are-moving-the-security-goalposts/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://krebsonsecurity.com/2026/03/how-ai-assistants-are-moving-the-security-goalposts/
+        </a>
+    </article>
+    
+</section>
+
+
+    </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-author">Written by Anmol Singh Yadav (alias: IamLucif3r)</div>
+            <div style="margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p>I am a Cybersecurity Researcher and Ethical Hacker with a passion for securing the digital world.
+                    With expertise in VAPT, Red Teaming, and Cloud Security, I strive to uncover vulnerabilities before
+                    the bad guys do.</p>
+                <p style="margin-top: 10px;">Enjoyed this journal? <strong>Share it with your friends and
+                        community!</strong> Let's build a safer internet together.</p>
+            </div>
+            <div>Daily insights from the cybersecurity trenches</div>
+            <div class="footer-links">
+                <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path
+                            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    Portfolio
+                </a>
+                <a href="https://github.com/iamlucif3r" target="_blank" title="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/anmolsinghyadav" target="_blank" title="LinkedIn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://x.com/IamLucif3r_" target="_blank" title="X (Twitter)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    X
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Particle Network Animation
+        const canvas = document.getElementById('particle-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 80;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#00ff41';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 255, 65, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+
+</html>
