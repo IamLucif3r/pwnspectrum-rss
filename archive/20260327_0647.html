@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-N9ZF36FC9M');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwnspectrum | Daily Cybersecurity Journal</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --text-primary: #00ff41;
+            --text-secondary: #00d9ff;
+            --text-muted: #888;
+            --border-color: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg-primary);
+            color: #ccc;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Particle Network Background */
+        #particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            filter: blur(2px);
+            opacity: 0.3;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--text-primary);
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+
+
+        .author {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+        }
+
+        .social-links a:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .social-links svg {
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover svg {
+            filter: drop-shadow(0 0 8px var(--text-primary));
+        }
+
+        /* Greeting Section */
+        .greeting {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #fff;
+            margin-bottom: 50px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--text-primary);
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .category-number {
+            color: var(--text-secondary);
+            margin-right: 10px;
+        }
+
+        /* Article */
+        .article {
+            margin-bottom: 0;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+        }
+
+        .article:hover {
+            padding-left: 10px;
+            background: rgba(0, 255, 65, 0.02);
+        }
+
+        .article-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .article-commentary {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+
+        .article-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+        }
+
+        .article-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 2px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .footer-author {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--text-primary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+
+            .greeting {
+                font-size: 14px;
+            }
+
+            .category-title {
+                font-size: 16px;
+            }
+
+            .article-title {
+                font-size: 14px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particle Network Background -->
+    <canvas id="particle-bg"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">PWNSPECTRUM</div>
+            <div class="tagline">Daily Cybersecurity Journal</div>
+            <div class="author">
+                by <strong>Anmol Singh Yadav</strong> (alias: IamLucif3r) | Issue Date: <span id="timestamp"></span>
+            </div>
+            <div class="social-links">
+                <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path
+                            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    Portfolio
+                </a>
+                <a href="https://github.com/iamlucif3r" target="_blank" title="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/anmolsinghyadav" target="_blank" title="LinkedIn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://x.com/IamLucif3r_" target="_blank" title="X (Twitter)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    X
+                </a>
+            </div>
+        </header>
+
+        <!-- Greeting (LLM-generated) -->
+        <div class="greeting" id="greeting">
+            <!-- Greeting will be injected here by JavaScript -->
+        </div>
+
+        <!-- Newsletter Content -->
+        <div id="newsletter-content">
+
+<script>
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and boy, do we have a *massive* day in the digital trenches! It’s all-systems-go as we dive headfirst into a vulnerability explosion – CISA is seriously cranking up the pressure with a ridiculous list of new exploits, and Oracle, Citrix, Cisco, and WordPress are all battling critical flaws! We’re also wrestling with AI security nightmares like Devin AI and LummaC2, and uncovering massive data breaches across Snowflake and more. Plus, Kaspersky’s detailed report just dropped, and China’s espionage network is making headlines. Let’s unpack this chaos and stay one step ahead – buckle up, it's going to be a wild ride!";
+    document.getElementById('timestamp').textContent = "26 Mar 2026, 07:16 UTC";
+</script>
+
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x01]</span>
+        VULNERABILITY EXPLOSION
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CISA Ramps Up the Pressure: New Exploits Added to the Catalog!</div>
+        <div class="article-commentary">The threat landscape just got hotter. CISA&#39;s constant updates signal that vulnerabilities are being actively exploited. This means organizations need to stay vigilant and prioritize patching immediately. Think of it as a relentless hacker probing for weaknesses - are you prepared to defend?</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/02/17/cisa-adds-four-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/02/17/cisa-adds-four-known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Another CISA Alert: New Vulnerability Spotted!</div>
+        <div class="article-commentary">Hold on tight! CISA has identified another critical flaw, demanding immediate attention. This highlights the urgency of continuous monitoring and proactive vulnerability management. It’s a race against time - can your defenses keep pace with the latest attacks?</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/03/18/cisa-adds-one-known-exploited-vulnerability-catalog-0" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/03/18/cisa-adds-one-known-exploited-vulnerability-catalog-0
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Oracle&#39;s Mess: RCE Vulnerability Unleashed!</div>
+        <div class="article-commentary">A massive security hole in Oracle’s Identity Manager is open for business. Attackers can now remotely execute code, potentially gaining complete control over systems. This is a serious breach of trust - what data is at risk?</div>
+        <a href="https://thehackernews.com/2026/03/oracle-patches-critical-cve-2026-21992.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/03/oracle-patches-critical-cve-2026-21992.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Telnetd Nightmare: Unauthenticated Root Access!</div>
+        <div class="article-commentary">Hackers are exploiting a critical flaw in Telnetd, gaining unauthorized root access to systems. This is a devastating breach of security protocols. The attacker is infiltrating your network with impunity, potentially stealing sensitive data or installing malware.</div>
+        <a href="https://thehackernews.com/2026/03/critical-telnetd-flaw-cve-2026-32746.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/03/critical-telnetd-flaw-cve-2026-32746.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">PyPI Under Siege: LiteLLM Malware Steals Credentials!</div>
+        <div class="article-commentary">Your code dependencies are compromised! LiteLLM malware is infecting PyPI packages, stealing cloud and CI/CD credentials. This represents a silent, insidious threat—a compromised library could be silently draining your infrastructure of resources and access.</div>
+        <a href="https://www.csoonline.com/article/4149905/pypi-warns-developers-after-litellm-malware-found-stealing-cloud-and-ci-cd-credentials.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4149905/pypi-warns-developers-after-litellm-malware-found-stealing-cloud-and-ci-cd-credentials.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Citrix Bleed 2.0: Another Critical Hole!</div>
+        <div class="article-commentary">Citrix is facing renewed scrutiny after discovering a vulnerability similar to the notorious CitrixBleed. Attackers are exploiting this weakness with devastating results, emphasizing the importance of consistent patching and a layered security approach.</div>
+        <a href="https://www.csoonline.com/article/4150224/new-critical-citrix-netscaler-hole-of-similar-severity-to-citrixbleed2-says-expert.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4150224/new-critical-citrix-netscaler-hole-of-similar-severity-to-citrixbleed2-says-expert.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Bubble AI Attacks: Phishing Detection Dodged!</div>
+        <div class="article-commentary">Threat actors are leveraging the no-code Bubble platform to craft sophisticated phishing attacks, bypassing traditional detection methods. This demonstrates the evolving tactics of cybercriminals—they’re exploiting legitimate tools against us.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/bubble-ai-app-builder-abused-to-steal-microsoft-account-credentials/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/bubble-ai-app-builder-abused-to-steal-microsoft-account-credentials/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Cisco&#39;s Security Weakness: Remote Code Execution!</div>
+        <div class="article-commentary">A massive vulnerability in Cisco&#39;s Secure Firewall Management Center (FMC) Software is open for attack. This poses a serious threat to network security, and organizations must swiftly implement patches to prevent exploitation.</div>
+        <a href="https://gbhackers.com/cisco-secure-firewall-vulnerability-3/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/cisco-secure-firewall-vulnerability-3/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Citrix&#39;s Urgent Plea: Patch NetScaler Flaws Now!</div>
+        <div class="article-commentary">Citrix is urgently urging admins to patch critical vulnerabilities in NetScaler ADC and NetScaler Gateway, mirroring zero-day attacks. Time is of the essence—every moment of delay increases your risk of compromise.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/citrix-urges-admins-to-patch-netscaler-flaws-as-soon-as-possible/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/citrix-urges-admins-to-patch-netscaler-flaws-as-soon-as-possible/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">WordPress Plugin Vulnerability: Stored XSS!</div>
+        <div class="article-commentary">A stored cross-site scripting vulnerability in the ShortPixel Image Optimizer plugin exposes WordPress sites to potential attacks. This is a classic scenario: a malicious script injects itself into the website, potentially compromising user data or taking control of the system.</div>
+        <a href="https://plugins.trac.wordpress.org/browser/shortpixel-image-optimiser/tags/6.4.3/class/Controller/AjaxController.php#L449" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://plugins.trac.wordpress.org/browser/shortpixel-image-optimiser/tags/6.4.3/class/Controller/AjaxController.php#L449
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Cyberattack Trends: Kaspersky&#39;s Detailed Report!</div>
+        <div class="article-commentary">Kaspersky&#39;s latest report reveals the key trends and statistics in cyberattacks, providing valuable insights for security professionals. Understanding these patterns is vital for proactive defense and strategic risk mitigation.</div>
+        <a href="https://securelist.com/global-report-security-services-2026/119233/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/global-report-security-services-2026/119233/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Palo Alto Networks Under Attack: Urgent Patch Required!</div>
+        <div class="article-commentary">CISA has issued a critical warning about an active attack targeting Palo Alto Networks PAN-OS. Organizations must immediately implement the necessary patches to prevent successful exploitation and protect their networks.</div>
+        <a href="https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">SD-WAN Vulnerabilities: Active Exploitation Detected!</div>
+        <div class="article-commentary">Vulnerabilities in Cisco SD-WAN systems are being actively exploited, presenting a serious security risk. Immediate action is required to patch these flaws and safeguard your network infrastructure.</div>
+        <a href="https://www.sophos.com/en-us/blog/cisco-sd-wan-vulnerabilities-cve-2026-20127-cve-2022-20775-in-active-exploitation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/cisco-sd-wan-vulnerabilities-cve-2026-20127-cve-2022-20775-in-active-exploitation
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">China&#39;s Espionage Network: Global Threat Exposed!</div>
+        <div class="article-commentary">The FBI and CISA have uncovered a sophisticated espionage network operated by Chinese state-sponsored actors, targeting networks worldwide. This highlights the evolving geopolitical landscape of cybersecurity threats and the need for heightened vigilance.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        AI SECURITY NIGHTMARES
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Devin AI: Prompt Injection Tested - You Don&#39;t Have To!</div>
+        <div class="article-commentary">A deep dive into Devin AI, the first AI Software Engineer, revealing vulnerabilities through prompt injection. This groundbreaking research demonstrates the risks of relying on AI and the potential for malicious actors to manipulate its behavior.</div>
+        <a href="https://embracethered.com/blog/posts/2025/devin-i-spent-usd500-to-hack-devin/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/devin-i-spent-usd500-to-hack-devin/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">LummaC2 Malware: Data Exfiltration in Action!</div>
+        <div class="article-commentary">Threat actors are deploying LummaC2 malware to steal sensitive data from organizations. This highlights the growing sophistication of cyberattacks and the need for advanced detection and prevention measures.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Cisco SD-WAN Vulnerabilities: Exploited in the Wild!</div>
+        <div class="article-commentary">The vulnerabilities in Cisco SD-WAN systems are being actively exploited, posing a significant risk to network security. Immediate patching is critical to mitigate this threat.</div>
+        <a href="https://www.sophos.com/en-us/blog/cisco-sd-wan-vulnerabilities-cve-2026-20127-cve-2022-20775-in-active-exploitation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/cisco-sd-wan-vulnerabilities-cve-2026-20127-cve-2022-20775-in-active-exploitation
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Tapo C260 Webcam Hack: Remote Code Execution!</div>
+        <div class="article-commentary">A critical remote code execution vulnerability was discovered in the Tapo C260 webcam, allowing attackers to gain control of the device. This underscores the importance of securing IoT devices and implementing robust security measures.</div>
+        <a href="https://spaceraccoon.dev/getting-shell-tapo-c260-webcam/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://spaceraccoon.dev/getting-shell-tapo-c260-webcam/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Snowflake Data Breach: The Fallout!</div>
+        <div class="article-commentary">The Snowflake data breach exposed vulnerabilities in cloud data warehousing solutions, emphasizing the importance of data security best practices and incident response planning.</div>
+        <a href="https://www.hackercombat.com/snowflake-data-breach/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.hackercombat.com/snowflake-data-breach/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">App Audit Reveals Bank Account Leakage!</div>
+        <div class="article-commentary">A security audit of shift scheduling apps exposed vulnerabilities that could leak employee bank account details, demonstrating the potential dangers of relying on unvetted third-party applications.</div>
+        <a href="https://blog.oversecured.com/The-app-you-asked-your-employees-to-install-can-leak-their-bank-account-details-to-hackers/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://blog.oversecured.com/The-app-you-asked-your-employees-to-install-can-leak-their-bank-account-details-to-hackers/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">NIST Award Recognizes Wildfire Expert!</div>
+        <div class="article-commentary">Dr. Alex Maranghides receives a prestigious award for his contributions to wildfire management and safety, highlighting the importance of data-driven decision-making in emergency response.</div>
+        <a href="https://www.nist.gov/news-events/news/2025/07/nists-alex-maranghides-receives-service-america-medal" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.nist.gov/news-events/news/2025/07/nists-alex-maranghides-receives-service-america-medal
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        CRITICAL SYSTEM FLAWS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Telnetd Disaster: Unauthenticated Root Access!</div>
+        <div class="article-commentary">A critical flaw in the GNU InetUtils telnet daemon enables attackers to gain unauthorized root access to systems. This is a catastrophic breach of security, demanding immediate action and remediation.</div>
+        <a href="https://thehackernews.com/2026/03/critical-telnetd-flaw-cve-2026-32746.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/03/critical-telnetd-flaw-cve-2026-32746.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Cisco FMC Vulnerability: Remote Code Execution!</div>
+        <div class="article-commentary">A 10.0 CVSS-rated vulnerability in Cisco&#39;s Secure Firewall Management Center allows unauthenticated remote attackers to execute code, posing a significant threat to network security.</div>
+        <a href="https://gbhackers.com/cisco-secure-firewall-vulnerability-3/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/cisco-secure-firewall-vulnerability-3/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Bubble AI Abuse: Phishing Detection Bypassed!</div>
+        <div class="article-commentary">Threat actors are exploiting the no-code Bubble platform to craft sophisticated phishing attacks, demonstrating the evolving tactics of cybercriminals.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/bubble-ai-app-builder-abused-to-steal-microsoft-account-credentials/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/bubble-ai-app-builder-abused-to-steal-microsoft-account-credentials/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">NetScaler Vulnerabilities: Urgent Patch Needed!</div>
+        <div class="article-commentary">Critical vulnerabilities in Citrix NetScaler ADC and NetScaler Gateway require immediate patching to prevent exploitation and safeguard network infrastructure.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/citrix-urges-admins-to-patch-netscaler-flaws-as-soon-as-possible/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/citrix-urges-admins-to-patch-netscaler-flaws-as-soon-as-possible/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">OpenHands: AI Data Exfiltration Uncovered</div>
+        <div class="article-commentary">OpenHands, formerly OpenDevin, exposes vulnerabilities in AI image rendering, allowing for data exfiltration and highlighting the need for careful consideration of AI tool security.</div>
+        <a href="https://embracethered.com/blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/openhands-the-lethal-trifecta-strikes-again/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        SECURITY WARNINGS &amp; UPDATES
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CISA Adds Four More Vulnerabilities!</div>
+        <div class="article-commentary">CISA continues to roll out critical updates, adding four new vulnerabilities to its catalog. This emphasizes the constant need for vigilance and proactive security measures.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/02/17/cisa-adds-four-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/02/17/cisa-adds-four-known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Alert: Another Vulnerability Added!</div>
+        <div class="article-commentary">CISA has identified yet another vulnerability, demanding immediate attention and requiring swift remediation to prevent exploitation.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/03/18/cisa-adds-one-known-exploited-vulnerability-catalog-0" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/03/18/cisa-adds-one-known-exploited-vulnerability-catalog-0
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Node.js Patches Released: DoS and Crash Risks Addressed</div>
+        <div class="article-commentary">The Node.js team has released a critical security update to address vulnerabilities that could lead to denial-of-service attacks or system crashes, highlighting the importance of staying current with security patches.</div>
+        <a href="https://gbhackers.com/node-js-releases-urgent-patches-for-multiple-vulnerabilities/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/node-js-releases-urgent-patches-for-multiple-vulnerabilities/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CVE-2026-25357: Authentication Bypass!</div>
+        <div class="article-commentary">A critical authentication bypass vulnerability in azzaroco Ultimate Membership Pro reveals the dangers of relying on vulnerable plugins and the need for robust security measures.</div>
+        <a href="https://patchstack.com/database/Wordpress/Plugin/indeed-membership-pro/vulnerability/wordpress-ultimate-membership-pro-plugin-13-7-account-takeover-vulnerability?_s_id=cve" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://patchstack.com/database/Wordpress/Plugin/indeed-membership-pro/vulnerability/wordpress-ultimate-membership-pro-plugin-13-7-account-takeover-vulnerability?_s_id=cve
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Palo Alto Networks Under Attack - Patch Now!</div>
+        <div class="article-commentary">CISA warns of an active attack targeting Palo Alto Networks PAN-OS, urging immediate patching to prevent compromise.</div>
+        <a href="https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">China&#39;s Espionage Network Exposed</div>
+        <div class="article-commentary">The FBI and CISA are releasing a joint advisory on China&#39;s state-sponsored espionage network, highlighting the importance of global cybersecurity cooperation.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        SCIENTIFIC SECURITY
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Kaspersky&#39;s Cyberattack Report – Key Insights!</div>
+        <div class="article-commentary">Kaspersky&#39;s detailed report provides valuable insights into cyberattack trends, guiding security professionals towards proactive defenses and strategic risk mitigation.</div>
+        <a href="https://securelist.com/global-report-security-services-2026/119233/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/global-report-security-services-2026/119233/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Trivy Supply Chain Attack: CI/CD Secrets Stolen!</div>
+        <div class="article-commentary">A sophisticated supply chain attack leveraging Trivy reveals vulnerabilities in CI/CD workflows, exposing sensitive secrets like cloud credentials and SSH keys.</div>
+        <a href="https://www.darkreading.com/application-security/trivy-supply-chain-attack-targets-ci-cd-secrets" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/application-security/trivy-supply-chain-attack-targets-ci-cd-secrets
+        </a>
+    </article>
+    
+</section>
+
+
+    </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-author">Written by Anmol Singh Yadav (alias: IamLucif3r)</div>
+            <div style="margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p>I am a Cybersecurity Researcher and Ethical Hacker with a passion for securing the digital world.
+                    With expertise in VAPT, Red Teaming, and Cloud Security, I strive to uncover vulnerabilities before
+                    the bad guys do.</p>
+                <p style="margin-top: 10px;">Enjoyed this journal? <strong>Share it with your friends and
+                        community!</strong> Let's build a safer internet together.</p>
+            </div>
+            <div>Daily insights from the cybersecurity trenches</div>
+            <div class="footer-links">
+                <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path
+                            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    Portfolio
+                </a>
+                <a href="https://github.com/iamlucif3r" target="_blank" title="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/anmolsinghyadav" target="_blank" title="LinkedIn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://x.com/IamLucif3r_" target="_blank" title="X (Twitter)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    X
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Particle Network Animation
+        const canvas = document.getElementById('particle-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 80;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#00ff41';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 255, 65, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+
+</html>
