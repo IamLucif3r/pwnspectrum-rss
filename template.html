@@ -19,150 +19,255 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+
+        /* Brutalist Theme Imports */
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+        
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #121212;
-            --text-primary: #00ff41;
-            --text-secondary: #00d9ff;
-            --text-muted: #888;
-            --border-color: #1a1a1a;
+            /* Dark Theme (Default) */
+            --bg-page: #0A0A0A;
+            --bg-card: #0F0F0F;
+            --bg-header: #111111;
+            --text-main: #E8E8E8;
+            --text-muted: #666666;
+            --border-muted: #1A1A1A;
+            --border-card: #1C1C1C;
+            --plexus-color: 232, 255, 71; /* Neon green/yellow */
+            --plexus-opacity: 0.15;
+            --bullet-hover: #E8FF47;
+            --bullet-hover-text: #000;
+        }
+
+        body.light-theme {
+            --bg-page: #F4F4F5;
+            --bg-card: #FFFFFF;
+            --bg-header: #FAFAFA;
+            --text-main: #09090B;
+            --text-muted: #52525B;
+            --border-muted: #E4E4E7;
+            --border-card: #D4D4D8;
+            --plexus-color: 0, 0, 0; /* Black for light mode */
+            --plexus-opacity: 0.1;
+            --bullet-hover: #09090B;
+            --bullet-hover-text: #FFF;
         }
 
         body {
-            font-family: 'Fira Code', monospace;
-            background: var(--bg-primary);
-            color: #ccc;
-            line-height: 1.8;
+            font-family: 'DM Mono', 'Courier New', Courier, monospace;
+            background: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* Particle Network Background */
-        #particle-bg {
+        /* Elements to transition nicely */
+        .category, .greeting, .header, .article-bullet, .category-title {
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Plexus Background */
+        #plexus-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
-            filter: blur(2px);
-            opacity: 0.3;
+            pointer-events: none;
+            opacity: 0.6;
         }
 
-        /* Main Container */
         .container {
             position: relative;
             z-index: 1;
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 24px 48px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
         }
 
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid var(--border-color);
+        ::selection {
+            background: #E8FF47;
+            color: #000;
         }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border-muted);
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle-btn:hover {
+            color: var(--text-main);
+            border-color: var(--text-main);
+            background: rgba(128, 128, 128, 0.05);
+        }
+
+        /* Brutalist Header */
+        .header {
+            padding: 32px 0 24px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-muted);
+            text-align: left;
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .header-meta span {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #555;
+            text-transform: uppercase;
+        }
+        .header-meta .divider { color: #333; }
 
         .logo {
-            font-size: 32px;
+            font-size: clamp(28px, 5vw, 48px);
             font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: 8px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px var(--text-primary);
+            margin: 8px 0 4px;
+            letter-spacing: -1px;
+            color: #FFFFFF;
+            font-family: 'DM Mono', monospace;
+            text-transform: capitalize;
         }
 
-        .tagline {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 5px;
+        .tagline, .author {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 24px;
+            text-transform: none;
+            letter-spacing: 0;
         }
 
-
-
-        .author {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
+        /* Social Links as simple text rows */
         .social-links {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 10px;
         }
 
         .social-links a {
-            color: var(--text-secondary);
+            color: #555;
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
+            transition: color 0.2s;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
             align-items: center;
             gap: 6px;
-            font-size: 12px;
         }
 
         .social-links a:hover {
-            color: var(--text-primary);
-            text-shadow: 0 0 10px var(--text-primary);
-            transform: translateY(-2px);
+            color: #E8E8E8;
         }
 
-        .social-links svg {
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover svg {
-            filter: drop-shadow(0 0 8px var(--text-primary));
-        }
-
-        /* Greeting Section */
+        /* Greeting Section -> Hero Card */
         .greeting {
-            font-size: 16px;
+            background: #111;
+            border: 1px solid rgba(232, 255, 71, 0.2);
+            border-top: 3px solid #E8FF47;
+            border-radius: 0 0 12px 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: #ccc;
             line-height: 1.8;
-            color: #fff;
-            margin-bottom: 50px;
-            padding: 20px;
-            background: var(--bg-secondary);
-            border-left: 4px solid var(--text-primary);
+            box-shadow: none;
         }
 
-        /* Category Section */
+        /* Category System - Dynamic Colors via nth-child */
         .category {
-            margin-bottom: 60px;
+            margin-bottom: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .category-title {
-            font-size: 18px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-            font-family: 'Fira Code', monospace;
+            letter-spacing: 1px;
+            color: #CCC;
+            text-transform: uppercase;
+            margin-bottom: 0;
         }
 
         .category-number {
-            color: var(--text-secondary);
-            margin-right: 10px;
+            font-size: 13px;
+            margin-right: 5px;
+            color: inherit;
         }
 
-        /* Article */
+        /* Dynamic Category Accents */
+        .category:nth-of-type(1) .category-title { border-top: 3px solid #E8FF47; color: #E8FF47; }
+        .category:nth-of-type(2) .category-title { border-top: 3px solid #FF6B35; color: #FF6B35; }
+        .category:nth-of-type(3) .category-title { border-top: 3px solid #7C3AED; color: #7C3AED; }
+        .category:nth-of-type(4) .category-title { border-top: 3px solid #06B6D4; color: #06B6D4; }
+        .category:nth-of-type(5) .category-title { border-top: 3px solid #10B981; color: #10B981; }
+        .category:nth-of-type(6) .category-title { border-top: 3px solid #F59E0B; color: #F59E0B; }
+        .category:nth-of-type(7) .category-title { border-top: 3px solid #EC4899; color: #EC4899; }
+        .category:nth-of-type(n+8) .category-title { border-top: 3px solid #E8FF47; color: #E8FF47; }
+
+        /* Article Task Rows */
         .article {
-            margin-bottom: 0;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 8px;
+            padding: 12px 20px;
+            border-bottom: 1px solid #141414;
+            background: transparent;
+            transition: background 0.15s;
+            width: 100%;
+            border-radius: 0;
+            box-shadow: none;
         }
 
         .article:last-child {
@@ -170,120 +275,135 @@
         }
 
         .article:hover {
-            padding-left: 10px;
-            background: rgba(0, 255, 65, 0.02);
+            background: rgba(255, 255, 255, 0.02);
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Embed HTML URL in Title */
+        .article-title-link {
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            width: 100%;
+        }
+
+        .article-bullet {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            border: 1px solid var(--border-muted);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            flex-shrink: 0;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .article-title-link:hover .article-bullet {
+            border-color: var(--bullet-hover);
+            background: var(--bullet-hover);
+            color: var(--bullet-hover-text);
+            transform: scale(1.1) rotate(10deg);
         }
 
         .article-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: color 0.3s ease, transform 0.3s ease;
+            transform: none !important;
+        }
+
+        .article-title-link:hover .article-title {
+            color: var(--text-main);
+            transform: translateX(4px) !important;
+        }
+
+        /* Hover animation for entire row */
+        .article {
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+        .article:hover {
+            background-color: var(--bg-card);
+            transform: translateX(4px);
+        }
+        
+        /* Multiple animation effect: Fade in items */
+        .fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .article-commentary {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #ddd;
-            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #888;
+            margin-top: 2px;
+            margin-left: 32px; 
+            margin-bottom: 4px;
+            transform: none !important;
         }
 
         .article-link {
-            font-size: 12px;
-            color: var(--text-secondary);
-            display: inline-block;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            word-break: break-all;
-        }
-
-        .article-link:hover {
-            color: var(--text-primary);
-            text-shadow: 0 0 10px var(--text-primary);
-        }
-
-        .article-meta {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 10px;
-            display: flex;
-            gap: 15px;
+            display: none !important;
         }
 
         /* Footer */
         .footer {
+            margin-top: 48px;
+            padding: 24px 0;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-            border-top: 2px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 12px;
+            border-top: 1px solid var(--border-muted);
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
         }
-
-        .footer-author {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--text-primary);
-            text-shadow: 0 0 10px var(--text-primary);
-        }
-
-        /* Mobile Responsive */
+        .footer-author { display: none; }
+        .footer-links { justify-content: flex-start; margin-top: 10px; }
+        
         @media (max-width: 768px) {
-            .logo {
-                font-size: 24px;
-                letter-spacing: 4px;
-            }
-
-            .greeting {
-                font-size: 14px;
-            }
-
-            .category-title {
-                font-size: 16px;
-            }
-
-            .article-title {
-                font-size: 14px;
-            }
+            .container { padding: 0 16px 32px; }
         }
 
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 
 <body>
     <!-- Particle Network Background -->
-    <canvas id="particle-bg"></canvas>
+    <canvas id="plexus-bg"></canvas>
 
     <!-- Main Container -->
     <div class="container">
         <!-- Header -->
-        <header class="header">
-            <div class="logo">PWNSPECTRUM</div>
-            <div class="tagline">Daily Cybersecurity Journal</div>
-            <div class="author">
-                by <strong>Anmol Singh Yadav</strong> (alias: IamLucif3r) | Issue Date: <span id="timestamp"></span>
+        <header class="header fade-in-up" style="animation-delay: 0.1s;">
+            <div class="header-meta" style="flex-wrap: wrap; justify-content: space-between;">
+                <div style="display: flex; align-items: baseline; gap: 12px;">
+                    <span>Anmol Singh Yadav</span>
+                    <span class="divider">///</span>
+                    <span>Issue Date: <span id="timestamp"></span></span>
+                </div>
+                <button class="theme-toggle-btn" id="theme-toggle">
+                    <svg id="theme-icon-dark" style="display:none;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg id="theme-icon-light" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <span id="theme-text">Light Mode</span>
+                </button>
             </div>
+            <div class="logo">Pwnspectrum</div>
+            <div class="tagline">Daily Cybersecurity Journal</div>
             <div class="social-links">
                 <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -374,83 +494,134 @@
 
     <!-- JavaScript -->
     <script>
-        // Particle Network Animation
-        const canvas = document.getElementById('particle-bg');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-        const particleCount = 80;
-        const connectionDistance = 150;
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = 2;
+        // Setup Fade-in Animations
+        setTimeout(() => {
+            document.querySelectorAll('.category').forEach((el, i) => {
+                el.classList.add('fade-in-up');
+                el.style.animationDelay = `${0.2 + (i * 0.1)}s`;
+            });
+            const greetingEl = document.getElementById('greeting');
+            if(greetingEl) {
+                greetingEl.classList.add('fade-in-up');
+                greetingEl.style.animationDelay = '0.2s';
             }
+        }, 50);
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById('theme-toggle');
+        const iconDark = document.getElementById('theme-icon-dark');
+        const iconLight = document.getElementById('theme-icon-light');
+        const themeText = document.getElementById('theme-text');
 
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#00ff41';
-                ctx.fill();
+        function setTheme(isLight) {
+            if(isLight) {
+                document.body.classList.add('light-theme');
+                if (iconDark) iconDark.style.display = 'block';
+                if (iconLight) iconLight.style.display = 'none';
+                if (themeText) themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.remove('light-theme');
+                if (iconDark) iconDark.style.display = 'none';
+                if (iconLight) iconLight.style.display = 'block';
+                if (themeText) themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
             }
         }
 
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
+        // Check LocalStorage or Preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            setTheme(true);
         }
 
-        function connectParticles() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                setTheme(!document.body.classList.contains('light-theme'));
+            });
+        }
 
-                    if (distance < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0, 255, 65, ${1 - distance / connectionDistance})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
+        // Plexus Animation Background
+        const canvas = document.getElementById('plexus-bg');
+        if(canvas) {
+            const ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const particles = [];
+            const particleCount = window.innerWidth < 768 ? 40 : 80; 
+            const maxDistance = 180;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.6;
+                    this.vy = (Math.random() - 0.5) * 0.6;
+                    this.radius = Math.random() * 1.5 + 0.5;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+
+                draw(rgbaColor) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = rgbaColor;
+                    ctx.fill();
                 }
             }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animatePlexus() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Get dynamic CSS variables
+                const rootStyles = getComputedStyle(document.body);
+                const rgb = rootStyles.getPropertyValue('--plexus-color').trim() || '100, 100, 100';
+                const baseOpacity = parseFloat(rootStyles.getPropertyValue('--plexus-opacity').trim() || '0.4');
+
+                const particleColor = `rgba(${rgb}, ${baseOpacity * 1.5})`; 
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw(particleColor);
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < maxDistance) {
+                            const opacity = baseOpacity * (1 - distance / maxDistance);
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(${rgb}, ${opacity})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animatePlexus);
+            }
+            
+            animatePlexus();
         }
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
-            connectParticles();
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
     </script>
 </body>
 
