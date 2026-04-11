@@ -446,39 +446,79 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let me tell you, it’s been a *wild* ride in the digital world! Today’s “Hacker’s Journal” is packed with explosive updates – we’re diving headfirst into a cascade of zero-day attacks, crippling vulnerabilities in everything from AI assistants to LMS systems, and frankly, some seriously sophisticated network intrusions.  \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e’s going to break down the CPUID hack, the Chamilo nightmare, the AI chaos with Flowise, and how nation-state actors are exploiting vulnerabilities – plus, we’re investigating massive data theft via GitHub Copilot, a ghostly Claude RCE bug, and critical Cisco SD-WAN weaknesses.  Essentially, we’re tracking the latest wave of attacks and vulnerabilities – it's a full-on cybersecurity adrenaline rush!";
-    document.getElementById('timestamp').textContent = "11 Apr 2026, 06:37 UTC";
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let’s be honest, it’s been a *bonkers* week in the digital realm! We’ve seen CISA throwing curveballs with relentless vulnerabilities – from AI nightmares like Flowise to massive ransomware campaigns led by 0ktapus and the ongoing chaos with BIG-IP. Plus, Adobe Reader’s still lurking, Microsoft Copilot's got a data snag, and state-sponsored attacks are a constant threat. It’s a serious sprint to patch and protect, so buckle up – we’re diving deep into all this today!";
+    document.getElementById('timestamp').textContent = "10 Apr 2026, 06:48 UTC";
 </script>
 
 
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        MALWARE &amp; THREAT INTELLIGENCE
+        VULNERABILITY VICTIMS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">CPUID Hack: Malware Delivered via CPU-Z!</div>
-        <div class="article-commentary">Hackers exploited an API in CPUID to distribute malware via popular tools like CPU-Z and HWMonitor. This illustrates the importance of verifying software sources and monitoring for suspicious downloads.”</div>
-        <a href="https://www.bleepingcomputer.com/news/security/supply-chain-attack-at-cpuid-pushes-malware-with-cpu-z-hwmonitor/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/supply-chain-attack-at-cpuid-pushes-malware-with-cpu-z-hwmonitor/
+        <div class="article-title">CISA Just Added Another Threat to the List!</div>
+        <div class="article-commentary">CISA just flagged another known exploited vulnerability, adding another layer of risk to systems worldwide. This highlights the constant need for vigilance and timely patching. It&#39;s a relentless game of cat and mouse, and these vulnerabilities are the attackers&#39; weapons. The shadow of exploitation looms large, urging organizations to stay ahead of the curve.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/04/08/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/04/08/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Chamilo LMS Vulnerability: IDOR Nightmare!</div>
-        <div class="article-commentary">An Insecure Direct Object Reference (IDOR) vulnerability in Chamilo LMS allows unauthorized access to sensitive user data, highlighting the risks of poorly secured learning management systems.”</div>
-        <a href="https://github.com/chamilo/chamilo-lms/security/advisories/GHSA-27x6-c5c7-gpf5" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://github.com/chamilo/chamilo-lms/security/advisories/GHSA-27x6-c5c7-gpf5
+        <div class="article-title">Double the Trouble: CISA Adds Two More Exploits!</div>
+        <div class="article-commentary">Double the pain! CISA&#39;s expanded its catalog with two new vulnerabilities, meaning even more systems are potentially exposed. This rapid escalation underscores the urgency of addressing known weaknesses. Organizations are playing a dangerous game, and the clock is ticking – a proactive approach is essential to mitigate risk.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/02/20/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/02/20/cisa-adds-two-known-exploited-vulnerabilities-catalog
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Flowise AI Vulnerability: Code Injection Chaos!</div>
-        <div class="article-commentary">A critical code injection vulnerability in Flowise, an open-source AI platform, allows for remote code execution. This underscores the importance of secure coding practices when developing AI applications.”</div>
+        <div class="article-title">AI Nightmare: Flowise Exploit Unleashed!</div>
+        <div class="article-commentary">An open-source AI platform is being exploited – a serious breach of trust! Attackers are using CVE-2025-59528 to gain remote code execution, demonstrating the vulnerabilities within rapidly evolving technologies. This incident is a stark reminder that even seemingly benign AI tools can be weaponized, demanding heightened security measures.</div>
         <a href="https://thehackernews.com/2026/04/flowise-ai-agent-builder-under-active.html" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://thehackernews.com/2026/04/flowise-ai-agent-builder-under-active.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Silent Sneak In: Privilege Escalation Vulnerability</div>
+        <div class="article-commentary">OpenClaw&#39;s vulnerability silently escalates privileges, allowing attackers to gain admin access. This is a slow, insidious threat, patiently waiting for the opportune moment to strike. The ability to silently re-approve scope upgrades is a game-changer, creating a pathway to widespread compromise.</div>
+        <a href="https://github.com/openclaw/openclaw/commit/81ebc7e0344fd19c85778e883bad45e2da972229" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://github.com/openclaw/openclaw/commit/81ebc7e0344fd19c85778e883bad45e2da972229
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">WordPress Plugin Exposed: XSS Threat!</div>
+        <div class="article-commentary">A WordPress plugin is riddled with reflected cross-site scripting vulnerabilities, allowing attackers to inject malicious code. This is a classic attack vector, potentially infecting thousands of websites. Constant vigilance and proactive security scanning are critical to prevent such breaches.</div>
+        <a href="https://wordpress.org/plugins/adiaha-hotel/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://wordpress.org/plugins/adiaha-hotel/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">RiteCMS Hack: Remote Code Execution!</div>
+        <div class="article-commentary">RiteCMS is now open to attack! A remote code execution vulnerability allows attackers to take complete control of compromised systems. This highlights the importance of regularly patching and maintaining software, especially those with known vulnerabilities.</div>
+        <a href="https://www.exploit-db.com/exploits/52488" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52488
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">DDoS Provider Down: Control Lost!</div>
+        <div class="article-commentary">When your DDoS mitigation provider goes down, your systems are vulnerable to a full-scale attack. The disruption can be catastrophic, crippling operations and exposing sensitive data. Diversification of security solutions is crucial to avoid single points of failure.</div>
+        <a href="https://www.imperva.com/blog/ddos-mitigation-provider-outage-traffic-control/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.imperva.com/blog/ddos-mitigation-provider-outage-traffic-control/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">F5 BIG-IP Nightmare: RCE in Action!</div>
+        <div class="article-commentary">A critical vulnerability in the F5 BIG-IP system allows for remote code execution. Attackers can potentially take over the entire device, gaining access to sensitive data and controlling network traffic. Rapid patching is paramount to contain this severe threat.</div>
+        <a href="https://itm4n.github.io/cve-2026-20817-wersvc-eop/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://itm4n.github.io/cve-2026-20817-wersvc-eop/
         </a>
     </article>
     
@@ -487,39 +527,31 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x02]</span>
-        AI SECURITY
+        MALWARE MANIA
     </h2>
     
     
     <article class="article">
-        <div class="article-title">GitHub Copilot: Silent Data Theft via Prompt Injection!</div>
-        <div class="article-commentary">GitHub Copilot&#39;s vulnerability allows attackers to silently steal API keys and source code, showcasing the inherent risks of using AI-powered coding assistants without proper safeguards.”</div>
-        <a href="https://gbhackers.com/hackers-exploit-github-copilot-flaw/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/hackers-exploit-github-copilot-flaw/
+        <div class="article-title">LucidRook: A New Malware Threat Emerges!</div>
+        <div class="article-commentary">A new Lua-based malware, LucidRook, is targeting NGOs and universities in Taiwan through sophisticated spear-phishing campaigns. This signifies a shift in attacker tactics, requiring organizations to strengthen their defenses against targeted attacks and employee awareness training.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/new-lucidrook-malware-used-in-targeted-attacks-on-ngos-universities/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/new-lucidrook-malware-used-in-targeted-attacks-on-ngos-universities/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">GitHub Copilot: System-Crashing Prompt Injection!</div>
-        <div class="article-commentary">A critical prompt injection vulnerability in GitHub Copilot allows complete system compromise.  This highlights the dangers of relying on AI tools without proper safeguards, and emphasizes the need for careful input validation and security testing.</div>
-        <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/
+        <div class="article-title">Chaos Malware: Expanding Botnet Targets!</div>
+        <div class="article-commentary">The Chaos malware botnet is evolving, now targeting misconfigured cloud deployments. This expansion demonstrates the adaptability of cybercriminals and the need for robust cloud security configurations, including strict access controls and regular vulnerability assessments.</div>
+        <a href="https://thehackernews.com/2026/04/new-chaos-variant-targets-misconfigured.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/04/new-chaos-variant-targets-misconfigured.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Microsoft Copilot: Stealing Data with AI!</div>
-        <div class="article-commentary">A vulnerability in Microsoft 365 Copilot allows the theft of personal information, showcasing a dangerous combination of AI and sophisticated attack techniques.  It’s a stark reminder that seemingly helpful AI tools can be exploited by malicious actors.</div>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: #
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Cisco SD-WAN Vulnerabilities: A Critical Security Gap!</div>
-        <div class="article-commentary">Vulnerabilities in Cisco SD-WAN are being actively exploited, demonstrating the potential impact of misconfigured network devices. Secure SD-WAN deployments are critical for protecting business networks.”</div>
-        <a href="https://www.sophos.com/en-us/blog/cisco-sd-wan-vulnerabilities-cve-2026-20127-cve-2022-20775-in-active-exploitation" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.sophos.com/en-us/blog/cisco-sd-wan-vulnerabilities-cve-2026-20127-cve-2022-20775-in-active-exploitation
+        <div class="article-title">0ktapus Threat Group Strikes Again!</div>
+        <div class="article-commentary">Over 130 firms have fallen victim to the 0ktapus threat group&#39;s phishing campaign, showcasing the effectiveness of social engineering attacks. This highlights the importance of security awareness training and multi-factor authentication to prevent such breaches.</div>
+        <a href="https://threatpost.com/0ktapus-victimize-130-firms/180487/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/0ktapus-victimize-130-firms/180487/
         </a>
     </article>
     
@@ -528,23 +560,39 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x03]</span>
-        ZERO-DAY ATTACKS
+        SECURITY BREAKDOWNS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Claude Reveals a 13-Year-Old RCE Bug – A Ghost from the Past!</div>
-        <div class="article-commentary">Anthropics Claude&#39;s rapid analysis unearthed a 13-year-old ActiveMQ vulnerability. This demonstrates the long-lived risk of legacy software and the importance of regular security audits.”</div>
-        <a href="https://www.csoonline.com/article/4157146/claude-uncovers-a-13%e2%80%91year%e2%80%91old-activemq-rce-bug-within-minutes.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4157146/claude-uncovers-a-13%e2%80%91year%e2%80%91old-activemq-rce-bug-within-minutes.html
+        <div class="article-title">Adobe Reader Vulnerability: A Long-Term Threat!</div>
+        <div class="article-commentary">For months, hackers have been exploiting a vulnerability in Adobe Reader. This is a persistent risk, demanding immediate patching and careful user education to avoid falling victim to this ongoing attack.</div>
+        <a href="https://www.csoonline.com/article/4156854/hackers-have-been-exploiting-an-unpatched-adobe-reader-vulnerability-for-months.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4156854/hackers-have-been-exploiting-an-unpatched-adobe-reader-vulnerability-for-months.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Adobe Reader Zero-Day: A Silent Attack Unveiled!</div>
-        <div class="article-commentary">Threat actors are exploiting a previously unknown zero-day vulnerability in Adobe Reader, highlighting the persistent risk posed by malicious PDF documents.”</div>
-        <a href="https://thehackernews.com/2026/04/adobe-reader-zero-day-exploited-via.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/04/adobe-reader-zero-day-exploited-via.html
+        <div class="article-title">Patching Delays Lead to Exploitation!</div>
+        <div class="article-commentary">The increasing gap between vulnerability discovery and patching is a critical security challenge. Delayed patching leaves systems exposed to exploitation, highlighting the importance of proactive vulnerability management and rapid response capabilities.</div>
+        <a href="https://www.csoonline.com/article/4156005/patch-windows-collapse-as-time-to-exploit-accelerates.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4156005/patch-windows-collapse-as-time-to-exploit-accelerates.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Microsoft Copilot Vulnerability: Data Theft!</div>
+        <div class="article-commentary">A critical vulnerability in Microsoft Copilot allows attackers to steal user data, including emails and personal information. This demonstrates the risks associated with advanced AI technologies and the need for robust security controls and privacy safeguards.</div>
+        <a href="https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2024/m365-copilot-prompt-injection-tool-invocation-and-data-exfil-using-ascii-smuggling/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Healthcare Data Breach: A Magnet for Hackers!</div>
+        <div class="article-commentary">Healthcare companies store some of the most sensitive information, making them prime targets for cyberattacks. This breach underscores the importance of stringent security measures and compliance with data protection regulations to safeguard patient data.</div>
+        <a href="https://www.malwarebytes.com/blog/data-breaches/2026/04/support-platform-breach-exposes-hims-hers-customer-data" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.malwarebytes.com/blog/data-breaches/2026/04/support-platform-breach-exposes-hims-hers-customer-data
         </a>
     </article>
     
@@ -553,23 +601,71 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x04]</span>
-        NETWORK SECURITY
+        CVE CATACLYSM
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Iranian Hackers Unleash a Wave of Attacks on US Infrastructure!</div>
-        <div class="article-commentary">Iranian-linked hackers are targeting U.S. critical infrastructure, exposing thousands of PLCs. This represents a significant escalation, potentially crippling vital systems like power grids and industrial control networks.”</div>
-        <a href="https://www.bleepingcomputer.com/news/security/nearly-4-000-us-industrial-devices-exposed-to-iranian-cyberattacks/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/nearly-4-000-us-industrial-devices-exposed-to-iranian-cyberattacks/
+        <div class="article-title">Ivanti EPMM Vulnerability: Government Systems at Risk!</div>
+        <div class="article-commentary">The exploitation of the Ivanti EPMM vulnerability by malicious actors poses a significant threat to U.S. government systems. Immediate patching is crucial to prevent widespread compromise and protect sensitive data.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-ivanti-epmm-flaw-by-sunday/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-ivanti-epmm-flaw-by-sunday/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">APT28 Exploits Routers for DNS Hijacking!</div>
-        <div class="article-commentary">Russian cyber actors APT28 are hijacking DNS through vulnerable routers, allowing for man-in-the-middle attacks and credential theft. This highlights the vulnerabilities of network infrastructure and the need for robust DNS security controls.”</div>
-        <a href="https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations
+        <div class="article-title">The End of the Month of AI Bugs!</div>
+        <div class="article-commentary">The Month of AI Bugs has concluded. This serves as a stark reminder of the prevalence of AI-related security vulnerabilities and the ongoing need for vigilance and research.</div>
+        <a href="https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Incident Response: Learning from the Frontlines!</div>
+        <div class="article-commentary">CISA&#39;s incident response engagement offers valuable lessons for organizations facing cyberattacks, emphasizing the importance of proactive detection, rapid response, and effective collaboration.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">BIG-IP Vulnerability: The RCE Threat Revealed!</div>
+        <div class="article-commentary">The F5 BIG-IP vulnerability, initially reported as a DoS flaw, has been reclassified as a remote code execution (RCE) vulnerability. This dramatically increases the risk and necessitates immediate action to patch affected systems.</div>
+        <a href="https://www.darkreading.com/application-security/f5-big-ip-vulnerability-reclassified-rce-exploitation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/application-security/f5-big-ip-vulnerability-reclassified-rce-exploitation
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Chinese State-Sponsored Attacks: A Global Threat!</div>
+        <div class="article-commentary">The PRC&#39;s state-sponsored cyber threat actors are actively targeting networks worldwide, highlighting the need for robust cybersecurity defenses against sophisticated and persistent attacks.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Twitter Whistleblower: A Security Disaster!</div>
+        <div class="article-commentary">The Twitter whistleblower’s allegations of security and privacy lapses highlight the importance of robust security protocols, particularly concerning data protection and national security risks.</div>
+        <a href="https://threatpost.com/twitter-whistleblower-tldr-version/180472/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/twitter-whistleblower-tldr-version/180472/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Zhiyuan OA: Arbitrary File Upload Nightmare!</div>
+        <div class="article-commentary">A critical vulnerability in Zhiyuan OA allows attackers to upload arbitrary files, potentially leading to system compromise. This illustrates the dangers of unvalidated user inputs and the importance of robust input sanitization measures.</div>
+        <a href="https://www.exploit-db.com/exploits/52490" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52490
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">0ktapus Threat Group: Phishing Attacks on a Massive Scale!</div>
+        <div class="article-commentary">The 0ktapus threat group continues to employ sophisticated phishing attacks, targeting a wide range of organizations. This demonstrates the continued effectiveness of social engineering and the need for comprehensive security awareness training.</div>
+        <a href="https://threatpost.com/0ktapus-victimize-130-firms/180487/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/0ktapus-victimize-130-firms/180487/
         </a>
     </article>
     
@@ -578,39 +674,15 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x05]</span>
-        VULNERABILITY DISCOVERY
+        SYSTEM SECURITY
     </h2>
     
     
     <article class="article">
-        <div class="article-title">CISA Unleashes New Exploits: The Threat Tracker Intensifies!</div>
-        <div class="article-commentary">CISA just added more dangerous vulnerabilities to their catalog, signaling a heightened risk of exploitation. Threat actors are constantly hunting for weaknesses, and this expansion means more systems are now exposed.  It&#39;s like adding fuel to a fire – the potential for attacks increases dramatically.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/03/30/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/03/30/cisa-adds-one-known-exploited-vulnerability-catalog
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Double Trouble: CISA Issues Two Critical Vulnerabilities!</div>
-        <div class="article-commentary">Two new vulnerabilities have surfaced, confirming active exploitation efforts. This isn&#39;t just theoretical – cybercriminals are actively leveraging these weaknesses.  Security teams must immediately investigate and implement mitigations to prevent compromise.  The speed of response is paramount in containing this emerging threat.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/02/05/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/02/05/cisa-adds-two-known-exploited-vulnerabilities-catalog
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">China’s State-Sponsored Cyber Espionage Network Exposed!</div>
-        <div class="article-commentary">The PRC’s cyber threat actors continue to target global networks, reflecting the ongoing challenge of state-sponsored espionage.  This underscores the need for robust network security and threat intelligence gathering.”</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">PraisonAI Vulnerability: Command Injection Nightmare!</div>
-        <div class="article-commentary">A vulnerability in PraisonAI allows for remote code execution through command injection, highlighting the importance of input validation and secure recipe development.”</div>
-        <a href="https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-99g3-w8gr-x37c" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-99g3-w8gr-x37c
+        <div class="article-title">Kaspersky Report: Cybersecurity Trends Unveiled!</div>
+        <div class="article-commentary">The Kaspersky Security Services report provides valuable insights into current cybersecurity trends and statistics, emphasizing the evolving nature of cyber threats and the need for proactive security measures.</div>
+        <a href="https://securelist.com/global-report-security-services-2026/119233/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/global-report-security-services-2026/119233/
         </a>
     </article>
     
