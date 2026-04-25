@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-N9ZF36FC9M');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwnspectrum | Daily Cybersecurity Journal</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+
+        /* Brutalist Theme Imports */
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        :root {
+            /* Dark Theme (Default) */
+            --bg-page: #0A0A0A;
+            --bg-card: #0F0F0F;
+            --bg-header: #111111;
+            --text-main: #E8E8E8;
+            --text-muted: #666666;
+            --border-muted: #1A1A1A;
+            --border-card: #1C1C1C;
+            --plexus-color: 232, 255, 71; /* Neon green/yellow */
+            --plexus-opacity: 0.15;
+            --bullet-hover: #E8FF47;
+            --bullet-hover-text: #000;
+        }
+
+        body.light-theme {
+            --bg-page: #F4F4F5;
+            --bg-card: #FFFFFF;
+            --bg-header: #FAFAFA;
+            --text-main: #09090B;
+            --text-muted: #52525B;
+            --border-muted: #E4E4E7;
+            --border-card: #D4D4D8;
+            --plexus-color: 0, 0, 0; /* Black for light mode */
+            --plexus-opacity: 0.1;
+            --bullet-hover: #09090B;
+            --bullet-hover-text: #FFF;
+        }
+
+        body {
+            font-family: 'DM Mono', 'Courier New', Courier, monospace;
+            background: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Elements to transition nicely */
+        .category, .greeting, .header, .article-bullet, .category-title {
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Plexus Background */
+        #plexus-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        ::selection {
+            background: #E8FF47;
+            color: #000;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border-muted);
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle-btn:hover {
+            color: var(--text-main);
+            border-color: var(--text-main);
+            background: rgba(128, 128, 128, 0.05);
+        }
+
+        /* Brutalist Header */
+        .header {
+            padding: 32px 0 24px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-muted);
+            text-align: left;
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .header-meta span {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #555;
+            text-transform: uppercase;
+        }
+        .header-meta .divider { color: #333; }
+
+        .logo {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            margin: 8px 0 4px;
+            letter-spacing: -1px;
+            color: #FFFFFF;
+            font-family: 'DM Mono', monospace;
+            text-transform: capitalize;
+        }
+
+        .tagline, .author {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 24px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        /* Social Links as simple text rows */
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .social-links a:hover {
+            color: #E8E8E8;
+        }
+
+        /* Greeting Section -> Hero Card */
+        .greeting {
+            background: #111;
+            border: 1px solid rgba(232, 255, 71, 0.2);
+            border-top: 3px solid #E8FF47;
+            border-radius: 0 0 12px 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.8;
+            box-shadow: none;
+        }
+
+        /* Category System - Dynamic Colors via nth-child */
+        .category {
+            margin-bottom: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-title {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #CCC;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+
+        .category-number {
+            font-size: 13px;
+            margin-right: 5px;
+            color: inherit;
+        }
+
+        /* Dynamic Category Accents */
+        .category:nth-of-type(1) .category-title { border-top: 3px solid #E8FF47; color: #E8FF47; }
+        .category:nth-of-type(2) .category-title { border-top: 3px solid #FF6B35; color: #FF6B35; }
+        .category:nth-of-type(3) .category-title { border-top: 3px solid #7C3AED; color: #7C3AED; }
+        .category:nth-of-type(4) .category-title { border-top: 3px solid #06B6D4; color: #06B6D4; }
+        .category:nth-of-type(5) .category-title { border-top: 3px solid #10B981; color: #10B981; }
+        .category:nth-of-type(6) .category-title { border-top: 3px solid #F59E0B; color: #F59E0B; }
+        .category:nth-of-type(7) .category-title { border-top: 3px solid #EC4899; color: #EC4899; }
+        .category:nth-of-type(n+8) .category-title { border-top: 3px solid #E8FF47; color: #E8FF47; }
+
+        /* Article Task Rows */
+        .article {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 8px;
+            padding: 12px 20px;
+            border-bottom: 1px solid #141414;
+            background: transparent;
+            transition: background 0.15s;
+            width: 100%;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+        }
+
+        .article:hover {
+            background: rgba(255, 255, 255, 0.02);
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Embed HTML URL in Title */
+        .article-title-link {
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            width: 100%;
+        }
+
+        .article-bullet {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            border: 1px solid var(--border-muted);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            flex-shrink: 0;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .article-title-link:hover .article-bullet {
+            border-color: var(--bullet-hover);
+            background: var(--bullet-hover);
+            color: var(--bullet-hover-text);
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .article-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: color 0.3s ease, transform 0.3s ease;
+            transform: none !important;
+        }
+
+        .article-title-link:hover .article-title {
+            color: var(--text-main);
+            transform: translateX(4px) !important;
+        }
+
+        /* Hover animation for entire row */
+        .article {
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+        .article:hover {
+            background-color: var(--bg-card);
+            transform: translateX(4px);
+        }
+        
+        /* Multiple animation effect: Fade in items */
+        .fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-commentary {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #888;
+            margin-top: 2px;
+            margin-left: 32px; 
+            margin-bottom: 4px;
+            transform: none !important;
+        }
+
+        .article-link {
+            display: none !important;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 48px;
+            padding: 24px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-muted);
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        .footer-author { display: none; }
+        .footer-links { justify-content: flex-start; margin-top: 10px; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 16px 32px; }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Particle Network Background -->
+    <canvas id="plexus-bg"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in-up" style="animation-delay: 0.1s;">
+            <div class="header-meta" style="flex-wrap: wrap; justify-content: space-between;">
+                <div style="display: flex; align-items: baseline; gap: 12px;">
+                    <span>Anmol Singh Yadav</span>
+                    <span class="divider">///</span>
+                    <span>Issue Date: <span id="timestamp"></span></span>
+                </div>
+                <button class="theme-toggle-btn" id="theme-toggle">
+                    <svg id="theme-icon-dark" style="display:none;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg id="theme-icon-light" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <span id="theme-text">Light Mode</span>
+                </button>
+            </div>
+            <div class="logo">Pwnspectrum</div>
+            <div class="tagline">Daily Cybersecurity Journal</div>
+            <div class="social-links">
+                <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path
+                            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    Portfolio
+                </a>
+                <a href="https://github.com/iamlucif3r" target="_blank" title="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/anmolsinghyadav" target="_blank" title="LinkedIn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://x.com/IamLucif3r_" target="_blank" title="X (Twitter)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    X
+                </a>
+            </div>
+        </header>
+
+        <!-- Greeting (LLM-generated) -->
+        <div class="greeting" id="greeting">
+            <!-- Greeting will be injected here by JavaScript -->
+        </div>
+
+        <!-- Newsletter Content -->
+        <div id="newsletter-content">
+
+<script>
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let me tell you – it’s been a *wild* ride in the cybersecurity world! We’re drowning in vulnerability explosions – CISA’s screaming about fresh exploits, WordPress is under attack, and AI’s secret flaws are being unearthed faster than we can patch them! From zero-day zombie threats like Claude Code to massive attacks on platforms like Vercel and Cisco, and even government targets under Operation TrueChaos, it’s a chaotic landscape we need to navigate.  Let’s dive into the latest threats, defenses, and strategies – because staying ahead of the curve is *everything*!";
+    document.getElementById('timestamp').textContent = "24 Apr 2026, 06:38 UTC";
+</script>
+
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x01]</span>
+        VULNERABILITY EXPLOSION
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CISA Adds Another Warning Sign: More Exploits in the Ring!</div>
+        <div class="article-commentary">The CISA catalog is swelling! This latest addition indicates attackers are actively seeking vulnerabilities to exploit. Think of it as a constant barrage of digital threats, demanding immediate attention to patch systems before a breach occurs.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/03/26/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/03/26/cisa-adds-one-known-exploited-vulnerability-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Double Trouble: CISA Issues Two New Critical Vulnerabilities!</div>
+        <div class="article-commentary">Two new vulnerabilities added to the catalog mean increased attack surface. Criminals are rapidly identifying and exploiting flaws in widely used software. Patching is the only defence.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/03/13/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/03/13/cisa-adds-two-known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">WordPress Hackers Unleash File Upload Nightmare!</div>
+        <div class="article-commentary">A sneaky WordPress plugin flaw is being weaponized to upload malicious files directly to servers. Imagine a digital Trojan Horse slipping through a vulnerable gate – this is precisely what’s happening, allowing attackers to install ransomware or steal sensitive data.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-file-upload-bug-in-breeze-cache-wordpress-plugin/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/hackers-exploit-file-upload-bug-in-breeze-cache-wordpress-plugin/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Vercel Under Attack: Customer Data at Risk!</div>
+        <div class="article-commentary">A security breach at Vercel reveals attackers gained unauthorized access to customer data. This highlights the vulnerability of cloud infrastructure and the need for robust security controls.  The attackers are systematically stealing information, a dangerous game of digital espionage.</div>
+        <a href="https://gbhackers.com/vercel-confirms-security-breach/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/vercel-confirms-security-breach/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">LMDeploy Vulnerability Exploited Within Hours – A Speed Demon Attack!</div>
+        <div class="article-commentary">A critical SSRF vulnerability in LMDeploy was exploited shockingly fast – just 12 hours after discovery. This demonstrates the urgency of rapid patching and the relentless nature of cybercriminals. It&#39;s a stark reminder that zero-days are gold to attackers.</div>
+        <a href="https://gbhackers.com/attackers-exploit-lmdeploy-flaw/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/attackers-exploit-lmdeploy-flaw/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">SYSTEM-LEVEL DAMAGE: Critical File Deletion Vulnerability!</div>
+        <div class="article-commentary">This vulnerability grants an attacker SYSTEM privileges, allowing them to wipe out any file on the server. It’s a catastrophic attack that could cripple entire systems, demanding immediate containment and recovery measures.</div>
+        <a href="https://tenable.com/security/tns-2026-12" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://tenable.com/security/tns-2026-12
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Tungsten Capture&#39;s Secret Weakness – A Dangerous Open Door!</div>
+        <div class="article-commentary">The Kofax Capture vulnerability exposes a previously hidden HTTP channel, offering attackers a backdoor into the system. This is akin to a hidden keycard, allowing unauthorized access to sensitive information and control.</div>
+        <a href="https://docshield.tungstenautomation.com/Portal/Products/en_US/KC/11.1.0-40hy9nfk91/KC.htm" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://docshield.tungstenautomation.com/Portal/Products/en_US/KC/11.1.0-40hy9nfk91/KC.htm
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Marimo Unleashes Remote Code Execution – A Silent Threat!</div>
+        <div class="article-commentary">This pre-authorization remote code execution vulnerability in Marimo empowers attackers to execute malicious commands directly on your server, effectively taking control. It’s like a digital key granting access to your core systems.</div>
+        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Agent Swarms: The Floodgates of Vulnerabilities Open!</div>
+        <div class="article-commentary">The rapid proliferation of security agents is creating a deluge of discovered vulnerabilities. It’s a numbers game – the more agents you have, the faster they find weaknesses in your code. This necessitates careful management and prioritization of fixes.</div>
+        <a href="https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">End of the Month Bug Report: AI&#39;s Security Flaws Revealed!</div>
+        <div class="article-commentary">Another month, another wave of AI security flaws. The rapid pace of development in AI systems is creating new attack vectors that researchers must constantly monitor and mitigate.</div>
+        <a href="https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Sophos Dominates ATT&amp;CK: 100% Detection Coverage!</div>
+        <div class="article-commentary">Sophos has achieved a significant milestone, demonstrating comprehensive coverage in the MITRE ATT&amp;CK evaluation. This indicates a strong defense against a wide range of attack techniques and offers increased confidence in threat detection.</div>
+        <a href="https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Operation TrueChaos: Government Targets Under Attack!</div>
+        <div class="article-commentary">A sophisticated operation by Check Point Research reveals a targeted attack against Southeast Asian government entities using TrueConf software. This emphasizes the importance of supply chain security and the risks associated with compromised software.</div>
+        <a href="https://research.checkpoint.com/2026/operation-truechaos-0-day-exploitation-against-southeast-asian-government-targets/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://research.checkpoint.com/2026/operation-truechaos-0-day-exploitation-against-southeast-asian-government-targets/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Venice&#39;s Flood Defense System Hacked - A Terrifying Gamble!</div>
+        <div class="article-commentary">A hacking group has brazenly targeted Venice&#39;s flood defense system, offering access for a shockingly low price. This highlights the vulnerability of critical infrastructure and the potential for exploitation by malicious actors.</div>
+        <a href="https://grahamcluley.com/smashing-security-podcast-463/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://grahamcluley.com/smashing-security-podcast-463/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Claude Code Exposed: A Dangerous Leak of AI Secrets!</div>
+        <div class="article-commentary">Anthropic’s Claude Code project has suffered a data breach, revealing the source code. This raises serious concerns about intellectual property theft and the potential misuse of powerful AI models.</div>
+        <a href="https://research.checkpoint.com/2026/rce-and-api-token-exfiltration-through-claude-code-project-files-cve-2025-59536/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://research.checkpoint.com/2026/rce-and-api-token-exfiltration-through-claude-code-project-files-cve-2025-59536/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Throttlestop Kernel Vulnerability – A Privilege Escalation Risk!</div>
+        <div class="article-commentary">A kernel vulnerability in the Throttlestop driver allows attackers to gain elevated privileges on the system. This is a critical security issue, as it can be used to compromise the entire operating system.</div>
+        <a href="https://www.exploit-db.com/exploits/52512" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52512
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">React Server Vulnerability: Remote Code Execution Nightmare!</div>
+        <div class="article-commentary">A remote code execution vulnerability in React Server allows attackers to inject malicious code into the server. This is a common and dangerous vulnerability that can lead to complete system compromise.</div>
+        <a href="https://www.exploit-db.com/exploits/52506" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52506
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Fake Slack App Gives Hackers Hidden Access!</div>
+        <div class="article-commentary">A seemingly legitimate Slack installer is actually a Trojan horse that secretly installs a hidden desktop for attackers. This demonstrates the importance of verifying the source and integrity of software downloads.</div>
+        <a href="https://www.malwarebytes.com/blog/threat-intel/2026/04/a-fake-slack-download-is-giving-attackers-a-hidden-desktop-on-your-machine" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.malwarebytes.com/blog/threat-intel/2026/04/a-fake-slack-download-is-giving-attackers-a-hidden-desktop-on-your-machine
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">China’s Espionage Network: Global Cyber Attacks Revealed!</div>
+        <div class="article-commentary">The FBI and CISA have uncovered a wide-ranging campaign of cyber espionage led by Chinese state-sponsored actors targeting critical infrastructure worldwide. This highlights the threat posed by nation-state actors and the need for robust defense strategies.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Record Number of Vulnerabilities Discovered in Microsoft Products!</div>
+        <div class="article-commentary">Microsoft has released a massive security update addressing 169 vulnerabilities across its product portfolio, including a newly exploited zero-day. This highlights the constant battle between security researchers and attackers.</div>
+        <a href="https://thehackernews.com/2026/04/microsoft-issues-patches-for-sharepoint.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/04/microsoft-issues-patches-for-sharepoint.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">FBI and CISA Issue Alert: LummaC2 Malware Threat!</div>
+        <div class="article-commentary">The FBI and CISA are warning organizations about the use of LummaC2 malware to steal sensitive data. This highlights the evolving tactics of cybercriminals and the need for proactive threat detection and response.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Cisco Catalyst SD-WAN Under Attack – Immediate Action Required!</div>
+        <div class="article-commentary">Agencies are urging immediate investigation of potential compromise of Cisco Catalyst SD-WAN. This underscores the vulnerability of network infrastructure and the need for proactive security measures.</div>
+        <a href="https://www.ncsc.gov.uk/news/exploitation-cisco-catalyst-sd-wans" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.ncsc.gov.uk/news/exploitation-cisco-catalyst-sd-wans
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Anthropic’s AI Security Breach – Can They Control The Beast?</div>
+        <div class="article-commentary">Anthropic’s Mythos Preview AI model has leaked its source code, raising serious concerns about the potential misuse of powerful AI tools. This highlights the challenge of controlling the development and deployment of advanced AI systems.</div>
+        <a href="https://www.darkreading.com/application-security/anthropic-exploit-writing-mythos-ai-safe" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/application-security/anthropic-exploit-writing-mythos-ai-safe
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        ATT&amp;CK ALERTS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Sophos XDR Crushes ATT&amp;CK - The Ultimate Defense!</div>
+        <div class="article-commentary">Sophos XDR’s 100% ATT&amp;CK coverage represents a monumental achievement in cybersecurity. It signifies a system that is truly prepared for the most advanced attack techniques, offering unparalleled protection.</div>
+        <a href="https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        ZERO-DAY ZOMBIES
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Claude Code’s Hidden Vulnerabilities Exposed – A Critical Risk!</div>
+        <div class="article-commentary">A breach in Anthropic’s Claude Code project has revealed critical vulnerabilities allowing attackers to execute code and steal credentials. This illustrates the potential for AI models themselves to become attack vectors.</div>
+        <a href="https://research.checkpoint.com/2026/rce-and-api-token-exfiltration-through-claude-code-project-files-cve-2025-59536/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://research.checkpoint.com/2026/rce-and-api-token-exfiltration-through-claude-code-project-files-cve-2025-59536/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Venice’s Flood System Hacked: A Ransomware Preview?</div>
+        <div class="article-commentary">A hacking group is offering to exploit Venice’s flood defense system for a shockingly low price, highlighting the vulnerability of critical infrastructure and the potential for extortion attacks.</div>
+        <a href="https://grahamcluley.com/smashing-security-podcast-463/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://grahamcluley.com/smashing-security-podcast-463/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Microsoft’s Record Vulnerability Patch – A Race Against Time!</div>
+        <div class="article-commentary">Microsoft’s massive security update addressing 169 vulnerabilities highlights the constant and accelerating pace of cyber threats. Staying on top of these patches is critical for safeguarding your systems.</div>
+        <a href="https://thehackernews.com/2026/04/microsoft-issues-patches-for-sharepoint.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/04/microsoft-issues-patches-for-sharepoint.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Kernel Panic Risk: Throttlestop Driver Vulnerability!</div>
+        <div class="article-commentary">A vulnerability in the Throttlestop kernel driver allows attackers to gain elevated privileges on the system. This is a serious risk that demands immediate attention and mitigation efforts.</div>
+        <a href="https://www.exploit-db.com/exploits/52512" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52512
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">React Server Exposed: Remote Code Execution Nightmare!</div>
+        <div class="article-commentary">A remote code execution vulnerability in React Server allows attackers to inject malicious code into the server. This is a common and dangerous vulnerability that can lead to complete system compromise.</div>
+        <a href="https://www.exploit-db.com/exploits/52506" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52506
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        MALWARE MENACE
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Claude Mythos: AI Finds 271 Firefox Flaws – A Dangerous Discovery!</div>
+        <div class="article-commentary">Claude Mythos is a powerful AI tool that has uncovered 271 vulnerabilities in Firefox. This demonstrates the potential of AI in discovering security flaws and the need to address them proactively.</div>
+        <a href="https://www.csoonline.com/article/4162259/claude-mythos-signals-a-new-era-in-ai-driven-security-finding-271-flaws-in-firefox.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4162259/claude-mythos-signals-a-new-era-in-ai-driven-security-finding-271-flaws-in-firefox.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Marimo Malware Unleashes Remote Code Execution!</div>
+        <div class="article-commentary">Marimo malware contains a pre-authorization remote code execution vulnerability, allowing attackers to execute arbitrary system commands. This is a classic malware technique that can quickly compromise systems.</div>
+        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Month of AI Bugs - A Critical Warning!</div>
+        <div class="article-commentary">This month has highlighted a concerning trend – AI systems are finding and exploiting vulnerabilities. This raises critical questions about the security of AI development and deployment.</div>
+        <a href="https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Fake Slack Installer: The Silent Trojan Horse!</div>
+        <div class="article-commentary">A seemingly legitimate Slack installer is actually a Trojan horse that secretly installs a hidden desktop for attackers. This demonstrates the importance of verifying the source and integrity of software downloads.</div>
+        <a href="https://www.malwarebytes.com/blog/threat-intel/2026/04/a-fake-slack-download-is-giving-attackers-a-hidden-desktop-on-your-machine" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.malwarebytes.com/blog/threat-intel/2026/04/a-fake-slack-download-is-giving-attackers-a-hidden-desktop-on-your-machine
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        OPERATIONS &amp; INITIATIVES
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Sean Plankeys derailed CISA nomination - A Warning for Cybersecurity Leadership</div>
+        <div class="article-commentary">The story of Sean Plankeys derailed CISA nomination highlights the critical importance of transparency and due diligence in cybersecurity leadership appointments. It underscores the need for scrutiny and verification of individuals involved in national security.</div>
+        <a href="https://www.csoonline.com/article/4162801/the-curious-case-of-sean-plankeys-derailed-cisa-nomination.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4162801/the-curious-case-of-sean-plankeys-derailed-cisa-nomination.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Tungsten Capture’s Secret Weakness – A Dangerous Open Door!</div>
+        <div class="article-commentary">Kofax Capture now Tungsten Capture exposes a previously hidden HTTP channel, offering attackers a backdoor into the system. This is akin to a hidden keycard, allowing unauthorized access to sensitive information and control.</div>
+        <a href="https://docshield.tungstenautomation.com/Portal/Products/en_US/KC/11.1.0-40hy9nfk91/KC.htm" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://docshield.tungstenautomation.com/Portal/Products/en_US/KC/11.1.0-40hy9nfk91/KC.htm
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Operation TrueChaos: A Deep Dive into Government Attacks</div>
+        <div class="article-commentary">Check Point Research’s investigation into Operation TrueChaos reveals a sophisticated campaign of attacks against Southeast Asian government entities. It’s a stark reminder of the threat posed by nation-state actors and the importance of robust defense strategies.</div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: #
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">China’s Espionage Network: Global Cyber Attacks Revealed!</div>
+        <div class="article-commentary">The FBI and CISA have uncovered a wide-ranging campaign of cyber espionage led by Chinese state-sponsored actors targeting critical infrastructure worldwide. This highlights the threat posed by nation-state actors and the need for robust defense strategies.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Operation TrueChaos: 0-Day Exploitation Against Southeast Asian Government Targets</div>
+        <div class="article-commentary">The discovery of a zero-day vulnerability in TrueConf software used for targeted attacks against government entities in Southeast Asia is a chilling reminder of the speed and sophistication of cyber threats.</div>
+        <a href="https://research.checkpoint.com/2026/operation-truechaos-0-day-exploitation-against-southeast-asian-government-targets/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://research.checkpoint.com/2026/operation-truechaos-0-day-exploitation-against-southeast-asian-government-targets/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Adds One Known Exploited Vulnerability to Catalog</div>
+        <div class="article-commentary">The addition of one new vulnerability to CISA’s catalog highlights the ever-evolving nature of cyber threats and the need for constant vigilance.</div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: #
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">React Server 19.2.0 - Remote Code Execution</div>
+        <div class="article-commentary">React Server 19.2.0 - Remote Code Execution highlights the ever-present vulnerability in web applications and the need to continuously secure against such risks.</div>
+        <a href="https://www.exploit-db.com/exploits/52506" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52506
+        </a>
+    </article>
+    
+</section>
+
+
+    </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div style="font-size: 13px; color: #666; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                <div style="font-weight: 700; color: var(--text-main); font-family: 'DM Mono', monospace; font-size: 18px; text-transform: uppercase; letter-spacing: 2px;">PWNSPECTRUM</div>
+                <p>Daily insights from the cybersecurity trenches.</p>
+                <p style="font-size: 11px; margin-top: 16px;">&copy; <span id="current-year"></span> Anmol Singh Yadav. All rights reserved.</p>
+                <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Setup Fade-in Animations
+        setTimeout(() => {
+            document.querySelectorAll('.category').forEach((el, i) => {
+                el.classList.add('fade-in-up');
+                el.style.animationDelay = `${0.2 + (i * 0.1)}s`;
+            });
+            const greetingEl = document.getElementById('greeting');
+            if(greetingEl) {
+                greetingEl.classList.add('fade-in-up');
+                greetingEl.style.animationDelay = '0.2s';
+            }
+        }, 50);
+
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById('theme-toggle');
+        const iconDark = document.getElementById('theme-icon-dark');
+        const iconLight = document.getElementById('theme-icon-light');
+        const themeText = document.getElementById('theme-text');
+
+        function setTheme(isLight) {
+            if(isLight) {
+                document.body.classList.add('light-theme');
+                if (iconDark) iconDark.style.display = 'block';
+                if (iconLight) iconLight.style.display = 'none';
+                if (themeText) themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.remove('light-theme');
+                if (iconDark) iconDark.style.display = 'none';
+                if (iconLight) iconLight.style.display = 'block';
+                if (themeText) themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Check LocalStorage or Preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            setTheme(true);
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                setTheme(!document.body.classList.contains('light-theme'));
+            });
+        }
+
+        // Plexus Animation Background
+        const canvas = document.getElementById('plexus-bg');
+        if(canvas) {
+            const ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const particles = [];
+            const particleCount = window.innerWidth < 768 ? 40 : 80; 
+            const maxDistance = 180;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.6;
+                    this.vy = (Math.random() - 0.5) * 0.6;
+                    this.radius = Math.random() * 1.5 + 0.5;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+
+                draw(rgbaColor) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = rgbaColor;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animatePlexus() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Get dynamic CSS variables
+                const rootStyles = getComputedStyle(document.body);
+                const rgb = rootStyles.getPropertyValue('--plexus-color').trim() || '100, 100, 100';
+                const baseOpacity = parseFloat(rootStyles.getPropertyValue('--plexus-opacity').trim() || '0.4');
+
+                const particleColor = `rgba(${rgb}, ${baseOpacity * 1.5})`; 
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw(particleColor);
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < maxDistance) {
+                            const opacity = baseOpacity * (1 - distance / maxDistance);
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(${rgb}, ${opacity})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animatePlexus);
+            }
+            
+            animatePlexus();
+        }
+
+    </script>
+</body>
+
+</html>
