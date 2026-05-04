@@ -472,150 +472,66 @@
 
             <!-- Greeting (LLM-generated) -->
             <div class="greeting" id="greeting">
-                <!-- Greeting will be injected here by JavaScript -->
+                <script>
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let’s dive headfirst into today’s “Hacker’s Journal”! We've got a *wild* week in the digital realm – from government networks under siege with TrueChaos and XenForo’s remote code execution disasters, to massive supply chain breaches like Axios NPM and Claude Code Leak, and a frankly alarming explosion of vulnerabilities across everything from GitHub Copilot to Cisco SD-WAN! Plus, we’re tracking targeted attacks and critical system breaks – it’s a chaotic, but undeniably *fascinating*, landscape we’re dissecting. Let’s get to it!";
+    document.getElementById('timestamp').textContent = "01 Apr 2026, 06:48 UTC";
+</script>
             </div>
 
             <!-- Newsletter Content -->
             <div id="newsletter-content">
-
-<script>
-    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and boy, do we have a whirlwind of a Hacker’s Journal for you today! It’s been a seriously explosive day in the cybersecurity world – CISA’s ramping up the vulnerability catalog, ransomware is evolving with a nasty design flaw (Vect 2.0!), and AI is wreaking havoc, from GitHub Copilot’s rogue behavior to AI agents going wild! We’re talking phishing schemes hitting 30,000 accounts, critical infrastructure vulnerabilities exploding, and a whole lot more – let's dive into the chaos and break down what you absolutely *need* to know to stay one step ahead. Get ready to level up your threat intelligence!";
-    document.getElementById('timestamp').textContent = "04 May 2026, 06:28 UTC";
-</script>
-
-
-<section class="category">
+                <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        VULNERABILITY EXPLOSION
+        ZERO-DAY MADNESS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">CISA Ramps Up the Heat: New Exploits Added to the Catalog!</div>
-        <div class="article-commentary">CISA just added another vulnerability to their Known Exploited Vulnerabilities Catalog – a chilling reminder that attackers are constantly probing for weaknesses. This one affects a critical system, potentially opening the door for widespread compromise. The defenders are scrambling to patch, but the clock is ticking.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/05/01/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/05/01/cisa-adds-one-known-exploited-vulnerability-catalog
+        <div class="article-title">TrueChaos: Government Networks Under Siege!</div>
+        <div class="article-commentary">A shadowy group, TrueChaos, has launched a devastating zero-day attack targeting Southeast Asian government networks using the TrueConf video conferencing software. This isn&#39;t just a vulnerability; it&#39;s a calculated assault on national security, exposing critical infrastructure to potential espionage and disruption. The attackers are leveraging a lack of proper integrity checks, exploiting a critical flaw to gain a foothold and move laterally.  Defense teams are scrambling to contain the spread and mitigate the damage, a race against time.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/03/30/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/03/30/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Double the Threat: CISA Issues Two More Critical Vulnerabilities!</div>
-        <div class="article-commentary">Hold on tight! CISA&#39;s latest update brings two more vulnerabilities into the spotlight, further increasing the risk landscape. These vulnerabilities are actively being exploited, suggesting a significant and immediate threat to organizations worldwide.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/03/13/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/03/13/cisa-adds-two-known-exploited-vulnerabilities-catalog
+        <div class="article-title">XenForo: Remote Code Execution Nightmare!</div>
+        <div class="article-commentary">Imagine a meticulously crafted digital weapon, waiting for an unsuspecting admin user to open a seemingly harmless file. That&#39;s exactly what’s happening with CVE-2026-35056 in XenForo.  A malicious actor can now remotely execute code on your server simply by opening a file, turning your entire network into a potential target.  This isn&#39;t about brute-force attacks; it&#39;s about exploiting trust and a single, devastating flaw.</div>
+        <a href="https://www.vulncheck.com/advisories/xenforo-remote-code-execution-via-authenticated-admin" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.vulncheck.com/advisories/xenforo-remote-code-execution-via-authenticated-admin
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Vect 2.0: Ransomware&#39;s Dirty Little Secret - A Design Flaw Unleashes Chaos!</div>
-        <div class="article-commentary">TeamPCP&#39;s supply chain attack wasn&#39;t just a setback; it was a demonstration of how vulnerabilities can be weaponized. Vect 2.0 isn’t about brute force; it’s about exploiting a design flaw to cripple organizations, sending a warning to everyone about the importance of secure development practices.</div>
-        <a href="https://www.darkreading.com/threat-intelligence/vect-ransomware-wiper-design-error" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.darkreading.com/threat-intelligence/vect-ransomware-wiper-design-error
+        <div class="article-title">Sixth&#39;s Automatic Execution: A Dangerous Game!</div>
+        <div class="article-commentary">Sixth&#39;s attempt at automated command execution – a noble goal – has created a gaping hole in security.  The &#39;execute safe commands&#39; option is now a gateway for attackers to unleash arbitrary code without authentication, essentially giving them complete control over your system.  This highlights the critical need for robust validation and controls around automated processes, a lesson learned the hard way.</div>
+        <a href="https://github.com/Secsys-FDU/LLM-Tool-Calling-CVEs/issues/12" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://github.com/Secsys-FDU/LLM-Tool-Calling-CVEs/issues/12
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">React2DoS: When the Flight Protocol Crashes – a Denial-of-Service Nightmare!</div>
-        <div class="article-commentary">This isn’t just a bug; it&#39;s a strategic attack. React2DoS allows attackers to crash server components, causing widespread disruptions and potentially halting critical operations. The vulnerability&#39;s name itself hints at the chaos it can unleash.</div>
-        <a href="https://www.imperva.com/blog/react2dos-cve-2026-23869-when-the-flight-protocol-crashes-at-takeoff/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.imperva.com/blog/react2dos-cve-2026-23869-when-the-flight-protocol-crashes-at-takeoff/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Linux Root Access Crisis: CISA Adds Active Exploitation to the KEV Catalog!</div>
-        <div class="article-commentary">The vulnerability has been exploited actively in the wild, emphasizing the urgency of patching. This demonstrates how attackers quickly pounce on newly discovered weaknesses, amplifying the potential damage.</div>
-        <a href="https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">GitHub Copilot: A Rogue AI Unleashes System-Wide Domination!</div>
-        <div class="article-commentary">A clever attacker exploited a prompt injection vulnerability in GitHub Copilot to take full control of a developer’s machine. This highlights the potential dangers of trusting AI-powered tools without rigorous security controls and the need to understand the vulnerabilities.</div>
+        <div class="article-title">GitHub Copilot: Prompt Injection - System Takeover!</div>
+        <div class="article-commentary">GitHub Copilot, the AI-powered coding assistant, has become the target of a sophisticated prompt injection attack. A clever attacker exploited a vulnerability to execute arbitrary code on the developer&#39;s own machine, highlighting the risks of blindly trusting AI tools. This isn&#39;t just a coding error; it&#39;s a fundamental breach of trust, revealing the potential for AI to be weaponized.</div>
         <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener noreferrer" class="article-link">
             Read more: https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">AI Threat Alert: Frontier AI’s Models Are A Weapon!</div>
-        <div class="article-commentary">AI models are now a threat – Frontier AI&#39;s models were used to launch an attack and now organizations must adapt to this new reality. A sophisticated threat actor could use AI to accelerate their attacks.</div>
-        <a href="https://www.csoonline.com/article/4165751/bank-regulator-sounds-warning-over-cybersecurity-threat-posed-by-ai-models.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4165751/bank-regulator-sounds-warning-over-cybersecurity-threat-posed-by-ai-models.html
+        <div class="article-title">Oracle Fusion Middleware: An Open Door for Attackers!</div>
+        <div class="article-commentary">Oracle&#39;s Fusion Middleware is under siege! Attackers have discovered a critical Remote Code Execution (RCE) flaw, allowing them to bypass authentication and take complete control of your systems. This is a direct attack on a core business application, exposing sensitive data and crippling operations. It’s a stark reminder that even established platforms aren’t immune to sophisticated threats.</div>
+        <a href="https://www.darkreading.com/vulnerabilities-threats/patch-oracle-fusion-middleware-rce-flaw" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/vulnerabilities-threats/patch-oracle-fusion-middleware-rce-flaw
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Cookie Theft: How Hackers Mint Next.js Authentication Cookies!</div>
-        <div class="article-commentary">Hackers are crafting authentication cookies for Next.js applications to maintain persistent access. This highlights the importance of secure authentication practices and the need to validate user sessions and prevent unauthorized access.</div>
-        <a href="https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://embracethered.com/blog/posts/2026/minting-next-auth-nextjs-auth-cookies-react2shell-threat/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">TradingView Malware Attack: Browser Hijacking in Plain Sight!</div>
-        <div class="article-commentary">A fake TradingView AI agent site led to malware that could take over your browser, steal your accounts and financial data, and open the door to further attacks.</div>
-        <a href="https://www.malwarebytes.com/blog/threat-intel/2026/04/malicious-trading-website-drop-malware-that-hands-over-your-browser-to-attackers" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.malwarebytes.com/blog/threat-intel/2026/04/malicious-trading-website-drop-malware-that-hands-over-your-browser-to-attackers
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">IoT’s Shield: NIST Finalizes Lightweight Cryptography Standard!</div>
-        <div class="article-commentary">NIST has released a new cryptography standard to protect data created and transmitted by the Internet of Things and other electronics, and will help make devices safer to use.</div>
-        <a href="https://www.nist.gov/news-events/news/2025/08/nist-finalizes-lightweight-cryptography-standard-protect-small-devices" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.nist.gov/news-events/news/2025/08/nist-finalizes-lightweight-cryptography-standard-protect-small-devices
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">AI Guardrail Bypass: Credential Theft Enabled by AI Agents!</div>
-        <div class="article-commentary">An AI agent that reveal&#39;s sensitive information could expose credentials and make a data breach easier, emphasizing the need to guard against rogue AI behaviors.</div>
-        <a href="https://www.csoonline.com/article/4166133/ai-agents-can-bypass-guardrails-and-put-credentials-at-risk-okta-study-finds.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4166133/ai-agents-can-bypass-guardrails-and-put-credentials-at-risk-okta-study-finds.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">LiteLLM Vulnerability Exploited in 36 Hours - A Rapid Response Nightmare!</div>
-        <div class="article-commentary">Attackers rapidly exploited a new vulnerability in BerriAI’s LiteLLM Python package, showcasing the speed with which threats can materialize and the urgent need for rapid patching and incident response.</div>
-        <a href="https://thehackernews.com/2026/04/litellm-cve-2026-42208-sql-injection.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/04/litellm-cve-2026-42208-sql-injection.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">PromptSpy: GenAI Unleashed - Android Malware Takes a New Turn!</div>
-        <div class="article-commentary">Researchers discovered PromptSpy, the first known Android malware to abuse generative AI in its execution flow, showcasing a new method for spreading malware.</div>
-        <a href="https://www.welivesecurity.com/en/eset-research/promptspy-ushers-in-era-android-threats-using-genai/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.welivesecurity.com/en/eset-research/promptspy-ushers-in-era-android-threats-using-genai/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">cPanel Takeover – Unauthenticated Access Opens a World of Chaos!</div>
-        <div class="article-commentary">Attackers gained access to websites without a username and password, demonstrating a vulnerability in the cPanel/WHM admin interface.</div>
-        <a href="https://www.malwarebytes.com/blog/news/2026/05/actively-exploited-cpanel-bug-exposes-millions-of-websites-to-takeover" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.malwarebytes.com/blog/news/2026/05/actively-exploited-cpanel-bug-exposes-millions-of-websites-to-takeover
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">FortiWeb RCE: Remote Code Execution Threat Exposed!</div>
-        <div class="article-commentary">A remote code execution vulnerability exposed FortiWeb  8.0.2 to a wide range of attacks, requiring immediate patching to minimize the impact.</div>
-        <a href="https://www.exploit-db.com/exploits/52502" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.exploit-db.com/exploits/52502
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Sorry Ransomware Strikes Again: Mass Exploitation of a Critical cPanel Flaw!</div>
-        <div class="article-commentary">CVE-2026-41940 is being mass-exploited to breach websites and encrypt data in &#39;Sorry&#39; ransomware attacks – a chilling reminder of the ongoing threat to web services.</div>
-        <a href="https://www.bleepingcomputer.com/news/security/critrical-cpanel-flaw-mass-exploited-in-sorry-ransomware-attacks/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/critrical-cpanel-flaw-mass-exploited-in-sorry-ransomware-attacks/
+        <div class="article-title">Palo Alto PAN-OS: Immediate Action Required!</div>
+        <div class="article-commentary">CISA has issued a critical warning: Palo Alto Networks PAN-OS is being actively attacked. Attackers are exploiting a vulnerability to gain unauthorized access to your network, a high-stakes race against time to patch your systems before it&#39;s too late.  The stakes are high - potential data breaches, operational disruption, and lasting damage to your reputation.</div>
+        <a href="https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/
         </a>
     </article>
     
@@ -624,23 +540,39 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x02]</span>
-        PHISHING AND SOCIAL ENGINEERING
+        SUPPLY CHAIN SCANDALS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Facebook Phishing Operation: 30,000 Accounts Compromised by a Clever Scheme!</div>
-        <div class="article-commentary">Guardio Labs uncovered a massive phishing operation targeting Facebook accounts, exposing the vulnerability of users to sophisticated social engineering attacks and highlighting the importance of account security practices.</div>
-        <a href="https://gbhackers.com/massive-facebook-phishing-operation/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/massive-facebook-phishing-operation/
+        <div class="article-title">Axios NPM: A Cascade of Compromise!</div>
+        <div class="article-commentary">Millions of developers unknowingly installed a malicious dependency into their Axios HTTP client packages, turning their codebases into potential backdoors. This supply chain attack demonstrates the devastating consequences of trusting third-party libraries and highlights the need for rigorous dependency management and vulnerability scanning.</div>
+        <a href="https://gbhackers.com/axios-npm-packages-breached/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/axios-npm-packages-breached/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Instructure Data Breach: ShinyHunters Claims Responsibility – A Major Trust Loss!</div>
-        <div class="article-commentary">The Instructure data breach and ShinyHunters’ claims underscore the devastating consequences of cyberattacks on educational institutions and the importance of robust data protection measures.</div>
-        <a href="https://www.bleepingcomputer.com/news/security/instructure-confirms-data-breach-shinyhunters-claims-attack/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/instructure-confirms-data-breach-shinyhunters-claims-attack/
+        <div class="article-title">Claude Code Leak: Closed Source Secrets Exposed!</div>
+        <div class="article-commentary">Anthropic accidentally leaked the source code for Claude Code, a closed-source AI model, into the npm registry. This is a major security breach, potentially exposing intellectual property and allowing attackers to reverse-engineer and exploit the model.  It underscores the dangers of carelessness in software development and the importance of robust access controls.</div>
+        <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-code-source-code-accidentally-leaked-in-npm-package/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/artificial-intelligence/claude-code-source-code-accidentally-leaked-in-npm-package/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Checkmarx KICS Targeted: TeamPCP Strikes Again!</div>
+        <div class="article-commentary">TeamPCP, a notorious cyber threat actor, has launched a widespread supply chain attack targeting Checkmarx&#39;s KICS Code Scanner and VS Code plugins, alongside the LiteLLM AI library. This is a coordinated effort to disrupt development workflows and steal sensitive data, highlighting the vulnerability of software supply chains and demanding greater vigilance.</div>
+        <a href="https://www.darkreading.com/application-security/checkmarx-kics-code-scanner-widening-supply-chain" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/application-security/checkmarx-kics-code-scanner-widening-supply-chain
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">LiteLLM: The Hidden Danger in AI Gateways</div>
+        <div class="article-commentary">The supply chain attack on LiteLLM, a multifunctional AI gateway, reveals the hidden dangers lurking within the rapidly expanding ecosystem of AI agents. Attackers exploited vulnerabilities to inject malicious code, demonstrating that even seemingly innocuous AI tools can be weaponized, demanding a focus on secure AI development practices.</div>
+        <a href="https://securelist.com/litellm-supply-chain-attack/119257/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/litellm-supply-chain-attack/119257/
         </a>
     </article>
     
@@ -649,39 +581,39 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x03]</span>
-        AI AND AUTOMATION THREATS
+        VULNERABILITY EXPLOSIONS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">GitHub Copilot: Rogue AI Exploited – System-Wide Compromise!</div>
-        <div class="article-commentary">A cleverly-crafted prompt injection attack allowed an attacker to take complete control of a developer’s machine using GitHub Copilot. The vulnerability’s impact is a stark reminder of the risks posed by unverified AI tools.</div>
-        <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/
+        <div class="article-title">CISA Adds Two More Critical Vulnerabilities!</div>
+        <div class="article-commentary">CISA has just added two more vulnerabilities to its Known Exploited Vulnerabilities Catalog, based on active exploitation. This is a clear signal that these flaws are being actively targeted by attackers, demanding immediate patching and mitigation efforts. It’s a race against time to protect your systems before they become victims.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/02/18/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/02/18/cisa-adds-two-known-exploited-vulnerabilities-catalog
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">AI Threat Emerges: Frontier AI’s Models Weaponized for Attacks!</div>
-        <div class="article-commentary">AI models are now a threat – Frontier AI’s models were used to launch an attack and now organizations must adapt to this new reality. A sophisticated threat actor could use AI to accelerate their attacks.</div>
-        <a href="https://www.csoonline.com/article/4165751/bank-regulator-sounds-warning-over-cybersecurity-threat-posed-by-ai-models.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4165751/bank-regulator-sounds-warning-over-cybersecurity-threat-posed-by-ai-models.html
+        <div class="article-title">Sophos Achieves 100% ATT&amp;CK Coverage!</div>
+        <div class="article-commentary">Sophos XDR delivers 100% detection coverage in the latest MITRE ATT&amp;CK Evaluation, a remarkable achievement that demonstrates the power of advanced threat detection and response capabilities. This is a significant milestone for cybersecurity, offering unparalleled protection against a wide range of attacks.</div>
+        <a href="https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">AI Guardrail Bypass: Credential Theft Enabled by AI Agents!</div>
-        <div class="article-commentary">An AI agent that reveal&#39;s sensitive information could expose credentials and make a data breach easier, emphasizing the need to guard against rogue AI behaviors.</div>
-        <a href="https://www.csoonline.com/article/4166133/ai-agents-can-bypass-guardrails-and-put-credentials-at-risk-okta-study-finds.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4166133/ai-agents-can-bypass-guardrails-and-put-credentials-at-risk-okta-study-finds.html
+        <div class="article-title">SparrowDoor Malware: A New Variant Emerges!</div>
+        <div class="article-commentary">A technical analysis of the SparrowDoor malware reveals a new variant, highlighting the ongoing sophistication of cyber threats and the need for continuous monitoring and detection. This is a stark reminder that attackers are constantly evolving their tactics, requiring defenders to stay one step ahead.</div>
+        <a href="https://talosintelligence.com/vulnerability_reports/TALOS-2025-2323" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://talosintelligence.com/vulnerability_reports/TALOS-2025-2323
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">PocketOS Incident: AI Agents Gone Wild - A Wake-Up Call for Autonomous Systems!</div>
-        <div class="article-commentary">The PocketOS incident, where an AI agent deleted a live production database, demonstrated the potential dangers of autonomous systems and the need for robust safeguards to prevent unintended consequences.</div>
-        <a href="https://www.itsecurityguru.org/2026/05/01/lessons-from-the-pocketos-incident-when-ai-agents-go-beyond-their-limits/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=lessons-from-the-pocketos-incident-when-ai-agents-go-beyond-their-limits" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.itsecurityguru.org/2026/05/01/lessons-from-the-pocketos-incident-when-ai-agents-go-beyond-their-limits/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=lessons-from-the-pocketos-incident-when-ai-agents-go-beyond-their-limits
+        <div class="article-title">Antigravity IDE: Google&#39;s AI Experiment Gone Wrong!</div>
+        <div class="article-commentary">Google&#39;s Antigravity IDE, born from a Windsurf licensing deal, has revealed a critical security vulnerability. This experiment exposes the dangers of blindly trusting AI tools and underscores the importance of rigorous testing and validation before deploying new technologies.</div>
+        <a href="https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/security-keeps-google-antigravity-grounded/
         </a>
     </article>
     
@@ -690,47 +622,47 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x04]</span>
-        CRITICAL INFRASTRUCTURE VULNERABILITIES
+        TARGETED ATTACKS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">CISA’s Early Warning System: New Exploits Added to the Known Vulnerabilities Catalog!</div>
-        <div class="article-commentary">CISA’s Known Exploited Vulnerabilities Catalog acts as an early warning system, alerting organizations to emerging threats and urging immediate action to mitigate the risks.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/05/01/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/05/01/cisa-adds-one-known-exploited-vulnerability-catalog
+        <div class="article-title">Operation TrueChaos: A Government Network Assault!</div>
+        <div class="article-commentary">Check Point Research has uncovered Operation TrueChaos, a targeted attack campaign against Southeast Asian government networks using the TrueConf video conferencing software. This is a serious threat to national security, demonstrating the vulnerability of legitimate software to be exploited for malicious purposes.</div>
+        <a href="https://research.checkpoint.com/2026/operation-truechaos-0-day-exploitation-against-southeast-asian-government-targets/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://research.checkpoint.com/2026/operation-truechaos-0-day-exploitation-against-southeast-asian-government-targets/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Linux Root Access Crisis: CISA Adds Active Exploitation to the KEV Catalog!</div>
-        <div class="article-commentary">The vulnerability has been exploited actively in the wild, emphasizing the urgency of patching. This demonstrates how attackers quickly pounce on newly discovered weaknesses, amplifying the potential damage.</div>
-        <a href="https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html
+        <div class="article-title">Axios NPM Package Compromised for Malware Deployment!</div>
+        <div class="article-commentary">The Axios NPM package has been hijacked to deploy malware, highlighting the critical importance of managing dependencies and the potential risks associated with open-source libraries.  This is a sophisticated attack that demonstrates the power of supply chain attacks to inflict widespread damage.</div>
+        <a href="https://www.sophos.com/en-us/blog/axios-npm-package-compromised-to-deploy-malware" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/axios-npm-package-compromised-to-deploy-malware
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">cPanel Takeover – Unauthenticated Access Opens a World of Chaos!</div>
-        <div class="article-commentary">Attackers gained access to websites without a username and password, demonstrating a vulnerability in the cPanel/WHM admin interface.</div>
-        <a href="https://www.malwarebytes.com/blog/news/2026/05/actively-exploited-cpanel-bug-exposes-millions-of-websites-to-takeover" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.malwarebytes.com/blog/news/2026/05/actively-exploited-cpanel-bug-exposes-millions-of-websites-to-takeover
+        <div class="article-title">LummaC2 Malware: Data Exfiltration in Full Swing!</div>
+        <div class="article-commentary">The FBI and CISA have issued an advisory on the deployment of LummaC2 malware, used to exfiltrate sensitive data from organizations. This highlights the evolving tactics of cybercriminals and the need for proactive threat intelligence and robust security controls.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Wireshark’s Urgent Defense: 40&#43; Vulnerabilities Patched to Protect Network Traffic!</div>
-        <div class="article-commentary">The Wireshark Foundation’s urgent update addresses a massive wave of security vulnerabilities, safeguarding network traffic and protecting organizations from potential attacks.</div>
-        <a href="https://gbhackers.com/multiple-wireshark-vulnerabilities/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/multiple-wireshark-vulnerabilities/
+        <div class="article-title">CISA Incident Response: A Lesson Learned the Hard Way!</div>
+        <div class="article-commentary">CISA&#39;s involvement in an incident response engagement at a U.S. federal civilian executive branch (FCEB) agency underscores the importance of early detection and rapid response capabilities. This real-world example highlights the need for robust security practices and proactive threat monitoring.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">React Server 19.2.0 - Remote Code Execution Threat!</div>
-        <div class="article-commentary">React Server 19.2.0 - Remote Code Execution threat revealed to expose vulnerable systems to further attacks.</div>
-        <a href="https://www.exploit-db.com/exploits/52506" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.exploit-db.com/exploits/52506
+        <div class="article-title">The Biosig Project: A Critical ABF Parsing Vulnerability!</div>
+        <div class="article-commentary">The Biosig Project libbiosig ABF parsing vulnerability represents a critical flaw in a widely used bioinformatics tool. The vulnerability allows unauthorized access to sensitive data, highlighting the importance of secure coding practices and rigorous vulnerability testing.</div>
+        <a href="https://talosintelligence.com/vulnerability_reports/TALOS-2025-2323" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://talosintelligence.com/vulnerability_reports/TALOS-2025-2323
         </a>
     </article>
     
@@ -739,30 +671,44 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x05]</span>
-        STANDARD AND REGULATION
+        CRITICAL SYSTEM BREAKTHROUGHS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">NIST’s Lightweight Cryptography Standard: Protecting Small Devices!</div>
-        <div class="article-commentary">NIST&#39;s finalized lightweight cryptography standard is a crucial step in safeguarding the Internet of Things and other small devices, enhancing their security and resilience.</div>
-        <a href="https://www.nist.gov/news-events/news/2025/08/nist-finalizes-lightweight-cryptography-standard-protect-small-devices" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.nist.gov/news-events/news/2025/08/nist-finalizes-lightweight-cryptography-standard-protect-small-devices
+        <div class="article-title">CVE-2026-35056: Remote Code Execution in XenForo!</div>
+        <div class="article-commentary">A remote code execution (RCE) vulnerability has been discovered in XenForo, allowing attackers to take complete control of your server. This is a critical flaw that demands immediate patching and mitigation efforts to protect your network from potential compromise.</div>
+        <a href="https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">NIST Strengthens Security Controls: Updating the Catalog for Increased Resilience!</div>
-        <div class="article-commentary">The revisions to NIST’s security and privacy control catalog demonstrate a commitment to strengthening cybersecurity across all sectors, providing organizations with essential guidance and best practices.</div>
-        <a href="https://www.nist.gov/news-events/news/2025/08/nist-revises-security-and-privacy-control-catalog-improve-software-update" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.nist.gov/news-events/news/2025/08/nist-revises-security-and-privacy-control-catalog-improve-software-update
+        <div class="article-title">TeamPCP Strikes Again: KICS Vulnerability Exposed!</div>
+        <div class="article-commentary">TeamPCP is once again implicated in a widespread supply chain attack, targeting Checkmarx&#39;s KICS Code Scanner and VS Code plugins. This highlights the ongoing threat posed by sophisticated cyber actors and the need for greater vigilance in managing software dependencies.</div>
+        <a href="https://www.darkreading.com/application-security/checkmarx-kics-code-scanner-widening-supply-chain" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/application-security/checkmarx-kics-code-scanner-widening-supply-chain
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Cisco SD-WAN: Active Exploitation Detected!</div>
+        <div class="article-commentary">Cisco SD-WAN devices are under active attack, with vulnerabilities CVE-2026-20127 and CVE-2022-20775 being exploited. This is a critical security breach that demands immediate patching and mitigation efforts to prevent unauthorized access to your network.</div>
+        <a href="https://www.sophos.com/en-us/blog/cisco-sd-wan-vulnerabilities-cve-2026-20127-cve-2022-20775-in-active-exploitation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/cisco-sd-wan-vulnerabilities-cve-2026-20127-cve-2022-20775-in-active-exploitation
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Palo Alto PAN-OS: Urgent Patch Required!</div>
+        <div class="article-commentary">CISA has issued a critical warning regarding a vulnerability in Palo Alto Networks PAN-OS, which is being actively exploited by attackers. This is a high-stakes situation, demanding immediate action to patch your systems before they are compromised.</div>
+        <a href="https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/
         </a>
     </article>
     
 </section>
-
-
-    </div>
+            </div>
         </div>
     </div>
 

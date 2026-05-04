@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-N9ZF36FC9M');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwnspectrum | Daily Cybersecurity Journal</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+
+        /* Brutalist Theme Imports */
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        :root {
+            /* Dark Theme (Default) */
+            --bg-page: #0A0A0A;
+            --bg-card: #0F0F0F;
+            --bg-header: #111111;
+            --text-main: #E8E8E8;
+            --text-muted: #666666;
+            --border-muted: #1A1A1A;
+            --border-card: #1C1C1C;
+            --plexus-color: 232, 255, 71; /* Neon green/yellow */
+            --plexus-opacity: 0.15;
+            --bullet-hover: #E8FF47;
+            --bullet-hover-text: #000;
+        }
+
+        body.light-theme {
+            --bg-page: #F4F4F5;
+            --bg-card: #FFFFFF;
+            --bg-header: #FAFAFA;
+            --text-main: #09090B;
+            --text-muted: #52525B;
+            --border-muted: #E4E4E7;
+            --border-card: #D4D4D8;
+            --plexus-color: 0, 0, 0; /* Black for light mode */
+            --plexus-opacity: 0.1;
+            --bullet-hover: #09090B;
+            --bullet-hover-text: #FFF;
+        }
+
+        body {
+            font-family: 'DM Mono', 'Courier New', Courier, monospace;
+            background: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Elements to transition nicely */
+        .category, .greeting, .header, .article-bullet, .category-title {
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Plexus Background */
+        #plexus-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        ::selection {
+            background: #E8FF47;
+            color: #000;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border-muted);
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle-btn:hover {
+            color: var(--text-main);
+            border-color: var(--text-main);
+            background: rgba(128, 128, 128, 0.05);
+        }
+
+        /* Brutalist Header */
+        .header {
+            padding: 32px 0 24px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-muted);
+            text-align: left;
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .header-meta span {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #555;
+            text-transform: uppercase;
+        }
+        .header-meta .divider { color: #333; }
+
+        .logo {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            margin: 8px 0 4px;
+            letter-spacing: -1px;
+            color: #FFFFFF;
+            font-family: 'DM Mono', monospace;
+            text-transform: capitalize;
+        }
+
+        .tagline, .author {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 24px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        /* Social Links as simple text rows */
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .social-links a:hover {
+            color: #E8E8E8;
+        }
+
+        /* Greeting Section -> Hero Card */
+        .greeting {
+            background: #111;
+            border: 1px solid rgba(232, 255, 71, 0.2);
+            border-top: 3px solid #E8FF47;
+            border-radius: 0 0 12px 12px;
+            padding: 24px 28px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.8;
+            box-shadow: none;
+        }
+
+        /* Category System - Dynamic Colors via nth-child */
+        .category {
+            margin-bottom: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-title {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #CCC;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+
+        .category-number {
+            font-size: 13px;
+            margin-right: 5px;
+            color: inherit;
+        }
+
+        /* Dynamic Category Accents */
+        .category:nth-of-type(1) .category-title { border-top: 3px solid #E8FF47; color: #E8FF47; }
+        .category:nth-of-type(2) .category-title { border-top: 3px solid #FF6B35; color: #FF6B35; }
+        .category:nth-of-type(3) .category-title { border-top: 3px solid #7C3AED; color: #7C3AED; }
+        .category:nth-of-type(4) .category-title { border-top: 3px solid #06B6D4; color: #06B6D4; }
+        .category:nth-of-type(5) .category-title { border-top: 3px solid #10B981; color: #10B981; }
+        .category:nth-of-type(6) .category-title { border-top: 3px solid #F59E0B; color: #F59E0B; }
+        .category:nth-of-type(7) .category-title { border-top: 3px solid #EC4899; color: #EC4899; }
+        .category:nth-of-type(n+8) .category-title { border-top: 3px solid #E8FF47; color: #E8FF47; }
+
+        /* Article Task Rows */
+        .article {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 8px;
+            padding: 12px 20px;
+            border-bottom: 1px solid #141414;
+            background: transparent;
+            transition: background 0.15s;
+            width: 100%;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+        }
+
+        .article:hover {
+            background: rgba(255, 255, 255, 0.02);
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Embed HTML URL in Title */
+        .article-title-link {
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            width: 100%;
+        }
+
+        .article-bullet {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            border: 1px solid var(--border-muted);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            flex-shrink: 0;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .article-title-link:hover .article-bullet {
+            border-color: var(--bullet-hover);
+            background: var(--bullet-hover);
+            color: var(--bullet-hover-text);
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .article-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: color 0.3s ease, transform 0.3s ease;
+            transform: none !important;
+        }
+
+        .article-title-link:hover .article-title {
+            color: var(--text-main);
+            transform: translateX(4px) !important;
+        }
+
+        /* Hover animation for entire row */
+        .article {
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+        .article:hover {
+            background-color: var(--bg-card);
+            transform: translateX(4px);
+        }
+        
+        /* Multiple animation effect: Fade in items */
+        .fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-commentary {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #888;
+            margin-top: 2px;
+            margin-left: 32px; 
+            margin-bottom: 4px;
+            transform: none !important;
+        }
+
+        .article-link {
+            display: none !important;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 48px;
+            padding: 24px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-muted);
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+        .footer-author { display: none; }
+        .footer-links { justify-content: flex-start; margin-top: 10px; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 16px 32px; }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Particle Network Background -->
+    <canvas id="plexus-bg"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in-up" style="animation-delay: 0.1s;">
+            <div class="header-meta" style="flex-wrap: wrap; justify-content: space-between;">
+                <div style="display: flex; align-items: baseline; gap: 12px;">
+                    <span>Anmol Singh Yadav</span>
+                    <span class="divider">///</span>
+                    <span>Issue Date: <span id="timestamp"></span></span>
+                </div>
+                <button class="theme-toggle-btn" id="theme-toggle">
+                    <svg id="theme-icon-dark" style="display:none;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg id="theme-icon-light" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <span id="theme-text">Light Mode</span>
+                </button>
+            </div>
+            <div class="logo">Pwnspectrum</div>
+            <div class="tagline">Daily Cybersecurity Journal</div>
+            <div class="social-links">
+                <a href="https://anmol-singh-yadav.github.io" target="_blank" title="Portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path
+                            d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    Portfolio
+                </a>
+                <a href="https://github.com/iamlucif3r" target="_blank" title="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/anmolsinghyadav" target="_blank" title="LinkedIn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://x.com/IamLucif3r_" target="_blank" title="X (Twitter)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    X
+                </a>
+            </div>
+        </header>
+
+        <!-- Greeting (LLM-generated) -->
+        <div class="greeting" id="greeting">
+            <!-- Greeting will be injected here by JavaScript -->
+        </div>
+
+        <!-- Newsletter Content -->
+        <div id="newsletter-content">
+
+<script>
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and buckle up because it’s been a *wild* ride in the digital world! Today’s “Hacker’s Journal” is diving deep into a flurry of critical vulnerabilities – from Microsoft patching that nasty ASP.NET Core bug to a scary Linux copy flaw, plus a Notepad++ format string injection that’s got us on high alert! We’re also tackling rampant ransomware, AI-powered attacks like ‘Zealot’, and major data breaches impacting critical infrastructure, all while tracking urgent advisories like that immediate Linux kernel vulnerability. Let's break down these threats and strategies together – it's time to defend!";
+    document.getElementById('timestamp').textContent = "01 May 2026, 06:32 UTC";
+</script>
+
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x01]</span>
+        VULNERABILITY TRACKING
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Microsoft Patches Critical ASP.NET Core Bug!</div>
+        <div class="article-commentary">A critical vulnerability in ASP.NET Core has been patched, preventing potential privilege escalation by attackers. This is a strong reminder to keep your systems up-to-date to avoid being compromised.</div>
+        <a href="https://thehackernews.com/2026/04/microsoft-patches-critical-aspnet-core.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/04/microsoft-patches-critical-aspnet-core.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">New Linux Copy Fail Flaw – Root Access Risk!</div>
+        <div class="article-commentary">A dangerous new vulnerability dubbed &#39;Copy Fail&#39; is impacting Linux kernels, allowing unprivileged attackers to gain root access. This underscores the importance of regular security updates and robust access control measures.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/new-linux-copy-fail-flaw-gives-hackers-root-on-major-distros/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/new-linux-copy-fail-flaw-gives-hackers-root-on-major-distros/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Notepad&#43;&#43; Vulnerability: Format String Injection!</div>
+        <div class="article-commentary">Researchers found a format string vulnerability in Notepad&#43;&#43;, this could lead to a denial of service and information disclosure. Prompt patching is critical for all Notepad&#43;&#43; users.</div>
+        <a href="https://notepad-plus-plus.org/news/v894-released/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://notepad-plus-plus.org/news/v894-released/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        RANSOMWARE THREATS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Trivial Exploit: Root Access Granted!</div>
+        <div class="article-commentary">A simple exploit grants attackers root access to Linux kernels – a terrifying prospect for system administrators. This highlights the vulnerability of even seemingly minor software components.</div>
+        <a href="https://www.csoonline.com/article/4165824/trivial-exploit-can-give-attackers-root-access-to-linux-kernel.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4165824/trivial-exploit-can-give-attackers-root-access-to-linux-kernel.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Python Backdoor: A Stealthy Data Thief!</div>
+        <div class="article-commentary">Researchers discovered a new Python-based backdoor framework, capable of stealing sensitive data. This demonstrates the ever-evolving tactics of cybercriminals and the need for proactive threat detection.</div>
+        <a href="https://thehackernews.com/2026/04/new-python-backdoor-uses-tunneling.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/04/new-python-backdoor-uses-tunneling.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISO Playbook: Detecting North Korean Threats!</div>
+        <div class="article-commentary">A comprehensive playbook for CISOs to detect and mitigate threats from North Korean cyber actors, providing valuable guidance in this high-stakes security landscape.</div>
+        <a href="https://www.sophos.com/en-us/blog/detecting-fraudulent-north-korean-hires-a-ciso-playbook" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/detecting-fraudulent-north-korean-hires-a-ciso-playbook
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">#StopRansomware: Interlock – A Collaborative Defense!</div>
+        <div class="article-commentary">A joint Cybersecurity Advisory from leading organizations, aiming to provide network defenders with critical information and best practices to combat ransomware threats. A proactive approach to security.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-203a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-203a
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        MALWARE &amp; ATTACKS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">AI-Powered Attacks: A New Level of Threat!</div>
+        <div class="article-commentary">Frontier AI models pose a significant cybersecurity threat, highlighting the need for updated defenses. AI could quickly evolve to exploit vulnerabilities faster than human defenders can react.</div>
+        <a href="https://www.csoonline.com/article/4165751/bank-regulator-sounds-warning-over-cybersecurity-threat-posed-by-ai-models.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4165751/bank-regulator-sounds-warning-over-cybersecurity-threat-posed-by-ai-models.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">&#39;Zealot&#39; Shows AI&#39;s Autonomous Capabilities!</div>
+        <div class="article-commentary">The &#39;Zealot&#39; proof-of-concept revealed AI&#39;s ability to autonomously mount sophisticated attacks, exceeding expectations and highlighting the urgency of developing robust AI-based security solutions.</div>
+        <a href="https://www.darkreading.com/cyber-risk/zealot-shows-ai-execute-full-cloud-attacks" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/cyber-risk/zealot-shows-ai-execute-full-cloud-attacks
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CVE-2026-7512: Buffer Overflow Threat!</div>
+        <div class="article-commentary">A buffer overflow vulnerability has been discovered in UTT HiPER 1200GW. This critical flaw can lead to system crashes or allows attackers to execute malicious code, underscoring the importance of secure coding practices and timely patching.</div>
+        <a href="https://github.com/kirlic123/IOTvulner/tree/main/4035/3" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://github.com/kirlic123/IOTvulner/tree/main/4035/3
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Notepad&#43;&#43; Vulnerability: Format String Injection!</div>
+        <div class="article-commentary">Researchers found a format string vulnerability in Notepad&#43;&#43;, this could lead to a denial of service and information disclosure. Prompt patching is critical for all Notepad&#43;&#43; users.</div>
+        <a href="https://notepad-plus-plus.org/news/v894-released/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://notepad-plus-plus.org/news/v894-released/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        DATA BREACHES &amp; EXPLOITS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CVERecord?id=...</div>
+        <div class="article-commentary">A critical vulnerability in cPanel, WHM, and WP Squared is being actively exploited in the wild and has been leveraged in attempts since late February.</div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: #
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Iranian-Affiliated Cyber Actors Exploit Critical Infrastructure!</div>
+        <div class="article-commentary">A dangerous threat has emerged – Iranian-affiliated cyber actors are actively exploiting Programmable Logic Controllers (PLCs) across US critical infrastructure. This poses a direct risk to national security and demands immediate action to mitigate the vulnerability.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">[webapps] React Server 19.2.0 - Remote Code Execution Alert!</div>
+        <div class="article-commentary">A critical vulnerability has been discovered in React Server 19.2.0, allowing attackers to execute arbitrary code on affected systems. This necessitates immediate patching to prevent exploitation and maintain server integrity.</div>
+        <a href="https://www.exploit-db.com/exploits/52506" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52506
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Notepad&#43;&#43; Vulnerability: Format String Injection!</div>
+        <div class="article-commentary">Researchers found a format string vulnerability in Notepad&#43;&#43;, this could lead to a denial of service and information disclosure. Prompt patching is critical for all Notepad&#43;&#43; users.</div>
+        <a href="https://notepad-plus-plus.org/news/v894-released/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://notepad-plus-plus.org/news/v894-released/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        ADVISORY &amp; WARNINGS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Critical Linux Kernel Vulnerability – Immediate Action Needed!</div>
+        <div class="article-commentary">A simple exploit grants attackers root access to Linux kernels – a terrifying prospect for system administrators. This highlights the importance of regular security updates and robust access control measures.</div>
+        <a href="https://www.csoonline.com/article/4165824/trivial-exploit-can-give-attackers-root-access-to-linux-kernel.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4165824/trivial-exploit-can-give-attackers-root-access-to-linux-kernel.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">This Month in Security with Tony Anscombe – April 2026!</div>
+        <div class="article-commentary">Stay informed! Tony Anscombe delivers a crucial security briefing, covering emerging threats, scams, and critical vulnerabilities – a must-read for cybersecurity professionals and enthusiasts.</div>
+        <a href="https://www.welivesecurity.com/en/videos/month-security-tony-anscombe-april-2026/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/videos/month-security-tony-anscombe-april-2026/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Germany Doxes UNKN – A Ransomware Gang’s Leader Revealed!</div>
+        <div class="article-commentary">Law enforcement has successfully identified and exposed the individual behind the notorious GandCrab and REvil ransomware gangs, marking a significant win in the ongoing battle against cybercrime.</div>
+        <a href="https://krebsonsecurity.com/2026/04/germany-doxes-unkn-head-of-ru-ransomware-gangs-revil-gandcrab/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://krebsonsecurity.com/2026/04/germany-doxes-unkn-head-of-ru-ransomware-gangs-revil-gandcrab/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Warning: Active Attack Targeting PAN-OS Devices!</div>
+        <div class="article-commentary">CISA has issued an urgent alert regarding an active attack targeting Palo Alto Networks PAN-OS devices. This represents a significant risk to network security, demanding immediate action and robust defensive measures.</div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: #
+        </a>
+    </article>
+    
+</section>
+
+
+    </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div style="font-size: 13px; color: #666; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                <div style="font-weight: 700; color: var(--text-main); font-family: 'DM Mono', monospace; font-size: 18px; text-transform: uppercase; letter-spacing: 2px;">PWNSPECTRUM</div>
+                <p>Daily insights from the cybersecurity trenches.</p>
+                <p style="font-size: 11px; margin-top: 16px;">&copy; <span id="current-year"></span> Anmol Singh Yadav. All rights reserved.</p>
+                <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Setup Fade-in Animations
+        setTimeout(() => {
+            document.querySelectorAll('.category').forEach((el, i) => {
+                el.classList.add('fade-in-up');
+                el.style.animationDelay = `${0.2 + (i * 0.1)}s`;
+            });
+            const greetingEl = document.getElementById('greeting');
+            if(greetingEl) {
+                greetingEl.classList.add('fade-in-up');
+                greetingEl.style.animationDelay = '0.2s';
+            }
+        }, 50);
+
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById('theme-toggle');
+        const iconDark = document.getElementById('theme-icon-dark');
+        const iconLight = document.getElementById('theme-icon-light');
+        const themeText = document.getElementById('theme-text');
+
+        function setTheme(isLight) {
+            if(isLight) {
+                document.body.classList.add('light-theme');
+                if (iconDark) iconDark.style.display = 'block';
+                if (iconLight) iconLight.style.display = 'none';
+                if (themeText) themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.remove('light-theme');
+                if (iconDark) iconDark.style.display = 'none';
+                if (iconLight) iconLight.style.display = 'block';
+                if (themeText) themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Check LocalStorage or Preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            setTheme(true);
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                setTheme(!document.body.classList.contains('light-theme'));
+            });
+        }
+
+        // Plexus Animation Background
+        const canvas = document.getElementById('plexus-bg');
+        if(canvas) {
+            const ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const particles = [];
+            const particleCount = window.innerWidth < 768 ? 40 : 80; 
+            const maxDistance = 180;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.6;
+                    this.vy = (Math.random() - 0.5) * 0.6;
+                    this.radius = Math.random() * 1.5 + 0.5;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+
+                draw(rgbaColor) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = rgbaColor;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animatePlexus() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Get dynamic CSS variables
+                const rootStyles = getComputedStyle(document.body);
+                const rgb = rootStyles.getPropertyValue('--plexus-color').trim() || '100, 100, 100';
+                const baseOpacity = parseFloat(rootStyles.getPropertyValue('--plexus-opacity').trim() || '0.4');
+
+                const particleColor = `rgba(${rgb}, ${baseOpacity * 1.5})`; 
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw(particleColor);
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < maxDistance) {
+                            const opacity = baseOpacity * (1 - distance / maxDistance);
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(${rgb}, ${opacity})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animatePlexus);
+            }
+            
+            animatePlexus();
+        }
+
+    </script>
+</body>
+
+</html>
