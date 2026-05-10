@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N9ZF36FC9M');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwnspectrum | Daily Cybersecurity Journal</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
+
+    <!-- Minimalist Monochrome Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..900;1,8..60,400..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Minimalist Monochrome CSS */
+        :root {
+            /* Dark Theme is default */
+            --bg-page: #000000;
+            --text-main: #FFFFFF;
+            --text-muted: #A3A3A3;
+            --border-main: #FFFFFF;
+            --border-muted: #333333;
+            --invert-bg: #FFFFFF;
+            --invert-text: #000000;
+            --selection-bg: #FFFFFF;
+            --selection-text: #000000;
+        }
+
+        body.light-theme {
+            --bg-page: #FFFFFF;
+            --text-main: #000000;
+            --text-muted: #525252;
+            --border-main: #000000;
+            --border-muted: #E5E5E5;
+            --invert-bg: #000000;
+            --invert-text: #FFFFFF;
+            --selection-bg: #000000;
+            --selection-text: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+            /* Custom cursor */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Source Serif 4", Georgia, serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.625;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            position: relative;
+        }
+
+        ::selection {
+            background: var(--selection-bg);
+            color: var(--selection-text);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .display-font {
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.025em;
+        }
+
+        .mono-font {
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        /* Textures */
+        .texture-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .texture-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background-image: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 1px,
+                    var(--border-main) 1px,
+                    var(--border-main) 2px);
+            background-size: 100% 4px;
+            opacity: 0.02;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--text-main);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.1s, height 0.1s, background-color 0.1s;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.hovering {
+            width: 32px;
+            height: 32px;
+            background-color: var(--invert-bg);
+            border: 1px solid var(--border-main);
+            mix-blend-mode: normal;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 72rem;
+            /* 1152px */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 0 2rem;
+            border-bottom: 4px solid var(--border-main);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-muted);
+            padding-bottom: 1rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: none;
+            border: 1px solid var(--border-main);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0s;
+        }
+
+        .action-btn:hover {
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+
+        /* Plexus Background */
+        .plexus-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            border: 2px solid var(--border-main);
+            background-color: var(--bg-page);
+            padding: 3rem;
+            max-width: 48rem; /* Wider for landscape */
+            width: 90%;
+            position: relative;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .author-photo {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-main);
+            margin-bottom: 0; /* Removed bottom margin for grid */
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .author-photo:hover {
+            filter: grayscale(0%);
+        }
+
+        .author-name {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-bio {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .social-btn {
+            display: block;
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid var(--border-main);
+            padding: 0.75rem;
+            text-align: center;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            transition: all 0s;
+        }
+
+        .social-btn:hover {
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+
+        /* Content Area */
+        .greeting {
+            font-size: 1.25rem;
+            border-left: 4px solid var(--border-main);
+            padding-left: 1.5rem;
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+
+        /* Category System */
+        .category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--border-main);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .category-number {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Articles */
+        .article {
+            border: 1px solid var(--border-main);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0s;
+            position: relative;
+        }
+
+        .article:hover {
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+
+        .article-title-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 700;
+        }
+
+        .article:hover .article-title {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        .article-commentary {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .article:hover .article-commentary {
+            color: inherit;
+            opacity: 0.8;
+        }
+
+        .article-link {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 2px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            border-top: 8px solid var(--border-main);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: var(--bg-page);
+            border: 2px solid var(--border-main);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 100;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <canvas id="plexus-bg" class="plexus-bg"></canvas>
+    <div class="texture-noise"></div>
+    <div class="texture-lines"></div>
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <div class="container">
+        <div class="main-content">
+            <header>
+                <div class="header-meta mono-font">
+                    <div>
+                        <span>Issue Date: <span id="timestamp"></span></span>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-btn" id="about-btn">About</button>
+                        <button class="action-btn" id="theme-toggle">Light Mode</button>
+                    </div>
+                </div>
+                <h1 class="logo display-font">Pwnspectrum</h1>
+                <p class="mono-font" style="letter-spacing: 0.05em; text-transform: uppercase;">Daily Cybersecurity
+                    Journal</p>
+            </header>
+
+            <!-- Greeting (LLM-generated) -->
+            <div class="greeting" id="greeting">
+                <!-- Greeting will be injected here by JavaScript -->
+            </div>
+
+            <!-- Newsletter Content -->
+            <div id="newsletter-content">
+
+<script>
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and buckle up because today’s “Hacker’s Journal” is absolutely *blazing*! We’re diving headfirst into a vulnerability explosion – CISA is on high alert, there are multiple zero-day strikes hitting federal networks, and cPanel is under relentless attack! Plus, we're tackling AI gone rogue, massive data breaches crippling the education system, and some seriously complex system-level vulnerabilities like Rancher Fleet compromises. It’s a chaotic, critical, and unbelievably exciting landscape we’ll be dissecting – let’s get to it!";
+    document.getElementById('timestamp').textContent = "09 May 2026, 07:08 UTC";
+</script>
+
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x01]</span>
+        VULNERABILITY EXPLOSION
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CISA Issues New Alert: The Hunt Never Sleeps!</div>
+        <div class="article-commentary">The CISA KEV Catalog just got a new player. A sophisticated attacker is actively exploiting a known vulnerability, and this update alerts us to the immediate danger. This attacker is a relentless shadow, constantly seeking new pathways to compromise systems. Defenders must act swiftly, patching and monitoring for any signs of intrusion.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/04/02/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/04/02/cisa-adds-one-known-exploited-vulnerability-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Double Trouble: Two New Vulnerabilities Ignite the Fire!</div>
+        <div class="article-commentary">CISA has added two more vulnerabilities to its catalog, escalating the risk landscape.  A shadowy group is using these exploits to push deeper into networks, potentially gaining root access. The Defender must employ layered defenses to contain this escalating threat.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/04/14/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/04/14/cisa-adds-two-known-exploited-vulnerabilities-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Zero-Day Strike: Federal Networks Under Attack!</div>
+        <div class="article-commentary">A zero-day vulnerability in Ivanti Endpoint Manager Mobile is being exploited, and U.S. federal agencies are scrambling to respond. A cunning attacker is leveraging this unknown weakness, infiltrating sensitive systems. The Defender must prioritize mitigation and implement robust monitoring strategies to identify and neutralize this attack.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-gives-feds-four-days-to-patch-ivanti-flaw-exploited-as-zero-day/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/cisa-gives-feds-four-days-to-patch-ivanti-flaw-exploited-as-zero-day/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">cPanel Under Siege: A Rampaging Exploit!</div>
+        <div class="article-commentary">The cPanel authentication bypass vulnerability is now in full swing! Hackers are systematically compromising systems with little to no resistance. The Defender must activate emergency patching procedures and bolster perimeter defenses to stop the bleeding.</div>
+        <a href="https://www.itsecurityguru.org/2026/05/08/pentest-tools-com-releases-free-scanner-for-cve-2026-41940-as-cpanel-authentication-bypass-enters-its-third-week-of-active-exploitation/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=pentest-tools-com-releases-free-scanner-for-cve-2026-41940-as-cpanel-authentication-bypass-enters-its-third-week-of-active-exploitation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.itsecurityguru.org/2026/05/08/pentest-tools-com-releases-free-scanner-for-cve-2026-41940-as-cpanel-authentication-bypass-enters-its-third-week-of-active-exploitation/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=pentest-tools-com-releases-free-scanner-for-cve-2026-41940-as-cpanel-authentication-bypass-enters-its-third-week-of-active-exploitation
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Cyber Frenzy: Chaos Unleashed by cPanel Vulnerability</div>
+        <div class="article-commentary">The cPanel vulnerability has sparked a frantic race between attackers and defenders. Multiple proof-of-concept exploits are circulating, suggesting widespread exploitation is already underway. The Defender is struggling to contain the breach, desperately deploying mitigations and investigating the extent of the damage.</div>
+        <a href="https://www.darkreading.com/threat-intelligence/exploit-cyber-frenzy-critical-cpanel-vulnerability" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/threat-intelligence/exploit-cyber-frenzy-critical-cpanel-vulnerability
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">React Server Chaos: Remote Code Execution Alert!</div>
+        <div class="article-commentary">A critical remote code execution vulnerability in React Server is causing havoc! Attackers can now execute arbitrary commands on vulnerable systems. This is a devastating discovery, and the Defender must immediately implement containment strategies and roll out patches.</div>
+        <a href="https://www.exploit-db.com/exploits/52506" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52506
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Espionage Network: China&#39;s Global Surveillance!</div>
+        <div class="article-commentary">Evidence emerges that China-linked actors are deploying spyware across the globe, targeting critical infrastructure and sensitive networks.  A sophisticated espionage operation is underway, seeking to steal valuable data and disrupt operations. The Defender must bolster cybersecurity posture and implement robust intelligence-sharing protocols.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Covert Networks Exposed: China&#39;s Shadow Operations!</div>
+        <div class="article-commentary">The National Cyber Security Centre (NCSC) uncovers a hidden network of compromised devices linked to Chinese state-sponsored actors. This reveals a subtle yet dangerous espionage effort, allowing attackers to gain access to networks undetected. The Defender must actively hunt for compromised devices and strengthen security controls.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">UAE Surveillance: Spyware Targets Privacy Users!</div>
+        <div class="article-commentary">Researchers discover spyware disguised as legitimate apps, targeting users in the UAE. A clandestine operation is underway, collecting personal data and potentially compromising devices. The Defender must educate users about the risks and implement measures to protect privacy.</div>
+        <a href="https://www.welivesecurity.com/en/eset-research/new-spyware-campaigns-target-privacy-conscious-android-users-uae/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/eset-research/new-spyware-campaigns-target-privacy-conscious-android-users-uae/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        AI THREATS &amp; MISBEHAVIOR
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">AI Gone Rogue: Cline&#39;s Dangerous Shortcut!</div>
+        <div class="article-commentary">A severe vulnerability in Cline&#39;s Kanban server allows malicious sites to take control of AI coding agents. Attackers are exploiting this flaw to manipulate AI, potentially leading to malicious code generation or unauthorized access. The Defender must isolate and protect critical AI systems, implementing robust security controls and monitoring for anomalous activity.</div>
+        <a href="https://gbhackers.com/cline-kanban-websocket-vulnerability/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/cline-kanban-websocket-vulnerability/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Xrdp Exposed: RCE Vulnerability Unleashed!</div>
+        <div class="article-commentary">A pre-auth RCE vulnerability in xrdp allows attackers to execute commands on vulnerable systems. This is a serious security breach, and the Defender must immediately patch the vulnerability and implement stricter access controls.</div>
+        <a href="https://securelist.com/cve-2025-68670/119742/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/cve-2025-68670/119742/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Control Web Panel Chaos: Unsanitized Input!</div>
+        <div class="article-commentary">A critical vulnerability in Control Web Panel (CWP) allows attackers to execute OS commands via unsanitized input. This is a devastating vulnerability, and the Defender must quickly patch the system and implement robust input validation procedures.</div>
+        <a href="https://karmainsecurity.com/KIS-2025-09" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://karmainsecurity.com/KIS-2025-09
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">xAI&#39;s Grok: Security Risks Revealed!</div>
+        <div class="article-commentary">Researchers uncover security flaws in xAI&#39;s Grok chatbot, exposing potential vulnerabilities in API access. Attackers can now exploit these weaknesses to gain unauthorized access, manipulate the chatbot, or launch further attacks. The Defender must rigorously audit the chatbot&#39;s security, implementing robust access controls and monitoring for malicious activity.</div>
+        <a href="https://embracethered.com/blog/posts/2024/security-probllms-in-xai-grok/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2024/security-probllms-in-xai-grok/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CAI Framework Breach: Command Injection Nightmare!</div>
+        <div class="article-commentary">A command injection vulnerability in the Cybersecurity AI (CAI) Framework allows attackers to execute arbitrary commands on vulnerable systems. This is a critical security breach, and the Defender must quickly patch the system and implement robust input validation procedures.</div>
+        <a href="https://www.exploit-db.com/exploits/52530" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52530
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        DATA BREACHES &amp; EXTORTION
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Canvas Downed: Education System in Crisis!</div>
+        <div class="article-commentary">A cybercrime group is extorting schools and colleges with a Canvas breach. Attackers are demanding ransom, disrupting education and compromising student data. The Defender must rapidly restore systems, investigate the breach, and notify affected parties.</div>
+        <a href="https://krebsonsecurity.com/2026/05/canvas-breach-disrupts-schools-colleges-nationwide/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://krebsonsecurity.com/2026/05/canvas-breach-disrupts-schools-colleges-nationwide/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Millions Impacted: Massive Education Data Theft!</div>
+        <div class="article-commentary">ShinyHunters has stolen personal data from 275 million users on Instructure’s Canvas platform, causing widespread disruption and potential harm. This is a devastating data breach, and the Defender must implement rapid remediation measures, investigate the incident, and notify affected users.</div>
+        <a href="https://www.malwarebytes.com/blog/news/2026/05/millions-of-students-personal-data-stolen-in-major-education-cyberattack" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.malwarebytes.com/blog/news/2026/05/millions-of-students-personal-data-stolen-in-major-education-cyberattack
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        SYSTEM-LEVEL VULNERABILITIES
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Rancher Fleet Compromised: Cluster Lockdown!</div>
+        <div class="article-commentary">A critical vulnerability in Rancher Fleet allows attackers to gain full cluster admin privileges, essentially taking control of Kubernetes clusters at scale. This is a catastrophic security breach, and the Defender must immediately isolate affected clusters, patch the vulnerability, and implement stronger access controls.</div>
+        <a href="https://gbhackers.com/critical-vulnerability-in-rancher-fleet/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/critical-vulnerability-in-rancher-fleet/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Ivanti Exposed: Five Holes in the Armor!</div>
+        <div class="article-commentary">Five new vulnerabilities in Ivanti Endpoint Manager Mobile are being exploited, opening pathways for attackers to compromise systems. The Defender must quickly patch the system and implement stronger access controls.</div>
+        <a href="https://www.csoonline.com/article/4169001/five-new-holes-one-exploited-found-in-ivanti-endpoint-manager-mobile.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4169001/five-new-holes-one-exploited-found-in-ivanti-endpoint-manager-mobile.html
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        SHINY SOLUTIONS &amp; MITRE ATT&amp;CK
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Sophos Dominates MITRE ATT&amp;CK: A Defender’s Triumph!</div>
+        <div class="article-commentary">Sophos XDR achieves 100% detection coverage in the latest MITRE ATT&amp;CK Evaluation, showcasing its powerful capabilities. This demonstrates the Defender’s ability to proactively identify and neutralize threats, giving them a significant advantage against attackers.</div>
+        <a href="https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation
+        </a>
+    </article>
+    
+</section>
+
+
+    </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal-overlay" id="about-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal">&times;</button>
+            <div class="modal-image">
+                <img src="me/anmol-singh-yadav.png" alt="Anmol Singh Yadav" class="author-photo">
+            </div>
+            <div class="modal-info">
+                <h4 class="author-name display-font">Anmol Singh Yadav</h4>
+                <p class="author-bio">Cybersecurity researcher and enthusiast documenting daily insights from the trenches.</p>
+                <div class="social-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" class="social-btn">LinkedIn</a>
+                    <a href="http://github.com/IamLucif3r" target="_blank" class="social-btn">GitHub</a>
+                    <a href="https://medium.com/@IamLucif3r" target="_blank" class="social-btn">Medium</a>
+                    <a href="https://x.com/iamlucif3r_" target="_blank" class="social-btn">X (Twitter)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container" style="display: block;">
+            <div class="footer-logo display-font">PWNSPECTRUM</div>
+            <p class="mono-font" style="font-size: 0.875rem;">Reduction to Essence.</p>
+            <p class="mono-font" style="font-size: 0.75rem; margin-top: 2rem; color: var(--text-muted);">
+                &copy; <span id="current-year"></span> Anmol Singh Yadav. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Custom Cursor
+        const cursor = document.getElementById('custom-cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Add custom cursor hover state to all interactive elements
+        function setupCursorListeners() {
+            const interactiveElements = document.querySelectorAll('a, button, input');
+            interactiveElements.forEach(el => {
+                if (!el.hasAttribute('data-cursor-bound')) {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+                    el.setAttribute('data-cursor-bound', 'true');
+                }
+            });
+        }
+        setupCursorListeners();
+
+        // Apply cursor logic to dynamically added elements (like articles)
+        const observer = new MutationObserver((mutations) => {
+            let shouldUpdate = false;
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length) {
+                    shouldUpdate = true;
+                }
+            });
+            if (shouldUpdate) {
+                setupCursorListeners();
+            }
+        });
+
+        const contentNode = document.getElementById('newsletter-content');
+        if (contentNode) {
+            observer.observe(contentNode, { childList: true, subtree: true });
+        }
+
+        const greetingNode = document.getElementById('greeting');
+        if (greetingNode) {
+            observer.observe(greetingNode, { childList: true, subtree: true });
+        }
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('theme-toggle');
+
+        function setTheme(isLight) {
+            if (isLight) {
+                document.body.classList.add('light-theme');
+                themeBtn.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.remove('light-theme');
+                themeBtn.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            setTheme(true);
+        }
+
+        themeBtn.addEventListener('click', () => {
+            setTheme(!document.body.classList.contains('light-theme'));
+        });
+
+        // Scroll to Top
+        const scrollBtn = document.getElementById('scroll-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Modal Logic
+        const aboutBtn = document.getElementById('about-btn');
+        const closeModal = document.getElementById('close-modal');
+        const aboutModal = document.getElementById('about-modal');
+
+        aboutBtn.addEventListener('click', () => {
+            aboutModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModal.addEventListener('click', () => {
+            aboutModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        aboutModal.addEventListener('click', (e) => {
+            if (e.target === aboutModal) {
+                aboutModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Plexus Background Animation
+        const canvas = document.getElementById('plexus-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 80;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                const isLight = document.body.classList.contains('light-theme');
+                ctx.fillStyle = isLight ? '#000000' : '#ffffff';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function connectParticles() {
+            const isLight = document.body.classList.contains('light-theme');
+            const colorRGB = isLight ? '0, 0, 0' : '255, 255, 255';
+            
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(${colorRGB}, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+    </script>
+</body>
+
+</html>
