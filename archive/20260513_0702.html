@@ -479,8 +479,8 @@
             <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let's dive straight into today's Hacker's Journal – it's been a *wild* ride! We're seeing a vulnerability explosion with CISA warnings, massive breaches like Instructure and Canvas, and some seriously alarming attack trends, including cloud TTPs and ransomware delivery via QEMU. Plus, the “Patch Tuesday” panic is *always* on, from rogue kernel drivers to vulnerabilities in RubyGems and Open WebUI – buckle up, because it's a chaotic, yet crucial, update for any serious security professional!";
-    document.getElementById('timestamp').textContent = "13 May 2026, 07:03 UTC";
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let’s dive straight into today’s “Hacker’s Journal”! We’re facing a *massive* vulnerability explosion – CISA warnings, double the exploits, and critical flaws like Ollama and FUXA are popping up left and right! Plus, a malware maelstrom is brewing with banking trojans, supply chain disasters via VS Code, and poisoned Python packages! We're also tracking prompt injection risks like GitHub Copilot and observing alarming AI-driven phishing campaigns alongside sophisticated breaches impacting education, utilities, and even a global Chinese espionage network – it's a wild ride, folks, let’s get to it!";
+    document.getElementById('timestamp').textContent = "11 May 2026, 06:29 UTC";
 </script>
 
 
@@ -492,90 +492,58 @@
     
     
     <article class="article">
-        <div class="article-title">CISA Issues Urgent Alert: Exploited Vulnerabilities Threaten Systems!</div>
-        <div class="article-commentary">The CISA is sounding the alarm! Two critical vulnerabilities, actively being exploited, have been added to their catalog. This means hackers are actively targeting systems using known flaws – a dangerous game of cat and mouse. Organizations must immediately prioritize patching to prevent breaches.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/04/28/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/04/28/cisa-adds-two-known-exploited-vulnerabilities-catalog
+        <div class="article-title">CISA Issues Urgent Warning: New Exploits Are Active!</div>
+        <div class="article-commentary">The CISA KEV Catalog just got a nasty surprise – a newly exploited vulnerability is now actively being used. This means attackers have a fresh tool to target systems, demanding immediate patching. Think of it as a new weapon appearing on the battlefield, and defenders must react swiftly to avoid being caught off guard.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/05/06/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/05/06/cisa-adds-one-known-exploited-vulnerability-catalog
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Another Urgent CISA Warning: A New Vulnerability Emerges!</div>
-        <div class="article-commentary">Another critical vulnerability has been identified and added to the CISA’s KEV catalog. This rapid addition highlights the constant threat landscape and the need for continuous monitoring and proactive security measures. Attackers are circling, ready to pounce.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/04/06/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/04/06/cisa-adds-one-known-exploited-vulnerability-catalog
+        <div class="article-title">Double the Trouble: Two More Vulnerabilities Added to the Watchlist!</div>
+        <div class="article-commentary">CISA isn&#39;t letting up – two more vulnerabilities have joined the KEV Catalog, indicating a heightened level of threat activity. This suggests attackers are actively probing systems and finding weaknesses, making proactive defenses even more critical. It’s a race against time!</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/03/13/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/03/13/cisa-adds-two-known-exploited-vulnerabilities-catalog
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">UEFI Firmware Exploit: Privilege Escalation is Within Reach!</div>
-        <div class="article-commentary">A clever attacker is leveraging a vulnerability in the Slim Bootloader&#39;s UEFI firmware. This allows them to elevate their privileges, potentially gaining complete control over the system.  A subtle flaw can lead to catastrophic consequences – patch immediately!</div>
-        <a href="https://intel.com/content/www/us/en/security-center/advisory/intel-sa-01425.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://intel.com/content/www/us/en/security-center/advisory/intel-sa-01425.html
+        <div class="article-title">CVE-2021-47907: Cross-Site Scripting Unleashed!</div>
+        <div class="article-commentary">Rocket LMS has a dangerous flaw – a cross-site scripting vulnerability. Attackers can inject malicious scripts, potentially taking control of user accounts or spreading malware. It&#39;s like a hidden backdoor opening up, allowing attackers to silently infiltrate the system.</div>
+        <a href="https://lms.rocket-soft.org/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://lms.rocket-soft.org/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Remote Code Execution Nightmare: Cognee Vulnerability Unleashed!</div>
-        <div class="article-commentary">Researchers have uncovered a critical remote code execution vulnerability in Cognee. This flaw allows attackers to run arbitrary Python code without security safeguards, presenting a severe risk. Patching is paramount to preventing exploitation and ensuring system integrity.</div>
-        <a href="https://github.com/topoteretes/cognee" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://github.com/topoteretes/cognee
+        <div class="article-title">Ollama Vulnerability: Remote Memory Leak – A Critical Threat!</div>
+        <div class="article-commentary">Researchers discovered a serious flaw in Ollama that allows attackers to steal an entire process memory. This is a catastrophic breach, potentially revealing sensitive data and disrupting operations. It’s akin to an attacker gaining access to the brain of a machine, able to see everything happening inside.</div>
+        <a href="https://thehackernews.com/2026/05/ollama-out-of-bounds-read-vulnerability.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/05/ollama-out-of-bounds-read-vulnerability.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Microsoft Patches 120 Flaws: A Victory in the Ongoing Battle!</div>
-        <div class="article-commentary">Microsoft has released a massive patch Tuesday update, addressing 120 vulnerabilities. While no zero-days were found this month, the ongoing effort to secure systems is a vital step in defending against persistent threats.  Attackers are constantly probing, and proactive patching is key.</div>
-        <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/
+        <div class="article-title">FUXA 1.2.8: Bypass &amp; RCE – Attackers Find the Weakest Link!</div>
+        <div class="article-commentary">FUXA 1.2.8 has a dangerous combination of flaws: an authentication bypass and Remote Code Execution. This gives attackers complete control over vulnerable systems, enabling them to steal data, install malware, or completely take over. This is a serious escalation of an attack.</div>
+        <a href="https://www.exploit-db.com/exploits/52544" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52544
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Canvas Breach: Ransomware Attack Reveals Massive Data Leak!</div>
-        <div class="article-commentary">Instructure has been hit by a ransomware attack, leading to a massive leak of sensitive data from thousands of schools and universities. The attackers, ShinyHunters, are demanding a ransom to prevent the release of this information. This incident underscores the growing sophistication of cybercrime and the potential damage to educational institutions.</div>
-        <a href="https://thehackernews.com/2026/05/instructure-reaches-ransom-agreement.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/instructure-reaches-ransom-agreement.html
+        <div class="article-title">CVE-2021-47925: XSS Attacks on the Rise – A Silent Invasion!</div>
+        <div class="article-commentary">CMDBuild 3.3.2 has vulnerabilities that can lead to stored Cross-Site Scripting (XSS) attacks. This means attackers can inject malicious scripts into websites, potentially stealing user credentials or defacing the site. It&#39;s a stealthy attack, like a spy infiltrating a network undetected.</div>
+        <a href="https://www.cmdbuild.org" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cmdbuild.org
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">RubyGems Attack: Malicious Packages Flood the Ecosystem!</div>
-        <div class="article-commentary">A major attack on the RubyGems package manager has seen hundreds of malicious packages uploaded.  Developers are unknowingly incorporating malware into their projects, highlighting the importance of careful package management and vigilant security practices. This is a sophisticated supply-chain attack.</div>
-        <a href="https://thehackernews.com/2026/05/rubygems-suspends-new-signups-after.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/rubygems-suspends-new-signups-after.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Shai-Hulud Supply Chain Attack: Credentials Stolen with Ease!</div>
-        <div class="article-commentary">Attackers are using the Shai-Hulud supply-chain campaign to inject malware into developers’ systems, stealing credentials. This highlights the dangers of trusting third-party software and underscores the need for robust security controls and careful verification processes.</div>
-        <a href="https://www.bleepingcomputer.com/news/security/shai-hulud-attack-ships-signed-malicious-tanstack-mistral-npm-packages/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/shai-hulud-attack-ships-signed-malicious-tanstack-mistral-npm-packages/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Ransomware Attack: SimpleHelp Systems Plagued by Unpatched Vulnerability!</div>
-        <div class="article-commentary">SimpleHelp RMM systems have become a target for ransomware actors who exploited a vulnerability to gain unauthorized access. This highlights the critical importance of patching critical vulnerabilities to protect sensitive data and systems from malicious attacks. The organization’s security posture was severely compromised.</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-163a" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-163a
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">FBI and CISA Warn of LummaC2 Malware Campaign!</div>
-        <div class="article-commentary">The FBI and CISA have issued an advisory on a new threat campaign using LummaC2 malware to exfiltrate sensitive data from organizations. This underscores the importance of implementing robust security measures to prevent data breaches and protect critical assets.</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-141b
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Claude Code Execution: A Silent Threat Revealed!</div>
-        <div class="article-commentary">Malicious repositories can trigger code execution in Claude Code, Cursor CLI, Gemini CLI, and CoPilot CLI with minimal or no user interaction. This demonstrates the potential for sophisticated attacks and the need for robust security controls.</div>
-        <a href="https://www.darkreading.com/application-security/trustfall-exposes-claude-code-execution-risk" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.darkreading.com/application-security/trustfall-exposes-claude-code-execution-risk
+        <div class="article-title">PAN-OS Under Attack: CISA Issues Urgent Patch Warning!</div>
+        <div class="article-commentary">Palo Alto Networks PAN-OS is experiencing a surge in attacks, making it imperative for users to quickly deploy the latest security patches. This is a defensive posture against rapidly evolving threats. The clock is ticking to protect your systems.</div>
+        <a href="https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/
         </a>
     </article>
     
@@ -584,39 +552,55 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x02]</span>
-        ATTACK TRENDS
+        MALWARE MAELSTROM
     </h2>
     
     
     <article class="article">
-        <div class="article-title">MITRE ATT&amp;CK: Cloud TTPs and Cookie Hijacking!</div>
-        <div class="article-commentary">MITRE has updated the ATT&amp;CK framework to include techniques for stealing cookies from machines and using them for lateral movement in cloud environments. This offers valuable insight into the tactics employed by attackers and helps organizations strengthen their defenses against these advanced threats.</div>
-        <a href="https://embracethered.com/blog/posts/mitreattackupdate/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://embracethered.com/blog/posts/mitreattackupdate/
+        <div class="article-title">TCLBANKER: The Trojan That Hijacks Your Life!</div>
+        <div class="article-commentary">This sophisticated Trojan, TCLBANKER, isn’t just stealing data; it’s weaponizing your WhatsApp and Outlook accounts to spread itself. It&#39;s like a digital puppeteer taking control of your communications and spreading malware. A truly insidious threat.</div>
+        <a href="https://gbhackers.com/tclbanker-malware-leverages-whatsapp-and-outlook/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/tclbanker-malware-leverages-whatsapp-and-outlook/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">WordPress Plugin Vulnerability: Broken Access Control Threatens Websites!</div>
-        <div class="article-commentary">A critical vulnerability in the WordPress 5.2.0 plugin allows attackers to bypass access controls and gain unauthorized access to websites. This highlights the potential for security breaches stemming from vulnerable plugins and underscores the importance of using secure and regularly updated plugins.</div>
-        <a href="https://www.exploit-db.com/exploits/52511" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.exploit-db.com/exploits/52511
+        <div class="article-title">CTEM Protocol Exploited: The Defense is Failing!</div>
+        <div class="article-commentary">The CTEM protocol is vulnerable, and attackers are exploiting this weakness to spread malware. This requires immediate remediation, or you risk having your systems compromised. This vulnerability is actively being used by attackers, making it a critical issue.</div>
+        <a href="https://www.csoonline.com/article/4168493/your-ctem-program-is-probably-ignoring-mcp-heres-how-to-fix-it.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4168493/your-ctem-program-is-probably-ignoring-mcp-heres-how-to-fix-it.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">QEMU Exploitation: Ransomware Delivery via Virtual Machines!</div>
-        <div class="article-commentary">Attackers are using QEMU to create hidden virtual machines for long-term access, credential harvesting, data exfiltration, and Ransomware deployment. This sophisticated tactic demonstrates the potential for persistent threats and the need for comprehensive virtual machine security monitoring.</div>
-        <a href="https://www.sophos.com/en-us/blog/qemu-abused-to-evade-detection-and-enable-ransomware-delivery" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.sophos.com/en-us/blog/qemu-abused-to-evade-detection-and-enable-ransomware-delivery
+        <div class="article-title">Claude and Chrome: An Unexpected Trojan Horse!</div>
+        <div class="article-commentary">Anthropic’s Claude is being exploited through Chrome extensions, allowing attackers to run malicious code. This highlights the importance of carefully evaluating extensions and ensuring they’re from trusted sources. It’s a subtle but dangerous attack vector.</div>
+        <a href="https://www.csoonline.com/article/4168867/claude-in-chrome-is-taking-orders-from-the-wrong-extensions.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4168867/claude-in-chrome-is-taking-orders-from-the-wrong-extensions.html
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Month of AI Bugs - Finale!</div>
-        <div class="article-commentary">That’s it. The Month of AI Bugs is done. It highlights a growing area of concern—vulnerabilities in AI systems—and the need for rigorous testing and security protocols.”</div>
-        <a href="https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/
+        <div class="article-title">VS Code Extension Attacks: A Supply Chain Disaster!</div>
+        <div class="article-commentary">Attackers are deploying malicious VS Code extensions to compromise systems, highlighting the importance of careful software supply chain management. It’s like a compromised component silently infecting the entire system. This is a systemic risk.</div>
+        <a href="https://www.darkreading.com/application-security/fresh-glassworm-vs-code-extensions-supply-chain" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/application-security/fresh-glassworm-vs-code-extensions-supply-chain
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">ZiChatBot: PyPI Poisoned – A Malware Delivery System!</div>
+        <div class="article-commentary">Kaspersky researchers have uncovered malicious packages in PyPI that are delivering the ZiChatBot malware. This demonstrates the importance of auditing third-party dependencies. It’s like accepting a poisoned gift – a hidden threat within a trusted resource.</div>
+        <a href="https://securelist.com/oceanlotus-suspected-pypi-zichatbot-campaign/119603/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/oceanlotus-suspected-pypi-zichatbot-campaign/119603/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Samsung App Vulnerabilities: The Biggest Security Disclosure Ever!</div>
+        <div class="article-commentary">Oversecured’s extensive research has uncovered 180 vulnerabilities in Samsung preinstalled apps—the largest security disclosure in history. This underscores the need for rigorous security testing during app development and the importance of responsible disclosure programs. This is a serious wake-up call for the entire industry.</div>
+        <a href="https://blog.oversecured.com/180-vulnerabilities-in-samsung-preinstalled-apps/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://blog.oversecured.com/180-vulnerabilities-in-samsung-preinstalled-apps/
         </a>
     </article>
     
@@ -625,31 +609,23 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x03]</span>
-        DATA BREACHES &amp; COMPLIANCE
+        PROMPT INJECTION PERIL
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Open WebUI Vulnerability: One Click RCE - A System Takeover!</div>
-        <div class="article-commentary">A critical vulnerability in Open WebUI allows attackers to achieve Remote Code Execution (RCE) with a single click, transforming a simple profile picture upload into a pathway to complete system compromise. This highlights the importance of careful input validation and security measures when handling user-uploaded files.”</div>
-        <a href="https://gbhackers.com/open-webui-file-upload-vulnerability/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/open-webui-file-upload-vulnerability/
+        <div class="article-title">GitHub Copilot: System Takeover Through Prompt Hacking!</div>
+        <div class="article-commentary">GitHub Copilot is vulnerable to prompt injection – a technique where attackers can manipulate the AI to gain complete control over the developer’s machine. This is a terrifying revelation, demonstrating the potential for AI to become a weapon in the hands of malicious actors. It’s a high-stakes game of control.</div>
+        <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Instructure Ransomware Attack: A Data Breach on a Massive Scale!</div>
-        <div class="article-commentary">The Instructure network was breached, leading to a massive data leak from thousands of schools and universities. The attackers, ShinyHunters, demanded a ransom to prevent the release of sensitive information—a stark reminder of the devastating consequences of cybercrime.”</div>
-        <a href="https://thehackernews.com/2026/05/instructure-reaches-ransom-agreement.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/instructure-reaches-ransom-agreement.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">ShinyHunters Ransomware: Millions of Records at Risk!</div>
-        <div class="article-commentary">The ongoing ShinyHunters ransomware attack against Instructure is escalating, with hundreds of millions of records potentially at risk. This emphasizes the urgent need for remediation and a comprehensive approach to incident response.”</div>
-        <a href="https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-second-attack-instructure" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-second-attack-instructure
+        <div class="article-title">APT Activity Report: Tracking the Shadows – Q2/Q3 2025!</div>
+        <div class="article-commentary">ESET’s latest APT Activity Report reveals key trends in cyberattacks – a fascinating look into the tactics and behaviors of sophisticated threat actors. It’s a valuable resource for understanding the evolving threat landscape and proactively defending your systems. Stay one step ahead of the enemy.</div>
+        <a href="https://www.welivesecurity.com/en/videos/who-where-how-apt-attacks-q2-2025-q3-2025/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/videos/who-where-how-apt-attacks-q2-2025-q3-2025/
         </a>
     </article>
     
@@ -658,39 +634,39 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x04]</span>
-        MALWARE &amp; SUPPLY CHAIN
+        BREACHES AND DATA LOSS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">AI Vulnerabilities Exposed: Code Exploited with Alarming Ease!</div>
-        <div class="article-commentary">Artificial intelligence platforms may be just as susceptible to social engineering as human beings, but they are proving remarkably good at finding security vulnerabilities in human-made computer code. This highlights the potential for sophisticated attacks and the need for robust testing and security protocols.”</div>
-        <a href="https://krebsonsecurity.com/2026/05/patch-tuesday-may-2026-edition/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://krebsonsecurity.com/2026/05/patch-tuesday-may-2026-edition/
+        <div class="article-title">275 Million Students’ Data Stolen – A Massive Education Breach!</div>
+        <div class="article-commentary">ShinyHunters has stolen personal data from 275 million users on Instructure Canvas, highlighting the vulnerability of educational platforms. This is a significant data breach that could expose students to identity theft and other risks. Protecting student data is paramount.</div>
+        <a href="https://www.malwarebytes.com/blog/news/2026/05/millions-of-students-personal-data-stolen-in-major-education-cyberattack" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.malwarebytes.com/blog/news/2026/05/millions-of-students-personal-data-stolen-in-major-education-cyberattack
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">WorkNest Secure Launches Cybersecurity Division!</div>
-        <div class="article-commentary">WorkNest Secure has launched a new cybersecurity and compliance division to address growing regulatory demands and strengthen organizational security postures. This demonstrates a shift towards proactive risk management and compliance within the cybersecurity landscape.”</div>
-        <a href="https://www.itsecurityguru.org/2026/05/12/worknest-launches-worknest-secure-to-expand-cybersecurity-and-compliance-services/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=worknest-launches-worknest-secure-to-expand-cybersecurity-and-compliance-services" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.itsecurityguru.org/2026/05/12/worknest-launches-worknest-secure-to-expand-cybersecurity-and-compliance-services/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=worknest-launches-worknest-secure-to-expand-cybersecurity-and-compliance-services
+        <div class="article-title">SimpleHelp RMM Compromise: Ransomware Hits Utility Companies!</div>
+        <div class="article-commentary">Ransomware actors exploited a vulnerability in SimpleHelp RMM, impacting utility companies. This highlights the growing threat of ransomware targeting critical infrastructure and the importance of patching systems promptly. It&#39;s a direct attack on our essential services.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-163a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-163a
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Facial Recognition Hacked: Deepfakes and Smart Glasses!</div>
-        <div class="article-commentary">ESET’s Jake Moore used smart glasses, deepfakes, and face swaps to hack widely-used facial recognition systems. This underscores the potential for sophisticated attacks leveraging advanced technologies and the need for robust authentication and verification measures.”</div>
-        <a href="https://www.welivesecurity.com/en/privacy/face-value-what-takes-fool-facial-recognition/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.welivesecurity.com/en/privacy/face-value-what-takes-fool-facial-recognition/
+        <div class="article-title">Chinese Espionage Campaign: A Global Surveillance Network!</div>
+        <div class="article-commentary">The PRC is engaging in a sophisticated global espionage campaign, targeting networks worldwide. This underscores the need for robust cybersecurity defenses and international cooperation to combat state-sponsored cyberattacks. The scope of the threat is vast and concerning.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Shai-Hulud Supply Chain Attack: Credentials Stolen with Ease!</div>
-        <div class="article-commentary">Attackers are using the Shai-Hulud supply-chain campaign to inject malware into developers’ systems, stealing credentials. This highlights the importance of careful vetting and trust management when working with third-party components.”</div>
-        <a href="https://www.bleepingcomputer.com/news/security/shai-hulud-attack-ships-signed-malicious-tanstack-mistral-npm-packages/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/shai-hulud-attack-ships-signed-malicious-tanstack-mistral-npm-packages/
+        <div class="article-title">Credential Theft Campaign: Phishing Tactics Unleashed!</div>
+        <div class="article-commentary">Microsoft has uncovered a large-scale credential theft campaign leveraging phishing lures, demonstrating the persistent effectiveness of this age-old attack technique. It’s a reminder that human behavior remains a critical vulnerability in the security equation. Awareness and training are crucial.</div>
+        <a href="https://thehackernews.com/2026/05/microsoft-details-phishing-campaign.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/05/microsoft-details-phishing-campaign.html
         </a>
     </article>
     
@@ -699,63 +675,31 @@
 <section class="category">
     <h2 class="category-title">
         <span class="category-number">[0x05]</span>
-        PATCH TUESDAY
+        ADVANCED THREATS
     </h2>
     
     
     <article class="article">
-        <div class="article-title">Throttlestop Kernel Driver: Privilege Escalation Alert!</div>
-        <div class="article-commentary">The Throttlestop Kernel Driver vulnerability allows attackers to escalate their privileges, potentially gaining full control over the system. This highlights the importance of applying security patches promptly and maintaining a secure kernel environment.”</div>
-        <a href="https://www.exploit-db.com/exploits/52512" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.exploit-db.com/exploits/52512
+        <div class="article-title">ChatGPT Codex: The ZombAI Agent – A Dangerous Experiment!</div>
+        <div class="article-commentary">ChatGPT Codex, a cloud-based software engineering agent, is capable of executing code and drafting proposals – a potentially powerful tool in the wrong hands. It&#39;s a fascinating and somewhat unsettling development, showcasing the rapid advancements in AI and the challenges of controlling its potential misuse. This is a critical technology to watch closely.</div>
+        <a href="https://embracethered.com/blog/posts/2025/chatgpt-codex-remote-control-zombai/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/chatgpt-codex-remote-control-zombai/
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">CPanel Vulnerability Exposed: Millions of Websites at Risk!</div>
-        <div class="article-commentary">A vulnerability in the cPanel/WHM admin interface allows attackers to access websites without a username and password. This underscores the importance of keeping administrative interfaces patched and secured to prevent unauthorized access and potential breaches.”</div>
-        <a href="https://www.malwarebytes.com/blog/news/2026/05/actively-exploited-cpanel-bug-exposes-millions-of-websites-to-takeover" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.malwarebytes.com/blog/news/2026/05/actively-exploited-cpanel-bug-exposes-millions-of-websites-to-takeover
+        <div class="article-title">AI Phishing Dominates: Cyberattacks Get Personal!</div>
+        <div class="article-commentary">AI-powered phishing is rapidly becoming the most effective attack method, with attackers using personalized messages to deceive victims. This highlights the need for advanced security solutions that can detect and block these sophisticated threats. The landscape of cyberattacks is changing rapidly.</div>
+        <a href="https://www.darkreading.com/cyber-risk/ai-phishing-no-1-cyberattackers" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/cyber-risk/ai-phishing-no-1-cyberattackers
         </a>
     </article>
     
     <article class="article">
-        <div class="article-title">Face value: What it takes to fool facial recognition</div>
-        <div class="article-commentary">Jake Moore&#39;s demonstration at RSAC 2026 showcases the vulnerabilities of facial recognition systems, demonstrating the sophistication attackers can bring to these technologies and the need for robust security measures. “</div>
-        <a href="https://www.welivesecurity.com/en/privacy/face-value-what-takes-fool-facial-recognition/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.welivesecurity.com/en/privacy/face-value-what-takes-fool-facial-recognition/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">RubyGems Attack: Malicious Packages Flood the Ecosystem!</div>
-        <div class="article-commentary">A major attack on the RubyGems package manager has seen hundreds of malicious packages uploaded. This underscores the importance of careful package management and vigilant security practices.”</div>
-        <a href="https://thehackernews.com/2026/05/rubygems-suspends-new-signups-after.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/rubygems-suspends-new-signups-after.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Instructure Ransomware Attack: A Data Breach on a Massive Scale!</div>
-        <div class="article-commentary">The Instructure network was breached, leading to a massive data leak from thousands of schools and universities. The attackers, ShinyHunters, demanded a ransom to prevent the release of sensitive information—a stark reminder of the devastating consequences of cybercrime.”</div>
-        <a href="https://thehackernews.com/2026/05/instructure-reaches-ransom-agreement.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/instructure-reaches-ransom-agreement.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Open WebUI Vulnerability: One Click RCE - A System Takeover!</div>
-        <div class="article-commentary">A critical vulnerability in Open WebUI allows attackers to achieve Remote Code Execution (RCE) with a single click, transforming a simple profile picture upload into a pathway to complete system compromise. This highlights the importance of careful input validation and security measures when handling user-uploaded files.”</div>
-        <a href="https://gbhackers.com/open-webui-file-upload-vulnerability/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/open-webui-file-upload-vulnerability/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">QEMU abused to evade detection and enable ransomware delivery</div>
-        <div class="article-commentary">Attackers are using QEMU to create hidden virtual machines for long-term access, credential harvesting, data exfiltration, and Ransomware deployment. This sophisticated tactic demonstrates the potential for persistent threats and the need for comprehensive virtual machine security monitoring.”</div>
-        <a href="https://www.sophos.com/en-us/blog/qemu-abused-to-evade-detection-and-enable-ransomware-delivery" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.sophos.com/en-us/blog/qemu-abused-to-evade-detection-and-enable-ransomware-delivery
+        <div class="article-title">Red Team Hacking: An Urgent Response to the Vulnerability</div>
+        <div class="article-commentary">A critical vulnerability has been discovered in Chrome extensions allowing attackers access to user accounts, this requires a rapid and thorough response from security teams.</div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: #
         </a>
     </article>
     
