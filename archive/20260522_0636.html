@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N9ZF36FC9M');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwnspectrum | Daily Cybersecurity Journal</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
+
+    <!-- Minimalist Monochrome Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..900;1,8..60,400..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Minimalist Monochrome CSS */
+        :root {
+            /* Dark Theme is default */
+            --bg-page: #000000;
+            --text-main: #FFFFFF;
+            --text-muted: #A3A3A3;
+            --border-main: #FFFFFF;
+            --border-muted: #333333;
+            --invert-bg: #FFFFFF;
+            --invert-text: #000000;
+            --selection-bg: #FFFFFF;
+            --selection-text: #000000;
+        }
+
+        body.light-theme {
+            --bg-page: #FFFFFF;
+            --text-main: #000000;
+            --text-muted: #525252;
+            --border-main: #000000;
+            --border-muted: #E5E5E5;
+            --invert-bg: #000000;
+            --invert-text: #FFFFFF;
+            --selection-bg: #000000;
+            --selection-text: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+            /* Custom cursor */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Source Serif 4", Georgia, serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.625;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            position: relative;
+        }
+
+        ::selection {
+            background: var(--selection-bg);
+            color: var(--selection-text);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .display-font {
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.025em;
+        }
+
+        .mono-font {
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        /* Textures */
+        .texture-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .texture-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background-image: repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 1px,
+                    var(--border-main) 1px,
+                    var(--border-main) 2px);
+            background-size: 100% 4px;
+            opacity: 0.02;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--text-main);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.1s, height 0.1s, background-color 0.1s;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.hovering {
+            width: 32px;
+            height: 32px;
+            background-color: var(--invert-bg);
+            border: 1px solid var(--border-main);
+            mix-blend-mode: normal;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 72rem;
+            /* 1152px */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 0 2rem;
+            border-bottom: 4px solid var(--border-main);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-muted);
+            padding-bottom: 1rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: none;
+            border: 1px solid var(--border-main);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: all 0s;
+        }
+
+        .action-btn:hover {
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+
+        /* Plexus Background */
+        .plexus-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            border: 2px solid var(--border-main);
+            background-color: var(--bg-page);
+            padding: 3rem;
+            max-width: 48rem; /* Wider for landscape */
+            width: 90%;
+            position: relative;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .author-photo {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-main);
+            margin-bottom: 0; /* Removed bottom margin for grid */
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .author-photo:hover {
+            filter: grayscale(0%);
+        }
+
+        .author-name {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-bio {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .social-btn {
+            display: block;
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid var(--border-main);
+            padding: 0.75rem;
+            text-align: center;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            transition: all 0s;
+        }
+
+        .social-btn:hover {
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+
+        /* Content Area */
+        .greeting {
+            font-size: 1.25rem;
+            border-left: 4px solid var(--border-main);
+            padding-left: 1.5rem;
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+
+        /* Category System */
+        .category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--border-main);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .category-number {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Articles */
+        .article {
+            border: 1px solid var(--border-main);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0s;
+            position: relative;
+        }
+
+        .article:hover {
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+
+        .article-title-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 700;
+        }
+
+        .article:hover .article-title {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        .article-commentary {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .article:hover .article-commentary {
+            color: inherit;
+            opacity: 0.8;
+        }
+
+        .article-link {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 2px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            border-top: 8px solid var(--border-main);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: var(--bg-page);
+            border: 2px solid var(--border-main);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 100;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--text-main);
+            color: var(--bg-page);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <canvas id="plexus-bg" class="plexus-bg"></canvas>
+    <div class="texture-noise"></div>
+    <div class="texture-lines"></div>
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <div class="container">
+        <div class="main-content">
+            <header>
+                <div class="header-meta mono-font">
+                    <div>
+                        <span>Issue Date: <span id="timestamp"></span></span>
+                    </div>
+                    <div class="header-actions">
+                        <button class="action-btn" id="about-btn">About</button>
+                        <button class="action-btn" id="theme-toggle">Light Mode</button>
+                    </div>
+                </div>
+                <h1 class="logo display-font">Pwnspectrum</h1>
+                <p class="mono-font" style="letter-spacing: 0.05em; text-transform: uppercase;">Daily Cybersecurity
+                    Journal</p>
+            </header>
+
+            <!-- Greeting (LLM-generated) -->
+            <div class="greeting" id="greeting">
+                <!-- Greeting will be injected here by JavaScript -->
+            </div>
+
+            <!-- Newsletter Content -->
+            <div id="newsletter-content">
+
+<script>
+    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and boy, do we have a *wild* month in the cybersecurity world! We’re diving headfirst into ZERO-DAY MADNESS with everything from CISA alerts and AI breaches – like the Claude Code Sandbox disaster – to active attacks targeting Instructure and educational institutions via ShinyHunters. Plus, vulnerabilities are popping up everywhere – including WordPress and M365 Copilot – demanding urgent attention. Seriously, it's a chaotic landscape, but that's why we're here to break it down and keep you one step ahead. Let’s get to it!";
+    document.getElementById('timestamp').textContent = "21 May 2026, 06:31 UTC";
+</script>
+
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x01]</span>
+        ZERO-DAY MADNESS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CISA Adds a New Threat to the Table!</div>
+        <div class="article-commentary">The threat landscape shifts again! CISA has just added a known exploited vulnerability to their catalog, highlighting the ever-present danger of unpatched systems. Imagine a shadowy hacker, quietly scanning for weaknesses in your defenses – this vulnerability is their key. It&#39;s a race against time to patch and protect.</div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/04/23/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/alerts/2026/04/23/cisa-adds-one-known-exploited-vulnerability-catalog
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Remote Sunrise Helper: A Silent Invasion!</div>
+        <div class="article-commentary">Wake up to a potential nightmare! The Remote Sunrise Helper vulnerability allows attackers to execute code remotely on Windows systems. This is like an unwelcome guest gaining access to your home&#39;s control panel, capable of wreaking havoc. Immediate patching is critical to prevent this intrusion.</div>
+        <a href="https://www.exploit-db.com/exploits/52565" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52565
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Claude Code Sandbox Breach: Secrets Exposed!</div>
+        <div class="article-commentary">Anthropics Claude&#39;s security sandbox has cracked! Attackers can now bypass restrictions and exfiltrate sensitive data, revealing critical weaknesses. It&#39;s a data breach on a grand scale – a shadowy figure stealing your most valuable information, undetected.</div>
+        <a href="https://gbhackers.com/claude-code-sandbox-flaw/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/claude-code-sandbox-flaw/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Microsoft&#39;s YellowKey Defense: A Temporary Shield!</div>
+        <div class="article-commentary">The YellowKey attack is a relentless threat! Microsoft is working to patch a critical vulnerability in Bitlocker, providing a temporary shield against ransomware. This is a tactical maneuver, a desperate attempt to hold back a powerful enemy before a permanent solution is found.</div>
+        <a href="https://www.csoonline.com/article/4175411/microsoft-is-working-on-a-patch-for-yellowkey-attack-on-bitlocker-offers-temporary-fix-2.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4175411/microsoft-is-working-on-a-patch-for-yellowkey-attack-on-bitlocker-offers-temporary-fix-2.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Drupal Core Vulnerability: A Critical Open Door!</div>
+        <div class="article-commentary">A gaping hole in Drupal Core exposes systems to remote code execution! Attackers can gain control, escalate privileges, or steal information. This is a serious attack, a skilled infiltrator exploiting a known weakness to launch a devastating assault.</div>
+        <a href="https://thehackernews.com/2026/05/highly-critical-drupal-core-flaw.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/05/highly-critical-drupal-core-flaw.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">The Patch Paradox: Why Fixes Vanish!</div>
+        <div class="article-commentary">Security updates often disappear into the void! This is a frustrating reality of cybersecurity: fixes aren&#39;t always reached. The lack of visibility creates a dangerous situation, allowing attackers to exploit vulnerabilities unnoticed. Vigilance is your best defense.</div>
+        <a href="https://www.csoonline.com/article/4173425/why-some-security-fixes-never-reach-your-vulnerability-dashboard.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4173425/why-some-security-fixes-never-reach-your-vulnerability-dashboard.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">NGINX Rift: The Internet Under Siege!</div>
+        <div class="article-commentary">More than 30% of the internet is vulnerable! The NGINX Rift vulnerability is already being exploited, representing a massive attack surface. Attackers are using this flaw to compromise websites globally, turning your browsing experience into a potential risk.</div>
+        <a href="https://www.itsecurityguru.org/2026/05/20/critical-flaw-in-software-powering-a-third-of-the-internet-is-already-being-exploited-free-checker-now-available/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=critical-flaw-in-software-powering-a-third-of-the-internet-is-already-being-exploited-free-checker-now-available" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.itsecurityguru.org/2026/05/20/critical-flaw-in-software-powering-a-third-of-the-internet-is-already-being-exploited-free-checker-now-available/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=critical-flaw-in-software-powering-a-third-of-the-internet-is-already-being-exploited-free-checker-now-available
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">18-Year-Old RCE Nightmare: A Forgotten Flaw!</div>
+        <div class="article-commentary">A 18-year-old vulnerability has lingered for nearly two decades! The discovery of a heap buffer overflow in ngx_http_rewrite_module highlights the importance of timely patching and diligent security assessments. This is a stark reminder that even dormant risks can become devastating threats.</div>
+        <a href="https://thehackernews.com/2026/05/18-year-old-nginx-rewrite-module-flaw.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/05/18-year-old-nginx-rewrite-module-flaw.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CVE-2025-50165: A Shadowy Window into Disaster!</div>
+        <div class="article-commentary">A critical flaw in Windows Imaging Component looms. The low likelihood of mass exploitation doesn&#39;t diminish the potential for significant damage.  This vulnerability represents a significant risk, requiring swift action to minimize potential harm.</div>
+        <a href="https://www.welivesecurity.com/en/eset-research/revisiting-cve-2025-50165-critical-flaw-windows-imaging-component/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/eset-research/revisiting-cve-2025-50165-critical-flaw-windows-imaging-component/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Leak: A Catastrophic Security Breach!</div>
+        <div class="article-commentary">A contractor&#39;s GitHub repository exposed sensitive CISA data! This represents a severe security failure, allowing unauthorized access to crucial systems. It’s an alarming example of negligence that could have devastating consequences for national security.</div>
+        <a href="https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Image-Based Attacks: A Subtle Route to Destruction!</div>
+        <div class="article-commentary">A flaw in ExifTool could compromise your Mac – a seemingly harmless image can hold a lethal payload. Attackers can exploit this vulnerability to gain control of your system through a deceptively simple file. Stay alert to unexpected image sources.</div>
+        <a href="https://securelist.com/exiftool-compromise-mac/119866/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/exiftool-compromise-mac/119866/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">M365 Copilot Vulnerabilities: A Deep Dive!</div>
+        <div class="article-commentary">I’ve uncovered serious vulnerabilities in M365 Copilot. Microsoft took action but the details of my discovery highlight the need for robust security testing when integrating AI assistants into business systems. The potential for misuse and exploitation is substantial.</div>
+        <a href="https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">ShinyHunters Strike Again: Ransomware Gangs Target Education!</div>
+        <div class="article-commentary">The ShinyHunters are back, and they&#39;re targeting educational institutions. The threat of extortion is growing, putting sensitive student data at risk.  Increased vigilance and proactive security measures are essential to combat this evolving threat.</div>
+        <a href="https://www.bitdefender.com/en-us/blog/hotforsecurity/fbi-shinyhunters-canvas-breach" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bitdefender.com/en-us/blog/hotforsecurity/fbi-shinyhunters-canvas-breach
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">The Month of AI Bugs: A Cautionary Tale!</div>
+        <div class="article-commentary">Our exploration of AI vulnerabilities ends. This collection of discoveries underscores the unique challenges presented by AI systems and highlights the urgency of ongoing research and rigorous testing.  The future of security depends on our ability to anticipate and mitigate these emerging risks.</div>
+        <a href="https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2025/wrapping-up-month-of-ai-bugs/
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        ACTIVE ATTACKS &amp; EXPLOITS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">CVE-2025-68670: xrdp Under Attack!</div>
+        <div class="article-commentary">The xrdp server is a prime target! An active exploit has been discovered, allowing attackers to achieve remote code execution. This is a high-priority vulnerability that needs immediate patching to prevent widespread compromise.</div>
+        <a href="https://securelist.com/cve-2025-68670/119742/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/cve-2025-68670/119742/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">WordPress Plugin Vulnerability: XSS and CSRF!</div>
+        <div class="article-commentary">A critical vulnerability exists in the Anomify AI plugin! Attackers can leverage this flaw to launch cross-site scripting and stored cross-site scripting attacks, potentially gaining control of affected WordPress sites. Immediate remediation is paramount.</div>
+        <a href="https://plugins.trac.wordpress.org/browser/anomify/tags/0.3.6/Anomify/Config.php#L152" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://plugins.trac.wordpress.org/browser/anomify/tags/0.3.6/Anomify/Config.php#L152
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Incident Response: A Cautionary Narrative!</div>
+        <div class="article-commentary">CISA&#39;s response to a federal agency breach is a valuable lesson. This incident illustrates the complexities of incident response and the critical importance of proactive threat detection and rapid mitigation strategies. The organization&#39;s actions offer crucial guidance for other agencies.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">PinTheft Exploit: Root Access Within Reach!</div>
+        <div class="article-commentary">A public PoC exists for the patched PinTheft vulnerability.  Attackers can now leverage this flaw to gain root privileges on Arch Linux systems. The availability of an exploit highlights the need for continuous security monitoring and timely patching.</div>
+        <a href="https://www.bleepingcomputer.com/news/linux/exploit-released-for-new-pintheft-arch-linux-root-escalation-flaw/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/linux/exploit-released-for-new-pintheft-arch-linux-root-escalation-flaw/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">SparrowDoor Malware: Analysis of a New Threat</div>
+        <div class="article-commentary">A deep dive into the SparrowDoor malware reveals a complex and evolving attack.  Understanding the technical characteristics of this malware is critical for developing effective defenses and detecting its presence on affected systems.</div>
+        <a href="https://www.ncsc.gov.uk/report/mar-sparrowdoor" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.ncsc.gov.uk/report/mar-sparrowdoor
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">ShinyHunters&#39; Second Attack: Instructure Under Fire!</div>
+        <div class="article-commentary">ShinyHunters are intensifying their efforts! The company is struggling to regain control of compromised data, and the threat of further data breaches looms large.  This ongoing attack underscores the urgency of securing educational institutions.</div>
+        <a href="https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-second-attack-instructure" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-second-attack-instructure
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">China&#39;s Cyber Espionage Network: A Global Threat!</div>
+        <div class="article-commentary">The People&#39;s Republic of China is engaged in a relentless global cyber espionage campaign.  These actors are targeting critical infrastructure and government networks, posing a significant and sustained threat to national security. Robust defenses are essential.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">FUXA 1.2.8 Exploit: Authentication Broken!</div>
+        <div class="article-commentary">FUXA 1.2.8 allows attackers to bypass authentication and execute code remotely. This critical vulnerability exposes systems to a wide range of attacks, including ransomware and data theft. Immediate patching is crucial.</div>
+        <a href="https://www.exploit-db.com/exploits/52544" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52544
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        VULNERABILITY DETAILS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Ukraine Tracks Infostealer Operator: A Tactical Victory!</div>
+        <div class="article-commentary">Ukrainian cyberpolice have identified and taken action against an infostealer operator. This highlights the importance of international cooperation in combating cybercrime and protecting critical infrastructure. The investigation serves as a deterrent to future attacks.</div>
+        <a href="https://www.bleepingcomputer.com/news/security/ukraine-identifies-infostealer-operator-tied-to-28-000-stolen-accounts/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bleepingcomputer.com/news/security/ukraine-identifies-infostealer-operator-tied-to-28-000-stolen-accounts/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">GraphWorm: Webworm&#39;s Evolving Strategy!</div>
+        <div class="article-commentary">Webworm&#39;s tactics have evolved! This new activity reveals a significant shift in targeting behavior, demonstrating the group&#39;s adaptability and sophistication. Monitoring these developments is crucial for anticipating future threats.</div>
+        <a href="https://gbhackers.com/graphworm-malware-abuses-microsoft-onedrive/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/graphworm-malware-abuses-microsoft-onedrive/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CVE-2025-50165: A Low-Likelihood, High-Impact Risk</div>
+        <div class="article-commentary">Despite its low likelihood of mass exploitation, CVE-2025-50165 represents a significant vulnerability in Windows Imaging Component.  The potential impact is considerable, emphasizing the need for comprehensive security assessments and proactive monitoring.</div>
+        <a href="https://www.welivesecurity.com/en/eset-research/revisiting-cve-2025-50165-critical-flaw-windows-imaging-component/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/eset-research/revisiting-cve-2025-50165-critical-flaw-windows-imaging-component/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">ShinyHunters&#39; Ransom Demand: A Ransomware Incentive!</div>
+        <div class="article-commentary">ShinyHunters’ demand for ransom demonstrates the lucrative nature of ransomware attacks. Their recent attack on Instructure highlights the growing risk and reinforces the importance of robust backup and recovery strategies.</div>
+        <a href="https://www.bitdefender.com/en-us/blog/hotforsecurity/fbi-shinyhunters-canvas-breach" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.bitdefender.com/en-us/blog/hotforsecurity/fbi-shinyhunters-canvas-breach
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">China&#39;s Espionage Network: Expanding Horizons!</div>
+        <div class="article-commentary">China’s sophisticated espionage network is expanding its reach. The targeting of infrastructure networks signals a growing threat to national security, demanding immediate attention and proactive defense measures.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">FUXA 1.2.8 Exploit: Authentication Broken!</div>
+        <div class="article-commentary">FUXA 1.2.8 allows attackers to bypass authentication and execute code remotely. This critical vulnerability exposes systems to a wide range of attacks, including ransomware and data theft. Immediate patching is crucial.</div>
+        <a href="https://www.exploit-db.com/exploits/52544" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52544
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        RESPONSE &amp; MITIGATION
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Microsoft&#39;s YellowKey Fix: A Race Against the Clock!</div>
+        <div class="article-commentary">Microsoft is scrambling to patch the YellowKey attack on Bitlocker, offering a temporary fix while a permanent solution is developed. This is a critical response to a rapidly spreading threat, highlighting the importance of timely security updates.</div>
+        <a href="https://www.csoonline.com/article/4175411/microsoft-is-working-on-a-patch-for-yellowkey-attack-on-bitlocker-offers-temporary-fix-2.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.csoonline.com/article/4175411/microsoft-is-working-on-a-patch-for-yellowkey-attack-on-bitlocker-offers-temporary-fix-2.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">GraphWorm&#39;s Shift: Targeting Government Agencies!</div>
+        <div class="article-commentary">Webworm has expanded its targeting, moving beyond Asian organizations to government entities. This shift in strategy underscores the group&#39;s evolving tactics and the need for enhanced security measures across various sectors.</div>
+        <a href="https://gbhackers.com/graphworm-malware-abuses-microsoft-onedrive/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/graphworm-malware-abuses-microsoft-onedrive/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">18-Year-Old RCE Nightmare: A Forgotten Flaw!</div>
+        <div class="article-commentary">This long-standing vulnerability highlights the importance of regular security audits and proactive patching.  The discovery underscores the need for a robust vulnerability management program to prevent outdated systems from becoming security risks.</div>
+        <a href="https://thehackernews.com/2026/05/18-year-old-nginx-rewrite-module-flaw.html" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://thehackernews.com/2026/05/18-year-old-nginx-rewrite-module-flaw.html
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Leak: A Catastrophic Security Breach!</div>
+        <div class="article-commentary">A contractor’s GitHub repository exposed sensitive CISA data! This represents a severe security failure, allowing unauthorized access to crucial systems. It’s an alarming example of negligence that could have devastating consequences for national security.</div>
+        <a href="https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CVE-2025-50165: A Low-Likelihood, High-Impact Risk</div>
+        <div class="article-commentary">Despite its low likelihood of mass exploitation, CVE-2025-50165 represents a significant vulnerability in Windows Imaging Component. The potential impact is considerable, emphasizing the need for comprehensive security assessments and proactive monitoring.</div>
+        <a href="https://www.welivesecurity.com/en/eset-research/revisiting-cve-2025-50165-critical-flaw-windows-imaging-component/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.welivesecurity.com/en/eset-research/revisiting-cve-2025-50165-critical-flaw-windows-imaging-component/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">M365 Copilot Vulnerabilities: A Deep Dive!</div>
+        <div class="article-commentary">I’ve uncovered serious vulnerabilities in M365 Copilot. Microsoft took action but the details of my discovery highlight the need for robust security testing when integrating AI assistants into business systems. The potential for misuse and exploitation is substantial.</div>
+        <a href="https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://embracethered.com/blog/posts/2026/defcon-talk-copirate-365/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">CISA Incident Response: A Cautionary Narrative!</div>
+        <div class="article-commentary">CISA&#39;s response to a federal agency breach is a valuable lesson. This incident illustrates the complexities of incident response and the critical importance of proactive threat detection and rapid mitigation strategies. The organization’s actions offer crucial guidance for other agencies.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a
+        </a>
+    </article>
+    
+</section>
+
+<section class="category">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        AI &amp; EMERGING THREATS
+    </h2>
+    
+    
+    <article class="article">
+        <div class="article-title">Claude Code Sandbox Breach: A Critical Security Hole!</div>
+        <div class="article-commentary">Anthropics Claude’s security sandbox has cracked! Attackers can now bypass restrictions and exfiltrate sensitive data. This is a fundamental flaw in cloud-based security – a shadow figure able to access the deepest levels of a platform.</div>
+        <a href="https://gbhackers.com/claude-code-sandbox-flaw/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://gbhackers.com/claude-code-sandbox-flaw/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Image-Based Attacks: A Subtle Route to Destruction!</div>
+        <div class="article-commentary">A flaw in ExifTool allows attackers to compromise macOS systems via a malicious image. This highlights a surprising vulnerability – a seemingly harmless file can hold a lethal payload, requiring careful scrutiny of all digital assets.</div>
+        <a href="https://securelist.com/exiftool-compromise-mac/119866/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://securelist.com/exiftool-compromise-mac/119866/
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">ShinyHunters&#39; Second Attack: Instructure Under Fire!</div>
+        <div class="article-commentary">ShinyHunters are intensifying their efforts! The company is struggling to regain control of compromised data, and the threat of further data breaches looms large. This ongoing attack underscores the urgency of securing educational institutions.</div>
+        <a href="https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-second-attack-instructure" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-second-attack-instructure
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">China&#39;s Cyber Espionage Network: A Global Threat!</div>
+        <div class="article-commentary">The People’s Republic of China is engaged in a relentless global cyber espionage campaign. These actors are targeting critical infrastructure and government networks, posing a significant and sustained threat to national security. Robust defenses are essential.</div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">FUXA 1.2.8 Exploit: Authentication Broken!</div>
+        <div class="article-commentary">FUXA 1.2.8 allows attackers to bypass authentication and execute code remotely. This critical vulnerability exposes systems to a wide range of attacks, including ransomware and data theft. Immediate patching is crucial.</div>
+        <a href="https://www.exploit-db.com/exploits/52544" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://www.exploit-db.com/exploits/52544
+        </a>
+    </article>
+    
+    <article class="article">
+        <div class="article-title">Firewall Bug Under Active Attack Triggers CISA Warning</div>
+        <div class="article-commentary">The Palo Alto Networks PAN-OS firewall is under active attack! CISA is issuing a warning for immediate patching due to a critical vulnerability. This underscores the constant need to stay vigilant against evolving threats within widely-used network security solutions.</div>
+        <a href="https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/" target="_blank" rel="noopener noreferrer" class="article-link">
+            Read more: https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/
+        </a>
+    </article>
+    
+</section>
+
+
+    </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal-overlay" id="about-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal">&times;</button>
+            <div class="modal-image">
+                <img src="me/anmol-singh-yadav.png" alt="Anmol Singh Yadav" class="author-photo">
+            </div>
+            <div class="modal-info">
+                <h4 class="author-name display-font">Anmol Singh Yadav</h4>
+                <p class="author-bio">Cybersecurity researcher and enthusiast documenting daily insights from the trenches.</p>
+                <div class="social-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" class="social-btn">LinkedIn</a>
+                    <a href="http://github.com/IamLucif3r" target="_blank" class="social-btn">GitHub</a>
+                    <a href="https://medium.com/@IamLucif3r" target="_blank" class="social-btn">Medium</a>
+                    <a href="https://x.com/iamlucif3r_" target="_blank" class="social-btn">X (Twitter)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container" style="display: block;">
+            <div class="footer-logo display-font">PWNSPECTRUM</div>
+            <p class="mono-font" style="font-size: 0.875rem;">Reduction to Essence.</p>
+            <p class="mono-font" style="font-size: 0.75rem; margin-top: 2rem; color: var(--text-muted);">
+                &copy; <span id="current-year"></span> Anmol Singh Yadav. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Custom Cursor
+        const cursor = document.getElementById('custom-cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Add custom cursor hover state to all interactive elements
+        function setupCursorListeners() {
+            const interactiveElements = document.querySelectorAll('a, button, input');
+            interactiveElements.forEach(el => {
+                if (!el.hasAttribute('data-cursor-bound')) {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+                    el.setAttribute('data-cursor-bound', 'true');
+                }
+            });
+        }
+        setupCursorListeners();
+
+        // Apply cursor logic to dynamically added elements (like articles)
+        const observer = new MutationObserver((mutations) => {
+            let shouldUpdate = false;
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length) {
+                    shouldUpdate = true;
+                }
+            });
+            if (shouldUpdate) {
+                setupCursorListeners();
+            }
+        });
+
+        const contentNode = document.getElementById('newsletter-content');
+        if (contentNode) {
+            observer.observe(contentNode, { childList: true, subtree: true });
+        }
+
+        const greetingNode = document.getElementById('greeting');
+        if (greetingNode) {
+            observer.observe(greetingNode, { childList: true, subtree: true });
+        }
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('theme-toggle');
+
+        function setTheme(isLight) {
+            if (isLight) {
+                document.body.classList.add('light-theme');
+                themeBtn.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.remove('light-theme');
+                themeBtn.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            setTheme(true);
+        }
+
+        themeBtn.addEventListener('click', () => {
+            setTheme(!document.body.classList.contains('light-theme'));
+        });
+
+        // Scroll to Top
+        const scrollBtn = document.getElementById('scroll-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Modal Logic
+        const aboutBtn = document.getElementById('about-btn');
+        const closeModal = document.getElementById('close-modal');
+        const aboutModal = document.getElementById('about-modal');
+
+        aboutBtn.addEventListener('click', () => {
+            aboutModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModal.addEventListener('click', () => {
+            aboutModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        aboutModal.addEventListener('click', (e) => {
+            if (e.target === aboutModal) {
+                aboutModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Plexus Background Animation
+        const canvas = document.getElementById('plexus-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 80;
+        const connectionDistance = 150;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                const isLight = document.body.classList.contains('light-theme');
+                ctx.fillStyle = isLight ? '#000000' : '#ffffff';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function connectParticles() {
+            const isLight = document.body.classList.contains('light-theme');
+            const colorRGB = isLight ? '0, 0, 0' : '255, 255, 255';
+            
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(${colorRGB}, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+    </script>
+</body>
+
+</html>
