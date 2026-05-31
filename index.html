@@ -12,694 +12,918 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pwnspectrum | Daily Cybersecurity Journal</title>
+    <title>pwnspectrum | Daily Cybersecurity Intelligence</title>
+    <meta name="description" content="Daily curated cybersecurity intelligence brief — zero-days, active exploits, threat research, and trending security tools.">
+    <meta property="og:title" content="PwnSpectrum — Daily Cybersecurity Intelligence">
+    <meta property="og:description" content="Curated daily brief covering zero-days, active exploits, data breaches, and security research.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iamlucif3r.github.io/pwnspectrum-rss/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PwnSpectrum — Daily Cybersecurity Intelligence">
+    <meta name="twitter:description" content="Your daily cybersecurity intelligence brief.">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
 
-    <!-- Minimalist Monochrome Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..900;1,8..60,400..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
 
     <style>
-        /* Minimalist Monochrome CSS */
         :root {
-            /* Dark Theme is default */
-            --bg-page: #000000;
-            --text-main: #FFFFFF;
-            --text-muted: #A3A3A3;
-            --border-main: #FFFFFF;
-            --border-muted: #333333;
-            --invert-bg: #FFFFFF;
-            --invert-text: #000000;
-            --selection-bg: #FFFFFF;
+            --bg-page: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #1a1a1a;
+            --text-main: #f5f5f5;
+            --text-muted: #a3a3a3;
+            --text-dim: #666666;
+            --border-main: #2a2a2a;
+            --border-accent: #333333;
+            --accent: #00ff41;
+            --accent-dim: rgba(0, 255, 65, 0.1);
+            --severity-critical: #ff3b30;
+            --severity-high: #ff9500;
+            --severity-medium: #ffcc00;
+            --severity-low: #34c759;
+            --selection-bg: #00ff41;
             --selection-text: #000000;
         }
 
         body.light-theme {
-            --bg-page: #FFFFFF;
-            --text-main: #000000;
+            --bg-page: #fafafa;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f5f5f5;
+            --text-main: #0a0a0a;
             --text-muted: #525252;
-            --border-main: #000000;
-            --border-muted: #E5E5E5;
-            --invert-bg: #000000;
-            --invert-text: #FFFFFF;
-            --selection-bg: #000000;
-            --selection-text: #FFFFFF;
+            --text-dim: #999999;
+            --border-main: #e5e5e5;
+            --border-accent: #d4d4d4;
+            --accent: #007a1e;
+            --accent-dim: rgba(0, 122, 30, 0.06);
+            --severity-critical: #d63031;
+            --severity-high: #e17055;
+            --severity-medium: #cc8800;
+            --severity-low: #00b341;
+            --selection-bg: #007a1e;
+            --selection-text: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: none !important;
-            /* Custom cursor */
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: "Source Serif 4", Georgia, serif;
             background-color: var(--bg-page);
             color: var(--text-main);
-            line-height: 1.625;
+            line-height: 1.7;
             min-height: 100vh;
             overflow-x: hidden;
-            transition: background-color 0.4s ease, color 0.4s ease;
-            position: relative;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        ::selection {
-            background: var(--selection-bg);
-            color: var(--selection-text);
-        }
+        ::selection { background: var(--selection-bg); color: var(--selection-text); }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .display-font {
+        h1, h2, h3, h4, h5, h6 {
             font-family: "Playfair Display", Georgia, serif;
             font-weight: 700;
-            line-height: 1;
-            letter-spacing: -0.025em;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
-        .mono-font {
-            font-family: "JetBrains Mono", monospace;
-        }
-
-        /* Textures */
-        .texture-noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        .texture-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background-image: repeating-linear-gradient(0deg,
-                    transparent,
-                    transparent 1px,
-                    var(--border-main) 1px,
-                    var(--border-main) 2px);
-            background-size: 100% 4px;
-            opacity: 0.02;
-        }
-
-        /* Custom Cursor */
-        .custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 12px;
-            height: 12px;
-            background-color: var(--text-main);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.1s, height 0.1s, background-color 0.1s;
-            mix-blend-mode: difference;
-        }
-
-        .custom-cursor.hovering {
-            width: 32px;
-            height: 32px;
-            background-color: var(--invert-bg);
-            border: 1px solid var(--border-main);
-            mix-blend-mode: normal;
-        }
+        .mono { font-family: "JetBrains Mono", monospace; }
 
         /* Layout */
-        .container {
-            max-width: 72rem;
-            /* 1152px */
-            margin: 0 auto;
-            padding: 0 1.5rem;
+        .container { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Reading Progress Bar */
+        .progress-bar {
+            position: fixed; top: 0; left: 0;
+            width: 0%; height: 3px;
+            background: var(--accent);
+            z-index: 9999;
+            transition: width 0.1s linear;
         }
 
         /* Header */
         header {
-            padding: 4rem 0 2rem;
-            border-bottom: 4px solid var(--border-main);
-            margin-bottom: 3rem;
+            padding: 3rem 0 2rem;
+            border-bottom: 2px solid var(--border-main);
+            margin-bottom: 2.5rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
         }
 
         .logo {
-            font-size: clamp(3rem, 8vw, 6rem);
-            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: -0.03em;
         }
+
+        .header-actions { display: flex; gap: 0.75rem; align-items: center; }
+
+        .action-btn {
+            background: transparent;
+            border: 1px solid var(--border-accent);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border-radius: 3px;
+        }
+
+        .action-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
 
         .header-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border-muted);
-            padding-bottom: 1rem;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .action-btn {
-            background: none;
-            border: 1px solid var(--border-main);
-            color: var(--text-main);
-            padding: 0.5rem 1rem;
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            transition: all 0s;
-        }
-
-        .action-btn:hover {
-            background: var(--text-main);
-            color: var(--bg-page);
-        }
-
-        /* Plexus Background */
-        .plexus-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            opacity: 0.3;
-            pointer-events: none;
-        }
-
-        /* Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            border: 2px solid var(--border-main);
-            background-color: var(--bg-page);
-            padding: 3rem;
-            max-width: 48rem; /* Wider for landscape */
-            width: 90%;
-            position: relative;
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .modal-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            color: var(--text-main);
-            font-size: 2.5rem;
-            line-height: 1;
-        }
-
-        .author-photo {
-            width: 100%;
-            height: auto;
-            border: 1px solid var(--border-main);
-            margin-bottom: 0; /* Removed bottom margin for grid */
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .author-photo:hover {
-            filter: grayscale(0%);
-        }
-
-        .author-name {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .author-bio {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 0.5rem;
         }
 
-        .social-btn {
-            display: block;
-            text-decoration: none;
-            color: var(--text-main);
-            border: 1px solid var(--border-main);
-            padding: 0.75rem;
-            text-align: center;
+        .header-stats {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex; gap: 1.5rem;
+        }
+
+        .header-stats span { display: flex; align-items: center; gap: 0.3rem; }
+
+        /* Category Nav */
+        .category-nav {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-main);
+            scrollbar-width: none;
+        }
+        .category-nav::-webkit-scrollbar { display: none; }
+
+        .category-nav-item {
+            white-space: nowrap;
+            padding: 0.4rem 0.8rem;
             font-family: "JetBrains Mono", monospace;
-            font-size: 0.875rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            transition: all 0s;
+            border: 1px solid var(--border-accent);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .category-nav-item:hover, .category-nav-item.active {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
-        .social-btn:hover {
-            background: var(--text-main);
-            color: var(--bg-page);
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            align-items: center;
         }
 
-        /* Content Area */
+        .filter-bar input[type="search"] {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            color: var(--text-main);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8rem;
+            border-radius: 3px;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+        .filter-bar input[type="search"]:focus { border-color: var(--accent); }
+        .filter-bar input[type="search"]::placeholder { color: var(--text-dim); }
+
+        .severity-filter {
+            display: flex; gap: 0.3rem;
+        }
+        .severity-filter button {
+            padding: 0.35rem 0.6rem;
+            font-size: 0.65rem;
+            font-family: "JetBrains Mono", monospace;
+            border: 1px solid var(--border-accent);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.15s;
+            text-transform: uppercase;
+        }
+        .severity-filter button.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+        .severity-filter button:hover { border-color: var(--accent); }
+
+        /* Greeting */
         .greeting {
-            font-size: 1.25rem;
-            border-left: 4px solid var(--border-main);
-            padding-left: 1.5rem;
-            margin-bottom: 4rem;
-            font-style: italic;
+            font-size: 1.1rem;
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin-bottom: 3rem;
+            background: var(--accent-dim);
+            border-radius: 0 4px 4px 0;
+            color: var(--text-main);
+            line-height: 1.8;
         }
+        .greeting a { color: var(--accent); text-decoration: underline; }
 
-        /* Category System */
-        .category {
-            margin-bottom: 4rem;
-        }
+        /* Category */
+        .category { margin-bottom: 3rem; }
 
         .category-title {
-            font-size: 2.5rem;
-            border-bottom: 4px solid var(--border-main);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--border-main);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: baseline;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .category-number {
             font-family: "JetBrains Mono", monospace;
-            font-size: 1rem;
-            color: var(--text-muted);
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 400;
         }
 
         /* Articles */
         .article {
+            background: var(--bg-card);
             border: 1px solid var(--border-main);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            transition: all 0s;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.15s ease;
             position: relative;
         }
 
         .article:hover {
-            background: var(--text-main);
-            color: var(--bg-page);
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+            transform: translateX(4px);
         }
 
-        .article-title-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
+        .article-title-link { text-decoration: none; color: inherit; display: block; }
+
+        .article-header {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.7rem;
         }
+
+        .severity-badge {
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .severity-Critical { background: var(--severity-critical); color: #fff; }
+        .severity-High { background: var(--severity-high); color: #fff; }
+        .severity-Medium { background: var(--severity-medium); color: #000; }
+        .severity-Low { background: var(--severity-low); color: #fff; }
+
+        .cve-badge {
+            padding: 0.2rem 0.5rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 3px;
+        }
+
+        .article-source { color: var(--text-muted); }
+        .article-date { color: var(--text-dim); margin-left: auto; }
 
         .article-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
             font-family: "Playfair Display", Georgia, serif;
             font-weight: 700;
-        }
-
-        .article:hover .article-title {
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 4px;
+            line-height: 1.3;
         }
 
         .article-commentary {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
-        .article:hover .article-commentary {
-            color: inherit;
-            opacity: 0.8;
+        /* Videos Section */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
         }
 
-        .article-link {
-            font-family: "JetBrains Mono", monospace;
+        .video-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-main);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: border-color 0.15s;
+        }
+        .video-card:hover { border-color: var(--accent); }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-embed iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        .video-info { padding: 1rem; }
+        .video-title {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 0.75rem;
-            text-transform: uppercase;
-            color: inherit;
+            font-family: "JetBrains Mono", monospace;
+        }
+        .video-channel { color: var(--text-muted); }
+        .video-external {
+            color: var(--accent);
             text-decoration: none;
-            border-bottom: 1px solid currentColor;
-            padding-bottom: 2px;
-            display: inline-block;
+            transition: opacity 0.15s;
+        }
+        .video-external:hover { opacity: 0.7; }
+
+        /* Tools Section */
+        .tool-card .tool-header {
+            display: flex; gap: 0.5rem; margin-bottom: 0.5rem;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.7rem;
+        }
+        .tool-stars { color: var(--accent); font-weight: 700; }
+        .tool-lang { color: var(--text-muted); }
+        .tool-meta {
+            margin-top: 0.75rem;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
         }
 
         /* Footer */
         footer {
-            margin-top: 6rem;
-            border-top: 8px solid var(--border-main);
-            padding: 4rem 0;
+            margin-top: 4rem;
+            border-top: 2px solid var(--border-main);
+            padding: 3rem 0;
             text-align: center;
         }
-
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
+        .footer-logo { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
         /* Scroll to Top */
         .scroll-top {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 3rem;
-            height: 3rem;
-            background: var(--bg-page);
-            border: 2px solid var(--border-main);
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
+            bottom: 2rem; right: 2rem;
+            width: 2.5rem; height: 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0; visibility: hidden;
+            transition: all 0.2s;
             z-index: 100;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .scroll-top.visible { opacity: 1; visibility: visible; }
+        .scroll-top:hover { background: var(--accent); color: #000; }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+
+        .modal-content {
+            border: 1px solid var(--border-accent);
+            background: var(--bg-page);
+            padding: 2.5rem;
+            max-width: 44rem; width: 90%;
+            border-radius: 8px;
+            position: relative;
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 2rem; align-items: center;
         }
 
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
+        .modal-close {
+            position: absolute; top: 1rem; right: 1.5rem;
+            background: none; border: none;
+            color: var(--text-main); font-size: 2rem;
+            cursor: pointer;
         }
 
-        .scroll-top:hover {
-            background: var(--text-main);
-            color: var(--bg-page);
+        .author-photo {
+            width: 100%; height: auto;
+            border: 1px solid var(--border-main);
+            border-radius: 4px;
+            filter: grayscale(80%);
+            transition: filter 0.3s;
+        }
+        .author-photo:hover { filter: grayscale(0%); }
+
+        .author-name { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .author-bio { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+        .social-links {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+        }
+        .social-btn {
+            display: block; text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid var(--border-accent);
+            padding: 0.6rem;
+            text-align: center;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            border-radius: 3px;
+            transition: all 0.15s;
+        }
+        .social-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+        /* Hidden articles (filtered out) */
+        .article.hidden, .category.hidden, .video-card.hidden { display: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 0 1rem; }
+            header { padding: 2rem 0 1.5rem; }
+            .logo { font-size: 2rem; }
+            .header-top { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .header-stats { flex-wrap: wrap; gap: 0.75rem; }
+            .category-title { font-size: 1.4rem; }
+            .article { padding: 1.2rem; }
+            .article-title { font-size: 1.1rem; }
+            .videos-grid { grid-template-columns: 1fr; }
+            .modal-content { grid-template-columns: 1fr; text-align: center; padding: 2rem 1.5rem; }
+            .filter-bar { flex-direction: column; }
+            .filter-bar input[type="search"] { min-width: unset; width: 100%; }
+        }
+
+        /* Print */
+        @media print {
+            .progress-bar, .scroll-top, .filter-bar, .category-nav, .header-actions { display: none; }
+            .article { break-inside: avoid; }
         }
     </style>
 </head>
 
-<body class="dark-theme">
-    <canvas id="plexus-bg" class="plexus-bg"></canvas>
-    <div class="texture-noise"></div>
-    <div class="texture-lines"></div>
-    <div class="custom-cursor" id="custom-cursor"></div>
+<body>
+    <div class="progress-bar" id="progress-bar"></div>
 
     <div class="container">
-        <div class="main-content">
-            <header>
-                <div class="header-meta mono-font">
-                    <div>
-                        <span>Issue Date: <span id="timestamp"></span></span>
-                    </div>
-                    <div class="header-actions">
-                        <button class="action-btn" id="about-btn">About</button>
-                        <button class="action-btn" id="theme-toggle">Light Mode</button>
-                    </div>
+        <header>
+            <div class="header-top">
+                <h1 class="logo">Pwnspectrum</h1>
+                <div class="header-actions">
+                    <button class="action-btn" id="about-btn">About</button>
+                    <button class="action-btn" id="theme-toggle">Light</button>
                 </div>
-                <h1 class="logo display-font">Pwnspectrum</h1>
-                <p class="mono-font" style="letter-spacing: 0.05em; text-transform: uppercase;">Daily Cybersecurity
-                    Journal</p>
-            </header>
-
-            <!-- Greeting (LLM-generated) -->
-            <div class="greeting" id="greeting">
-                <!-- Greeting will be injected here by JavaScript -->
             </div>
+            <div class="header-meta mono">
+                <div class="header-stats">
+                    <span>Issue: <strong id="timestamp"></strong></span>
+                    <span id="article-count"></span>
+                </div>
+            </div>
+        </header>
 
-            <!-- Newsletter Content -->
-            <div id="newsletter-content">
+        <!-- Category Quick Nav -->
+        <nav class="category-nav" id="category-nav"></nav>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <input type="search" id="search-input" placeholder="Search articles... (press / to focus)" autocomplete="off">
+            <div class="severity-filter">
+                <button data-severity="all" class="active">All</button>
+                <button data-severity="Critical">Critical</button>
+                <button data-severity="High">High</button>
+                <button data-severity="Medium">Medium</button>
+            </div>
+        </div>
+
+        <!-- Greeting -->
+        <div class="greeting" id="greeting"></div>
+
+        <!-- Newsletter Content -->
+        <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "Hello Fellas, \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"color: #00ff41;\"\u003eAnmol\u003c/a\u003e here, and let me tell you – it’s been a *wild* ride in the digital world! Today’s “Hacker’s Journal” is absolutely packed, because we’re diving headfirst into a VULNERABILITY EXPLOSION with CISA warnings, double-trouble exploits, and some seriously concerning code injections like the Mirasvit and LiteSpeed issues.  Plus, we’re tackling the rise of AI-powered attacks – Greyvibe’s autonomous hackers, ChatGPT’s code-breaking potential, and the ongoing fallout from massive breaches – it’s a data deluge and a security squad showdown!  Let’s get started!";
-    document.getElementById('timestamp').textContent = "31 May 2026, 06:28 UTC";
+    document.getElementById('greeting').innerHTML = "Welcome to today’s PwnSpectrum Journal. I am \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"text-decoration: underline; color: inherit; font-weight: bold;\"\u003eAnmol\u003c/a\u003e, and today we are tracking a substantial cryptocurrency theft via the Syndicate Commons Bridge exploitation, alongside ongoing exploitation of Palo Alto Networks PAN-OS vulnerabilities and a newly identified phishing kit targeting Microsoft accounts. Further concerns include a WordPress vulnerability, a Prodigy Commerce vulnerability, and emerging threats related to AI-powered data exfiltration and supply chain malware campaigns. \n\nKey themes for today include significant cryptocurrency theft, widespread network breaches stemming from vulnerability exploitation, active targeting of Microsoft accounts via phishing, and the ongoing threat posed by supply chain malware. Specifically, we are monitoring the Syndicate Commons Bridge exploitation resulting in a considerable token drain, the exploitation of Palo Alto GlobalProtect leading to attacks across corporate networks, and the ongoing operation of the TrapDoor supply chain malware campaign impacting numerous packages.  Furthermore, CISA alerts highlight vulnerabilities such as CVE-2026-8382 and the FBI's warning regarding phishing kit targeting Microsoft accounts, representing a persistent and evolving threat landscape.";
+    document.getElementById('timestamp').textContent = "31 May 2026, 13:27 UTC";
 </script>
 
 
-<section class="category">
+<section class="category" data-index="0">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        VULNERABILITY EXPLOSION
+        Cryptocurrency Theft &amp; Bridge Compromises
     </h2>
     
     
-    <article class="article">
-        <div class="article-title">CISA Unleashes a New Threat: Exploited Vulnerability Alert!</div>
-        <div class="article-commentary">The CISA catalog just got a nasty surprise – a known vulnerability is actively being exploited. This means attackers are actively targeting systems using this flaw, and the window to patch is closing.  The attackers are like a relentless swarm, systematically finding and leveraging weaknesses. Organizations need to act fast to defend against this growing threat.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/05/06/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/05/06/cisa-adds-one-known-exploited-vulnerability-catalog
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Double Trouble: Two New Vulnerabilities Surface!</div>
-        <div class="article-commentary">Hold on tight! CISA has added two more vulnerabilities to the list, meaning the attack surface is expanding rapidly.  These vulnerabilities represent opportunities for malicious actors to gain control of systems and steal sensitive data.  It’s a digital arms race where defenders need to stay one step ahead.</div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/04/14/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/alerts/2026/04/14/cisa-adds-two-known-exploited-vulnerabilities-catalog
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">CVSS 10.0: A Critical Breach Looms!</div>
-        <div class="article-commentary">Cisco’s update reveals a devastating vulnerability – an unauthenticated remote code execution flaw with a score of 10.0! This is a catastrophic risk, giving attackers complete control of vulnerable systems. The attackers are a sophisticated shadow army, quietly infiltrating networks to unleash chaos.</div>
-        <a href="https://thehackernews.com/2026/05/cisco-patches-cvss-100-secure-workload.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/cisco-patches-cvss-100-secure-workload.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Mirasvit Vulnerability: A Dangerous Code Injection!</div>
-        <div class="article-commentary">A critical RCE vulnerability in the Mirasvit Full Page Cache Warmer allows attackers to execute malicious code. This is a dangerous situation, as attackers can directly control vulnerable systems.  Think of it as a Trojan horse – attackers exploit a seemingly harmless component to launch a full-scale attack.</div>
-        <a href="https://www.imperva.com/blog/imperva-customers-protected-against-cve-2026-45247-in-mirasvit-full-page-cache-warmer-for-magento/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.imperva.com/blog/imperva-customers-protected-against-cve-2026-45247-in-mirasvit-full-page-cache-warmer-for-magento/
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">LiteSpeed Plugin Exploitation: Root Access Obtained!</div>
-        <div class="article-commentary">A vulnerability in the LiteSpeed plugin has been actively exploited, granting attackers root access to vulnerable systems. This is a nightmare scenario, essentially handing attackers complete control. They can do anything, from stealing data to installing malware.</div>
-        <a href="https://thehackernews.com/2026/05/litespeed-cpanel-plugin-cve-2026-48172.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://thehackernews.com/2026/05/litespeed-cpanel-plugin-cve-2026-48172.html
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Reflection Exploits: Unlocking Hidden Backdoors!</div>
-        <div class="article-commentary">Attackers are using reflection exploits to bypass authentication mechanisms and gain unauthorized access to systems. It&#39;s a stealthy operation, like infiltrating a building through a hidden back door. These attackers are patient and cunning, meticulously exploiting vulnerabilities to gain a foothold.</div>
-        <a href="https://www.synacktiv.com/en/publications/bypassing-windows-authentication-reflection-mitigations-for-system-shells-part" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.synacktiv.com/en/publications/bypassing-windows-authentication-reflection-mitigations-for-system-shells-part
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Prodigy Commerce: Local File Inclusion Nightmare!</div>
-        <div class="article-commentary">The Prodigy Commerce plugin is riddled with a local file inclusion vulnerability. Attackers can read sensitive files on the server, potentially exposing secrets and critical information. It’s like a digital spy, silently gathering intelligence.</div>
-        <a href="https://www.exploit-db.com/exploits/52598" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.exploit-db.com/exploits/52598
-        </a>
-    </article>
-    
-    <article class="article">
-        <div class="article-title">Quick Playground: Remote Code Execution Threat!</div>
-        <div class="article-commentary">The Quick Playground WordPress plugin has a remote code execution vulnerability, allowing attackers to execute arbitrary code on the server. This is a serious threat, as it can lead to complete system compromise. It&#39;s a direct injection of malware, quietly taking over control.</div>
-        <a href="https://www.exploit-db.com/exploits/52596" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.exploit-db.com/exploits/52596
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darknavy.org/web3/exploits/syndicate-commons-bridge-upgrade-compromise/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://0dayfans.com/feed.rss</span>
+                <span class="article-date">29 Apr 2026</span>
+            </div>
+            <div class="article-title">Syndicate Commons Bridge Exploitation – Significant Token Drain</div>
+            <div class="article-commentary">On April 29, 2026, an attacker leveraged a compromised upgrade control to drain 18.45M SYND from the Syndicate Commons bridge. The exploit involved installing malicious bridge logic and transferring token balances. This highlights vulnerabilities in cross-chain bridge security protocols. Mitigation includes rigorous code audits and enhanced access control measures for upgrade processes.</div>
         </a>
     </article>
     
 </section>
 
-<section class="category">
+<section class="category" data-index="1">
     <h2 class="category-title">
         <span class="category-number">[0x02]</span>
-        AI-POWERED ATTACKS
+        Vulnerability Exploitation &amp; Network Breaches
     </h2>
     
     
-    <article class="article">
-        <div class="article-title">Greyvibe Unleashes AI: The Rise of the Autonomous Hacker!</div>
-        <div class="article-commentary">Researchers have uncovered Greyvibe&#39;s use of AI in attacks, marking a significant escalation in cyber warfare. Attackers are employing intelligent algorithms to identify and exploit vulnerabilities, making them incredibly difficult to detect and defend against. It&#39;s a digital mimic, constantly learning and adapting.</div>
-        <a href="https://www.csoonline.com/article/4178879/russia-aligned-crime-group-greyvibe-extensively-uses-ai-in-attacks.html" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.csoonline.com/article/4178879/russia-aligned-crime-group-greyvibe-extensively-uses-ai-in-attacks.html
+    <article class="article" data-severity="Critical">
+        <a href="https://www.bleepingcomputer.com/news/security/palo-alto-globalprotect-vpn-auth-bypass-flaw-now-exploited-in-attacks/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-0257</span>
+                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-date">30 May 2026</span>
+            </div>
+            <div class="article-title">Palo Alto GlobalProtect Authentication Bypass – Widespread Corporate Network Attacks</div>
+            <div class="article-commentary">Hackers are actively exploiting CVE-2026-0257 in Palo Alto Networks GlobalProtect, leading to unauthorized access attempts against corporate networks. This vulnerability impacts PAN-OS authentication, creating a significant risk. Organizations must immediately patch all GlobalProtect instances and strengthen authentication policies, including multi-factor authentication (MFA).</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">Check Point’s Agentic Exposure Validation: Thinking Like the Enemy!</div>
-        <div class="article-commentary">Check Point&#39;s Agentic Exposure Validation (AEV) is a groundbreaking AI-driven capability, reasoning like an attacker to reveal exploitable vulnerabilities. This is a defensive game-changer, offering proactive insights into potential threats. The attackers are constantly probing, and AEV is there to anticipate their moves.</div>
-        <a href="https://www.itsecurityguru.org/2026/05/28/check-point-launches-ai-agents-that-think-like-attackers-as-autonomous-exploitation-reaches-critical-threat-level/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=check-point-launches-ai-agents-that-think-like-attackers-as-autonomous-exploitation-reaches-critical-threat-level" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.itsecurityguru.org/2026/05/28/check-point-launches-ai-agents-that-think-like-attackers-as-autonomous-exploitation-reaches-critical-threat-level/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=check-point-launches-ai-agents-that-think-like-attackers-as-autonomous-exploitation-reaches-critical-threat-level
+    <article class="article" data-severity="Critical">
+        <a href="https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://threatpost.com/feed/</span>
+                <span class="article-date">23 Aug 2022</span>
+            </div>
+            <div class="article-title">Active Exploitation of Palo Alto Networks PAN-OS Vulnerability – Immediate Patching Required</div>
+            <div class="article-commentary">CISA has issued a warning regarding active exploitation of a vulnerability within Palo Alto Networks PAN-OS. Attackers are targeting this vulnerability to gain unauthorized access. Immediate patching is crucial to prevent further compromises. Regularly monitor security alerts and implement proactive vulnerability management strategies.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">ChatGPT Codex: ZombAI Agent – A Code-Breaking Threat!</div>
-        <div class="article-commentary">ChatGPT Codex, now transformed into a &#39;ZombAI agent,&#39; is a sophisticated tool for code analysis and execution, posing a serious risk to software development. Attackers can use this to identify vulnerabilities and develop malicious code. This is a digital mind-meld, with attackers leveraging AI to find weaknesses.</div>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: #
+    <article class="article" data-severity="Critical">
+        <a href="https://www.malwarebytes.com/blog/scams/2026/05/kali365-phishing-kit-bypasses-mfa-and-steals-microsoft-logins" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
+                <span class="article-date">31 May 2026</span>
+            </div>
+            <div class="article-title">FBI Warns of Phishing Kit Targeting Microsoft Accounts – Long-Term Access Risk</div>
+            <div class="article-commentary">Attackers are utilizing a new phishing kit to gain unauthorized access to Microsoft Outlook, Teams, and OneDrive accounts. This kit bypasses MFA, presenting a substantial threat to users and organizations. Implement enhanced awareness training regarding phishing attacks and enforce robust MFA policies across all Microsoft services.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">Netherlands Seizes Network - Operation Endgame!</div>
-        <div class="article-commentary">Dutch authorities have seized networks used by Russia for cyberattacks, highlighting the global reach of state-sponsored espionage. The attackers are engaged in a covert operation, gathering intelligence and disrupting systems. This is a dangerous game of digital cat and mouse.</div>
-        <a href="https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/
+    <article class="article" data-severity="Critical">
+        <a href="https://www.exploit-db.com/exploits/52596" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.exploit-db.com/rss.xml</span>
+                <span class="article-date">29 May 2026</span>
+            </div>
+            <div class="article-title">Quick Playground for WordPress 1.3.1 - Unauthenticated Remote Code Execution Vulnerability</div>
+            <div class="article-commentary">Quick Playground for WordPress 1.3.1 contains a remote code execution (RCE) vulnerability due to insufficient input validation. This allows unauthenticated attackers to execute arbitrary code on the WordPress server. Immediate patching and vulnerability scanning are recommended. Implement secure coding practices and regularly update WordPress core and plugins.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.exploit-db.com/exploits/52598" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.exploit-db.com/rss.xml</span>
+                <span class="article-date">29 May 2026</span>
+            </div>
+            <div class="article-title">Prodigy Commerce 3.3.0 – Local File Inclusion Vulnerability</div>
+            <div class="article-commentary">Prodigy Commerce 3.3.0 contains a local file inclusion (LFI) vulnerability, allowing attackers to read sensitive files on the server. This vulnerability is due to improper input validation. Immediately update to a patched version of Prodigy Commerce or implement security controls to prevent LFI attacks.</div>
         </a>
     </article>
     
 </section>
 
-<section class="category">
+<section class="category" data-index="2">
     <h2 class="category-title">
         <span class="category-number">[0x03]</span>
-        DATA BREACHES &amp; THREAT LANDSCAPES
+        Data Exfiltration &amp; AI-Powered Attacks
     </h2>
     
     
-    <article class="article">
-        <div class="article-title">Charter Communications: Millions Affected – A Massive Data Breach!</div>
-        <div class="article-commentary">A significant data breach at Charter Communications has exposed the personal information of 4.9 million accounts, raising serious concerns about data security. Attackers are leveraging vulnerabilities to steal credentials and sensitive data. This is a digital heist, targeting individuals and organizations.</div>
-        <a href="https://www.bleepingcomputer.com/news/security/charter-communications-data-breach-affects-49-million-accounts/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.bleepingcomputer.com/news/security/charter-communications-data-breach-affects-49-million-accounts/
+    <article class="article" data-severity="Critical">
+        <a href="https://embracethered.com/blog/posts/2025/claude-abusing-network-access-and-anthropic-api-for-data-exfiltration/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://embracethered.com/blog/index.xml</span>
+                <span class="article-date">28 Oct 2025</span>
+            </div>
+            <div class="article-title">Anthropic Claude File API Exploitation – Data Exfiltration Threat</div>
+            <div class="article-commentary">The recent addition of network requests to Anthropic’s Claude Code Interpreter enables data exfiltration attacks. Attackers can exploit this capability to extract sensitive information from the system. Mitigations include restricting network access for the Code Interpreter and implementing robust monitoring for anomalous activity. Continuous evaluation of AI capabilities is critical.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">PlushDaemon: The China-Aligned Network Implant!</div>
-        <div class="article-commentary">Researchers have discovered the PlushDaemon APT group using a network implant to perform adversary-in-the-middle attacks, highlighting a persistent and sophisticated cyber threat. The attackers are silently intercepting communications, stealing data, and manipulating systems. This is a digital surveillance operation.</div>
-        <a href="https://www.welivesecurity.com/en/eset-research/plushdaemon-compromises-network-devices-for-adversary-in-the-middle-attacks/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.welivesecurity.com/en/eset-research/plushdaemon-compromises-network-devices-for-adversary-in-the-middle-attacks/
+    <article class="article" data-severity="Medium">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Medium">Medium</span>
+                
+                <span class="article-source">Unknown</span>
+                <span class="article-date">31 May 2026</span>
+            </div>
+            <div class="article-title">Donuts and Beagles: Fake Claude site spreads backdoor</div>
+            <div class="article-commentary">A malicious imitation of Anthropics Claude site leads to DLL sideloading and a backdoor. This highlights the dangers of imitation and the potential for attackers to leverage AI interfaces to deliver malware. Implement stringent verification processes for software and AI applications.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">GitHub Internal Repositories – A Supply Chain Disaster!</div>
-        <div class="article-commentary">A malicious VS Code extension has led to the theft of private GitHub repositories, demonstrating the vulnerability of software supply chains. Attackers are exploiting vulnerabilities to gain access to proprietary code. This is a backdoor into sensitive systems.</div>
-        <a href="https://www.sophos.com/en-us/blog/github-internal-repositories-breached" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.sophos.com/en-us/blog/github-internal-repositories-breached
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darkreading.com/vulnerabilities-threats/microsoft-exchange-zero-day-no-patch" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-42897</span>
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
+                <span class="article-date">31 May 2026</span>
+            </div>
+            <div class="article-title">Microsoft Exchange Zero-Day Under Attack, No Patch Available</div>
+            <div class="article-commentary">CVE-2026-42897 is a cross-site scripting (XSS) vulnerability in Outlook Web Access (OWA) that allows unauthenticated attackers to compromise mailboxes.  No patch is currently available. Implement mitigations such as input validation and WAF rules to block malicious requests. Monitor for related activity.</div>
         </a>
     </article>
     
 </section>
 
-<section class="category">
+<section class="category" data-index="3">
     <h2 class="category-title">
         <span class="category-number">[0x04]</span>
-        SECURITY UPDATES &amp; PATCHES
+        Supply Chain Attacks &amp; Malware Analysis
     </h2>
     
     
-    <article class="article">
-        <div class="article-title">Google’s DBSC: Session Cookie Shield!</div>
-        <div class="article-commentary">Google’s DBSC architecture delivers a robust defense against session cookie theft, a pervasive cyber threat. This is a proactive measure to protect user sessions and prevent unauthorized access.  The attackers are trying to steal your digital key, and DBSC is there to block them.</div>
-        <a href="https://gbhackers.com/google-chromes-dbsc/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://gbhackers.com/google-chromes-dbsc/
+    <article class="article" data-severity="Critical">
+        <a href="https://thehackernews.com/2026/05/trapdoor-supply-chain-attack-spreads.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
+                <span class="article-date">25 May 2026</span>
+            </div>
+            <div class="article-title">TrapDoor Supply Chain Malware Campaign – Widespread Package Compromise</div>
+            <div class="article-commentary">The TrapDoor malware campaign has leveraged npm, PyPI, and Crates.io to distribute credential-stealing malware across multiple packages. This demonstrates the risks associated with software supply chain vulnerabilities. Implement stringent package vulnerability scanning and maintain secure coding practices throughout the development lifecycle.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">Firefox 151: Privacy Boost – Don&#39;t Ignore This Update!</div>
-        <div class="article-commentary">Firefox 151 introduces major privacy improvements and fixes critical security vulnerabilities, emphasizing the importance of regular updates. The attackers are constantly probing for weaknesses, and this update strengthens defenses. This is a digital shield against emerging threats.</div>
-        <a href="https://www.malwarebytes.com/blog/privacy/2026/05/firefox-151-packs-big-privacy-upgrades-into-a-small-update" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.malwarebytes.com/blog/privacy/2026/05/firefox-151-packs-big-privacy-upgrades-into-a-small-update
+    <article class="article" data-severity="Critical">
+        <a href="https://www.ncsc.gov.uk/report/mar-sparrowdoor" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.ncsc.gov.uk/api/1/services/v1/report-rss-feed.xml</span>
+                <span class="article-date">25 Apr 2022</span>
+            </div>
+            <div class="article-title">Malware analysis report on SparrowDoor malware</div>
+            <div class="article-commentary">Technical analysis of the SparrowDoor malware variant reveals its capabilities and infection methods. Understanding the technical details of this malware is crucial for developing effective detection and response strategies. Continue to monitor for new variants and associated threats.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">CISA Incident Response – Lessons Learned From Chaos!</div>
-        <div class="article-commentary">CISA’s involvement in an incident response engagement highlights the importance of proactive security measures and rapid response capabilities. The attackers have initiated chaos, and CISA is there to restore order and prevent further damage. It&#39;s a digital fire drill.</div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a
+    <article class="article" data-severity="Critical">
+        <a href="https://www.welivesecurity.com/en/eset-research/eset-research-sandworm-cyberattack-poland-power-grid-late-2025/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.welivesecurity.com/feed/</span>
+                <span class="article-date">23 Jan 2026</span>
+            </div>
+            <div class="article-title">ESET Research: Sandworm behind cyberattack on Polands power grid in late 2025</div>
+            <div class="article-commentary">The Sandworm group was responsible for the cyberattack on Poland&amp;#39;s power grid. The attack involved data-wiping malware known as DynoWiper. Organizations should review their security posture and implement measures to defend against state-sponsored cyberattacks and advanced persistent threats (APTs).</div>
         </a>
     </article>
     
 </section>
 
-<section class="category">
+<section class="category" data-index="4">
     <h2 class="category-title">
         <span class="category-number">[0x05]</span>
-        EXPLOIT DETAILS &amp; TECHNIQUES
+        CISA Alerts &amp; Incident Response
     </h2>
     
     
-    <article class="article">
-        <div class="article-title">GitHub Copilot – Prompt Injection Nightmare!</div>
-        <div class="article-commentary">A prompt injection discovery in GitHub Copilot has led to full system compromise, revealing a critical vulnerability in AI-powered code assistants. Attackers are manipulating the system to execute malicious commands. This is a digital Trojan horse – a seemingly harmless tool used to launch a full-scale attack.</div>
-        <a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/
+    <article class="article" data-severity="Critical">
+        <a href="https://plugins.trac.wordpress.org/browser/advanced-custom-fields/tags/6.8.0/includes/forms/form-front.php#L243" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-8382</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">31 May 2026</span>
+            </div>
+            <div class="article-title">CVE-2026-8382: ACF Plugin Vulnerability – Authorization Bypass Risk</div>
+            <div class="article-commentary">The Advanced Custom Fields (ACF) plugin contains an authorization bypass vulnerability, allowing unauthenticated attackers to perform unauthorized actions. This highlights the importance of reviewing third-party plugins for vulnerabilities. Patch the ACF plugin immediately and implement least privilege access controls.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">Tony Anscombe’s Monthly Security Rundown – November 2025</div>
-        <div class="article-commentary">Tony Anscombe’s cybersecurity roundup offers a valuable overview of the latest threats and vulnerabilities, providing insights and guidance for staying safe. This is a curated digest of essential information – a digital briefing on the evolving threat landscape.</div>
-        <a href="https://www.welivesecurity.com/en/videos/month-security-tony-anscombe-november-2025/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.welivesecurity.com/en/videos/month-security-tony-anscombe-november-2025/
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2024-36401</span>
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">31 May 2026</span>
+            </div>
+            <div class="article-title">CISA Shares Lessons Learned from an Incident Response Engagement</div>
+            <div class="article-commentary">CISA&amp;#39;s incident response engagement provides valuable insights into the complexities of cybersecurity incident handling.  Organizations can leverage these lessons to improve their incident response plans and preparedness. Review the report for best practices in detection, containment, and recovery.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">Prodigy Commerce – Local File Inclusion: A Classic Vulnerability!</div>
-        <div class="article-commentary">The Prodigy Commerce plugin’s local file inclusion vulnerability is a textbook example of a common security flaw. Attackers can read sensitive files on the server.  It&#39;s a gateway into a compromised system.</div>
-        <a href="https://www.exploit-db.com/exploits/52598" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://www.exploit-db.com/exploits/52598
+    <article class="article" data-severity="Critical">
+        <a href="https://krebsonsecurity.com/2026/05/lawmakers-demand-answers-as-cisa-tries-to-contain-data-leak/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://krebsonsecurity.com/feed/</span>
+                <span class="article-date">22 May 2026</span>
+            </div>
+            <div class="article-title">Lawmakers Demand Answers as CISA Tries to Contain Data Leak</div>
+            <div class="article-commentary">Lawmakers are seeking explanations regarding a CISA contractor&amp;#39;s disclosure of AWS GovCloud credentials and sensitive agency data. This incident underscores the need for robust access controls and stringent oversight of contractor activities. Implement enhanced security protocols and conduct regular audits of contractor access rights.</div>
         </a>
     </article>
     
-    <article class="article">
-        <div class="article-title">Quick Playground – Remote Code Execution: Urgent Patch Needed!</div>
-        <div class="article-commentary">The Quick Playground WordPress plugin’s remote code execution vulnerability allows attackers to directly execute code on vulnerable systems. This is a critical issue that needs immediate attention. It&#39;s a digital back door, enabling attackers to take control.</div>
-        <a href="https://securelist.com/exiftool-compromise-mac/119866/" target="_blank" rel="noopener noreferrer" class="article-link">
-            Read more: https://securelist.com/exiftool-compromise-mac/119866/
+    <article class="article" data-severity="Critical">
+        <a href="https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://krebsonsecurity.com/feed/</span>
+                <span class="article-date">18 May 2026</span>
+            </div>
+            <div class="article-title">CISA Admin Leaked AWS GovCloud Keys on Github</div>
+            <div class="article-commentary">A CISA contractor&amp;#39;s GitHub repository exposed sensitive AWS GovCloud credentials and system keys. This breach highlights the risks associated with unsecured developer environments and emphasizes the need for enhanced access controls and secure code repositories. Implement strong authentication measures and enforce strict access policies.</div>
+        </a>
+    </article>
+    
+</section>
+
+
+
+<section class="category" id="videos-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x06]</span>
+        CYBERSECURITY VIDEOS
+    </h2>
+    <div class="videos-grid">
+    
+    <div class="video-card">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/0C3buKWLgY0" 
+                    title="HackTheBox - Interpreter" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <div class="video-title">HackTheBox - Interpreter</div>
+            <div class="video-meta">
+                <span class="video-channel">IppSec</span>
+                <a href="https://www.youtube.com/watch?v=0C3buKWLgY0" target="_blank" rel="noopener noreferrer" class="video-external">Open in YouTube ↗</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-card">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/exKf0cCWssM" 
+                    title="Professor Messer&#39;s Security&#43; SY0-701 Study Group - June 2026" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <div class="video-title">Professor Messer&#39;s Security&#43; SY0-701 Study Group - June 2026</div>
+            <div class="video-meta">
+                <span class="video-channel">Professor Messer</span>
+                <a href="https://www.youtube.com/watch?v=exKf0cCWssM" target="_blank" rel="noopener noreferrer" class="video-external">Open in YouTube ↗</a>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+</section>
+
+
+
+<section class="category" id="tools-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x07]</span>
+        TRENDING SECURITY TOOLS
+    </h2>
+    
+    <article class="article tool-card">
+        <a href="https://github.com/compartmentdev/compartment" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 77</span>
+                <span class="tool-lang">TypeScript</span>
+            </div>
+            <div class="article-title">compartment</div>
+            <div class="article-commentary">Compartment is a self-hosted application deployment system for teams that want to ship and share internal, private, or public web apps without building their own platform stack.</div>
+            <div class="tool-meta">compartmentdev/compartment</div>
+        </a>
+    </article>
+    
+    <article class="article tool-card">
+        <a href="https://github.com/mani5717/hwid-spoofer-utility" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 50</span>
+                <span class="tool-lang">C&#43;&#43;</span>
+            </div>
+            <div class="article-title">hwid-spoofer-utility</div>
+            <div class="article-commentary">Spoof hardware identifiers to bypass system-level bans and restrictions.</div>
+            <div class="tool-meta">mani5717/hwid-spoofer-utility</div>
+        </a>
+    </article>
+    
+    <article class="article tool-card">
+        <a href="https://github.com/pulseio76/ArgusMind" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 31</span>
+                <span class="tool-lang">Python</span>
+            </div>
+            <div class="article-title">ArgusMind</div>
+            <div class="article-commentary">AI 驱动的多 Agent 自主代码安全审计：审计计划、危险 Sink 发现与调用链分析；AI-driven multi-agent autonomous code security auditor — audit planning, sink discovery &amp; call-chain analysis; </div>
+            <div class="tool-meta">pulseio76/ArgusMind</div>
+        </a>
+    </article>
+    
+    <article class="article tool-card">
+        <a href="https://github.com/Otsolain/Gecko" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 17</span>
+                <span class="tool-lang">Python</span>
+            </div>
+            <div class="article-title">Gecko</div>
+            <div class="article-commentary">Recon &amp; security-assessment platformFastAPI stage orchestrator with a live web UI, Tor routing, and multi-provider AI triage</div>
+            <div class="tool-meta">Otsolain/Gecko</div>
+        </a>
+    </article>
+    
+    <article class="article tool-card">
+        <a href="https://github.com/vje013/darwin-agentic-cloud" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 15</span>
+                <span class="tool-lang">Python</span>
+            </div>
+            <div class="article-title">darwin-agentic-cloud</div>
+            <div class="article-commentary">Verifiable and free cloud compute for AI agents. webMCP &#43; MCP. Sandboxed Beta &#43; Research: 6/1/2026</div>
+            <div class="tool-meta">vje013/darwin-agentic-cloud</div>
         </a>
     </article>
     
@@ -707,7 +931,6 @@
 
 
     </div>
-        </div>
     </div>
 
     <!-- About Modal -->
@@ -718,11 +941,11 @@
                 <img src="me/anmol-singh-yadav.png" alt="Anmol Singh Yadav" class="author-photo">
             </div>
             <div class="modal-info">
-                <h4 class="author-name display-font">Anmol Singh Yadav</h4>
-                <p class="author-bio">Cybersecurity researcher and enthusiast documenting daily insights from the trenches.</p>
-                <div class="social-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <h4 class="author-name">Anmol Singh Yadav</h4>
+                <p class="author-bio">Security researcher building automated intelligence pipelines. This daily brief is powered by custom ML scoring, RSS aggregation, and local LLMs.</p>
+                <div class="social-links">
                     <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" class="social-btn">LinkedIn</a>
-                    <a href="http://github.com/IamLucif3r" target="_blank" class="social-btn">GitHub</a>
+                    <a href="https://github.com/IamLucif3r" target="_blank" class="social-btn">GitHub</a>
                     <a href="https://medium.com/@IamLucif3r" target="_blank" class="social-btn">Medium</a>
                     <a href="https://x.com/iamlucif3r_" target="_blank" class="social-btn">X (Twitter)</a>
                 </div>
@@ -731,11 +954,11 @@
     </div>
 
     <footer>
-        <div class="container" style="display: block;">
-            <div class="footer-logo display-font">PWNSPECTRUM</div>
-            <p class="mono-font" style="font-size: 0.875rem;">Reduction to Essence.</p>
-            <p class="mono-font" style="font-size: 0.75rem; margin-top: 2rem; color: var(--text-muted);">
-                &copy; <span id="current-year"></span> Anmol Singh Yadav. All rights reserved.
+        <div class="container">
+            <div class="footer-logo mono">PWNSPECTRUM</div>
+            <p class="mono" style="font-size: 0.8rem; color: var(--text-muted);">Daily Cybersecurity Intelligence</p>
+            <p class="mono" style="font-size: 0.7rem; margin-top: 1rem; color: var(--text-dim);">
+                &copy; <span id="current-year"></span> Anmol Singh Yadav
             </p>
         </div>
     </footer>
@@ -745,193 +968,125 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Custom Cursor
-        const cursor = document.getElementById('custom-cursor');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const winH = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = winH > 0 ? (window.scrollY / winH) * 100 : 0;
+            document.getElementById('progress-bar').style.width = pct + '%';
         });
-
-        // Add custom cursor hover state to all interactive elements
-        function setupCursorListeners() {
-            const interactiveElements = document.querySelectorAll('a, button, input');
-            interactiveElements.forEach(el => {
-                if (!el.hasAttribute('data-cursor-bound')) {
-                    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-                    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-                    el.setAttribute('data-cursor-bound', 'true');
-                }
-            });
-        }
-        setupCursorListeners();
-
-        // Apply cursor logic to dynamically added elements (like articles)
-        const observer = new MutationObserver((mutations) => {
-            let shouldUpdate = false;
-            mutations.forEach((mutation) => {
-                if (mutation.addedNodes.length) {
-                    shouldUpdate = true;
-                }
-            });
-            if (shouldUpdate) {
-                setupCursorListeners();
-            }
-        });
-
-        const contentNode = document.getElementById('newsletter-content');
-        if (contentNode) {
-            observer.observe(contentNode, { childList: true, subtree: true });
-        }
-
-        const greetingNode = document.getElementById('greeting');
-        if (greetingNode) {
-            observer.observe(greetingNode, { childList: true, subtree: true });
-        }
 
         // Theme Toggle
         const themeBtn = document.getElementById('theme-toggle');
-
         function setTheme(isLight) {
-            if (isLight) {
-                document.body.classList.add('light-theme');
-                themeBtn.textContent = 'Dark Mode';
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.body.classList.remove('light-theme');
-                themeBtn.textContent = 'Light Mode';
-                localStorage.setItem('theme', 'dark');
-            }
+            document.body.classList.toggle('light-theme', isLight);
+            themeBtn.textContent = isLight ? 'Dark' : 'Light';
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
         }
-
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-            setTheme(true);
-        }
-
-        themeBtn.addEventListener('click', () => {
-            setTheme(!document.body.classList.contains('light-theme'));
-        });
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light' || (!saved && window.matchMedia('(prefers-color-scheme: light)').matches)) setTheme(true);
+        themeBtn.addEventListener('click', () => setTheme(!document.body.classList.contains('light-theme')));
 
         // Scroll to Top
         const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 400));
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollBtn.classList.add('visible');
-            } else {
-                scrollBtn.classList.remove('visible');
-            }
-        });
-
-        scrollBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Modal Logic
+        // Modal
         const aboutBtn = document.getElementById('about-btn');
+        const modal = document.getElementById('about-modal');
         const closeModal = document.getElementById('close-modal');
-        const aboutModal = document.getElementById('about-modal');
+        aboutBtn.addEventListener('click', () => { modal.classList.add('active'); document.body.style.overflow = 'hidden'; });
+        closeModal.addEventListener('click', () => { modal.classList.remove('active'); document.body.style.overflow = ''; });
+        modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
 
-        aboutBtn.addEventListener('click', () => {
-            aboutModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+        // Build Category Nav + Article Count
+        function initDynamicUI() {
+            const categories = document.querySelectorAll('.category');
+            const nav = document.getElementById('category-nav');
+            const articles = document.querySelectorAll('.article');
 
-        closeModal.addEventListener('click', () => {
-            aboutModal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+            document.getElementById('article-count').textContent = articles.length + ' articles';
 
-        aboutModal.addEventListener('click', (e) => {
-            if (e.target === aboutModal) {
-                aboutModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Plexus Background Animation
-        const canvas = document.getElementById('plexus-bg');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-        const particleCount = 80;
-        const connectionDistance = 150;
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = 2;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                const isLight = document.body.classList.contains('light-theme');
-                ctx.fillStyle = isLight ? '#000000' : '#ffffff';
-                ctx.fill();
-            }
+            categories.forEach((cat) => {
+                const title = cat.querySelector('.category-title');
+                if (!title) return;
+                const name = title.textContent.replace(/\[0x[0-9a-f]+\]/i, '').trim();
+                const btn = document.createElement('a');
+                btn.className = 'category-nav-item';
+                btn.href = '#';
+                btn.textContent = name;
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    cat.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+                nav.appendChild(btn);
+            });
         }
 
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
+        // Search & Filter
+        function initFilters() {
+            const searchInput = document.getElementById('search-input');
+            const severityBtns = document.querySelectorAll('.severity-filter button');
+            let activeSeverity = 'all';
 
-        function connectParticles() {
-            const isLight = document.body.classList.contains('light-theme');
-            const colorRGB = isLight ? '0, 0, 0' : '255, 255, 255';
-            
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+            function applyFilters() {
+                const query = searchInput.value.toLowerCase().trim();
+                const articles = document.querySelectorAll('.article');
+                const categories = document.querySelectorAll('.category');
 
-                    if (distance < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(${colorRGB}, ${1 - distance / connectionDistance})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                }
+                articles.forEach(article => {
+                    const text = article.textContent.toLowerCase();
+                    const severity = article.dataset.severity || '';
+                    const matchesSearch = !query || text.includes(query);
+                    const matchesSeverity = activeSeverity === 'all' || severity === activeSeverity;
+                    article.classList.toggle('hidden', !(matchesSearch && matchesSeverity));
+                });
+
+                categories.forEach(cat => {
+                    const visibleArticles = cat.querySelectorAll('.article:not(.hidden)');
+                    cat.classList.toggle('hidden', visibleArticles.length === 0);
+                });
             }
-        }
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            searchInput.addEventListener('input', applyFilters);
 
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
+            severityBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    severityBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeSeverity = btn.dataset.severity;
+                    applyFilters();
+                });
             });
 
-            connectParticles();
-            requestAnimationFrame(animate);
+            // Keyboard shortcut: / to focus search
+            document.addEventListener('keydown', (e) => {
+                if (e.key === '/' && document.activeElement !== searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
         }
 
-        animate();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+        // Initialize after content loads
+        const observer = new MutationObserver(() => {
+            const articles = document.querySelectorAll('.article');
+            if (articles.length > 0) {
+                initDynamicUI();
+                initFilters();
+                observer.disconnect();
+            }
         });
-
+        const contentNode = document.getElementById('newsletter-content');
+        if (contentNode) {
+            observer.observe(contentNode, { childList: true, subtree: true });
+            if (contentNode.children.length > 0) {
+                initDynamicUI();
+                initFilters();
+                observer.disconnect();
+            }
+        }
     </script>
 </body>
 
