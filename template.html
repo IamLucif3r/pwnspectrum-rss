@@ -13,9 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pwnspectrum | Daily Cybersecurity Intelligence</title>
-    <meta name="description" content="Daily curated cybersecurity intelligence brief — zero-days, active exploits, threat research, and trending security tools.">
+    <meta name="description" content="Daily curated cybersecurity intelligence brief — zero-days, active exploits, threat research, trending tools, CTFs, and learning resources.">
     <meta property="og:title" content="PwnSpectrum — Daily Cybersecurity Intelligence">
-    <meta property="og:description" content="Curated daily brief covering zero-days, active exploits, data breaches, and security research.">
+    <meta property="og:description" content="Curated daily brief: zero-days, exploits, bug bounties, CTFs, trending tools, podcasts, and community pulse.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://iamlucif3r.github.io/pwnspectrum-rss/">
     <meta name="twitter:card" content="summary_large_image">
@@ -32,6 +32,7 @@
             --bg-page: #0a0a0a;
             --bg-card: #111111;
             --bg-card-hover: #1a1a1a;
+            --bg-elevated: #161616;
             --text-main: #f5f5f5;
             --text-muted: #a3a3a3;
             --text-dim: #666666;
@@ -51,6 +52,7 @@
             --bg-page: #fafafa;
             --bg-card: #ffffff;
             --bg-card-hover: #f5f5f5;
+            --bg-elevated: #f0f0f0;
             --text-main: #0a0a0a;
             --text-muted: #525252;
             --text-dim: #999999;
@@ -68,7 +70,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
         body {
             font-family: "Source Serif 4", Georgia, serif;
             background-color: var(--bg-page);
@@ -78,436 +79,210 @@
             overflow-x: hidden;
             transition: background-color 0.3s, color 0.3s;
         }
-
         ::selection { background: var(--selection-bg); color: var(--selection-text); }
-
         h1, h2, h3, h4, h5, h6 {
             font-family: "Playfair Display", Georgia, serif;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
+            font-weight: 700; line-height: 1.2; letter-spacing: -0.02em;
         }
-
         .mono { font-family: "JetBrains Mono", monospace; }
+        .container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* Layout */
-        .container { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+        /* Reading Progress */
+        .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--accent); z-index: 9999; transition: width 0.1s; }
 
-        /* Reading Progress Bar */
-        .progress-bar {
-            position: fixed; top: 0; left: 0;
-            width: 0%; height: 3px;
-            background: var(--accent);
-            z-index: 9999;
-            transition: width 0.1s linear;
-        }
+        /* Threat Level Banner */
+        .threat-banner { position: sticky; top: 3px; z-index: 100; padding: 0.5rem 1rem; text-align: center; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; border-bottom: 1px solid var(--border-main); }
+        .threat-SEVERE { background: rgba(255, 59, 48, 0.15); color: var(--severity-critical); border-color: var(--severity-critical); }
+        .threat-HIGH { background: rgba(255, 149, 0, 0.1); color: var(--severity-high); border-color: var(--severity-high); }
+        .threat-ELEVATED { background: rgba(255, 204, 0, 0.08); color: var(--severity-medium); border-color: var(--severity-medium); }
+        .threat-GUARDED { background: rgba(52, 199, 89, 0.08); color: var(--severity-low); border-color: var(--severity-low); }
+        .threat-LOW { background: var(--bg-elevated); color: var(--text-muted); }
 
         /* Header */
-        header {
-            padding: 3rem 0 2rem;
-            border-bottom: 2px solid var(--border-main);
-            margin-bottom: 2.5rem;
+        .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--border-main); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .site-title { font-size: 2rem; color: var(--accent); }
+        .site-title span { color: var(--text-main); }
+        .header-controls { display: flex; align-items: center; gap: 0.75rem; }
+        .header-stats { display: flex; gap: 1rem; margin-top: 0.75rem; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-muted); }
+        .header-stats .stat-value { color: var(--accent); font-weight: 700; }
+
+        /* Buttons */
+        .btn { padding: 0.4rem 0.8rem; border-radius: 4px; border: 1px solid var(--border-main); background: var(--bg-card); color: var(--text-main); font-family: "JetBrains Mono", monospace; font-size: 0.7rem; cursor: pointer; transition: all 0.2s; }
+        .btn:hover { border-color: var(--accent); background: var(--accent-dim); }
+        .btn.active { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
+
+        /* View Mode Toggle */
+        .view-toggle { display: flex; gap: 0; }
+        .view-toggle .btn { border-radius: 0; }
+        .view-toggle .btn:first-child { border-radius: 4px 0 0 4px; }
+        .view-toggle .btn:last-child { border-radius: 0 4px 4px 0; }
+
+        /* Navigation */
+        .nav-bar { padding: 1rem 0; position: sticky; top: calc(3px + 2rem); z-index: 90; background: var(--bg-page); border-bottom: 1px solid var(--border-main); }
+        .nav-inner { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .category-nav { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.25rem; flex: 1; }
+        .category-nav::-webkit-scrollbar { height: 2px; }
+        .category-nav::-webkit-scrollbar-thumb { background: var(--border-accent); }
+        .nav-link { white-space: nowrap; padding: 0.3rem 0.7rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--text-muted); text-decoration: none; border-radius: 3px; transition: all 0.2s; border: 1px solid transparent; }
+        .nav-link:hover, .nav-link.active { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+
+        /* Search & Filters */
+        .filter-bar { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+        .search-input { flex: 1; min-width: 200px; padding: 0.5rem 0.8rem; background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 4px; color: var(--text-main); font-family: "JetBrains Mono", monospace; font-size: 0.8rem; outline: none; }
+        .search-input:focus { border-color: var(--accent); }
+        .severity-filters { display: flex; gap: 0.25rem; }
+
+        /* Main Content Grid */
+        .content-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 2rem 0; }
+        @media (min-width: 1024px) {
+            .content-grid.has-sidebar { grid-template-columns: 280px 1fr; }
         }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
+        /* Sidebar */
+        .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+        @media (max-width: 1023px) { .sidebar { display: none; } .sidebar.mobile-visible { display: flex; } }
 
-        .logo {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.03em;
-        }
+        /* CVE Spotlight Cards */
+        .cve-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+        .cve-card { padding: 0.75rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); border-left: 3px solid var(--severity-critical); }
+        .cve-card.cve-HIGH { border-left-color: var(--severity-high); }
+        .cve-card.cve-MEDIUM { border-left-color: var(--severity-medium); }
+        .cve-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+        .cve-id { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; font-weight: 700; color: var(--accent); }
+        .cvss-badge { font-family: "JetBrains Mono", monospace; font-size: 0.65rem; padding: 0.1rem 0.4rem; border-radius: 3px; background: var(--severity-critical); color: white; }
+        .action-badge { font-family: "JetBrains Mono", monospace; font-size: 0.6rem; padding: 0.1rem 0.4rem; border-radius: 3px; }
+        .action-badge.action-Patch\ Now { background: var(--severity-critical); color: white; }
+        .action-badge.action-Monitor { background: var(--severity-high); color: white; }
+        .action-badge.action-Assess { background: var(--severity-medium); color: #000; }
+        .cve-product { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .cve-description { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
+        .kev-badge { font-family: "JetBrains Mono", monospace; font-size: 0.65rem; color: var(--severity-critical); margin-top: 0.3rem; display: inline-block; }
 
-        .header-actions { display: flex; gap: 0.75rem; align-items: center; }
+        /* Categories & Articles */
+        .category { margin-bottom: 2rem; }
+        .category-title { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border-main); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .category-number { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--accent); }
 
-        .action-btn {
-            background: transparent;
-            border: 1px solid var(--border-accent);
-            color: var(--text-main);
-            padding: 0.4rem 0.8rem;
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            border-radius: 3px;
-        }
-
-        .action-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
-
-        .header-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .header-stats {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            display: flex; gap: 1.5rem;
-        }
-
-        .header-stats span { display: flex; align-items: center; gap: 0.3rem; }
-
-        /* Category Nav */
-        .category-nav {
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border-main);
-            scrollbar-width: none;
-        }
-        .category-nav::-webkit-scrollbar { display: none; }
-
-        .category-nav-item {
-            white-space: nowrap;
-            padding: 0.4rem 0.8rem;
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            border: 1px solid var(--border-accent);
-            background: transparent;
-            color: var(--text-muted);
-            cursor: pointer;
-            border-radius: 3px;
-            transition: all 0.15s;
-            text-decoration: none;
-        }
-        .category-nav-item:hover, .category-nav-item.active {
-            background: var(--accent-dim);
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* Filter Bar */
-        .filter-bar {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-            align-items: center;
-        }
-
-        .filter-bar input[type="search"] {
-            flex: 1;
-            min-width: 200px;
-            padding: 0.5rem 1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-accent);
-            color: var(--text-main);
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.8rem;
-            border-radius: 3px;
-            outline: none;
-            transition: border-color 0.15s;
-        }
-        .filter-bar input[type="search"]:focus { border-color: var(--accent); }
-        .filter-bar input[type="search"]::placeholder { color: var(--text-dim); }
-
-        .severity-filter {
-            display: flex; gap: 0.3rem;
-        }
-        .severity-filter button {
-            padding: 0.35rem 0.6rem;
-            font-size: 0.65rem;
-            font-family: "JetBrains Mono", monospace;
-            border: 1px solid var(--border-accent);
-            background: transparent;
-            color: var(--text-muted);
-            cursor: pointer;
-            border-radius: 3px;
-            transition: all 0.15s;
-            text-transform: uppercase;
-        }
-        .severity-filter button.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-        .severity-filter button:hover { border-color: var(--accent); }
-
-        /* Greeting */
-        .greeting {
-            font-size: 1.1rem;
-            border-left: 3px solid var(--accent);
-            padding: 1rem 1.5rem;
-            margin-bottom: 3rem;
-            background: var(--accent-dim);
-            border-radius: 0 4px 4px 0;
-            color: var(--text-main);
-            line-height: 1.8;
-        }
-        .greeting a { color: var(--accent); text-decoration: underline; }
-
-        /* Category */
-        .category { margin-bottom: 3rem; }
-
-        .category-title {
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--border-main);
-            padding-bottom: 0.75rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: baseline;
-            gap: 0.75rem;
-        }
-
-        .category-number {
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 400;
-        }
-
-        /* Articles */
-        .article {
-            background: var(--bg-card);
-            border: 1px solid var(--border-main);
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.15s ease;
-            position: relative;
-        }
-
-        .article:hover {
-            border-color: var(--accent);
-            background: var(--bg-card-hover);
-            transform: translateX(4px);
-        }
-
+        .article { padding: 1rem; margin-bottom: 0.75rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); transition: all 0.2s; }
+        .article:hover { border-color: var(--accent); background: var(--bg-card-hover); transform: translateX(2px); }
         .article-title-link { text-decoration: none; color: inherit; display: block; }
-
-        .article-header {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 0.75rem;
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.7rem;
-        }
-
-        .severity-badge {
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-        .severity-Critical { background: var(--severity-critical); color: #fff; }
-        .severity-High { background: var(--severity-high); color: #fff; }
+        .article-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.4rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; }
+        .severity-badge { padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 700; font-size: 0.6rem; text-transform: uppercase; }
+        .severity-Critical { background: var(--severity-critical); color: white; }
+        .severity-High { background: var(--severity-high); color: white; }
         .severity-Medium { background: var(--severity-medium); color: #000; }
-        .severity-Low { background: var(--severity-low); color: #fff; }
-
-        .cve-badge {
-            padding: 0.2rem 0.5rem;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            border-radius: 3px;
-        }
-
+        .severity-Low { background: var(--severity-low); color: white; }
+        .cve-badge { color: var(--accent); font-weight: 700; }
         .article-source { color: var(--text-muted); }
-        .article-date { color: var(--text-dim); margin-left: auto; }
+        .article-date { color: var(--text-dim); }
+        .article-title { font-family: "Playfair Display", serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.3; }
+        .article-commentary { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
 
-        .article-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-family: "Playfair Display", Georgia, serif;
-            font-weight: 700;
-            line-height: 1.3;
-        }
+        /* TL;DR mode */
+        body.tldr-mode .article-commentary { display: none; }
+        body.tldr-mode .article { padding: 0.6rem 1rem; margin-bottom: 0.4rem; }
 
-        .article-commentary {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        /* Videos Section */
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .video-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-main);
-            border-radius: 6px;
-            overflow: hidden;
-            transition: border-color 0.15s;
-        }
+        /* Videos */
+        .video-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; overflow-x: auto; }
+        .video-tab { padding: 0.3rem 0.7rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; border: 1px solid var(--border-main); border-radius: 3px; background: var(--bg-card); color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+        .video-tab:hover, .video-tab.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+        .videos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+        .video-card { border: 1px solid var(--border-main); border-radius: 6px; overflow: hidden; background: var(--bg-card); transition: border-color 0.2s; }
         .video-card:hover { border-color: var(--accent); }
+        .video-card[hidden] { display: none; }
+        .video-embed { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-info { padding: 0.75rem; }
+        .video-type-badge { font-family: "JetBrains Mono", monospace; font-size: 0.65rem; color: var(--accent); display: inline-block; margin-bottom: 0.3rem; }
+        .video-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; line-height: 1.3; }
+        .video-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: var(--text-muted); }
+        .video-channel { font-family: "JetBrains Mono", monospace; }
+        .video-external { color: var(--accent); text-decoration: none; }
 
-        .video-embed {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-        .video-embed iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
-        }
+        /* Tools Grid */
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+        .tool-card { padding: 1rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); transition: all 0.2s; }
+        .tool-card:hover { border-color: var(--accent); }
+        .tool-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; }
+        .tool-stars { color: var(--severity-medium); }
+        .tool-lang { color: var(--accent); }
+        .tool-meta { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.4rem; font-family: "JetBrains Mono", monospace; }
 
-        .video-info { padding: 1rem; }
-        .video-title {
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-        .video-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.75rem;
-            font-family: "JetBrains Mono", monospace;
-        }
-        .video-channel { color: var(--text-muted); }
-        .video-external {
-            color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.15s;
-        }
-        .video-external:hover { opacity: 0.7; }
+        /* Bug Bounty */
+        .bounty-program { color: var(--text-muted); }
+        .bounty-amount { color: var(--severity-medium); font-weight: 700; }
+        .vuln-type { font-size: 0.75rem; color: var(--accent); font-family: "JetBrains Mono", monospace; margin-top: 0.3rem; }
 
-        /* Tools Section */
-        .tool-card .tool-header {
-            display: flex; gap: 0.5rem; margin-bottom: 0.5rem;
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.7rem;
-        }
-        .tool-stars { color: var(--accent); font-weight: 700; }
-        .tool-lang { color: var(--text-muted); }
-        .tool-meta {
-            margin-top: 0.75rem;
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.7rem;
-            color: var(--text-dim);
-        }
+        /* Exploit-DB */
+        .exploit-type { padding: 0.1rem 0.4rem; border-radius: 3px; background: var(--severity-critical); color: white; font-size: 0.6rem; }
+        .exploit-platform { color: var(--text-muted); font-size: 0.7rem; }
+
+        /* CTF Grid */
+        .ctf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; }
+        .ctf-card { padding: 0.75rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); }
+        .ctf-header { display: flex; justify-content: space-between; margin-bottom: 0.3rem; font-family: "JetBrains Mono", monospace; font-size: 0.65rem; }
+        .ctf-format { color: var(--accent); text-transform: uppercase; }
+        .ctf-weight { color: var(--text-dim); }
+        .ctf-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .ctf-meta { font-size: 0.7rem; color: var(--text-muted); display: flex; gap: 0.5rem; margin-bottom: 0.4rem; font-family: "JetBrains Mono", monospace; }
+        .ctf-link { font-size: 0.7rem; color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; margin-right: 0.5rem; }
+
+        /* Podcast Grid */
+        .podcast-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+        .podcast-card { padding: 0.75rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); }
+        .podcast-name { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--accent); margin-bottom: 0.3rem; }
+        .podcast-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .podcast-meta { font-size: 0.7rem; color: var(--text-muted); }
+        .podcast-duration { font-family: "JetBrains Mono", monospace; }
+        .podcast-link { font-size: 0.7rem; color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; }
+
+        /* Reddit / Community */
+        .reddit-card .article-header { gap: 0.75rem; }
+        .reddit-score { color: var(--severity-high); font-weight: 700; }
+        .reddit-sub { color: var(--accent); }
+        .reddit-comments { color: var(--text-muted); }
+
+        /* History Section */
+        .history-card { padding: 1.25rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); border-left: 3px solid var(--accent); }
+        .history-year { font-family: "JetBrains Mono", monospace; font-size: 1.5rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
+        .history-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .history-description { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+        /* Audio Briefing */
+        .audio-controls { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
+        .audio-btn { display: flex; align-items: center; gap: 0.3rem; }
+
+        /* Archive Browser */
+        .archive-section { padding: 2rem 0; border-top: 1px solid var(--border-main); }
+        .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; margin-top: 1rem; }
+        .archive-link { padding: 0.5rem; border: 1px solid var(--border-main); border-radius: 4px; text-align: center; text-decoration: none; color: var(--text-muted); font-family: "JetBrains Mono", monospace; font-size: 0.7rem; transition: all 0.2s; }
+        .archive-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
 
         /* Footer */
-        footer {
-            margin-top: 4rem;
-            border-top: 2px solid var(--border-main);
-            padding: 3rem 0;
-            text-align: center;
-        }
-        .footer-logo { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .site-footer { padding: 2rem 0; border-top: 1px solid var(--border-main); text-align: center; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
 
-        /* Scroll to Top */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem; right: 2rem;
-            width: 2.5rem; height: 2.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-accent);
-            color: var(--accent);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem;
-            opacity: 0; visibility: hidden;
-            transition: all 0.2s;
-            z-index: 100;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .scroll-top.visible { opacity: 1; visibility: visible; }
-        .scroll-top:hover { background: var(--accent); color: #000; }
+        /* Keyboard Shortcut Overlay */
+        .shortcuts-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center; }
+        .shortcuts-overlay.visible { display: flex; }
+        .shortcuts-content { background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 2rem; max-width: 400px; width: 90%; }
+        .shortcut-row { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border-main); font-size: 0.8rem; }
+        .shortcut-key { font-family: "JetBrains Mono", monospace; color: var(--accent); background: var(--bg-elevated); padding: 0.1rem 0.4rem; border-radius: 3px; }
 
-        /* Modal */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 1000;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.2s, visibility 0.2s;
-        }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
+        /* Scroll to top */
+        .scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #000; border: none; cursor: pointer; font-size: 1.2rem; display: none; align-items: center; justify-content: center; z-index: 90; transition: opacity 0.3s; }
+        .scroll-top.visible { display: flex; }
 
-        .modal-content {
-            border: 1px solid var(--border-accent);
-            background: var(--bg-page);
-            padding: 2.5rem;
-            max-width: 44rem; width: 90%;
-            border-radius: 8px;
-            position: relative;
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 2rem; align-items: center;
-        }
-
-        .modal-close {
-            position: absolute; top: 1rem; right: 1.5rem;
-            background: none; border: none;
-            color: var(--text-main); font-size: 2rem;
-            cursor: pointer;
-        }
-
-        .author-photo {
-            width: 100%; height: auto;
-            border: 1px solid var(--border-main);
-            border-radius: 4px;
-            filter: grayscale(80%);
-            transition: filter 0.3s;
-        }
-        .author-photo:hover { filter: grayscale(0%); }
-
-        .author-name { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .author-bio { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-
-        .social-links {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
-        }
-        .social-btn {
-            display: block; text-decoration: none;
-            color: var(--text-main);
-            border: 1px solid var(--border-accent);
-            padding: 0.6rem;
-            text-align: center;
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            border-radius: 3px;
-            transition: all 0.15s;
-        }
-        .social-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
-
-        /* Hidden articles (filtered out) */
-        .article.hidden, .category.hidden, .video-card.hidden { display: none; }
-
-        /* Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            .container { padding: 0 1rem; }
-            header { padding: 2rem 0 1.5rem; }
-            .logo { font-size: 2rem; }
-            .header-top { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            .header-stats { flex-wrap: wrap; gap: 0.75rem; }
-            .category-title { font-size: 1.4rem; }
-            .article { padding: 1.2rem; }
-            .article-title { font-size: 1.1rem; }
+            .site-title { font-size: 1.4rem; }
             .videos-grid { grid-template-columns: 1fr; }
-            .modal-content { grid-template-columns: 1fr; text-align: center; padding: 2rem 1.5rem; }
+            .tools-grid, .ctf-grid, .podcast-grid { grid-template-columns: 1fr; }
             .filter-bar { flex-direction: column; }
-            .filter-bar input[type="search"] { min-width: unset; width: 100%; }
-        }
-
-        /* Print */
-        @media print {
-            .progress-bar, .scroll-top, .filter-bar, .category-nav, .header-actions { display: none; }
-            .article { break-inside: avoid; }
+            .nav-bar { top: 3px; }
         }
     </style>
 </head>
@@ -515,201 +290,330 @@
 <body>
     <div class="progress-bar" id="progress-bar"></div>
 
+    <!-- Threat Level Banner -->
+    <div class="threat-banner" id="threat-banner">
+        <span id="threat-level" class="threat-level threat-LOW">THREAT LEVEL:</span>
+        <span id="threat-level-text">LOW</span>
+        <span style="margin-left: 1rem; opacity: 0.7;">|</span>
+        <span style="margin-left: 1rem;"><span id="article-count">0</span> articles</span>
+        <span style="margin-left: 0.5rem;">•</span>
+        <span style="margin-left: 0.5rem;"><span id="critical-count">0</span> critical</span>
+    </div>
+
     <div class="container">
-        <header>
+        <!-- Header -->
+        <header class="site-header">
             <div class="header-top">
-                <h1 class="logo">Pwnspectrum</h1>
-                <div class="header-actions">
-                    <button class="action-btn" id="about-btn">About</button>
-                    <button class="action-btn" id="theme-toggle">Light</button>
+                <h1 class="site-title">pwn<span>spectrum</span></h1>
+                <div class="header-controls">
+                    <div class="view-toggle">
+                        <button class="btn active" id="btn-deep" onclick="setViewMode('deep')">Deep Dive</button>
+                        <button class="btn" id="btn-tldr" onclick="setViewMode('tldr')">TL;DR</button>
+                    </div>
+                    <button class="btn" id="audio-btn" onclick="toggleAudioBriefing()" title="Listen to briefing">🔊</button>
+                    <button class="btn" id="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◑</button>
+                    <button class="btn" onclick="showShortcuts()" title="Keyboard shortcuts">?</button>
                 </div>
             </div>
-            <div class="header-meta mono">
-                <div class="header-stats">
-                    <span>Issue: <strong id="timestamp"></strong></span>
-                    <span id="article-count"></span>
-                </div>
+            <div class="header-stats">
+                <span>Generated: <span class="stat-value" id="timestamp">--</span></span>
+            </div>
+            <!-- Audio briefing controls -->
+            <div class="audio-controls" id="audio-controls" style="display:none;">
+                <button class="btn audio-btn" onclick="pauseAudio()">⏸ Pause</button>
+                <button class="btn audio-btn" onclick="stopAudio()">⏹ Stop</button>
+                <span class="mono" style="font-size:0.7rem; color:var(--text-muted);" id="audio-status">Reading...</span>
             </div>
         </header>
 
-        <!-- Category Quick Nav -->
-        <nav class="category-nav" id="category-nav"></nav>
-
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-            <input type="search" id="search-input" placeholder="Search articles... (press / to focus)" autocomplete="off">
-            <div class="severity-filter">
-                <button data-severity="all" class="active">All</button>
-                <button data-severity="Critical">Critical</button>
-                <button data-severity="High">High</button>
-                <button data-severity="Medium">Medium</button>
-            </div>
-        </div>
-
-        <!-- Greeting -->
-        <div class="greeting" id="greeting"></div>
-
-        <!-- Newsletter Content -->
-        <div id="newsletter-content">
-            <!-- Content will be injected here -->
-        </div>
-    </div>
-
-    <!-- About Modal -->
-    <div class="modal-overlay" id="about-modal">
-        <div class="modal-content">
-            <button class="modal-close" id="close-modal">&times;</button>
-            <div class="modal-image">
-                <img src="me/anmol-singh-yadav.png" alt="Anmol Singh Yadav" class="author-photo">
-            </div>
-            <div class="modal-info">
-                <h4 class="author-name">Anmol Singh Yadav</h4>
-                <p class="author-bio">Security researcher building automated intelligence pipelines. This daily brief is powered by custom ML scoring, RSS aggregation, and local LLMs.</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" class="social-btn">LinkedIn</a>
-                    <a href="https://github.com/IamLucif3r" target="_blank" class="social-btn">GitHub</a>
-                    <a href="https://medium.com/@IamLucif3r" target="_blank" class="social-btn">Medium</a>
-                    <a href="https://x.com/iamlucif3r_" target="_blank" class="social-btn">X (Twitter)</a>
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="nav-inner">
+                <div class="category-nav" id="category-nav">
+                    <a href="#" class="nav-link active" data-filter="all">All</a>
+                    <!-- Dynamically populated -->
                 </div>
             </div>
+            <div class="filter-bar">
+                <input type="text" class="search-input" id="search-input" placeholder="Search articles... (press / to focus)">
+                <div class="severity-filters">
+                    <button class="btn active" data-severity="all">All</button>
+                    <button class="btn" data-severity="Critical" style="border-color: var(--severity-critical);">Critical</button>
+                    <button class="btn" data-severity="High" style="border-color: var(--severity-high);">High</button>
+                    <button class="btn" data-severity="Medium" style="border-color: var(--severity-medium);">Medium</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Greeting -->
+        <section style="padding: 1.5rem 0; border-bottom: 1px solid var(--border-main);">
+            <div id="greeting" style="font-size: 1rem; line-height: 1.6;"></div>
+        </section>
+
+        <!-- Newsletter Content (injected by SARJAN) -->
+        <div id="newsletter-content">
+            <!-- Content injected here -->
+        </div>
+
+        <!-- Archive Section -->
+        <section class="archive-section">
+            <h2 class="category-title"><span class="category-number">[📂]</span> ARCHIVE</h2>
+            <div class="archive-grid" id="archive-grid">
+                <!-- Populated by JS scanning archive/ directory -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/iamlucif3r" target="_blank">LinkedIn</a>
+                <a href="https://github.com/iamlucif3r" target="_blank">GitHub</a>
+                <a href="https://medium.com/@iamlucif3r" target="_blank">Medium</a>
+                <a href="https://twitter.com/iamlucif3r" target="_blank">Twitter/X</a>
+            </div>
+            <p>Built by <a href="https://github.com/iamlucif3r" style="color:var(--accent);">@iamlucif3r</a> — Powered by SARJAN + TRIKAL</p>
+            <p style="margin-top:0.5rem; opacity:0.5;">Press ? for keyboard shortcuts</p>
+        </footer>
+    </div>
+
+    <!-- Scroll to top -->
+    <button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- Keyboard Shortcuts Overlay -->
+    <div class="shortcuts-overlay" id="shortcuts-overlay" onclick="hideShortcuts()">
+        <div class="shortcuts-content" onclick="event.stopPropagation()">
+            <h3 style="margin-bottom:1rem;">Keyboard Shortcuts</h3>
+            <div class="shortcut-row"><span>Focus search</span><span class="shortcut-key">/</span></div>
+            <div class="shortcut-row"><span>Next article</span><span class="shortcut-key">j</span></div>
+            <div class="shortcut-row"><span>Previous article</span><span class="shortcut-key">k</span></div>
+            <div class="shortcut-row"><span>Open article link</span><span class="shortcut-key">Enter</span></div>
+            <div class="shortcut-row"><span>Toggle TL;DR mode</span><span class="shortcut-key">t</span></div>
+            <div class="shortcut-row"><span>Toggle theme</span><span class="shortcut-key">d</span></div>
+            <div class="shortcut-row"><span>Listen to briefing</span><span class="shortcut-key">a</span></div>
+            <div class="shortcut-row"><span>Close overlay</span><span class="shortcut-key">Esc</span></div>
+            <div class="shortcut-row"><span>Show shortcuts</span><span class="shortcut-key">?</span></div>
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-logo mono">PWNSPECTRUM</div>
-            <p class="mono" style="font-size: 0.8rem; color: var(--text-muted);">Daily Cybersecurity Intelligence</p>
-            <p class="mono" style="font-size: 0.7rem; margin-top: 1rem; color: var(--text-dim);">
-                &copy; <span id="current-year"></span> Anmol Singh Yadav
-            </p>
-        </div>
-    </footer>
-
-    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
-
     <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // === Theme ===
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
 
-        // Reading Progress Bar
+        // === View Mode (TL;DR / Deep Dive) ===
+        function setViewMode(mode) {
+            if (mode === 'tldr') {
+                document.body.classList.add('tldr-mode');
+                document.getElementById('btn-tldr').classList.add('active');
+                document.getElementById('btn-deep').classList.remove('active');
+            } else {
+                document.body.classList.remove('tldr-mode');
+                document.getElementById('btn-deep').classList.add('active');
+                document.getElementById('btn-tldr').classList.remove('active');
+            }
+            localStorage.setItem('viewMode', mode);
+        }
+        if (localStorage.getItem('viewMode') === 'tldr') setViewMode('tldr');
+
+        // === Reading Progress ===
         window.addEventListener('scroll', () => {
-            const winH = document.documentElement.scrollHeight - window.innerHeight;
-            const pct = winH > 0 ? (window.scrollY / winH) * 100 : 0;
-            document.getElementById('progress-bar').style.width = pct + '%';
+            const scrollTop = document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            // Show/hide scroll-to-top
+            document.getElementById('scroll-top').classList.toggle('visible', scrollTop > 500);
         });
 
-        // Theme Toggle
-        const themeBtn = document.getElementById('theme-toggle');
-        function setTheme(isLight) {
-            document.body.classList.toggle('light-theme', isLight);
-            themeBtn.textContent = isLight ? 'Dark' : 'Light';
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
-        }
-        const saved = localStorage.getItem('theme');
-        if (saved === 'light' || (!saved && window.matchMedia('(prefers-color-scheme: light)').matches)) setTheme(true);
-        themeBtn.addEventListener('click', () => setTheme(!document.body.classList.contains('light-theme')));
+        // === Search ===
+        document.getElementById('search-input').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            document.querySelectorAll('.article').forEach(article => {
+                const text = article.textContent.toLowerCase();
+                article.style.display = text.includes(query) || query === '' ? '' : 'none';
+            });
+        });
 
-        // Scroll to Top
-        const scrollBtn = document.getElementById('scroll-top');
-        window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 400));
-        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        // === Severity Filter ===
+        document.querySelectorAll('.severity-filters .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.severity-filters .btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const severity = this.dataset.severity;
+                document.querySelectorAll('.article').forEach(article => {
+                    if (severity === 'all' || article.dataset.severity === severity) {
+                        article.style.display = '';
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+            });
+        });
 
-        // Modal
-        const aboutBtn = document.getElementById('about-btn');
-        const modal = document.getElementById('about-modal');
-        const closeModal = document.getElementById('close-modal');
-        aboutBtn.addEventListener('click', () => { modal.classList.add('active'); document.body.style.overflow = 'hidden'; });
-        closeModal.addEventListener('click', () => { modal.classList.remove('active'); document.body.style.overflow = ''; });
-        modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
+        // === Video Tab Filtering ===
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('video-tab')) {
+                document.querySelectorAll('.video-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                const filter = e.target.dataset.filter;
+                document.querySelectorAll('.video-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.type === filter) {
+                        card.removeAttribute('hidden');
+                    } else {
+                        card.setAttribute('hidden', '');
+                    }
+                });
+            }
+        });
 
-        // Build Category Nav + Article Count
-        function initDynamicUI() {
-            const categories = document.querySelectorAll('.category');
+        // === Category Nav (auto-populate) ===
+        function initCategoryNav() {
             const nav = document.getElementById('category-nav');
-            const articles = document.querySelectorAll('.article');
-
-            document.getElementById('article-count').textContent = articles.length + ' articles';
-
-            categories.forEach((cat) => {
-                const title = cat.querySelector('.category-title');
-                if (!title) return;
-                const name = title.textContent.replace(/\[0x[0-9a-f]+\]/i, '').trim();
-                const btn = document.createElement('a');
-                btn.className = 'category-nav-item';
-                btn.href = '#';
-                btn.textContent = name;
-                btn.addEventListener('click', (e) => {
+            const categories = document.querySelectorAll('.category[data-category]');
+            categories.forEach(cat => {
+                const name = cat.dataset.category;
+                const link = document.createElement('a');
+                link.href = '#';
+                link.className = 'nav-link';
+                link.textContent = name;
+                link.addEventListener('click', (e) => {
                     e.preventDefault();
                     cat.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
-                nav.appendChild(btn);
+                nav.appendChild(link);
             });
-        }
-
-        // Search & Filter
-        function initFilters() {
-            const searchInput = document.getElementById('search-input');
-            const severityBtns = document.querySelectorAll('.severity-filter button');
-            let activeSeverity = 'all';
-
-            function applyFilters() {
-                const query = searchInput.value.toLowerCase().trim();
-                const articles = document.querySelectorAll('.article');
-                const categories = document.querySelectorAll('.category');
-
-                articles.forEach(article => {
-                    const text = article.textContent.toLowerCase();
-                    const severity = article.dataset.severity || '';
-                    const matchesSearch = !query || text.includes(query);
-                    const matchesSeverity = activeSeverity === 'all' || severity === activeSeverity;
-                    article.classList.toggle('hidden', !(matchesSearch && matchesSeverity));
-                });
-
-                categories.forEach(cat => {
-                    const visibleArticles = cat.querySelectorAll('.article:not(.hidden)');
-                    cat.classList.toggle('hidden', visibleArticles.length === 0);
-                });
-            }
-
-            searchInput.addEventListener('input', applyFilters);
-
-            severityBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    severityBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    activeSeverity = btn.dataset.severity;
-                    applyFilters();
-                });
-            });
-
-            // Keyboard shortcut: / to focus search
-            document.addEventListener('keydown', (e) => {
-                if (e.key === '/' && document.activeElement !== searchInput) {
-                    e.preventDefault();
-                    searchInput.focus();
+            // Add special sections
+            ['videos-section', 'tools-section', 'bounty-section', 'ctf-section', 'community-section'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const link = document.createElement('a');
+                    link.href = '#' + id;
+                    link.className = 'nav-link';
+                    link.textContent = id.replace('-section', '').replace('-', ' ').toUpperCase();
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                    nav.appendChild(link);
                 }
             });
         }
 
-        // Initialize after content loads
-        const observer = new MutationObserver(() => {
-            const articles = document.querySelectorAll('.article');
-            if (articles.length > 0) {
-                initDynamicUI();
-                initFilters();
-                observer.disconnect();
-            }
-        });
-        const contentNode = document.getElementById('newsletter-content');
-        if (contentNode) {
-            observer.observe(contentNode, { childList: true, subtree: true });
-            if (contentNode.children.length > 0) {
-                initDynamicUI();
-                initFilters();
-                observer.disconnect();
+        // === Audio Briefing (Browser SpeechSynthesis) ===
+        let speechUtterance = null;
+        function toggleAudioBriefing() {
+            if (speechSynthesis.speaking) { stopAudio(); return; }
+            const greeting = document.getElementById('greeting')?.textContent || '';
+            const articles = [];
+            document.querySelectorAll('.article-title').forEach((el, i) => {
+                if (i < 8) articles.push(el.textContent);
+            });
+            const text = `Today's PwnSpectrum Intelligence Briefing. ${greeting}. Top stories: ${articles.join('. Next: ')}. That's your briefing for today.`;
+            speechUtterance = new SpeechSynthesisUtterance(text);
+            speechUtterance.rate = 0.95;
+            speechUtterance.pitch = 0.9;
+            speechUtterance.onend = () => { document.getElementById('audio-controls').style.display = 'none'; };
+            speechSynthesis.speak(speechUtterance);
+            document.getElementById('audio-controls').style.display = 'flex';
+            document.getElementById('audio-status').textContent = 'Reading briefing...';
+        }
+        function pauseAudio() {
+            if (speechSynthesis.paused) { speechSynthesis.resume(); document.getElementById('audio-status').textContent = 'Reading...'; }
+            else { speechSynthesis.pause(); document.getElementById('audio-status').textContent = 'Paused'; }
+        }
+        function stopAudio() { speechSynthesis.cancel(); document.getElementById('audio-controls').style.display = 'none'; }
+
+        // === Keyboard Navigation ===
+        let currentArticleIndex = -1;
+        function getVisibleArticles() { return [...document.querySelectorAll('.article:not([style*="display: none"])')]; }
+        function highlightArticle(index) {
+            const articles = getVisibleArticles();
+            articles.forEach(a => a.style.outline = '');
+            if (index >= 0 && index < articles.length) {
+                articles[index].style.outline = '2px solid var(--accent)';
+                articles[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                if (e.key === 'Escape') { e.target.blur(); }
+                return;
+            }
+            switch (e.key) {
+                case '/': e.preventDefault(); document.getElementById('search-input').focus(); break;
+                case 'j': currentArticleIndex = Math.min(currentArticleIndex + 1, getVisibleArticles().length - 1); highlightArticle(currentArticleIndex); break;
+                case 'k': currentArticleIndex = Math.max(currentArticleIndex - 1, 0); highlightArticle(currentArticleIndex); break;
+                case 'Enter':
+                    const articles = getVisibleArticles();
+                    if (currentArticleIndex >= 0 && currentArticleIndex < articles.length) {
+                        const link = articles[currentArticleIndex].querySelector('a');
+                        if (link) window.open(link.href, '_blank');
+                    }
+                    break;
+                case 't': setViewMode(document.body.classList.contains('tldr-mode') ? 'deep' : 'tldr'); break;
+                case 'd': toggleTheme(); break;
+                case 'a': toggleAudioBriefing(); break;
+                case '?': showShortcuts(); break;
+                case 'Escape': hideShortcuts(); break;
+            }
+        });
+
+        // === Shortcuts Overlay ===
+        function showShortcuts() { document.getElementById('shortcuts-overlay').classList.add('visible'); }
+        function hideShortcuts() { document.getElementById('shortcuts-overlay').classList.remove('visible'); }
+
+        // === Archive Loader (GitHub Pages compatible) ===
+        function loadArchive() {
+            const grid = document.getElementById('archive-grid');
+            // For GitHub Pages, we generate a known list of archives
+            // This will be populated from the archive/ directory at build time
+            // For now, try fetching the archive index
+            fetch('archive/')
+                .then(r => r.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const links = doc.querySelectorAll('a[href$=".html"]');
+                    const archiveFiles = [];
+                    links.forEach(link => {
+                        const name = link.getAttribute('href');
+                        if (name && name.endsWith('.html')) archiveFiles.push(name);
+                    });
+                    // Sort newest first
+                    archiveFiles.sort().reverse();
+                    // Show last 30
+                    archiveFiles.slice(0, 30).forEach(file => {
+                        const match = file.match(/(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})/);
+                        let label = file;
+                        if (match) {
+                            label = `${match[1]}-${match[2]}-${match[3]} ${match[4]}:${match[5]}`;
+                        }
+                        const a = document.createElement('a');
+                        a.href = 'archive/' + file;
+                        a.className = 'archive-link';
+                        a.textContent = label;
+                        grid.appendChild(a);
+                    });
+                })
+                .catch(() => {
+                    grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">Archive loading from GitHub Pages directory listing.</p>';
+                });
+        }
+
+        // === Init on DOM Ready ===
+        function init() {
+            initCategoryNav();
+            loadArchive();
+        }
+        if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+        else { init(); }
+        // Also observe for dynamically injected content
+        const observer = new MutationObserver(() => { initCategoryNav(); });
+        observer.observe(document.getElementById('newsletter-content') || document.body, { childList: true, subtree: true });
     </script>
 </body>
-
 </html>
