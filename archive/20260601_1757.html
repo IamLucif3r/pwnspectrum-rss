@@ -340,8 +340,8 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "19 articles • 4 CVEs (4 critical) • top signal: 🚨 CRITICAL EXPLOITS \u0026 VULNERABILITY WATCH";
-    document.getElementById('timestamp').textContent = "01 Jun 2026, 17:59 UTC";
+    document.getElementById('greeting').innerHTML = "27 articles • 5 CVEs (5 critical) • top signal: 🔴 CRITICAL \u0026 ACTIVE EXPLOITATION VULNERABILITIES";
+    document.getElementById('timestamp').textContent = "01 Jun 2026, 05:05 UTC";
 </script>
 
 
@@ -354,23 +354,34 @@
     
     <details class="cve-card cve-CRITICAL">
         <summary class="cve-header">
-            <span class="cve-id">CVE-2024-21182</span>
-            <span class="cvss-badge">CVSS 9.0</span>
+            <span class="cve-id">CVE-2026-8732</span>
+            <span class="cvss-badge">CVSS 9.8</span>
             <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Oracle WebLogic Server</span>
+            <span class="cve-product">Multiple Products</span>
         </summary>
-        <div class="cve-description">Oracle WebLogic contains an unspecified vulnerability that could allow an unauthenticated attacker with network access via T3, IIOP to compromise Oracle WebLogic Server. Successful attacks of this vulnerability can result in unauthorized access to critical data or complete access to all Oracle WebLogic Server accessible data.</div>
-        <span class="kev-badge">CISA KEV</span>
+        <div class="cve-description">The WP Maps Pro plugin for WordPress is vulnerable to Privilege Escalation via Administrator Account Creation in all versions up to, and including, 6.1.0. This is due to the wpgmp_temp_access_ajax ...</div>
+        
     </details>
     
     <details class="cve-card cve-CRITICAL">
         <summary class="cve-header">
-            <span class="cve-id">CVE-2026-45700</span>
+            <span class="cve-id">CVE-2026-3655</span>
             <span class="cvss-badge">CVSS 9.8</span>
             <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Freerdp Freerdp</span>
+            <span class="cve-product">Multiple Products</span>
         </summary>
-        <div class="cve-description">FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to 3.26.0, FreeRDP&#39;s planar bitmap decoder has an out-of-bounds heap write when decoding RLE planar data. In libfreerdp/codec/...</div>
+        <div class="cve-description">The OTP Login With Phone Number, OTP Verification plugin for WordPress is vulnerable to authentication bypass in versions 1.8.50 through 1.8.60. This is due to the Firebase verification flow in the...</div>
+        
+    </details>
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-10071</span>
+            <span class="cvss-badge">CVSS 9.8</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Multiple Products</span>
+        </summary>
+        <div class="cve-description">DreamMaker developed by Interinfo has an Arbitrary File Upload vulnerability, allowing unauthenticated remote attackers to upload and execute web shell backdoors, thereby enabling arbitrary code ex...</div>
         
     </details>
     
@@ -401,75 +412,23 @@
 
 
 
-<section class="category" data-index="0" data-category="🚨 CRITICAL EXPLOITS &amp; VULNERABILITY WATCH">
+<section class="category" data-index="0" data-category="🔴 CRITICAL &amp; ACTIVE EXPLOITATION VULNERABILITIES">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        🚨 CRITICAL EXPLOITS &amp; VULNERABILITY WATCH
+        🔴 CRITICAL &amp; ACTIVE EXPLOITATION VULNERABILITIES
     </h2>
     
     
     <article class="article" data-severity="Critical">
-        <a href="https://gbhackers.com/windows-netlogon-0-click-rce-vulnerability/" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-41089</span>
-                <span class="article-source">https://www.gbhackers.com/feed/</span>
-                <span class="article-date">01 Jun 2026</span>
-            </div>
-            <div class="article-title">Windows Netlogon RCE (CVE-2026-41089) Under Active Exploitation</div>
-            <div class="article-commentary">A critical vulnerability exists in Windows Netlogon, allowing unauthenticated remote code execution (RCE). The exploit is actively observed in the wild. Affected entities must immediately review and patch systems vulnerable to Netlogon flaws and implement network segmentation to limit lateral movement.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.bleepingcomputer.com/news/security/palo-alto-globalprotect-vpn-auth-bypass-flaw-now-exploited-in-attacks/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://gbhackers.com/palo-alto-pan-os-authentication-bypass/" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
                 <span class="cve-badge">CVE-2026-0257</span>
-                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-source">https://www.gbhackers.com/feed/</span>
                 <span class="article-date">30 May 2026</span>
             </div>
-            <div class="article-title">Palo Alto GlobalProtect Authentication Bypass (CVE-2026-0257) Exploited in Attacks</div>
-            <div class="article-commentary">Attackers are exploiting a known authentication bypass flaw in Palo Alto Networks&amp;#39; GlobalProtect VPN. This flaw enables unauthorized access to corporate networks. Organizations utilizing GlobalProtect must apply vendor patches promptly and review all VPN access policies for least privilege enforcement.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.darkreading.com/vulnerabilities-threats/microsoft-exchange-zero-day-no-patch" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-42897</span>
-                <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">01 Jun 2026</span>
-            </div>
-            <div class="article-title">Microsoft Exchange OWA XSS Vulnerability (CVE-2026-42897)</div>
-            <div class="article-commentary">A zero-day Cross-Site Scripting (XSS) vulnerability was found in Microsoft Exchange&amp;#39;s Outlook Web Access (OWA). Exploitation can lead to the compromise of user mailboxes. Affected tenants should monitor for unusual login activity and apply vendor security patches immediately upon release.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://gbhackers.com/critical-plesk-vulnerability/" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-44962</span>
-                <span class="article-source">https://www.gbhackers.com/feed/</span>
-                <span class="article-date">01 Jun 2026</span>
-            </div>
-            <div class="article-title">Critical Command Execution Flaw in Plesk (CVE-2026-44962)</div>
-            <div class="article-commentary">A critical vulnerability in Plesk affects Linux deployments, allowing low-privileged users to execute arbitrary system commands. This flaw requires patching for all affected Plesk installations. Users should restrict SSH access and apply vendor updates without delay.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://thehackernews.com/2026/06/critical-wp-maps-pro-flaw-actively.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
-                <span class="article-date">01 Jun 2026</span>
-            </div>
-            <div class="article-title">WP Maps Pro Flaw Exploitation for Malicious Account Creation</div>
-            <div class="article-commentary">Threat actors are actively exploiting a critical flaw in the WP Maps Pro WordPress plugin. The vulnerability allows attackers to create malicious administrator accounts on susceptible websites. Site owners using this plugin must update to the latest patch or temporarily restrict user permissions.</div>
+            <div class="article-title">PAN-OS Authentication Bypass Vulnerability (CVE-2026-0257) Under Active Exploitation</div>
+            <div class="article-commentary">A critical authentication-bypass vulnerability affecting Palo Alto Networks PAN-OS and Prisma Access is being actively exploited by threat actors. Organizations utilizing these platforms must immediately apply the relevant vendor patches and review access controls. CISA has added this flaw to the KEV catalog, mandating immediate attention.</div>
         </a>
     </article>
     
@@ -482,18 +441,35 @@
                 <span class="article-date">30 May 2026</span>
             </div>
             <div class="article-title">PAN-OS GlobalProtect Authentication Bypass (CVE-2026-0257) Under Active Exploitation</div>
-            <div class="article-commentary">This advisory confirms active exploitation of the authentication bypass flaw in PAN-OS GlobalProtect. Organizations must treat this as a critical threat. Immediate patching of PAN-OS and Prisma Access components is mandatory, followed by review of all perimeter access controls.</div>
+            <div class="article-commentary">Palo Alto Networks has issued alerts regarding a medium-severity authentication bypass flaw (CVE-2026-0257) in PAN-OS and Prisma Access. This vulnerability enables unauthorized access to the network infrastructure. Affected entities must upgrade to the patched versions and implement MFA across all GlobalProtect endpoints.</div>
         </a>
     </article>
     
-</section>
-
-<section class="category" data-index="1" data-category="⚙️ VULNERABILITY DISCLOSURE &amp; SUPPLY CHAIN RISKS">
-    <h2 class="category-title">
-        <span class="category-number">[0x02]</span>
-        ⚙️ VULNERABILITY DISCLOSURE &amp; SUPPLY CHAIN RISKS
-    </h2>
+    <article class="article" data-severity="Critical">
+        <a href="https://www.bleepingcomputer.com/news/security/wp-maps-pro-bug-exploited-to-create-admin-accounts-on-wordpress-sites/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-date">31 May 2026</span>
+            </div>
+            <div class="article-title">WP Maps Pro Plugin Flaw Allows Unauthenticated Admin Account Creation</div>
+            <div class="article-commentary">Hackers are exploiting a vulnerability in the WP Maps Pro plugin for WordPress, allowing the creation of rogue administrator accounts without authentication. Website administrators should update the plugin to the latest stable version and ensure strong role-based access controls are enforced.</div>
+        </a>
+    </article>
     
+    <article class="article" data-severity="Critical">
+        <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-forticlient-ems-flaw-to-push-infostealer-malware/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-35616</span>
+                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-date">28 May 2026</span>
+            </div>
+            <div class="article-title">FortiClient EMS Flaw Exploited to Deliver Credential Stealer Malware</div>
+            <div class="article-commentary">Threat actors are exploiting an authentication bypass vulnerability (CVE-2026-35616) in FortiClient EMS to deliver an undocumented credential stealer (EKZ). Organizations must patch FortiClient EMS immediately and monitor for suspicious network traffic indicative of credential harvesting attempts.</div>
+        </a>
+    </article>
     
     <article class="article" data-severity="Critical">
         <a href="https://www.cisa.gov/news-events/alerts/2026/05/27/cisa-adds-three-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-title-link">
@@ -503,82 +479,130 @@
                 <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">CISA Adds New Vulnerabilities to Known Exploited Catalog</div>
-            <div class="article-commentary">CISA has added multiple new vulnerabilities to its KEV Catalog based on confirmed active exploitation. This serves as a high-fidelity indicator of risk. Defenders must cross-reference their asset inventory against the listed CVEs and prioritize patching/mitigation for these specific flaws.</div>
+            <div class="article-title">CISA Adds Three Vulnerabilities to Known Exploited Catalog</div>
+            <div class="article-commentary">CISA has expanded its Known Exploited Vulnerabilities (KEV) catalog by adding three new vulnerabilities. The addition signals confirmed, active exploitation in the wild. System owners should cross-reference these newly cataloged CVEs against their inventory and apply necessary mitigations.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://github.com/apache/airflow/pull/65348" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-41017</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">01 Jun 2026</span>
-            </div>
-            <div class="article-title">Apache Airflow JWT Cookie Flag Misconfiguration (CVE-2026-41017)</div>
-            <div class="article-commentary">Apache Airflow sets the JWT authentication cookie without the Secure flag. This creates a risk if the API server is behind an HTTPS-terminating reverse proxy. Implement security hardening by ensuring the &amp;#39;Secure&amp;#39; flag is enforced on all session and authentication cookies.</div>
-        </a>
-    </article>
+</section>
+
+<section class="category" data-index="1" data-category="🌐 SUPPLY CHAIN &amp; INFRASTRUCTURE COMPROMISE">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        🌐 SUPPLY CHAIN &amp; INFRASTRUCTURE COMPROMISE
+    </h2>
+    
     
     <article class="article" data-severity="Critical">
-        <a href="https://github.com/apache/airflow/pull/67289" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.cisa.gov/news-events/alerts/2026/05/28/supply-chain-compromises-impact-nx-console-and-github-repositories" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-48726</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">01 Jun 2026</span>
-            </div>
-            <div class="article-title">Apache Airflow JWT Token Persistence After Logout (CVE-2026-48726)</div>
-            <div class="article-commentary">A bug in Apache Airflow&amp;#39;s authentication managers allows previously issued JWT tokens to remain valid even after the user logs out. Custom configurations must verify the full token revocation lifecycle. Developers should ensure the logout function executes underlying `revoke_token()` calls.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/alerts/2026/04/20/supply-chain-compromise-impacts-axios-node-package-manager" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
+                <span class="cve-badge">CVE-2026-48027</span>
                 <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">Supply Chain Compromise Alert for Axios Node Package Manager</div>
-            <div class="article-commentary">CISA issued an alert regarding a software supply chain compromise affecting the Axios node package manager (npm). Organizations should review their dependencies for usage of Axios and ensure they are running patched versions to prevent inclusion of malicious code.</div>
+            <div class="article-title">Software Supply Chain Compromises Targeting CI/CD Pipelines (Nx Console/GitHub)</div>
+            <div class="article-commentary">CISA is issuing alerts regarding multiple supply chain intrusion campaigns targeting developer ecosystems and CI/CD pipelines. Incidents include malicious VS Code extensions and GitHub repository compromises. Developers must vet all third-party dependencies and secure development environments with least privilege access.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/supply-chain-attacks-hit-checkmarx-and-bitwarden-developer-tools" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.sophos.com/en-us/blog/github-internal-repositories-breached" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
                 
                 <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">Multiple Supply Chain Attacks Targeting Checkmarx and Bitwarden Tools</div>
-            <div class="article-commentary">Two separate supply chain attacks were observed on the same day against tools developed by Checkmarx and Bitwarden, utilizing a common C2 domain. Security teams must enhance software integrity checks, vet developer tooling, and monitor for suspicious dependency updates.</div>
+            <div class="article-title">GitHub Internal Repositories Breached via Malicious VS Code Extension</div>
+            <div class="article-commentary">Private GitHub repositories were breached through the use of a malicious VS Code extension, with stolen data reportedly sold on criminal forums. Development teams must implement strict vetting policies for all integrated tooling and regularly audit codebase access logs.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/strengthening-authentication-with-passkeys-a-ciso-playbook" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://thehackernews.com/2026/05/trapdoor-supply-chain-attack-spreads.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
                 
-                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
+                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
+                <span class="article-date">25 May 2026</span>
+            </div>
+            <div class="article-title">TrapDoor Attack: Credential-Stealing Malware Spreads via npm, PyPI, and CratesIO</div>
+            <div class="article-commentary">A coordinated cross-ecosystem campaign, codenamed TrapDoor, distributed credential-stealing malware across major package repositories (npm, PyPI, Crates.io). Organizations relying on these packages must audit their dependency trees, check package integrity, and consider repository pinning.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://gist.github.com/YLChen-007/f9d45a9c68b15a382677a820ee881bbb" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-10210</span>
+                <span class="article-source">NVD</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">CISO Playbook for Strengthening Authentication with Passkeys</div>
-            <div class="article-commentary">Passkeys offer a strong method for modernizing authentication, mitigating password-based attacks. CISOs should adopt a phased rollout plan, integrating passkey support across key enterprise applications, and educating staff on the secure implementation process.</div>
+            <div class="article-title">AstrBotDevs Vulnerability in AstrBot 4.23.6 Enables Remote Injection</div>
+            <div class="article-commentary">A vulnerability was identified in the AstrBotDevs AstrBot 4.23.6 version, allowing remote code injection through the `_sanitize_prompt_description` function. Users of AstrBotDevs software must update their installations immediately to patch this specific input validation flaw.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://gist.github.com/YLChen-007/91a7f955143099e1747424707dfad0f9" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-10212</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">01 Jun 2026</span>
+            </div>
+            <div class="article-title">AstrBotDevs Vulnerability in AstrBot 4.24.2 Allows Remote Authorization Bypass</div>
+            <div class="article-commentary">A second vulnerability was identified in AstrBotDevs AstrBot 4.24.2, allowing unauthorized authorization bypass via manipulation of the `session_id` argument. System owners must apply vendor patches immediately and restrict access to the affected functions.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://gbhackers.com/threat-actors-use-chatgpt-and-google-gemini-to-scale-cyberattack-operations/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.gbhackers.com/feed/</span>
+                <span class="article-date">29 May 2026</span>
+            </div>
+            <div class="article-title">Threat Actors Leveraging Generative AI (ChatGPT/Gemini) for Attack Scaling</div>
+            <div class="article-commentary">Threat actors are increasingly utilizing generative AI tools (ChatGPT, Google Gemini) to lower the technical barrier for launching sophisticated attacks. Security teams must enhance threat detection capabilities to identify AI-assisted payloads and monitor for unusual operational patterns.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.csoonline.com/article/4178869/microsoft-and-security-researchers-dueling-posts-about-cybersecurity-disclosures-get-nasty.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-45585</span>
+                <span class="article-source">https://www.csoonline.com/feed</span>
+                <span class="article-date">29 May 2026</span>
+            </div>
+            <div class="article-title">Security Disclosure Disputes Between Microsoft and Researchers</div>
+            <div class="article-commentary">Disagreements over cybersecurity disclosure practices are emerging between major vendors and security researchers. This highlights potential gaps in timely vulnerability communication and patching coordination. Organizations should maintain continuous monitoring of vendor advisories for transparency gaps.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.malwarebytes.com/blog/news/2026/05/fake-malware-signing-service-fox-tempest-dismantled-by-microsoft" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
+                <span class="article-date">01 Jun 2026</span>
+            </div>
+            <div class="article-title">Microsoft Dismantles Fake Malware-Signing Service Fox Tempest</div>
+            <div class="article-commentary">Microsoft dismantled a fraudulent service, Fox Tempest, which allowed attackers to sign malicious files with fake Microsoft-issued certificates. Users should remain vigilant against social engineering tactics and verify the legitimacy of all software updates and security credentials.</div>
         </a>
     </article>
     
 </section>
 
-<section class="category" data-index="2" data-category="🗺️ TTP &amp; OPERATIONAL THREAT INTELLIGENCE">
+<section class="category" data-index="2" data-category="🗄️ DETECTION, APT, AND THREAT LANDSCAPE ANALYSIS">
     <h2 class="category-title">
         <span class="category-number">[0x03]</span>
-        🗺️ TTP &amp; OPERATIONAL THREAT INTELLIGENCE
+        🗄️ DETECTION, APT, AND THREAT LANDSCAPE ANALYSIS
     </h2>
     
     
@@ -590,8 +614,8 @@
                 <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">PRC State Actors Target Global Critical Infrastructure for Espionage</div>
-            <div class="article-commentary">State-sponsored threat actors from the PRC are targeting global critical sectors, including telecommunications, government, transportation, and military infrastructure. Organizations must implement rigorous network segmentation, enhance threat visibility across IT/OT boundaries, and strengthen incident response capabilities against nation-state attacks.</div>
+            <div class="article-title">PRC State-Sponsored Actors Target Global Critical Infrastructure</div>
+            <div class="article-commentary">Chinese state-sponsored threat actors are conducting global espionage campaigns, targeting critical infrastructure sectors including government, telecommunications, and transportation. Organizations operating in these sectors must implement robust network segmentation, enhanced monitoring, and incident response playbooks tailored to nation-state threats.</div>
         </a>
     </article>
     
@@ -603,21 +627,21 @@
                 <span class="article-source">https://www.csoonline.com/feed</span>
                 <span class="article-date">30 May 2026</span>
             </div>
-            <div class="article-title">Russia-Aligned Group Greyvibe Uses AI for Advanced Cyber Attacks</div>
-            <div class="article-commentary">Researchers report that the Russia-aligned threat group Greyvibe is extensively leveraging Artificial Intelligence (AI) within its attack techniques. Defense teams should upgrade behavioral analytics tools, enhance network traffic monitoring for AI-generated anomalies, and assume a high level of sophistication from adversaries.</div>
+            <div class="article-title">Russia-Aligned Group Greyvibe Uses AI to Enhance Attack Capabilities</div>
+            <div class="article-commentary">Researchers have identified that the Russia-aligned crime group Greyvibe is extensively integrating generative AI into its attack operations. This increases the sophistication and scale of attacks. Defenders must integrate AI detection tools into their SIEM and EDR platforms.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://www.malwarebytes.com/blog/news/2026/05/signal-users-targeted-in-backup-stealing-phishing-attacks" target="_blank" rel="noopener noreferrer" class="article-title-link">
+    <article class="article" data-severity="Medium">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="severity-badge severity-Medium">Medium</span>
                 
-                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
+                <span class="article-source">Unknown</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">Phishing Campaign Targets Signal Users to Steal Backup Recovery Keys</div>
-            <div class="article-commentary">Cybercriminals are impersonating Signal Support through targeted phishing campaigns to steal account backup recovery keys. Users should be educated to never provide recovery keys in response to unsolicited communications. MFA should be configured using methods that do not rely solely on easily obtainable recovery seeds.</div>
+            <div class="article-title">Signal Users Targeted in Backup-Stealing Phishing Campaigns</div>
+            <div class="article-commentary">Cybercriminals are impersonating Signal Support via phishing emails to trick users into revealing their message backup recovery keys. Users should treat all unexpected support communications with extreme caution and never share recovery keys via email or messaging apps.</div>
         </a>
     </article>
     
@@ -629,8 +653,8 @@
                 <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">CISA Incident Response Lessons Learned: Federal Civilian Agency Engagement</div>
-            <div class="article-commentary">CISA conducted an incident response engagement at a U.S. federal civilian executive branch agency. This incident highlights the necessity of proactive threat hunting and rapid coordination across government and private sectors. Organizations should regularly tabletop test their incident response plans following real-world threat simulations.</div>
+            <div class="article-title">CISA Shares Lessons Learned from Incident Response Engagement</div>
+            <div class="article-commentary">CISA has released an advisory detailing lessons learned from a recent incident response engagement at a U.S. federal agency. This provides valuable insight into incident management procedures and threat detection methodologies. Organizations should review this guide to mature their internal IR frameworks.</div>
         </a>
     </article>
     
@@ -642,43 +666,108 @@
                 <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">Toolkit for Detecting Fraudulent North Korean Employment Attempts</div>
-            <div class="article-commentary">Security teams are advised of the risk posed by North Korean threat actors attempting to establish footholds via fraudulent employment applications. Organizations should implement enhanced vetting processes, including background checks and scrutiny of unusual recruitment patterns, to mitigate human threat vectors.</div>
+            <div class="article-title">CISO Playbook for Detecting North Korean Compromise Attempts</div>
+            <div class="article-commentary">A toolkit and playbook are available to help CISOs detect and mitigate risks associated with North Korean threat actors applying for or taking positions within organizations. HR and security teams must conduct enhanced background vetting and monitor for unusual employee access requests.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://krebsonsecurity.com/feed/</span>
+                <span class="article-date">25 May 2026</span>
+            </div>
+            <div class="article-title">Netherlands Seizes Servers, Arrests Individuals for Aiding Cyberattacks</div>
+            <div class="article-commentary">Authorities in the Netherlands arrested co-owners of hosting companies for operating infrastructure used by Russia for cyberattacks and influence operations within the EU. This underscores the physical law enforcement capacity to disrupt state-aligned cybercrime operations.</div>
         </a>
     </article>
     
 </section>
 
-<section class="category" data-index="3" data-category="📊 ADVISORY &amp; BEST PRACTICES REVIEW">
+<section class="category" data-index="3" data-category="⚙️ PATCHING, ADVISORIES, AND RESEARCH ALERTS">
     <h2 class="category-title">
         <span class="category-number">[0x04]</span>
-        📊 ADVISORY &amp; BEST PRACTICES REVIEW
+        ⚙️ PATCHING, ADVISORIES, AND RESEARCH ALERTS
     </h2>
     
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.csoonline.com/article/4178869/microsoft-and-security-researchers-dueling-posts-about-cybersecurity-disclosures-get-nasty.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.sophos.com/en-us/blog/may-patch-tuesday-hauls-out-132-cves" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-45585</span>
-                <span class="article-source">https://www.csoonline.com/feed</span>
-                <span class="article-date">29 May 2026</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
+                <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">Security Disclosure Practices: Industry Disagreement Highlighted</div>
-            <div class="article-commentary">This article discusses the varying and sometimes conflicting approaches between Microsoft and other entities regarding cybersecurity disclosure best practices. Security teams must maintain situational awareness regarding industry standards and adopt a clear, documented policy for vulnerability disclosure and patch management.</div>
+            <div class="article-title">Microsoft Patch Tuesday Advisories Include 132 CVEs</div>
+            <div class="article-commentary">The current Patch Tuesday cycle includes numerous advisories, approaching a total count of 300 vulnerabilities. While many may already be patched, the high volume requires meticulous patch management planning. Patch teams must prioritize patches based on known exploitability and criticality.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.bleepingcomputer.com/news/security/race-against-time-why-faster-vulnerability-alerts-matter/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.darkreading.com/cyberattacks-data-breaches/windows-zero-day-barrage-continues-after-patch-tuesday" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
                 
-                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
                 <span class="article-date">01 Jun 2026</span>
             </div>
-            <div class="article-title">Importance of Timely Vulnerability Alerts for Risk Reduction</div>
-            <div class="article-commentary">The pace of vulnerability exploitation often exceeds the capacity for timely patching across organizations. Implementing services that provide faster and more granular vulnerability alerts can significantly reduce the attacker&amp;#39;s window of opportunity and improve overall organizational resilience.</div>
+            <div class="article-title">Researcher Discloses Barrage of Windows Zero-Day Vulnerabilities</div>
+            <div class="article-commentary">A wave of six-week disclosures has resulted in a growing list of Windows zero-day vulnerabilities (YellowKey, GreenPlasma, MiniPlasma). Security teams must maintain continuous vulnerability scanning and apply vendor patches immediately upon release to mitigate potential exploitation windows.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darkreading.com/identity-access-management-security/google-api-keys-active-after-deletion" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
+                <span class="article-date">01 Jun 2026</span>
+            </div>
+            <div class="article-title">Google API Keys Remain Active After Reported Deletion</div>
+            <div class="article-commentary">A security researcher noted that Google Cloud API keys may remain usable for a period (up to 23 minutes) after the provider claims deletion is immediate. Organizations managing cloud credentials must implement programmatic key rotation and enforce strict deletion confirmation procedures.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.sophos.com/en-us/blog/introducing-sophos-intelix-for-microsoft-365-copilot" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
+                <span class="article-date">01 Jun 2026</span>
+            </div>
+            <div class="article-title">Integrating Sophos Threat Intelligence with Microsoft 365 Copilot</div>
+            <div class="article-commentary">Sophos is extending its threat intelligence directly into Microsoft 365 Copilot. This enhancement improves the security context and protection capabilities within the Copilot platform. Teams should review how AI-driven tools integrate with existing security controls.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.exploit-db.com/exploits/52598" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.exploit-db.com/rss.xml</span>
+                <span class="article-date">29 May 2026</span>
+            </div>
+            <div class="article-title">Prodigy Commerce 3.3.0 Local File Inclusion Vulnerability</div>
+            <div class="article-commentary">Prodigy Commerce version 3.3.0 contains a Local File Inclusion vulnerability. Developers using this commerce platform must immediately upgrade to a patched version to prevent unauthorized reading of sensitive system files.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.exploit-db.com/exploits/52596" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.exploit-db.com/rss.xml</span>
+                <span class="article-date">29 May 2026</span>
+            </div>
+            <div class="article-title">WordPress Quick Playground Plugin RCE Vulnerability</div>
+            <div class="article-commentary">The Quick Playground plugin for WordPress (1.3.1) suffers from an Unauthenticated Remote Code Execution (RCE) vulnerability. Users must update the plugin immediately and restrict its capabilities if it is not strictly necessary for site operation.</div>
         </a>
     </article>
     
@@ -700,48 +789,10 @@
     </div>
     <div class="videos-grid">
     
-    <div class="video-card" data-type="News">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/3YB4XGy8xwE" 
-                    title="A Linux Backdoor is For Sale on the Dark Web" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">📰 News</span>
-            <div class="video-title">A Linux Backdoor is For Sale on the Dark Web</div>
-            <div class="video-meta">
-                <span class="video-channel">John Hammond</span>
-                <a href="https://www.youtube.com/watch?v=3YB4XGy8xwE" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="video-card" data-type="Bug Walkthrough">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/Q6hQlM6f6Cs" 
-                    title="How I Found My First $3,000 AI Vulnerability" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🐛 Bug Walkthrough</span>
-            <div class="video-title">How I Found My First $3,000 AI Vulnerability</div>
-            <div class="video-meta">
-                <span class="video-channel">NahamSec</span>
-                <a href="https://www.youtube.com/watch?v=Q6hQlM6f6Cs" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
-            </div>
-        </div>
-    </div>
-    
     <div class="video-card" data-type="Tutorial">
         <div class="video-embed">
             <iframe src="https://www.youtube-nocookie.com/embed/KaMH-vd7bVM" 
-                    title="I Built the Perfect Hacking Roadmap in just 2,000 Hours" 
+                    title="I Built the Perfect Hacking Roadmap in Just 2,000 Hours (NO Bullsh*t)" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen
@@ -749,7 +800,7 @@
         </div>
         <div class="video-info">
             <span class="video-type-badge">📚 Tutorial</span>
-            <div class="video-title">I Built the Perfect Hacking Roadmap in just 2,000 Hours</div>
+            <div class="video-title">I Built the Perfect Hacking Roadmap in Just 2,000 Hours (NO Bullsh*t)</div>
             <div class="video-meta">
                 <span class="video-channel">HackersArsenal </span>
                 <a href="https://www.youtube.com/watch?v=KaMH-vd7bVM" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
@@ -776,6 +827,44 @@
         </div>
     </div>
     
+    <div class="video-card" data-type="Exploit POC">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/Inor0w-HQVk" 
+                    title="🚨Heartbleed (CVE-2014-0160): Leaking Server Secrets | PoC" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🔬 Exploit POC</span>
+            <div class="video-title">🚨Heartbleed (CVE-2014-0160): Leaking Server Secrets | PoC</div>
+            <div class="video-meta">
+                <span class="video-channel">Shadow hunter</span>
+                <a href="https://www.youtube.com/watch?v=Inor0w-HQVk" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-card" data-type="Exploit POC">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/0C3buKWLgY0" 
+                    title="HackTheBox - Interpreter" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🔬 Exploit POC</span>
+            <div class="video-title">HackTheBox - Interpreter</div>
+            <div class="video-meta">
+                <span class="video-channel">IppSec</span>
+                <a href="https://www.youtube.com/watch?v=0C3buKWLgY0" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
     </div>
 </section>
 
@@ -789,62 +878,62 @@
     <div class="tools-grid">
     
     <article class="tool-card">
-        <a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://github.com/mitmproxy/mitmproxy" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="tool-header">
-                <span class="tool-stars">★ 84340</span>
+                <span class="tool-stars">★ 43743</span>
                 <span class="tool-lang">Python</span>
             </div>
-            <div class="article-title">sherlock</div>
-            <div class="article-commentary">Hunt down social media accounts by username across social networks</div>
-            <div class="tool-meta">sherlock-project/sherlock</div>
+            <div class="article-title">mitmproxy</div>
+            <div class="article-commentary">An interactive TLS-capable intercepting HTTP proxy for penetration testers and software developers.</div>
+            <div class="tool-meta">mitmproxy/mitmproxy</div>
         </a>
     </article>
     
     <article class="tool-card">
-        <a href="https://github.com/caddyserver/caddy" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://github.com/GyulyVGC/sniffnet" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="tool-header">
-                <span class="tool-stars">★ 72899</span>
+                <span class="tool-stars">★ 37852</span>
+                <span class="tool-lang">Rust</span>
+            </div>
+            <div class="article-title">sniffnet</div>
+            <div class="article-commentary">Comfortably monitor your Internet traffic 🕵️‍♂️</div>
+            <div class="tool-meta">GyulyVGC/sniffnet</div>
+        </a>
+    </article>
+    
+    <article class="tool-card">
+        <a href="https://github.com/aquasecurity/trivy" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 35262</span>
                 <span class="tool-lang">Go</span>
             </div>
-            <div class="article-title">caddy</div>
-            <div class="article-commentary">Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS</div>
-            <div class="tool-meta">caddyserver/caddy</div>
+            <div class="article-title">trivy</div>
+            <div class="article-commentary">Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more</div>
+            <div class="tool-meta">aquasecurity/trivy</div>
         </a>
     </article>
     
     <article class="tool-card">
-        <a href="https://github.com/WerWolv/ImHex" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://github.com/soxoj/maigret" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="tool-header">
-                <span class="tool-stars">★ 53736</span>
-                <span class="tool-lang">C&#43;&#43;</span>
+                <span class="tool-stars">★ 31161</span>
+                <span class="tool-lang">Python</span>
             </div>
-            <div class="article-title">ImHex</div>
-            <div class="article-commentary">🔍 A Hex Editor for Reverse Engineers, Programmers and people who value their retinas when working at 3 AM.</div>
-            <div class="tool-meta">WerWolv/ImHex</div>
+            <div class="article-title">maigret</div>
+            <div class="article-commentary">🕵️‍♂️ Collect a dossier on a person by username from 3000&#43; sites</div>
+            <div class="tool-meta">soxoj/maigret</div>
         </a>
     </article>
     
     <article class="tool-card">
-        <a href="https://github.com/x64dbg/x64dbg" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://github.com/StevenBlack/hosts" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="tool-header">
-                <span class="tool-stars">★ 48548</span>
-                <span class="tool-lang">C&#43;&#43;</span>
+                <span class="tool-stars">★ 30471</span>
+                <span class="tool-lang">Python</span>
             </div>
-            <div class="article-title">x64dbg</div>
-            <div class="article-commentary">An open-source user mode debugger for Windows. Optimized for reverse engineering and malware analysis.</div>
-            <div class="tool-meta">x64dbg/x64dbg</div>
-        </a>
-    </article>
-    
-    <article class="tool-card">
-        <a href="https://github.com/KeygraphHQ/shannon" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="tool-header">
-                <span class="tool-stars">★ 44069</span>
-                <span class="tool-lang">TypeScript</span>
-            </div>
-            <div class="article-title">shannon</div>
-            <div class="article-commentary">Shannon Lite is an autonomous, white-box AI pentester for web applications and APIs. It analyzes your source code, ident...</div>
-            <div class="tool-meta">KeygraphHQ/shannon</div>
+            <div class="article-title">hosts</div>
+            <div class="article-commentary">🔒 Consolidating and extending hosts files from several well-curated sources. Optionally pick extensions for porn, soc...</div>
+            <div class="tool-meta">StevenBlack/hosts</div>
         </a>
     </article>
     
@@ -882,28 +971,6 @@
     </h2>
     
     <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52608" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">WebApps</span>
-                <span class="exploit-platform">Multiple</span>
-                
-            </div>
-            <div class="article-title">[webapps] Drupal Core 10.5.5 - Error-Based SQL Injection</div>
-        </a>
-    </article>
-    
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52607" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">WebApps</span>
-                <span class="exploit-platform">Multiple</span>
-                
-            </div>
-            <div class="article-title">[webapps] WordPress OrderConvo 14 - Path Traversal</div>
-        </a>
-    </article>
-    
-    <article class="article exploit-card">
         <a href="https://www.exploit-db.com/exploits/52606" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="exploit-type">Remote</span>
@@ -933,6 +1000,28 @@
                 
             </div>
             <div class="article-title">[webapps] YAMCS yamcs-core  5.12.7 - User Enumeration</div>
+        </a>
+    </article>
+    
+    <article class="article exploit-card">
+        <a href="https://www.exploit-db.com/exploits/52603" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="exploit-type">WebApps</span>
+                <span class="exploit-platform">Multiple</span>
+                
+            </div>
+            <div class="article-title">[webapps] YAMCS yamcs-core  5.12.7 - LDAP Injection</div>
+        </a>
+    </article>
+    
+    <article class="article exploit-card">
+        <a href="https://www.exploit-db.com/exploits/52601" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="exploit-type">Remote</span>
+                <span class="exploit-platform">Multiple</span>
+                
+            </div>
+            <div class="article-title">[remote] Microsoft - NTLMv2 Hash Capture</div>
         </a>
     </article>
     
@@ -1078,9 +1167,9 @@
         THIS DAY IN HACKING HISTORY
     </h2>
     <div class="history-card">
-        <div class="history-year">2013</div>
-        <div class="history-title">Snowden Revelations Begin</div>
-        <div class="history-description">Edward Snowden&#39;s NSA surveillance documents began being published by The Guardian.</div>
+        <div class="history-year">2017</div>
+        <div class="history-title">NotPetya Attack</div>
+        <div class="history-description">NotPetya destructive malware hit Ukraine and spread globally, causing $10B&#43; in total damages.</div>
     </div>
 </section>
 
