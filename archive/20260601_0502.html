@@ -1365,38 +1365,39 @@
         // === Archive Loader (GitHub Pages compatible) ===
         function loadArchive() {
             const grid = document.getElementById('archive-grid');
-            // For GitHub Pages, we generate a known list of archives
-            // This will be populated from the archive/ directory at build time
-            // For now, try fetching the archive index
-            fetch('archive/')
-                .then(r => r.text())
-                .then(html => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const links = doc.querySelectorAll('a[href$=".html"]');
-                    const archiveFiles = [];
-                    links.forEach(link => {
-                        const name = link.getAttribute('href');
-                        if (name && name.endsWith('.html')) archiveFiles.push(name);
-                    });
-                    // Sort newest first
-                    archiveFiles.sort().reverse();
-                    // Show last 30
-                    archiveFiles.slice(0, 30).forEach(file => {
-                        const match = file.match(/(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})/);
-                        let label = file;
-                        if (match) {
-                            label = `${match[1]}-${match[2]}-${match[3]} ${match[4]}:${match[5]}`;
-                        }
+            if (!grid) return;
+
+            grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">Loading archive...</p>';
+
+            const inArchive = //archive/[^/]+.html$/.test(window.location.pathname);
+            const manifestUrl = inArchive ? 'manifest.json' : 'archive/manifest.json';
+            const archiveBase = inArchive ? './' : 'archive/';
+
+            fetch(manifestUrl, { cache: 'no-store' })
+                .then(r => {
+                    if (!r.ok) throw new Error(`archive manifest HTTP ${r.status}`);
+                    return r.json();
+                })
+                .then(manifest => {
+                    const items = Array.isArray(manifest.items) ? manifest.items : [];
+                    grid.innerHTML = '';
+
+                    if (items.length === 0) {
+                        grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">No archived briefings yet.</p>';
+                        return;
+                    }
+
+                    items.slice(0, 30).forEach(item => {
                         const a = document.createElement('a');
-                        a.href = 'archive/' + file;
+                        a.href = archiveBase + item.file;
                         a.className = 'archive-link';
-                        a.textContent = label;
+                        a.textContent = item.label || item.file;
                         grid.appendChild(a);
                     });
                 })
-                .catch(() => {
-                    grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">Archive loading from GitHub Pages directory listing.</p>';
+                .catch(err => {
+                    console.warn('Archive failed to load:', err);
+                    grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">Archive is unavailable right now.</p>';
                 });
         }
 
