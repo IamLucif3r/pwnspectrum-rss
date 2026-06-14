@@ -1261,12 +1261,13 @@
             <div class="footer-feedback">
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Got feedback, tips, or a tool we should feature?</p>
                 <a href="https://forms.gle/RcsGHJHpb761EZA38" target="_blank" rel="noopener noreferrer" class="feedback-btn">Share Feedback</a>
+                <a href="mailto:sanmol016@gmail.com" class="feedback-btn" style="margin-left: 0.5rem;">Contact</a>
             </div>
             <div class="footer-links">
-                <a href="https://linkedin.com/in/iamlucif3r" target="_blank">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/iamlucif3r" target="_blank">GitHub</a>
-                <a href="https://medium.com/@iamlucif3r" target="_blank">Medium</a>
-                <a href="https://twitter.com/iamlucif3r" target="_blank">Twitter/X</a>
+                <a href="https://blog.anmolsinghyadav.com/" target="_blank">Blog</a>
+                <a href="https://x.com/IamLucif3r_" target="_blank">X/Twitter</a>
             </div>
             <p>Curated with ♥ for the infosec community</p>
             <p style="margin-top:0.5rem; opacity:0.5;">Press ? for keyboard shortcuts</p>
@@ -1389,7 +1390,7 @@
                 nav.appendChild(link);
             });
             // Add special sections
-            ['videos-section', 'tools-section', 'bounty-section', 'ctf-section', 'community-section', 'dyk-section'].forEach(id => {
+            ['videos-section', 'tools-section', 'bounty-section', 'ctf-section', 'community-section'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
                     const link = document.createElement('a');
@@ -1513,7 +1514,7 @@
             const toc = document.getElementById('floating-toc');
             if (!toc) return;
             toc.innerHTML = '';
-            const sections = document.querySelectorAll('.category[data-category], #videos-section, #tools-section, #bounty-section, #ctf-section, #community-section, #dyk-section');
+            const sections = document.querySelectorAll('.category[data-category], #videos-section, #tools-section, #bounty-section, #ctf-section, #community-section');
             sections.forEach(section => {
                 const titleEl = section.querySelector('.category-title');
                 if (!titleEl) return;
