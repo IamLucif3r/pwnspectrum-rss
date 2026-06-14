@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N9ZF36FC9M');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwnspectrum | Daily Cybersecurity Intelligence</title>
+    <meta name="description" content="Daily curated cybersecurity intelligence brief — zero-days, active exploits, threat research, trending tools, CTFs, and learning resources.">
+    <meta property="og:title" content="PwnSpectrum — Daily Cybersecurity Intelligence">
+    <meta property="og:description" content="Curated daily brief: zero-days, exploits, bug bounties, CTFs, trending tools, podcasts, and community pulse.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iamlucif3r.github.io/pwnspectrum-rss/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PwnSpectrum — Daily Cybersecurity Intelligence">
+    <meta name="twitter:description" content="Your daily cybersecurity intelligence brief.">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924915.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-page: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #1a1a1a;
+            --bg-elevated: #161616;
+            --text-main: #f5f5f5;
+            --text-muted: #a3a3a3;
+            --text-dim: #666666;
+            --border-main: #2a2a2a;
+            --border-accent: #333333;
+            --accent: #00ff41;
+            --accent-dim: rgba(0, 255, 65, 0.1);
+            --severity-critical: #ff3b30;
+            --severity-high: #ff9500;
+            --severity-medium: #ffcc00;
+            --severity-low: #34c759;
+            --selection-bg: #00ff41;
+            --selection-text: #000000;
+        }
+
+        body.light-theme {
+            --bg-page: #fafafa;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f5f5f5;
+            --bg-elevated: #f0f0f0;
+            --text-main: #0a0a0a;
+            --text-muted: #525252;
+            --text-dim: #999999;
+            --border-main: #e5e5e5;
+            --border-accent: #d4d4d4;
+            --accent: #007a1e;
+            --accent-dim: rgba(0, 122, 30, 0.06);
+            --severity-critical: #d63031;
+            --severity-high: #e17055;
+            --severity-medium: #cc8800;
+            --severity-low: #00b341;
+            --selection-bg: #007a1e;
+            --selection-text: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Source Serif 4", Georgia, serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        ::selection { background: var(--selection-bg); color: var(--selection-text); }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", Georgia, serif;
+            font-weight: 700; line-height: 1.2; letter-spacing: -0.02em;
+        }
+        .mono { font-family: "JetBrains Mono", monospace; }
+        .container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Reading Progress */
+        .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--accent); z-index: 9999; transition: width 0.1s; }
+
+
+
+        /* Header */
+        .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--border-main); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .site-title { font-size: 2rem; color: var(--accent); }
+        .site-title span { color: var(--text-main); }
+        .header-controls { display: flex; align-items: center; gap: 0.75rem; }
+        .header-stats { display: flex; gap: 1rem; margin-top: 0.75rem; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-muted); }
+        .header-stats .stat-value { color: var(--accent); font-weight: 700; }
+
+        /* Buttons */
+        .btn { padding: 0.4rem 0.8rem; border-radius: 4px; border: 1px solid var(--border-main); background: var(--bg-card); color: var(--text-main); font-family: "JetBrains Mono", monospace; font-size: 0.7rem; cursor: pointer; transition: all 0.2s; }
+        .btn:hover { border-color: var(--accent); background: var(--accent-dim); }
+        .btn.active { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
+
+        /* View Mode Toggle */
+        .view-toggle { display: flex; gap: 0; }
+        .view-toggle .btn { border-radius: 0; }
+        .view-toggle .btn:first-child { border-radius: 4px 0 0 4px; }
+        .view-toggle .btn:last-child { border-radius: 0 4px 4px 0; }
+
+        /* Navigation */
+        .nav-bar { padding: 1rem 0; position: sticky; top: 3px; z-index: 90; background: var(--bg-page); border-bottom: 1px solid var(--border-main); }
+        .nav-inner { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .category-nav { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.25rem; flex: 1; }
+        .category-nav::-webkit-scrollbar { height: 2px; }
+        .category-nav::-webkit-scrollbar-thumb { background: var(--border-accent); }
+        .nav-link { white-space: nowrap; padding: 0.3rem 0.7rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--text-muted); text-decoration: none; border-radius: 3px; transition: all 0.2s; border: 1px solid transparent; }
+        .nav-link:hover, .nav-link.active { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+
+        /* Search & Filters */
+        .filter-bar { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+        .search-input { flex: 1; min-width: 200px; padding: 0.5rem 0.8rem; background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 4px; color: var(--text-main); font-family: "JetBrains Mono", monospace; font-size: 0.8rem; outline: none; }
+        .search-input:focus { border-color: var(--accent); }
+        .severity-filters { display: flex; gap: 0.25rem; }
+
+        /* Main Content Grid */
+        .content-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 2rem 0; }
+        @media (min-width: 1024px) {
+            .content-grid.has-sidebar { grid-template-columns: 280px 1fr; }
+        }
+
+        /* Sidebar */
+        .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+        @media (max-width: 1023px) { .sidebar { display: none; } .sidebar.mobile-visible { display: flex; } }
+
+        /* CVE Spotlight Cards */
+        .cve-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+        .cve-card { padding: 0.75rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); border-left: 3px solid var(--severity-critical); }
+        .cve-card.cve-HIGH { border-left-color: var(--severity-high); }
+        .cve-card.cve-MEDIUM { border-left-color: var(--severity-medium); }
+        .cve-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+        .cve-id { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; font-weight: 700; color: var(--accent); }
+        .cvss-badge { font-family: "JetBrains Mono", monospace; font-size: 0.65rem; padding: 0.1rem 0.4rem; border-radius: 3px; background: var(--severity-critical); color: white; }
+        .action-badge { font-family: "JetBrains Mono", monospace; font-size: 0.6rem; padding: 0.1rem 0.4rem; border-radius: 3px; }
+        .action-badge.action-Patch\ Now { background: var(--severity-critical); color: white; }
+        .action-badge.action-Monitor { background: var(--severity-high); color: white; }
+        .action-badge.action-Assess { background: var(--severity-medium); color: #000; }
+        .cve-product { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .cve-description { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
+        .kev-badge { font-family: "JetBrains Mono", monospace; font-size: 0.65rem; color: var(--severity-critical); margin-top: 0.3rem; display: inline-block; }
+
+        /* Categories & Articles */
+        .category { margin-bottom: 2rem; }
+        .category-title { font-size: 1.1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border-main); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .category-number { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--accent); }
+
+        .article { padding: 1rem; margin-bottom: 0.75rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); transition: all 0.2s; }
+        .article:hover { border-color: var(--accent); background: var(--bg-card-hover); transform: translateX(2px); }
+        .article-title-link { text-decoration: none; color: inherit; display: block; }
+        .article-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.4rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; }
+        .severity-badge { padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 700; font-size: 0.6rem; text-transform: uppercase; }
+        .severity-Critical { background: var(--severity-critical); color: white; }
+        .severity-High { background: var(--severity-high); color: white; }
+        .severity-Medium { background: var(--severity-medium); color: #000; }
+        .severity-Low { background: var(--severity-low); color: white; }
+        .cve-badge { color: var(--accent); font-weight: 700; }
+        .article-source { color: var(--text-muted); }
+        .article-date { color: var(--text-dim); }
+        .article-title { font-family: "Playfair Display", serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.3; }
+        .article-commentary { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+        /* TL;DR mode */
+        body.tldr-mode .article-commentary { display: none; }
+        body.tldr-mode .article { padding: 0.6rem 1rem; margin-bottom: 0.4rem; }
+
+        /* Videos */
+        .video-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; overflow-x: auto; }
+        .video-tab { padding: 0.3rem 0.7rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; border: 1px solid var(--border-main); border-radius: 3px; background: var(--bg-card); color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+        .video-tab:hover, .video-tab.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+        .videos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+        .video-card { border: 1px solid var(--border-main); border-radius: 6px; overflow: hidden; background: var(--bg-card); transition: border-color 0.2s; }
+        .video-card:hover { border-color: var(--accent); }
+        .video-card[hidden] { display: none; }
+        .video-embed { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-info { padding: 0.75rem; }
+        .video-type-badge { font-family: "JetBrains Mono", monospace; font-size: 0.65rem; color: var(--accent); display: inline-block; margin-bottom: 0.3rem; }
+        .video-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; line-height: 1.3; }
+        .video-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: var(--text-muted); }
+        .video-channel { font-family: "JetBrains Mono", monospace; }
+        .video-external { color: var(--accent); text-decoration: none; }
+
+        /* Tools Grid */
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+        .tool-card { padding: 1rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); transition: all 0.2s; }
+        .tool-card:hover { border-color: var(--accent); }
+        .tool-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; }
+        .tool-stars { color: var(--severity-medium); }
+        .tool-lang { color: var(--accent); }
+        .tool-meta { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.4rem; font-family: "JetBrains Mono", monospace; }
+
+        /* Bug Bounty */
+        .bounty-program { color: var(--text-muted); }
+        .bounty-amount { color: var(--severity-medium); font-weight: 700; }
+        .vuln-type { font-size: 0.75rem; color: var(--accent); font-family: "JetBrains Mono", monospace; margin-top: 0.3rem; }
+
+        /* Exploit-DB */
+        .exploit-type { padding: 0.1rem 0.4rem; border-radius: 3px; background: var(--severity-critical); color: white; font-size: 0.6rem; }
+        .exploit-platform { color: var(--text-muted); font-size: 0.7rem; }
+
+        /* CTF Grid */
+        .ctf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.75rem; }
+        .ctf-card { padding: 0.75rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); }
+        .ctf-header { display: flex; justify-content: space-between; margin-bottom: 0.3rem; font-family: "JetBrains Mono", monospace; font-size: 0.65rem; }
+        .ctf-format { color: var(--accent); text-transform: uppercase; }
+        .ctf-weight { color: var(--text-dim); }
+        .ctf-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .ctf-meta { font-size: 0.7rem; color: var(--text-muted); display: flex; gap: 0.5rem; margin-bottom: 0.4rem; font-family: "JetBrains Mono", monospace; }
+        .ctf-link { font-size: 0.7rem; color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; margin-right: 0.5rem; }
+
+        /* Podcast Grid */
+        .podcast-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+        .podcast-card { padding: 0.75rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); }
+        .podcast-name { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--accent); margin-bottom: 0.3rem; }
+        .podcast-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .podcast-meta { font-size: 0.7rem; color: var(--text-muted); }
+        .podcast-duration { font-family: "JetBrains Mono", monospace; }
+        .podcast-link { font-size: 0.7rem; color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; }
+
+        /* Reddit / Community */
+        .reddit-card .article-header { gap: 0.75rem; }
+        .reddit-score { color: var(--severity-high); font-weight: 700; }
+        .reddit-sub { color: var(--accent); }
+        .reddit-comments { color: var(--text-muted); }
+
+        /* History Section */
+        .history-card { padding: 1.25rem; border: 1px solid var(--border-main); border-radius: 6px; background: var(--bg-card); border-left: 3px solid var(--accent); }
+        .history-year { font-family: "JetBrains Mono", monospace; font-size: 1.5rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
+        .history-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .history-description { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+        /* Audio Briefing */
+        .audio-controls { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
+        .audio-btn { display: flex; align-items: center; gap: 0.3rem; }
+
+        /* Archive Browser */
+        .archive-section { padding: 2rem 0; border-top: 1px solid var(--border-main); }
+        .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; margin-top: 1rem; }
+        .archive-link { padding: 0.5rem; border: 1px solid var(--border-main); border-radius: 4px; text-align: center; text-decoration: none; color: var(--text-muted); font-family: "JetBrains Mono", monospace; font-size: 0.7rem; transition: all 0.2s; }
+        .archive-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+        /* Footer */
+        .site-footer { padding: 2rem 0; border-top: 1px solid var(--border-main); text-align: center; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--text-dim); }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* Keyboard Shortcut Overlay */
+        .shortcuts-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center; }
+        .shortcuts-overlay.visible { display: flex; }
+        .shortcuts-content { background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 2rem; max-width: 400px; width: 90%; }
+        .shortcut-row { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border-main); font-size: 0.8rem; }
+        .shortcut-key { font-family: "JetBrains Mono", monospace; color: var(--accent); background: var(--bg-elevated); padding: 0.1rem 0.4rem; border-radius: 3px; }
+
+        /* Scroll to top */
+        .scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #000; border: none; cursor: pointer; font-size: 1.2rem; display: none; align-items: center; justify-content: center; z-index: 90; transition: opacity 0.3s; }
+        .scroll-top.visible { display: flex; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .site-title { font-size: 1.4rem; }
+            .videos-grid { grid-template-columns: 1fr; }
+            .tools-grid, .ctf-grid, .podcast-grid { grid-template-columns: 1fr; }
+            .filter-bar { flex-direction: column; }
+            .nav-bar { top: 3px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progress-bar"></div>
+
+
+
+    <div class="container">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="header-top">
+                <h1 class="site-title">pwn<span>spectrum</span></h1>
+                <div class="header-controls">
+                    <div class="view-toggle">
+                        <button class="btn active" id="btn-deep" onclick="setViewMode('deep')">Deep Dive</button>
+                        <button class="btn" id="btn-tldr" onclick="setViewMode('tldr')">TL;DR</button>
+                    </div>
+                    <button class="btn" id="audio-btn" onclick="toggleAudioBriefing()" title="Listen to briefing">🔊</button>
+                    <button class="btn" id="theme-toggle" onclick="toggleTheme()" title="Toggle theme">◑</button>
+                    <button class="btn" onclick="showShortcuts()" title="Keyboard shortcuts">?</button>
+                </div>
+            </div>
+            <div class="header-stats">
+                <span>Generated: <span class="stat-value" id="timestamp">--</span></span>
+            </div>
+            <!-- Audio briefing controls -->
+            <div class="audio-controls" id="audio-controls" style="display:none;">
+                <button class="btn audio-btn" onclick="pauseAudio()">⏸ Pause</button>
+                <button class="btn audio-btn" onclick="stopAudio()">⏹ Stop</button>
+                <span class="mono" style="font-size:0.7rem; color:var(--text-muted);" id="audio-status">Reading...</span>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="nav-inner">
+                <div class="category-nav" id="category-nav">
+                    <a href="#" class="nav-link active" data-filter="all">All</a>
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+            <div class="filter-bar">
+                <input type="text" class="search-input" id="search-input" placeholder="Search articles... (press / to focus)">
+                <div class="severity-filters">
+                    <button class="btn active" data-severity="all">All</button>
+                    <button class="btn" data-severity="Critical" style="border-color: var(--severity-critical);">Critical</button>
+                    <button class="btn" data-severity="High" style="border-color: var(--severity-high);">High</button>
+                    <button class="btn" data-severity="Medium" style="border-color: var(--severity-medium);">Medium</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Signal Summary -->
+        <section style="padding: 1rem 0; border-bottom: 1px solid var(--border-main);">
+            <div id="greeting" style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;"></div>
+        </section>
+
+        <!-- Newsletter Content (injected by SARJAN) -->
+        <div id="newsletter-content">
+
+<script>
+    document.getElementById('greeting').innerHTML = "25 articles • 5 CVEs (5 critical) • top signal: 🛠️ VULNERABILITY DISCLOSURES \u0026 PATCHING FOCUS";
+    document.getElementById('timestamp').textContent = "14 Jun 2026, 05:11 UTC";
+</script>
+
+
+<section class="category cve-spotlight" id="cve-section">
+    <h2 class="category-title">
+        <span class="category-number">[CVE]</span>
+        CVE SPOTLIGHT
+    </h2>
+    <div class="cve-grid">
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-35273</span>
+            <span class="cvss-badge">CVSS 9.0</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Oracle  PeopleSoft Enterprise PeopleTools</span>
+        </summary>
+        <div class="cve-description">Oracle PeopleSoft Enterprise PeopleTools contains a missing authentication for critical function vulnerability which could allow an unauthenticated attacker to obtain takeover of PeopleSoft Enterprise PeopleTools.</div>
+        <span class="kev-badge">CISA KEV</span>
+    </details>
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-48558</span>
+            <span class="cvss-badge">CVSS 10.0</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Multiple Products</span>
+        </summary>
+        <div class="cve-description">SimpleHelp versions 5.5.15 and prior and 6.0 pre-release versions contain an authentication bypass vulnerability in the OIDC authentication flow. When OIDC authentication is configured, identity to...</div>
+        
+    </details>
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-11839</span>
+            <span class="cvss-badge">CVSS 9.9</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Multiple Products</span>
+        </summary>
+        <div class="cve-description">Unrestricted upload of file with dangerous type vulnerability in Başarsoft Information Technologies Inc. Rotaban allows Upload a Web Shell to a Web Server.
+
+This issue affects Rotaban: from V2026....</div>
+        
+    </details>
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-11561</span>
+            <span class="cvss-badge">CVSS 9.8</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Multiple Products</span>
+        </summary>
+        <div class="cve-description">Improper neutralization of special elements used in an expression language statement (&#39;expression language injection&#39;) vulnerability in Soagen Informatics Technologies Software and Consulting Inc. ...</div>
+        
+    </details>
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-7852</span>
+            <span class="cvss-badge">CVSS 9.8</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Multiple Products</span>
+        </summary>
+        <div class="cve-description">Unrestricted upload of file with dangerous type vulnerability in Limatek System Inc. LimRAD NAC allows Remote Code Inclusion.
+
+This issue affects LimRAD NAC: before 5.5.7.3.9.</div>
+        
+    </details>
+    
+    </div>
+</section>
+
+
+
+<section class="category" data-index="0" data-category="🛠️ VULNERABILITY DISCLOSURES &amp; PATCHING FOCUS">
+    <h2 class="category-title">
+        <span class="category-number">[0x01]</span>
+        🛠️ VULNERABILITY DISCLOSURES &amp; PATCHING FOCUS
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://gbhackers.com/attackers-can-exploit-microsoft-outlook-and-word-flaws/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-45456</span>
+                <span class="article-source">https://www.gbhackers.com/feed/</span>
+                <span class="article-date">12 Jun 2026</span>
+            </div>
+            <div class="article-title">Critical RCE Vulnerabilities in Microsoft Outlook and Word (CVE-2026-45456 et al.)</div>
+            <div class="article-commentary">Microsoft disclosed multiple critical Remote Code Execution (RCE) vulnerabilities affecting core functions of Outlook and Word. Affected systems, especially those receiving email attachments or documents, are at risk of arbitrary code execution. Organizations must ensure timely application of all relevant security updates immediately.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.malwarebytes.com/blog/bugs/2026/06/microsofts-biggest-ever-patch-tuesday-fixes-206-bugs-including-3-zero-days" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Patch Tuesday June 2026 Highlights 3 Public Zero-Day Fixes Among 206 Vulnerabilities</div>
+            <div class="article-commentary">June 2026 Patch Tuesday addressed 206 vulnerabilities, including three publicly disclosed zero-day flaws. While a large patch cycle, defenders must prioritize review of the included security updates for highest risk/critical severity CVEs. Review vendor advisories to verify successful patch deployment across all endpoints.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="High">
+        <a href="https://www.sophos.com/en-us/blog/may-patch-tuesday-hauls-out-132-cves" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-High">High</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Microsoft Patch Tuesday Advisories Total Over 300 CVEs</div>
+            <div class="article-commentary">This month&amp;#39;s Microsoft advisories encompass a total of over 300 disclosed vulnerabilities across various products. While many are already patched, organizations must allocate resources to track and apply all recommended updates systematically. Implement comprehensive asset inventory to ensure no vulnerable endpoints are missed.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darkreading.com/vulnerabilities-threats/russian-groups-winrar-flaw-ukrainian-orgs" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2025-8088</span>
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Russian Actors Target WinRAR Flaws for Cyberespionage Against Ukrainian Targets</div>
+            <div class="article-commentary">Two separate campaigns target a flaw (CVE-2025-8088) that was previously fixed, indicating persistent threat actor focus. This vector is used to conduct data theft and cyberespionage against military and government infrastructure in Ukraine. Affected groups must enforce rigorous patch management for archiving and file handling applications.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://bukts.ru/repo-bukts-current" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-12183</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Improper Authentication Vulnerability in Nefteprodukttekhnika Gas Station Automation System</div>
+            <div class="article-commentary">A critical Improper Authentication flaw (CWE-287) was identified in the configuration module of the Nefteprodukttekhnika BUK TS-G system. This vulnerability could allow an attacker to exploit a default or manipulated login endpoint to gain unauthorized administrative access. Asset owners of industrial control systems must immediately review and restrict external network access points.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://bugs.koha-community.org/bugzilla3/attachment.cgi?id=199539" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-6428</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">SQL Injection Vulnerability in Koha Community System</div>
+            <div class="article-commentary">A reported SQL Injection vulnerability exists within the reports module of the Koha Community system. This flaw allows an authenticated staff user with specific reporting permissions to read arbitrary data from the database. Users must verify they are running the latest patched versions and restrict staff-level access through least privilege principles.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darkreading.com/vulnerabilities-threats/max-severity-ivanti-sentry-flaw-exploited-24-hours" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Exploitation of Ivanti Flaw Occurring Rapidly Post-Disclosure</div>
+            <div class="article-commentary">Initial analysis suggests attackers gained visibility into Ivanti&amp;#39;s asset landscape and capitalized quickly after the exploit became public. This rapid exploitation indicates high-value targeting and immediate threat potential. Organizations using Ivanti products must review network egress points and implement enhanced monitoring for suspicious lateral movement.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/alerts/2026/06/02/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2022-0492</span>
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">CISA Adds New Vulnerabilities to Known Exploited Vulnerabilities (KEV) Catalog</div>
+            <div class="article-commentary">CISA expanded its KEV catalog by adding new vulnerabilities based on verifiable evidence of active exploitation in the wild. These listed CVEs represent immediate and critical threats requiring prompt remediation actions regardless of vendor patch recommendations. Organizations must check their asset inventory against the latest KEV list for immediate patching.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-163a" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2024-57727</span>
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Ransomware Actors Leverage Unpatched SimpleHelp RMM Vulnerabilities</div>
+            <div class="article-commentary">Ransomware groups have been observed utilizing unpatched instances of a vulnerability within the SimpleHelp Remote Monitoring and Management (RMM) system. This method was used to compromise customers in the utility billing sector, indicating targeting critical infrastructure service providers. Immediate patching and network segmentation around RMM tools are required.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="1" data-category="🌐 THREAT ACTOR ACTIVITY &amp; TACTICS">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        🌐 THREAT ACTOR ACTIVITY &amp; TACTICS
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://gbhackers.com/gru-linked-apt28-uses-moobot-botnet/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.gbhackers.com/feed/</span>
+                <span class="article-date">12 Jun 2026</span>
+            </div>
+            <div class="article-title">GRU-Linked APT28 Pivots to MooBot and Compromised EdgeRouters for Operations</div>
+            <div class="article-commentary">The GRU-linked threat group APT28 has shifted its operational methods by combining the existing MooBot botnet with compromised edge routers. This pivot provides resilient connectivity, amplifying their long-standing focus on geopolitical targets in Ukraine and NATO nations. Defensive teams must implement robust network segmentation to detect communication via peripheral networking devices.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.sophos.com/en-us/blog/supply-chain-attacks-hit-checkmarx-and-bitwarden-developer-tools" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Multiple Supply Chain Attacks Target Checkmarx and Bitwarden Developer Tools</div>
+            <div class="article-commentary">Simultaneous supply chain attacks were detected targeting two different developer tool vendors (Checkmarx and Bitwarden), originating from the same Command-and-Control domain. This suggests a coordinated effort against developer ecosystems. CI/CD pipelines must implement robust artifact verification, source code integrity checks, and dependency vetting.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">China Nexus Threat Focus on Compromised Devices and Networks</div>
+            <div class="article-commentary">Threat intelligence indicates an active campaign related to China-Nexus focusing on exploiting compromised devices for covert network establishment. These networks are designed to bypass traditional perimeter defenses and conduct persistent surveillance. Organizations should deploy Network Detection and Response (NDR) solutions calibrated for low-volume, non-standard traffic flows.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.csoonline.com/article/4184043/china-linked-recon-botnet-outpaces-enterprise-defenses.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-35616</span>
+                <span class="article-source">https://www.csoonline.com/feed</span>
+                <span class="article-date">11 Jun 2026</span>
+            </div>
+            <div class="article-title">Botnet Activity Linked to Chinese Actors Outpaces Typical Enterprise Defenses</div>
+            <div class="article-commentary">A large botnet, reportedly linked to China, is observed operating at a scale that challenges standard enterprise defensive capabilities. Such activity typically involves credential harvesting and distributed reconnaissance efforts. Security teams must enhance behavioral analysis rules and monitor for anomalous spikes in beaconing or domain generation algorithm (DGA) traffic.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.proofpoint.com/us/newsroom/news/china-linked-ta4922-expands-phishing-attacks-uk-germany-italy-and-south-africa" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://proofpoint.com/us/rss.xml</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">China-Linked TA4922 Expands Phishing Campaigns Geographically</div>
+            <div class="article-commentary">The threat actor group TA4922, linked to China, has expanded the scope of its phishing activities into diverse international markets (UK, Germany, Italy, South Africa). This indicates opportunistic and geographically adaptive targeting. End-users must receive advanced training on identifying spear-phishing techniques, and security filtering should be globally updated.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://thehackernews.com/2026/06/the-gentlemen-ransomware-claims-478.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
+                <span class="article-date">11 Jun 2026</span>
+            </div>
+            <div class="article-title">The Gentlemen Ransomware Utilizing RaaS and Double Extortion Tactics</div>
+            <div class="article-commentary">A financially motivated group, The Gentlemen, is operating as a service provider that utilizes resources from major Ransomware-as-a-Service (RaaS) platforms like LockBit. They specialize in double extortion attacks, stealing data before encryption. Critical backups must be maintained offline and immutable to ensure business continuity regardless of successful exfiltration.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.proofpoint.com/us/newsroom/news/suspected-north-korean-actors-use-fake-coding-assignments-steal-crypto" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://proofpoint.com/us/rss.xml</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Suspected North Korean Actors Use Fake Coding Assignments for Crypto Theft</div>
+            <div class="article-commentary">Threat actors suspected to be linked to North Korea are reportedly leveraging social engineering methods, such as fake coding assignments, for the purpose of cryptocurrency theft. This indicates a shift towards highly targeted initial access vectors against technical personnel. Security awareness training must specifically address remote technical requests and unusual credential handling procedures.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.malwarebytes.com/blog/threat-intel/2026/06/fake-verification-pages-are-stealing-steam-accounts-from-players" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Fake Verification Pages Used to Steal Steam Accounts</div>
+            <div class="article-commentary">Attackers are utilizing convincing fake verification pages (e.g., FACEIT) that mimic legitimate login windows to steal user credentials and associated gaming accounts. This is a targeted credential theft campaign using social engineering pretexting. Users should be warned against entering credentials on unverified or non-institutional URLs.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="2" data-category="⚙️ SUPPLY CHAIN &amp; WEB EXPLOITATION">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        ⚙️ SUPPLY CHAIN &amp; WEB EXPLOITATION
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/alerts/2026/05/28/supply-chain-compromises-impact-nx-console-and-github-repositories" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-48027</span>
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Supply Chain Compromises Targeting CI/CD and Developer Ecosystems (Nx Console)</div>
+            <div class="article-commentary">CISA is prioritizing response to emerging software supply chain campaigns that target developer ecosystems, specifically Continuous Integration/Continuous Development (CI/CD) pipelines. Recent incidents involved malicious code injection through tools like Nx Console in Visual Studio Code environments. Developers must enforce strict dependency management and utilize signed artifact repositories.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.bleepingcomputer.com/news/security/over-400-arch-linux-packages-compromised-to-push-rootkit-infostealer/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-date">12 Jun 2026</span>
+            </div>
+            <div class="article-title">Arch User Repository Compromised to Distribute Rootkits and Info-Stealers</div>
+            <div class="article-commentary">Over 400 packages within the Arch User Repository (AUR) were compromised to distribute malicious rootkits and infostealer malware. This highlights supply chain risk in decentralized open-source package ecosystems. Users must validate the integrity of all third-party code sources and prefer using official, curated repositories.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.bleepingcomputer.com/news/security/ex-school-district-employee-jailed-for-hacks-on-former-employer/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-date">13 Jun 2026</span>
+            </div>
+            <div class="article-title">Former IT Employee Implicated in Prolonged Cyberattack on School District</div>
+            <div class="article-commentary">A former internal employee successfully conducted a prolonged cyberattack against their previous employer (an Iowa school district), causing significant operational disruption and data loss. This highlights the risk posed by disgruntled insiders with privileged access credentials. Organizations must enforce robust off-boarding protocols, including immediate revocation of all system access.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.sophos.com/en-us/blog/sophos-achieves-its-best-ever-results-in-the-mitre-attck-enterprise-2025-evaluation" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Sophos XDR Achieves 100% Detection in MITRE ATT&amp;amp;CK Evaluation</div>
+            <div class="article-commentary">This article reports on security product performance validation within the MITRE ATT&amp;amp;CK Enterprise Evaluation. While a vendor achievement, it serves as a benchmark for defenders needing comprehensive coverage across TTPs. Security teams should use such evaluations to audit their own detection gap areas and strengthen security operation posture.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.sophos.com/en-us/blog/from-security-operations-to-security-leadership-sophos-ciso-advantage" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
+                <span class="article-date">14 Jun 2026</span>
+            </div>
+            <div class="article-title">Sophos CISO Advantage Resource Guide</div>
+            <div class="article-commentary">This resource provides guidance for security professionals transitioning into executive leadership roles (CISO). While non-technical threat intelligence, it is relevant for defining risk appetite and aligning technical controls with business objectives. Security leaders should use this material to formalize their risk communication strategy.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="3" data-category="📡 FORWARD LOOK / ADVISORY HEADLINES">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        📡 FORWARD LOOK / ADVISORY HEADLINES
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.csoonline.com/article/4183772/frontier-ai-models-offer-sneak-peak-of-seismic-cyber-shifts-ahead.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.csoonline.com/feed</span>
+                <span class="article-date">11 Jun 2026</span>
+            </div>
+            <div class="article-title">Frontier AI Models Expected to Predict Major Cyber Shifts</div>
+            <div class="article-commentary">The emerging capabilities of advanced Large Language Models (LLMs) like Claude are being assessed for their potential in predicting large-scale cybersecurity shifts. These tools may improve threat modeling and risk assessment capacity if responsibly deployed. Professionals should monitor academic research into LLM application for defensive security use cases.</div>
+        </a>
+    </article>
+    
+</section>
+
+
+
+<section class="category" id="videos-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        CYBERSECURITY VIDEOS
+    </h2>
+    <div class="video-tabs">
+        <button class="video-tab active" data-filter="all">All</button>
+        <button class="video-tab" data-filter="Tutorial">📚 Learn</button>
+        <button class="video-tab" data-filter="Exploit POC">🔬 POC</button>
+        <button class="video-tab" data-filter="CTF Solve">🎯 CTF</button>
+        <button class="video-tab" data-filter="Bug Walkthrough">🐛 Bounty</button>
+    </div>
+    <div class="videos-grid">
+    
+    <div class="video-card" data-type="Conference Talk">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/eaksNdtMpBE" 
+                    title="ContinuumCon 2026 - Day 2" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🎤 Conference Talk</span>
+            <div class="video-title">ContinuumCon 2026 - Day 2</div>
+            <div class="video-meta">
+                <span class="video-channel">John Hammond</span>
+                <a href="https://www.youtube.com/watch?v=eaksNdtMpBE" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-card" data-type="Malware Analysis">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/w_7FAbYD68M" 
+                    title="Arch AUR got hacked btw" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🦠 Malware Analysis</span>
+            <div class="video-title">Arch AUR got hacked btw</div>
+            <div class="video-meta">
+                <span class="video-channel">dzuma</span>
+                <a href="https://www.youtube.com/watch?v=w_7FAbYD68M" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-card" data-type="CTF Solve">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/5BN4GI53gAA" 
+                    title="HackTheBox - VariaType" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🎯 CTF Solve</span>
+            <div class="video-title">HackTheBox - VariaType</div>
+            <div class="video-meta">
+                <span class="video-channel">IppSec</span>
+                <a href="https://www.youtube.com/watch?v=5BN4GI53gAA" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-card" data-type="Tutorial">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/cKHA89Nc6pk" 
+                    title="POV: You Learn Digital Forensics" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">📚 Tutorial</span>
+            <div class="video-title">POV: You Learn Digital Forensics</div>
+            <div class="video-meta">
+                <span class="video-channel">CyberFlow</span>
+                <a href="https://www.youtube.com/watch?v=cKHA89Nc6pk" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+</section>
+
+
+
+<section class="category" id="tools-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x06]</span>
+        TRENDING SECURITY TOOLS
+    </h2>
+    <div class="tools-grid">
+    
+    <article class="tool-card">
+        <a href="https://github.com/gitleaks/gitleaks" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 27680</span>
+                <span class="tool-lang">Go</span>
+            </div>
+            <div class="article-title">gitleaks</div>
+            <div class="article-commentary">Find secrets with Gitleaks 🔑</div>
+            <div class="tool-meta">gitleaks/gitleaks</div>
+        </a>
+    </article>
+    
+    <article class="tool-card">
+        <a href="https://github.com/OJ/gobuster" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 13807</span>
+                <span class="tool-lang">Go</span>
+            </div>
+            <div class="article-title">gobuster</div>
+            <div class="article-commentary">Directory/File, DNS and VHost busting tool written in Go</div>
+            <div class="tool-meta">OJ/gobuster</div>
+        </a>
+    </article>
+    
+    <article class="tool-card">
+        <a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 13797</span>
+                <span class="tool-lang">Go</span>
+            </div>
+            <div class="article-title">opennhp</div>
+            <div class="article-commentary">A lightweight, cryptography-powered, open-source toolkit built to enforce Zero Trust security for infrastructure, applic...</div>
+            <div class="tool-meta">OpenNHP/opennhp</div>
+        </a>
+    </article>
+    
+    <article class="tool-card">
+        <a href="https://github.com/mytechnotalent/Reverse-Engineering" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 13709</span>
+                <span class="tool-lang">Assembly</span>
+            </div>
+            <div class="article-title">Reverse-Engineering</div>
+            <div class="article-commentary">A FREE comprehensive reverse engineering tutorial covering x86, x64, 32-bit/64-bit ARM, 8-bit AVR and 32-bit RISC-V arch...</div>
+            <div class="tool-meta">mytechnotalent/Reverse-Engineering</div>
+        </a>
+    </article>
+    
+    <article class="tool-card">
+        <a href="https://github.com/juice-shop/juice-shop" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 13340</span>
+                <span class="tool-lang">TypeScript</span>
+            </div>
+            <div class="article-title">juice-shop</div>
+            <div class="article-commentary">OWASP Juice Shop: Probably the most modern and sophisticated insecure web application</div>
+            <div class="tool-meta">juice-shop/juice-shop</div>
+        </a>
+    </article>
+    
+    </div>
+</section>
+
+
+
+<section class="category" id="bounty-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x07]</span>
+        BUG BOUNTY HIGHLIGHTS
+    </h2>
+    
+    <article class="article bounty-card">
+        <a href="https://hackerone.com/hacktivity/overview" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Info">Info</span>
+                <span class="bounty-program">HackerOne</span>
+                
+            </div>
+            <div class="article-title">View latest public disclosures on HackerOne Hacktivity</div>
+            <div class="vuln-type">Various</div>
+        </a>
+    </article>
+    
+</section>
+
+
+
+<section class="category" id="exploitdb-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x08]</span>
+        EXPLOIT-DB FRESH DROPS
+    </h2>
+    
+    <article class="article exploit-card">
+        <a href="https://www.exploit-db.com/exploits/52610" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="exploit-type">WebApps</span>
+                <span class="exploit-platform">Multiple</span>
+                
+            </div>
+            <div class="article-title">[webapps] OpenEMR 7.0.2 - Arbitrary File Read</div>
+        </a>
+    </article>
+    
+    <article class="article exploit-card">
+        <a href="https://www.exploit-db.com/exploits/52609" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="exploit-type">WebApps</span>
+                <span class="exploit-platform">Multiple</span>
+                
+            </div>
+            <div class="article-title">[webapps] WordPress Contest Gallery 28.1.4 - Unauthenticated Blind SQL Injection</div>
+        </a>
+    </article>
+    
+    <article class="article exploit-card">
+        <a href="https://www.exploit-db.com/exploits/52608" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="exploit-type">WebApps</span>
+                <span class="exploit-platform">Multiple</span>
+                
+            </div>
+            <div class="article-title">[webapps] Drupal Core 10.5.5 - Error-Based SQL Injection</div>
+        </a>
+    </article>
+    
+    <article class="article exploit-card">
+        <a href="https://www.exploit-db.com/exploits/52607" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="exploit-type">WebApps</span>
+                <span class="exploit-platform">Multiple</span>
+                
+            </div>
+            <div class="article-title">[webapps] WordPress OrderConvo 14 - Path Traversal</div>
+        </a>
+    </article>
+    
+    <article class="article exploit-card">
+        <a href="https://www.exploit-db.com/exploits/52606" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="exploit-type">Remote</span>
+                <span class="exploit-platform">Multiple</span>
+                
+            </div>
+            <div class="article-title">[remote] Notepad&#43;&#43; 8.9.6 - Arbitrary Code Execution</div>
+        </a>
+    </article>
+    
+</section>
+
+
+
+<section class="category" id="ctf-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x09]</span>
+        UPCOMING CTFs
+    </h2>
+    <div class="ctf-grid">
+    
+    <div class="ctf-card">
+        <div class="ctf-header">
+            <span class="ctf-format">Jeopardy</span>
+            <span class="ctf-weight">Weight: 0.0</span>
+        </div>
+        <div class="ctf-title">Sieberrsec CTF 7.0</div>
+        <div class="ctf-meta">
+            <span class="ctf-date">Jun 17, 01:00 UTC</span>
+            <span class="ctf-duration">12 hours</span>
+        </div>
+        <a href="https://ctftime.org/event/3299" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
+        <a href="https://sieberr.live/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
+    </div>
+    
+    <div class="ctf-card">
+        <div class="ctf-header">
+            <span class="ctf-format">Jeopardy</span>
+            <span class="ctf-weight">Weight: 65.0</span>
+        </div>
+        <div class="ctf-title">BCACTF 7.0</div>
+        <div class="ctf-meta">
+            <span class="ctf-date">Jun 19, 10:00 UTC</span>
+            <span class="ctf-duration">3 days</span>
+        </div>
+        <a href="https://ctftime.org/event/3246" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
+        <a href="https://www.bcactf.com/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
+    </div>
+    
+    <div class="ctf-card">
+        <div class="ctf-header">
+            <span class="ctf-format">Jeopardy</span>
+            <span class="ctf-weight">Weight: 0.0</span>
+        </div>
+        <div class="ctf-title">RIFFHACK: Black Market Break-In</div>
+        <div class="ctf-meta">
+            <span class="ctf-date">Jun 19, 12:00 UTC</span>
+            <span class="ctf-duration">2 days</span>
+        </div>
+        <a href="https://ctftime.org/event/3297" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
+        <a href="http://riffhack.biterra.co/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
+    </div>
+    
+    <div class="ctf-card">
+        <div class="ctf-header">
+            <span class="ctf-format">Jeopardy</span>
+            <span class="ctf-weight">Weight: 88.8</span>
+        </div>
+        <div class="ctf-title">Google Capture The Flag 2026</div>
+        <div class="ctf-meta">
+            <span class="ctf-date">Jun 19, 18:00 UTC</span>
+            <span class="ctf-duration">2 days</span>
+        </div>
+        <a href="https://ctftime.org/event/3222" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
+        <a href="https://g.co/ctf" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
+    </div>
+    
+    <div class="ctf-card">
+        <div class="ctf-header">
+            <span class="ctf-format">Jeopardy</span>
+            <span class="ctf-weight">Weight: 0.0</span>
+        </div>
+        <div class="ctf-title">TraceBash CTF 2026</div>
+        <div class="ctf-meta">
+            <span class="ctf-date">Jun 26, 09:30 UTC</span>
+            <span class="ctf-duration">1 days</span>
+        </div>
+        <a href="https://ctftime.org/event/3323" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
+        <a href="https://ctf.tracebash.xyz/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
+    </div>
+    
+    </div>
+</section>
+
+
+
+<section class="category" id="podcast-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x0a]</span>
+        SECURITY PODCASTS
+    </h2>
+    <div class="podcast-grid">
+    
+    <div class="podcast-card">
+        <div class="podcast-name">Darknet Diaries</div>
+        <div class="podcast-title">175: Bayrob</div>
+        <div class="podcast-meta">
+            <span class="podcast-duration">01:36:35</span>
+        </div>
+        <a href="https://darknetdiaries.com/episode/175/" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
+    </div>
+    
+    <div class="podcast-card">
+        <div class="podcast-name">Risky Business</div>
+        <div class="podcast-title">Risky Business #841 -- Microsoft gets owned and 0day&amp;apos;d</div>
+        <div class="podcast-meta">
+            <span class="podcast-duration">3782</span>
+        </div>
+        <a href="https://risky.biz/RB841/" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
+    </div>
+    
+    <div class="podcast-card">
+        <div class="podcast-name">Security Now</div>
+        <div class="podcast-title">SN 1082: The Malicious Use of AI - Anthropic&#39;s Red Team Report</div>
+        <div class="podcast-meta">
+            <span class="podcast-duration">2:37:27</span>
+        </div>
+        <a href="https://twit.tv/shows/security-now/episodes/1082" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
+    </div>
+    
+    <div class="podcast-card">
+        <div class="podcast-name">Malicious Life</div>
+        <div class="podcast-title">Weev, Part 2</div>
+        <div class="podcast-meta">
+            <span class="podcast-duration">1729</span>
+        </div>
+        <a href="https://redcircle.com/shows/597cfd00-b29a-49c6-9622-03c8decfc35f/episodes/30142034-0c23-433e-85e6-e476fa7cc1e9" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
+    </div>
+    
+    </div>
+</section>
+
+
+
+
+
+<section class="category history-section" id="history-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x0c]</span>
+        THIS DAY IN HACKING HISTORY
+    </h2>
+    <div class="history-card">
+        <div class="history-year">2017</div>
+        <div class="history-title">NotPetya Attack</div>
+        <div class="history-description">NotPetya destructive malware hit Ukraine and spread globally, causing $10B&#43; in total damages.</div>
+    </div>
+</section>
+
+
+    </div>
+
+        <!-- Archive Section -->
+        <section class="archive-section">
+            <h2 class="category-title"><span class="category-number">[0xff]</span> ARCHIVE</h2>
+            <div class="archive-grid" id="archive-grid">
+                <!-- Populated by JS scanning archive/ directory -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/iamlucif3r" target="_blank">LinkedIn</a>
+                <a href="https://github.com/iamlucif3r" target="_blank">GitHub</a>
+                <a href="https://medium.com/@iamlucif3r" target="_blank">Medium</a>
+                <a href="https://twitter.com/iamlucif3r" target="_blank">Twitter/X</a>
+            </div>
+            <p>Built by <a href="https://github.com/iamlucif3r" style="color:var(--accent);">@iamlucif3r</a> — Powered by SARJAN + TRIKAL</p>
+            <p style="margin-top:0.5rem; opacity:0.5;">Press ? for keyboard shortcuts</p>
+            <p style="margin-top:1rem; opacity:0.4; max-width:600px; margin-left:auto; margin-right:auto;">Resources listed here are aggregated from public sources for informational purposes only. Inclusion does not constitute endorsement. Use third-party tools at your own risk.</p>
+        </footer>
+    </div>
+
+    <!-- Scroll to top -->
+    <button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- Keyboard Shortcuts Overlay -->
+    <div class="shortcuts-overlay" id="shortcuts-overlay" onclick="hideShortcuts()">
+        <div class="shortcuts-content" onclick="event.stopPropagation()">
+            <h3 style="margin-bottom:1rem;">Keyboard Shortcuts</h3>
+            <div class="shortcut-row"><span>Focus search</span><span class="shortcut-key">/</span></div>
+            <div class="shortcut-row"><span>Next article</span><span class="shortcut-key">j</span></div>
+            <div class="shortcut-row"><span>Previous article</span><span class="shortcut-key">k</span></div>
+            <div class="shortcut-row"><span>Open article link</span><span class="shortcut-key">Enter</span></div>
+            <div class="shortcut-row"><span>Toggle TL;DR mode</span><span class="shortcut-key">t</span></div>
+            <div class="shortcut-row"><span>Toggle theme</span><span class="shortcut-key">d</span></div>
+            <div class="shortcut-row"><span>Listen to briefing</span><span class="shortcut-key">a</span></div>
+            <div class="shortcut-row"><span>Close overlay</span><span class="shortcut-key">Esc</span></div>
+            <div class="shortcut-row"><span>Show shortcuts</span><span class="shortcut-key">?</span></div>
+        </div>
+    </div>
+
+    <script>
+        // === Theme ===
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
+
+        // === View Mode (TL;DR / Deep Dive) ===
+        function setViewMode(mode) {
+            if (mode === 'tldr') {
+                document.body.classList.add('tldr-mode');
+                document.getElementById('btn-tldr').classList.add('active');
+                document.getElementById('btn-deep').classList.remove('active');
+            } else {
+                document.body.classList.remove('tldr-mode');
+                document.getElementById('btn-deep').classList.add('active');
+                document.getElementById('btn-tldr').classList.remove('active');
+            }
+            localStorage.setItem('viewMode', mode);
+        }
+        if (localStorage.getItem('viewMode') === 'tldr') setViewMode('tldr');
+
+        // === Reading Progress ===
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            // Show/hide scroll-to-top
+            document.getElementById('scroll-top').classList.toggle('visible', scrollTop > 500);
+        });
+
+        // === Search ===
+        document.getElementById('search-input').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            document.querySelectorAll('.article').forEach(article => {
+                const text = article.textContent.toLowerCase();
+                article.style.display = text.includes(query) || query === '' ? '' : 'none';
+            });
+        });
+
+        // === Severity Filter ===
+        document.querySelectorAll('.severity-filters .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.severity-filters .btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const severity = this.dataset.severity;
+                document.querySelectorAll('.article').forEach(article => {
+                    if (severity === 'all' || article.dataset.severity === severity) {
+                        article.style.display = '';
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // === Video Tab Filtering ===
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('video-tab')) {
+                document.querySelectorAll('.video-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                const filter = e.target.dataset.filter;
+                document.querySelectorAll('.video-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.type === filter) {
+                        card.removeAttribute('hidden');
+                    } else {
+                        card.setAttribute('hidden', '');
+                    }
+                });
+            }
+        });
+
+        // === Category Nav (auto-populate) ===
+        function initCategoryNav() {
+            const nav = document.getElementById('category-nav');
+            const categories = document.querySelectorAll('.category[data-category]');
+            categories.forEach(cat => {
+                const name = cat.dataset.category;
+                const link = document.createElement('a');
+                link.href = '#';
+                link.className = 'nav-link';
+                link.textContent = name;
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    cat.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+                nav.appendChild(link);
+            });
+            // Add special sections
+            ['videos-section', 'tools-section', 'bounty-section', 'ctf-section', 'community-section'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const link = document.createElement('a');
+                    link.href = '#' + id;
+                    link.className = 'nav-link';
+                    link.textContent = id.replace('-section', '').replace('-', ' ').toUpperCase();
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                    nav.appendChild(link);
+                }
+            });
+        }
+
+        // === Audio Briefing (Browser SpeechSynthesis) ===
+        let speechUtterance = null;
+        function toggleAudioBriefing() {
+            if (speechSynthesis.speaking) { stopAudio(); return; }
+            const greeting = document.getElementById('greeting')?.textContent || '';
+            const articles = [];
+            document.querySelectorAll('.article-title').forEach((el, i) => {
+                if (i < 8) articles.push(el.textContent);
+            });
+            const text = `Today's PwnSpectrum Intelligence Briefing. ${greeting}. Top stories: ${articles.join('. Next: ')}. That's your briefing for today.`;
+            speechUtterance = new SpeechSynthesisUtterance(text);
+            speechUtterance.rate = 0.95;
+            speechUtterance.pitch = 0.9;
+            speechUtterance.onend = () => { document.getElementById('audio-controls').style.display = 'none'; };
+            speechSynthesis.speak(speechUtterance);
+            document.getElementById('audio-controls').style.display = 'flex';
+            document.getElementById('audio-status').textContent = 'Reading briefing...';
+        }
+        function pauseAudio() {
+            if (speechSynthesis.paused) { speechSynthesis.resume(); document.getElementById('audio-status').textContent = 'Reading...'; }
+            else { speechSynthesis.pause(); document.getElementById('audio-status').textContent = 'Paused'; }
+        }
+        function stopAudio() { speechSynthesis.cancel(); document.getElementById('audio-controls').style.display = 'none'; }
+
+        // === Keyboard Navigation ===
+        let currentArticleIndex = -1;
+        function getVisibleArticles() { return [...document.querySelectorAll('.article:not([style*="display: none"])')]; }
+        function highlightArticle(index) {
+            const articles = getVisibleArticles();
+            articles.forEach(a => a.style.outline = '');
+            if (index >= 0 && index < articles.length) {
+                articles[index].style.outline = '2px solid var(--accent)';
+                articles[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                if (e.key === 'Escape') { e.target.blur(); }
+                return;
+            }
+            switch (e.key) {
+                case '/': e.preventDefault(); document.getElementById('search-input').focus(); break;
+                case 'j': currentArticleIndex = Math.min(currentArticleIndex + 1, getVisibleArticles().length - 1); highlightArticle(currentArticleIndex); break;
+                case 'k': currentArticleIndex = Math.max(currentArticleIndex - 1, 0); highlightArticle(currentArticleIndex); break;
+                case 'Enter':
+                    const articles = getVisibleArticles();
+                    if (currentArticleIndex >= 0 && currentArticleIndex < articles.length) {
+                        const link = articles[currentArticleIndex].querySelector('a');
+                        if (link) window.open(link.href, '_blank');
+                    }
+                    break;
+                case 't': setViewMode(document.body.classList.contains('tldr-mode') ? 'deep' : 'tldr'); break;
+                case 'd': toggleTheme(); break;
+                case 'a': toggleAudioBriefing(); break;
+                case '?': showShortcuts(); break;
+                case 'Escape': hideShortcuts(); break;
+            }
+        });
+
+        // === Shortcuts Overlay ===
+        function showShortcuts() { document.getElementById('shortcuts-overlay').classList.add('visible'); }
+        function hideShortcuts() { document.getElementById('shortcuts-overlay').classList.remove('visible'); }
+
+        // === Archive Loader (GitHub Pages compatible) ===
+        function loadArchive() {
+            const grid = document.getElementById('archive-grid');
+            if (!grid) return;
+
+            grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">Loading archive...</p>';
+
+            const inArchive = /\/archive\/[^/]+\.html$/.test(window.location.pathname);
+            const manifestUrl = inArchive ? 'manifest.json' : 'archive/manifest.json';
+            const archiveBase = inArchive ? './' : 'archive/';
+
+            fetch(manifestUrl, { cache: 'no-store' })
+                .then(r => {
+                    if (!r.ok) throw new Error(`archive manifest HTTP ${r.status}`);
+                    return r.json();
+                })
+                .then(manifest => {
+                    const items = Array.isArray(manifest.items) ? manifest.items : [];
+                    grid.innerHTML = '';
+
+                    if (items.length === 0) {
+                        grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">No archived briefings yet.</p>';
+                        return;
+                    }
+
+                    items.slice(0, 30).forEach(item => {
+                        const a = document.createElement('a');
+                        a.href = archiveBase + item.file;
+                        a.className = 'archive-link';
+                        a.textContent = item.label || item.file;
+                        grid.appendChild(a);
+                    });
+                })
+                .catch(err => {
+                    console.warn('Archive failed to load:', err);
+                    grid.innerHTML = '<p style="color:var(--text-dim); font-size:0.8rem;">Archive is unavailable right now.</p>';
+                });
+        }
+
+        // === Init on DOM Ready ===
+        function init() {
+            initCategoryNav();
+            loadArchive();
+        }
+        if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+        else { init(); }
+        // Also observe for dynamically injected content
+        const observer = new MutationObserver(() => { initCategoryNav(); });
+        observer.observe(document.getElementById('newsletter-content') || document.body, { childList: true, subtree: true });
+    </script>
+</body>
+</html>
