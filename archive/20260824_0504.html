@@ -1247,8 +1247,8 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "18 articles • 5 CVEs (5 critical) • top signal: 🚨 ACTIVE THREAT LANDSCAPE \u0026 CRITICAL VULNERABILITIES";
-    document.getElementById('timestamp').textContent = "24 Aug 2026, 05:06 UTC";
+    document.getElementById('greeting').innerHTML = "21 articles • 5 CVEs (5 critical) • top signal: ACTIVE THREATS \u0026 EXPLOITATIONS";
+    document.getElementById('timestamp').textContent = "23 Aug 2026, 05:47 UTC";
 </script>
 
 
@@ -1258,6 +1258,17 @@
         CVE SPOTLIGHT
     </h2>
     <div class="cve-grid">
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-73570</span>
+            <span class="cvss-badge">CVSS 9.0</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Synacor Zimbra Collaboration Suite (ZCS)</span>
+        </summary>
+        <div class="cve-description">Zimbra Collaboration Suite (ZCS) contains an OS command injection vulnerability which could allow an unauthenticated attacker to send specially crafted SMTP requests that may result in execution of arbitrary operating system commands as the Zimbra user.</div>
+        <span class="kev-badge">CISA KEV</span>
+    </details>
     
     <details class="cve-card cve-CRITICAL">
         <summary class="cve-header">
@@ -1272,12 +1283,23 @@
     
     <details class="cve-card cve-CRITICAL">
         <summary class="cve-header">
-            <span class="cve-id">CVE-2026-78167</span>
-            <span class="cvss-badge">CVSS 10.0</span>
+            <span class="cve-id">CVE-2026-66785</span>
+            <span class="cvss-badge">CVSS 9.9</span>
             <span class="action-badge action-Patch Now">Patch Now</span>
             <span class="cve-product">Multiple Products</span>
         </summary>
-        <div class="cve-description">A weakness has been identified in EFM ipTIME T16000M 14.20.2. The impacted element is the function httpcon_check_session_url of the component Session Validation Handler. This manipulation causes im...</div>
+        <div class="cve-description">A flaw was found in Submariner. This vulnerability allows a malicious cluster (spoke) to redirect network traffic from other connected clusters (peer clusters) by publishing a specially crafted net...</div>
+        
+    </details>
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-66788</span>
+            <span class="cvss-badge">CVSS 9.9</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Multiple Products</span>
+        </summary>
+        <div class="cve-description">A flaw was found in Lighthouse. A remote attacker, by compromising a spoke cluster, can exploit a vulnerability where the destination namespace for resource injection is derived from an attacker-co...</div>
         
     </details>
     
@@ -1292,50 +1314,28 @@
         
     </details>
     
-    <details class="cve-card cve-CRITICAL">
-        <summary class="cve-header">
-            <span class="cve-id">CVE-2026-78169</span>
-            <span class="cvss-badge">CVSS 9.9</span>
-            <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Multiple Products</span>
-        </summary>
-        <div class="cve-description">A vulnerability was detected in UTT HiPER 1250GW up to 3.2.7-210907-180535. This impacts the function strcpy of the file /goform/aspRemoteApConfTempSend of the component HTTP Request Handler. Perfo...</div>
-        
-    </details>
-    
-    <details class="cve-card cve-CRITICAL">
-        <summary class="cve-header">
-            <span class="cve-id">CVE-2026-78003</span>
-            <span class="cvss-badge">CVSS 9.8</span>
-            <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Multiple Products</span>
-        </summary>
-        <div class="cve-description">The Mailgun for WordPress plugin for WordPress is vulnerable to Server-Side Request Forgery (SSRF) via path traversal in versions up to and including 2.2.0. This is due to insufficient input valida...</div>
-        
-    </details>
-    
     </div>
 </section>
 
 
 
-<section class="category" data-index="0" data-category="🚨 ACTIVE THREAT LANDSCAPE &amp; CRITICAL VULNERABILITIES">
+<section class="category" data-index="0" data-category="ACTIVE THREATS &amp; EXPLOITATIONS">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        🚨 ACTIVE THREAT LANDSCAPE &amp; CRITICAL VULNERABILITIES
+        ACTIVE THREATS &amp; EXPLOITATIONS
     </h2>
     
     
     <article class="article" data-severity="Critical">
-        <a href="https://gbhackers.com/critical-n-able-passportal-extension-flaw/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-15580</span>
-                <span class="article-source">https://www.gbhackers.com/feed/</span>
-                <span class="article-date">21 Aug 2026</span>
+                <span class="cve-badge">CVE-2024-55591</span>
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">Critical Flaw in N-able PassPortal Extension Grants Full Password Vault Access</div>
-            <div class="article-commentary">Researchers found CVE-2026-15580, a critical vulnerability in the N-able PassPortal browser extension. Malicious websites or embedded iframes can exploit this to steal authentication materials and gain control of a user&amp;#39;s password vault. Organizations relying on this extension must implement immediate patches or alternative authentication mechanisms to mitigate credential theft.</div>
+            <div class="article-title">Gunra Ransomware-as-a-Service (RaaS) Threat Advisory</div>
+            <div class="article-commentary">Gunra is an active RaaS targeting governmental and critical infrastructure entities. Affiliates leverage this platform for high-impact extortion. Organizations must segment networks, apply comprehensive endpoint detection, and maintain robust offline backups to mitigate ransomware impact.</div>
         </a>
     </article>
     
@@ -1345,84 +1345,49 @@
                 <span class="severity-badge severity-Critical">Critical</span>
                 <span class="cve-badge">CVE-2026-55040</span>
                 <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
-                <span class="article-date">24 Aug 2026</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">CISA Adds SharePoint Vulnerability (CVE-2026-55040) to Known Exploited Vulnerabilities</div>
-            <div class="article-commentary">CISA updated its alert to include CVE-2026-55040, indicating active exploitation of a SharePoint vulnerability. This vulnerability allows unauthorized access and exploitation within Microsoft SharePoint environments. Affected users must apply the necessary security patches immediately and review access controls on all SharePoint instances.</div>
+            <div class="article-title">CISA Update: SharePoint Hardening Required Due to Active Exploitation (CVE-2026-55040)</div>
+            <div class="article-commentary">CISA has updated its alerts regarding SharePoint vulnerabilities, specifically noting CVE-2026-55040, which is now in the KEV Catalog. Users running vulnerable SharePoint instances must immediately patch the platform or apply virtual patching. Review all external-facing SharePoint configurations for inadequate access controls.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://wpscan.com/vulnerability/e1e8c313-f7ea-4f3a-85c0-4f33dfe0710d/" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-73570</span>
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
-                <span class="article-date">24 Aug 2026</span>
+                <span class="cve-badge">CVE-2026-18052</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">CISA Identifies New Known Exploited Vulnerability (CVE-2026-73570)</div>
-            <div class="article-commentary">CISA has added CVE-2026-73570 to the Known Exploited Vulnerabilities (KEV) Catalog based on evidence of active exploitation. Organizations must cross-reference this CVE with their asset inventory and apply vendor-released mitigations immediately. Prioritizing patching efforts for KEV vulnerabilities is essential for reducing attack surface area.</div>
+            <div class="article-title">ManageWP Plugin Vulnerability (CVE-2026-18052) Allows Session Hijacking</div>
+            <div class="article-commentary">ManageWP Worker WordPress plugin versions prior to 4.9.37 are vulnerable to session hijacking via obtaining a single login link. Attackers can assume any user&amp;#39;s session without requiring a password. Update the plugin to version 4.9.37 or higher immediately, and enforce MFA across all WordPress administrative accounts.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.proofpoint.com/us/newsroom/news/max-severity-exchange-server-flaw-under-active-exploitation-kremlin-hackers" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://proofpoint.com/us/rss.xml</span>
-                <span class="article-date">24 Aug 2026</span>
-            </div>
-            <div class="article-title">Critical Exchange Server Flaw Under Active Exploitation by State Actors</div>
-            <div class="article-commentary">A max-severity flaw in Exchange servers is reportedly under active exploitation, specifically linked to actors originating from the Kremlin. This vulnerability poses a high risk of data exfiltration and system compromise. Organizations using Exchange services must apply the latest vendor patches and implement network segmentation and advanced email filtering rules.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/clickfix-campaign-abuses-deno-runtime-for-infostealer-delivery" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
-                <span class="article-date">24 Aug 2026</span>
-            </div>
-            <div class="article-title">ClickFix Campaign Leverages Deno Runtime for Infostealer Delivery via WordPress</div>
-            <div class="article-commentary">Threat actors are using compromised WordPress sites to deliver an infostealer payload. The campaign involves installing the Deno runtime and deploying a Python-based infostealer through deceptive lures. Users should restrict Deno installation on internet-facing servers and regularly audit WordPress plugins and themes for signs of compromise.</div>
-        </a>
-    </article>
-    
-</section>
-
-<section class="category" data-index="1" data-category="🛡️ ATTACK VECTORS &amp; TACTICS">
-    <h2 class="category-title">
-        <span class="category-number">[0x02]</span>
-        🛡️ ATTACK VECTORS &amp; TACTICS
-    </h2>
-    
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://gbhackers.com/768-leaked-aws-keys-still-active-with-full-admin/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://gbhackers.com/apollo-global-management-data-breach/" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
                 
                 <span class="article-source">https://www.gbhackers.com/feed/</span>
                 <span class="article-date">22 Aug 2026</span>
             </div>
-            <div class="article-title">768 Publicly Exposed AWS Access Keys Grant Full Admin Privileges</div>
-            <div class="article-commentary">A large-scale investigation revealed 768 publicly exposed AWS access keys retaining full administrative privileges. This presents an immediate risk of account takeover, data theft, and financial fraud in cloud environments. Users must immediately audit their IAM policies, revoke unnecessary keys, and implement AWS Secrets Manager or similar vault services.</div>
+            <div class="article-title">Apollo Global Management Data Breach Compromises Sensitive Personal Data</div>
+            <div class="article-commentary">Attackers gained unauthorized access to Apollo Global Management&amp;#39;s cloud platforms, compromising highly sensitive personal data, including SSNs. The breach occurred between July 6 and July 10, 2026. Affected parties should be advised to monitor their credit and identity for signs of fraud and review cloud access controls.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://github.com/exceljs/exceljs" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.sophos.com/en-us/blog/nable-ncentral-exploitation-results-in-rmm-tool-deployment" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-78206</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">24 Aug 2026</span>
+                <span class="cve-badge">CVE-2026-18577</span>
+                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">CVE-2026-78206 Allows Resource Exhaustion via Compressed XLSX Archives</div>
-            <div class="article-commentary">The `exceljs` library, prior to version 5.0.0, contains a vulnerability (CVE-2026-78206). Attackers can exploit this by uploading highly compressed workbooks, causing memory expansion and exhausting system resources, leading to denial-of-service. Developers using `exceljs` must upgrade to version 5.0.0 or higher.</div>
+            <div class="article-title">N-able N-central Compromise via CVE-2026-18577 Leads to RMM Tunneling</div>
+            <div class="article-commentary">Compromise of N-able N-central using CVE-2026-18577 allows threat actors to establish persistent remote access and deploy additional RMM tools. This severely increases the attacker&amp;#39;s operational visibility. Organizations using N-able tools must apply the vendor patches and monitor for unusual network tunnel activity originating from these tools.</div>
         </a>
     </article>
     
@@ -1434,56 +1399,69 @@
                 <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
                 <span class="article-date">21 Aug 2026</span>
             </div>
-            <div class="article-title">Microsoft Defender Driver Used for Kernel-Level Security Bypass</div>
-            <div class="article-commentary">A technique was disclosed demonstrating that Microsoft Defender’s legitimate boot-time remediation driver can be weaponized. This technique allows arbitrary kernel-level file and registry operations on Windows systems (Win 7-11) without requiring a software flaw. Endpoint detection and response (EDR) tools should monitor for anomalous driver behavior and suspicious kernel calls.</div>
+            <div class="article-title">Microsoft Defender Driver Can Be Weaponized for Kernel-Level Tampering</div>
+            <div class="article-commentary">Research reveals a technique enabling unauthorized kernel-level file and registry operations using the legitimate Microsoft Defender boot-time remediation driver. This bypasses typical security controls without exploiting a flaw. Organizations should review vendor security best practices and consider advanced behavioral detection mechanisms to detect misuse of core security tools.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/nable-ncentral-exploitation-results-in-rmm-tool-deployment" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-18577</span>
-                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
-                <span class="article-date">24 Aug 2026</span>
-            </div>
-            <div class="article-title">Compromise via CVE-2026-18577 Enables RMM Tool Deployment and Persistence</div>
-            <div class="article-commentary">After compromising systems using CVE-2026-18577, threat actors deploy additional Remote Monitoring and Management (RMM) tools and network tunnels. This establishes persistent remote access, bypassing initial detection. Organizations must segment RMM traffic, enforce least privilege, and monitor network flow for unusual tunnel creation.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.bleepingcomputer.com/news/security/toxicpanda-android-malware-uses-vpn-permissions-to-block-google-play/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.sophos.com/en-us/blog/clickfix-campaign-abuses-deno-runtime-for-infostealer-delivery" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
                 
-                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
                 <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">ToxicPanda Malware Evolves with Expanded Functionality and Targeting</div>
-            <div class="article-commentary">The ToxicPanda Android malware has evolved, adding support for 167 remote commands and expanding its targeting capability to 349 applications. This increases its risk profile for mobile endpoints. Review Android application permissions and use robust Mobile Threat Defense (MTD) solutions to detect unusual or unauthorized command activity.</div>
+            <div class="article-title">ClickFix Campaign Uses Deno Runtime to Deliver WordPress Infostealers</div>
+            <div class="article-commentary">Compromised WordPress sites are being leveraged by the ClickFix campaign to trick users into installing the Deno runtime and subsequently a Python-based infostealer. Users of WordPress sites should scrutinize plugin updates and ensure the whitelisting of unusual interpreters or runtimes. Implement stricter network egress filtering to detect suspicious outbound connections.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.proofpoint.com/us/newsroom/news/russian-hackers-can-steal-emails-without-click" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://proofpoint.com/us/rss.xml</span>
+                <span class="article-date">23 Aug 2026</span>
+            </div>
+            <div class="article-title">Russian Threat Actors Can Exfiltrate Emails Without Requiring User Interaction</div>
+            <div class="article-commentary">Threat actors are employing techniques to steal corporate emails without requiring users to click malicious links or credentials. This signals an escalation in phishing and initial access capabilities. Implement robust email gateway defenses, enhance user training on suspicious communications, and enforce MFA for all critical mailboxes.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.proofpoint.com/us/newsroom/news/max-severity-exchange-server-flaw-under-active-exploitation-kremlin-hackers" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://proofpoint.com/us/rss.xml</span>
+                <span class="article-date">23 Aug 2026</span>
+            </div>
+            <div class="article-title">Exchange Server Flaw Under Active Exploitation by State Actors</div>
+            <div class="article-commentary">A critical flaw in the Exchange server is actively being exploited by suspected state-sponsored actors. Given the severity, patching is mandatory, and defensive measures must be implemented immediately. Organizations should prioritize patching the Exchange server and segment its network traffic from other corporate services.</div>
         </a>
     </article>
     
 </section>
 
-<section class="category" data-index="2" data-category="💰 FINANCIAL &amp; DATA COMPROMISE">
+<section class="category" data-index="1" data-category="CRITICAL INFRASTRUCTURE &amp; CYBERCRIME TRENDS">
     <h2 class="category-title">
-        <span class="category-number">[0x03]</span>
-        💰 FINANCIAL &amp; DATA COMPROMISE
+        <span class="category-number">[0x02]</span>
+        CRITICAL INFRASTRUCTURE &amp; CYBERCRIME TRENDS
     </h2>
     
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.malwarebytes.com/blog/data-breaches/2026/08/heights-finance-data-breach-what-customers-need-to-know" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-343a" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
                 
-                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
-                <span class="article-date">24 Aug 2026</span>
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">Height&amp;#39;s Finance Data Breach Exposes SSNs and Banking Details</div>
-            <div class="article-commentary">A data breach exposed the personal and financial details of approximately 750,000 US citizens, including SSNs and bank details. Affected individuals face a high risk of identity theft and targeted phishing attacks. Consumers must monitor credit reports and use strong, unique passwords across all financial accounts.</div>
+            <div class="article-title">Pro-Russia Hacktivist Campaigns Target Global Critical Infrastructure</div>
+            <div class="article-commentary">Hacktivist groups, allegedly linked to Russia, are conducting opportunistic and disruptive attacks against various global and US critical infrastructure sectors. This activity increases the baseline risk of physical and digital disruption. Defense teams should enhance threat hunting, monitor network traffic for suspicious geopolitical indicators, and coordinate with industry partners.</div>
         </a>
     </article>
     
@@ -1495,69 +1473,34 @@
                 <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
                 <span class="article-date">21 Aug 2026</span>
             </div>
-            <div class="article-title">SickKids Data Breach Compromises Employee and Applicant PII</div>
-            <div class="article-commentary">Toronto&amp;#39;s Hospital for Sick Children experienced a cybersecurity incident through third-party software, exposing personal information of current and former employees and job applicants. Critically, clinical systems and patient records were reported unaffected. Organizations handling HR data must rigorously vet third-party vendor security practices.</div>
+            <div class="article-title">SickKids Data Breach Exposes Employee and Job Applicant Information</div>
+            <div class="article-commentary">Toronto&amp;#39;s Hospital for Sick Children experienced a cybersecurity incident that exposed sensitive personal data of employees and job applicants due to a third-party software flaw. Patient records and clinical systems were reportedly unaffected. The institution must review its third-party risk management framework and audit integrated software components.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.darkreading.com/vulnerabilities-threats/ai-driven-bug-tsunami-nist-looks-to-ai" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.malwarebytes.com/blog/data-breaches/2026/08/heights-finance-data-breach-what-customers-need-to-know" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
                 
-                <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">24 Aug 2026</span>
+                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">AI-Augmented Bug Hunting Drives NIST Focus on Vulnerability Management</div>
-            <div class="article-commentary">The surge in vulnerability volumes, driven by AI-augmented research and scanning, is compelling NIST to reassess existing standards. This highlights the increasing difficulty of managing security debt and the need for adaptive vulnerability disclosure frameworks. Security teams should allocate resources toward automated patch management and continuous vulnerability scanning.</div>
+            <div class="article-title">Heights Finance Data Breach Exposes SSNs and Financial Details</div>
+            <div class="article-commentary">A data breach exposed the personal and financial data (including SSNs and bank details) of approximately 750,000 US citizens. This poses a direct risk of large-scale identity theft and targeted phishing campaigns. Affected individuals must be advised to place fraud alerts on their credit and monitor financial accounts.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://git.kernel.org/stable/c/152a00440dc6ef62c6e4cf9bd881a7e6bb81fda9" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2024-55591</span>
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
-                <span class="article-date">24 Aug 2026</span>
+                <span class="cve-badge">CVE-2026-74633</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">Gunra Ransomware-as-a-Service (RaaS) Targets Governmental and Institutional Entities</div>
-            <div class="article-commentary">Gunra is an active Ransomware-as-a-Service (RaaS) framework being utilized by affiliates to target government and institutional infrastructure. These groups typically employ double or triple extortion methods. Organizations must maintain robust, immutable backups and enforce multi-factor authentication (MFA) across all critical systems.</div>
-        </a>
-    </article>
-    
-</section>
-
-<section class="category" data-index="3" data-category="🔬 RESEARCH &amp; ADVISORY REPORTS">
-    <h2 class="category-title">
-        <span class="category-number">[0x04]</span>
-        🔬 RESEARCH &amp; ADVISORY REPORTS
-    </h2>
-    
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-343a" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
-                <span class="article-date">24 Aug 2026</span>
-            </div>
-            <div class="article-title">Pro-Russia Hacktivists Conduct Opportunistic Attacks on Critical Infrastructure</div>
-            <div class="article-commentary">Joint advisories confirm that pro-Russia hacktivist groups are conducting opportunistic attacks against US and global critical infrastructure. These campaigns are often low-effort but highly disruptive. Sector-specific organizations must enhance threat monitoring, implement network visibility tools, and assume a heightened threat of state-sponsored disruption.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/detecting-fraudulent-north-korean-hires-a-ciso-playbook" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
-                <span class="article-date">24 Aug 2026</span>
-            </div>
-            <div class="article-title">CISO Playbook for Detecting North Korean Threat Actor Employment Risks</div>
-            <div class="article-commentary">This resource provides a toolkit and playbook specifically aimed at detecting and mitigating the risk of North Korean threat actors applying for or being hired by an organization. HR and security teams should integrate specialized screening protocols and conduct employee background assessments for high-risk personnel.</div>
+            <div class="article-title">Linux Kernel Vulnerability Fix: NULL Pointer Dereference in Event Cache</div>
+            <div class="article-commentary">A NULL pointer dereference vulnerability was resolved in the Linux kernel&amp;#39;s event module cache handling. This is a low-level system fix applicable to Linux administrators. Systems should ensure they are running updated kernel versions provided by their distribution vendor to prevent potential instability or exploitation.</div>
         </a>
     </article>
     
@@ -1567,10 +1510,45 @@
                 <span class="severity-badge severity-Critical">Critical</span>
                 
                 <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">24 Aug 2026</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">Law Enforcement Coordination Gaps Slow Cybercrime Deterrence</div>
-            <div class="article-commentary">The effectiveness of law enforcement against cybercrime is hampered by operational silos and a lack of coordinated international response. Security organizations must enhance incident response capabilities internally and support industry information sharing groups to supplement governmental efforts.</div>
+            <div class="article-title">The Coordination Gap: Threat Actors Outpacing Law Enforcement Response</div>
+            <div class="article-commentary">Threat actors are continuously adapting their strategies to circumvent deterrents and law enforcement efforts, exploiting coordination gaps. Cyber defense requires moving beyond reactive security measures. Organizations must prioritize threat intelligence integration, adopt proactive threat hunting, and participate in Information Sharing and Analysis Centers (ISACs).</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="2" data-category="VULNERABILITY &amp; PATCHING ADVISORIES">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        VULNERABILITY &amp; PATCHING ADVISORIES
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.csoonline.com/article/4212157/ransomware-takes-aim-at-enterprise-resilience.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.csoonline.com/feed</span>
+                <span class="article-date">21 Aug 2026</span>
+            </div>
+            <div class="article-title">General Ransomware Tactics Targeting Enterprise Resilience</div>
+            <div class="article-commentary">Ransomware continues to evolve, increasingly targeting core enterprise systems and backup infrastructure. Attackers are moving beyond simple encryption to lateral movement and data exfiltration. Organizations must implement the 3-2-1 backup rule, enforce immutable backups, and adopt network micro-segmentation.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darkreading.com/vulnerabilities-threats/ai-driven-bug-tsunami-nist-looks-to-ai" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
+                <span class="article-date">23 Aug 2026</span>
+            </div>
+            <div class="article-title">NIST Addresses Vulnerability Surge Driven by AI-Augmented Bug Hunting</div>
+            <div class="article-commentary">The volume of discovered vulnerabilities is increasing rapidly due to the use of AI in automated security scanning and bug-hunting. This demands a shift in resource allocation. Organizations must prioritize risk management frameworks that account for rapid vulnerability discovery, speeding up the patch and remediation lifecycle.</div>
         </a>
     </article>
     
@@ -1580,10 +1558,58 @@
                 <span class="severity-badge severity-Critical">Critical</span>
                 
                 <span class="article-source">https://blog.malwarebytes.com/feed/</span>
-                <span class="article-date">24 Aug 2026</span>
+                <span class="article-date">23 Aug 2026</span>
             </div>
-            <div class="article-title">Google Releases Chrome Update Patching 15 Critical Vulnerabilities</div>
-            <div class="article-commentary">Google released a routine Chrome desktop update addressing 15 security flaws, including two rated critical buffer overflow vulnerabilities. Users should ensure browsers are immediately updated to maintain the highest level of client-side security hygiene. Patch management discipline is critical across all endpoints.</div>
+            <div class="article-title">Google Chrome Released Update Fixing 15 Critical Vulnerabilities</div>
+            <div class="article-commentary">Google released a mandatory Chrome desktop update addressing 15 security flaws, including two critical buffer overflow vulnerabilities. Users must update their browsers immediately to prevent exploitation. Organizations should enforce automated patching policies across all endpoints and client machines.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="3" data-category="SECURITY BEST PRACTICES &amp; RISK MITIGATION">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        SECURITY BEST PRACTICES &amp; RISK MITIGATION
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.sophos.com/en-us/blog/introducing-sophos-intelix-for-microsoft-365-copilot" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
+                <span class="article-date">23 Aug 2026</span>
+            </div>
+            <div class="article-title">Sophos Intelix Integration for Enhanced M365 Copilot Security</div>
+            <div class="article-commentary">This advisory introduces Sophos threat intelligence directly into the Microsoft 365 Copilot platform. This enhances the security posture of generative AI tools within corporate environments. Security teams should verify that their AI governance policies integrate specialized threat intelligence to monitor for data leakage and prompt injection attacks.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Medium">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Medium">Medium</span>
+                
+                <span class="article-source">Unknown</span>
+                <span class="article-date">23 Aug 2026</span>
+            </div>
+            <div class="article-title">Microsoft Defender&amp;#39;s Native Drivers Used for Arbitrary Kernel Operations</div>
+            <div class="article-commentary">Check Point Research disclosed the technique allowing the abuse of the legitimate Microsoft Defender remediation driver for arbitrary kernel operations on Windows. This highlights the risk of internal tool misuse. Review security tool policies and implement advanced behavioral detection rather than solely relying on signatures.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.csoonline.com/article/4212017/ai-threats-are-everywhere-a-risk-first-ciso-decides-what-to-prioritize.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.csoonline.com/feed</span>
+                <span class="article-date">21 Aug 2026</span>
+            </div>
+            <div class="article-title">AI Governance and Risk Prioritization for C-Suite Leadership</div>
+            <div class="article-commentary">Focuses on developing a risk-first strategy for prioritizing cybersecurity investments amidst increasing AI-driven threats. CISOs must integrate AI risk assessments into overall enterprise risk frameworks. Prioritization should focus on high-impact, low-likelihood events, and securing the AI supply chain.</div>
         </a>
     </article>
     
@@ -1605,21 +1631,21 @@
     </div>
     <div class="videos-grid">
     
-    <div class="video-card" data-type="Exploit POC">
+    <div class="video-card" data-type="News">
         <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/0gx5mSWubwM" 
-                    title="Zimbra Mail Servers Can Run Attacker Commands (CVE-2026-73570)" 
+            <iframe src="https://www.youtube-nocookie.com/embed/FDEQrm-J5oU" 
+                    title="I Gave AI My Computer to Hack !" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen
                     loading="lazy"></iframe>
         </div>
         <div class="video-info">
-            <span class="video-type-badge">🔬 Exploit POC</span>
-            <div class="video-title">Zimbra Mail Servers Can Run Attacker Commands (CVE-2026-73570)</div>
+            <span class="video-type-badge">📰 News</span>
+            <div class="video-title">I Gave AI My Computer to Hack !</div>
             <div class="video-meta">
-                <span class="video-channel">AISLabs AI</span>
-                <a href="https://www.youtube.com/watch?v=0gx5mSWubwM" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+                <span class="video-channel">ShogunShell</span>
+                <a href="https://www.youtube.com/watch?v=FDEQrm-J5oU" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
             </div>
         </div>
     </div>
@@ -1643,25 +1669,6 @@
         </div>
     </div>
     
-    <div class="video-card" data-type="News">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/FDEQrm-J5oU" 
-                    title="I Gave AI My Computer to Hack !" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">📰 News</span>
-            <div class="video-title">I Gave AI My Computer to Hack !</div>
-            <div class="video-meta">
-                <span class="video-channel">ShogunShell</span>
-                <a href="https://www.youtube.com/watch?v=FDEQrm-J5oU" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
-            </div>
-        </div>
-    </div>
-    
     <div class="video-card" data-type="CTF Solve">
         <div class="video-embed">
             <iframe src="https://www.youtube-nocookie.com/embed/rLaWJFBI8ic" 
@@ -1677,25 +1684,6 @@
             <div class="video-meta">
                 <span class="video-channel">UNI6CTF</span>
                 <a href="https://www.youtube.com/watch?v=rLaWJFBI8ic" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="video-card" data-type="Tutorial">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/XvVNI-gqTNM" 
-                    title="04. Intercept traffic from Electron based desktop app" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">📚 Tutorial</span>
-            <div class="video-title">04. Intercept traffic from Electron based desktop app</div>
-            <div class="video-meta">
-                <span class="video-channel">daoud youssef</span>
-                <a href="https://www.youtube.com/watch?v=XvVNI-gqTNM" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
             </div>
         </div>
     </div>
@@ -1719,10 +1707,94 @@
         </div>
     </div>
     
+    <div class="video-card" data-type="CTF Solve">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/uRlD2E2-IlU" 
+                    title="Canary Tokens, Meet AI" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🎯 CTF Solve</span>
+            <div class="video-title">Canary Tokens, Meet AI</div>
+            <div class="video-meta">
+                <span class="video-channel">John Hammond</span>
+                <a href="https://www.youtube.com/watch?v=uRlD2E2-IlU" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-card" data-type="Malware Analysis">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/9y102Qsw_S4" 
+                    title="The Future of SOC: AI-Driven Malware Analysis with Wazuh &amp;amp; YARA" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🦠 Malware Analysis</span>
+            <div class="video-title">The Future of SOC: AI-Driven Malware Analysis with Wazuh &amp;amp; YARA</div>
+            <div class="video-meta">
+                <span class="video-channel">UpBrightSkills</span>
+                <a href="https://www.youtube.com/watch?v=9y102Qsw_S4" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
     </div>
 </section>
 
 
+
+<section class="category" id="tools-section">
+    <h2 class="category-title">
+        <span class="category-number">[0x06]</span>
+        TRENDING SECURITY TOOLS
+    </h2>
+    <div class="tools-grid">
+    
+    <article class="tool-card">
+        <a href="https://github.com/gitleaks/gitleaks" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 28909</span>
+                <span class="tool-lang">Go</span>
+            </div>
+            <div class="article-title">gitleaks</div>
+            <div class="article-commentary">Find secrets with Gitleaks 🔑</div>
+            <div class="tool-meta">gitleaks/gitleaks</div>
+        </a>
+    </article>
+    
+    <article class="tool-card">
+        <a href="https://github.com/hugsy/gef" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 8321</span>
+                <span class="tool-lang">Python</span>
+            </div>
+            <div class="article-title">gef</div>
+            <div class="article-commentary">GEF (GDB Enhanced Features) - a modern experience for GDB with advanced debugging capabilities for exploit devs &amp; revers...</div>
+            <div class="tool-meta">hugsy/gef</div>
+        </a>
+    </article>
+    
+    <article class="tool-card">
+        <a href="https://github.com/KatrielMoses/MailAccess" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="tool-header">
+                <span class="tool-stars">★ 630</span>
+                <span class="tool-lang">Python</span>
+            </div>
+            <div class="article-title">MailAccess</div>
+            <div class="article-commentary">Free email OSINT tool, 2500&#43; platforms, identity clustering, breach detection. No API keys required. pip install mailacc...</div>
+            <div class="tool-meta">KatrielMoses/MailAccess</div>
+        </a>
+    </article>
+    
+    </div>
+</section>
 
 
 
@@ -1733,61 +1805,61 @@
     </h2>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3940331" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/3755479" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Sony</span>
+                <span class="bounty-program">AT&amp;T</span>
                 
             </div>
-            <div class="article-title">Report #3940331 — Sony (Activities::BugResolved)</div>
+            <div class="article-title">Report #3755479 — AT&amp;T (Activities::BugResolved)</div>
             
         </a>
     </article>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3908320" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/3753872" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Zooplus</span>
+                <span class="bounty-program">Coinbase</span>
                 <span class="bounty-amount">$2000</span>
             </div>
-            <div class="article-title">Report #3908320 — Zooplus (Activities::BugResolved)</div>
+            <div class="article-title">Report #3753872 — Coinbase (Activities::BugResolved)</div>
             
         </a>
     </article>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3934040" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/3959297" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Grab</span>
-                <span class="bounty-amount">$50</span>
+                <span class="bounty-program">Vercel Open Source</span>
+                <span class="bounty-amount">$7000</span>
             </div>
-            <div class="article-title">Report #3934040 — Grab (Activities::BugResolved)</div>
+            <div class="article-title">Report #3959297 — Vercel Open Source (Activities::BugResolved)</div>
             
         </a>
     </article>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3273010" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/3868616" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Crypto.com</span>
+                <span class="bounty-program">IBM</span>
                 
             </div>
-            <div class="article-title">Report #3273010 — Crypto.com (Activities::BugResolved)</div>
+            <div class="article-title">Report #3868616 — IBM (Activities::BugResolved)</div>
             
         </a>
     </article>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3900482" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/3792075" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Crypto.com</span>
-                <span class="bounty-amount">$195</span>
+                <span class="bounty-program">Amazon Vulnerability Research Program</span>
+                
             </div>
-            <div class="article-title">Report #3900482 — Crypto.com (Activities::BugResolved)</div>
+            <div class="article-title">Report #3792075 — Amazon Vulnerability Research Program (Activities::BugResolved)</div>
             
         </a>
     </article>
@@ -1795,69 +1867,6 @@
 </section>
 
 
-
-<section class="category" id="exploitdb-section">
-    <h2 class="category-title">
-        <span class="category-number">[0x08]</span>
-        EXPLOIT-DB FRESH DROPS
-    </h2>
-    
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52657" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">Remote</span>
-                <span class="exploit-platform">Multiple</span>
-                
-            </div>
-            <div class="article-title">[remote] PCMan 2.0.7 - Buffer Overflow</div>
-        </a>
-    </article>
-    
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52656" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">DoS</span>
-                <span class="exploit-platform">Multiple</span>
-                
-            </div>
-            <div class="article-title">[dos] NanaZip 6.5  - DoS</div>
-        </a>
-    </article>
-    
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52655" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">WebApps</span>
-                <span class="exploit-platform">Multiple</span>
-                
-            </div>
-            <div class="article-title">[webapps] flyto-core 2.26.7 - Arbitrary File Write</div>
-        </a>
-    </article>
-    
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52654" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">WebApps</span>
-                <span class="exploit-platform">Multiple</span>
-                
-            </div>
-            <div class="article-title">[webapps] Nodemailer 9.0.0 - File Read/ SSRF</div>
-        </a>
-    </article>
-    
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52653" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">WebApps</span>
-                <span class="exploit-platform">Linux</span>
-                
-            </div>
-            <div class="article-title">[webapps] Linuxfabrik monitoring_plugins_6.0.0 - SSRF</div>
-        </a>
-    </article>
-    
-</section>
 
 
 
@@ -1979,11 +1988,11 @@
     
     <div class="podcast-card">
         <div class="podcast-name">SANS Internet Storm Center</div>
-        <div class="podcast-title">SANS Stormcast Monday, August 24th, 2026: More Entra Powershell; Entra Vulnerability; GitLab Vuln (and PoC); GTA 6 Leak Malware</div>
+        <div class="podcast-title">SANS Stormcast Friday, August 21st, 2026: Microsoft Graph and Powershell; Keycloak Vuln; Cryptographic Context Injection; N-Able Password Leak</div>
         <div class="podcast-meta">
-            <span class="podcast-duration">5:29</span>
+            <span class="podcast-duration">7:21</span>
         </div>
-        <a href="https://isc.sans.edu/podcastdetail/10064" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
+        <a href="https://isc.sans.edu/podcastdetail/10062" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
     </div>
     
     </div>
