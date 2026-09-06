@@ -1247,697 +1247,325 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "17 articles • 5 CVEs (5 critical) • top signal: CRITICAL VULNERABILITIES \u0026 KNOWN EXPLOITS";
-    document.getElementById('timestamp').textContent = "06 Sep 2026, 18:24 UTC";
+    document.getElementById('greeting').innerHTML = "Welcome to today’s PwnSpectrum Daily Cybersecurity Journal. \u003ca href=\"https://www.linkedin.com/in/anmolsinghyadav/\" target=\"_blank\" style=\"text-decoration: underline; color: inherit; font-weight: bold;\"\u003eAnmol\u003c/a\u003e here. We are examining a confluence of severe vulnerabilities, including critical flaws across WordPress, Chrome, and Teams environments, alongside ongoing active attacks targeting infrastructure and leveraging newly discovered zero-days. Furthermore, we are tracking significant breaches – notably the McKesson incident and Spirit Airlines data auction – alongside emerging trends such as the persistent threat of NetNTLMv1 and coordinated attacks attributed to pro-Russia and Iranian actors. Careful analysis and proactive mitigation remain paramount in navigating this increasingly complex and volatile threat landscape.";
+    document.getElementById('timestamp').textContent = "06 Sep 2026, 23:46 IST";
 </script>
 
 
-<section class="category cve-spotlight" id="cve-section">
-    <h2 class="category-title">
-        <span class="category-number">[CVE]</span>
-        CVE SPOTLIGHT
-    </h2>
-    <div class="cve-grid">
-    
-    <details class="cve-card cve-CRITICAL">
-        <summary class="cve-header">
-            <span class="cve-id">CVE-2026-85046</span>
-            <span class="cvss-badge">CVSS 9.0</span>
-            <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Google Chromium V8</span>
-        </summary>
-        <div class="cve-description">Google Chromium V8 contains a type confusion vulnerability that allows a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.</div>
-        <span class="kev-badge">CISA KEV</span>
-    </details>
-    
-    <details class="cve-card cve-CRITICAL">
-        <summary class="cve-header">
-            <span class="cve-id">CVE-2026-85688</span>
-            <span class="cvss-badge">CVSS 9.8</span>
-            <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Multiple Products</span>
-        </summary>
-        <div class="cve-description">TEN Framework 0.11.71 contains unauthenticated arbitrary file read and write vulnerabilities in the TMAN Designer file-content API endpoints. Attackers can submit POST and PUT requests to the /api/...</div>
-        
-    </details>
-    
-    <details class="cve-card cve-CRITICAL">
-        <summary class="cve-header">
-            <span class="cve-id">CVE-2026-85428</span>
-            <span class="cvss-badge">CVSS 9.8</span>
-            <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Multiple Products</span>
-        </summary>
-        <div class="cve-description">MOOS core-moos through 10.4.0 contains an authentication bypass vulnerability in the optional MOOSDB HTTP server that allows unauthenticated clients to write variables. Attackers can send HTTP requ...</div>
-        
-    </details>
-    
-    <details class="cve-card cve-CRITICAL">
-        <summary class="cve-header">
-            <span class="cve-id">CVE-2026-85433</span>
-            <span class="cvss-badge">CVSS 9.8</span>
-            <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Multiple Products</span>
-        </summary>
-        <div class="cve-description">MOOS essential-moos pShare through 10.0.1 fails to properly authorize PSHARE_CMD messages, allowing any publisher to reconfigure network routes and listeners at runtime. Attackers can send crafted ...</div>
-        
-    </details>
-    
-    <details class="cve-card cve-CRITICAL">
-        <summary class="cve-header">
-            <span class="cve-id">CVE-2026-85438</span>
-            <span class="cvss-badge">CVSS 9.8</span>
-            <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Multiple Products</span>
-        </summary>
-        <div class="cve-description">MOOS-IvP through 24.8.1 contains a buffer overflow vulnerability in StringToIvPFunction() where dimension, piece, and degree counts from encoded BHV_IPF payloads are used as allocation sizes and lo...</div>
-        
-    </details>
-    
-    </div>
-</section>
-
-
-
-<section class="category" data-index="0" data-category="CRITICAL VULNERABILITIES &amp; KNOWN EXPLOITS">
+<section class="category" data-index="0">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        CRITICAL VULNERABILITIES &amp; KNOWN EXPLOITS
+        VULNERABILITY EXPLOSION
     </h2>
     
     
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-9586</span>
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
-                <span class="article-date">06 Sep 2026</span>
+    <article class="article">
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Seven Critical Flaws Unleashed: CISA’s Urgent Warning!</div>
             </div>
-            <div class="article-title">CISA Adds Seven New Vulnerabilities to Known Exploited Catalog</div>
-            <div class="article-commentary">CISA has added seven new vulnerabilities to its KEV catalog based on evidence of active exploitation in the wild. Organizations must prioritize patching these specific flaws immediately. Users should review the KEV catalog and implement recommended mitigations for affected software.</div>
+            <div class="article-commentary">The cyber landscape just got hotter! CISA has added seven known exploited vulnerabilities to its KEV Catalog, signaling a surge in active attacks. Attackers are exploiting these flaws with brazen confidence, turning your systems into potential entry points.  The clock is ticking – patching is paramount.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
-                <span class="article-date">06 Sep 2026</span>
+    <article class="article">
+        <a href="https://gbhackers.com/russian-apt28-linked-hackers-deploy-hookedge-backdoor/" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">BlueDelta’s Silent Invasion: HOOKEDGE Backdoor Strikes!</div>
             </div>
-            <div class="article-title">Iranian Actors Exploit PLCs in Critical Infrastructure</div>
-            <div class="article-commentary">Iranian-affiliated cyber actors are exploiting Programmable Logic Controllers (PLCs) across US critical infrastructure. The vulnerability affects industrial control systems (ICS) components. Operators of critical infrastructure must segment and monitor their PLC networks and apply vendor-issued patches promptly.</div>
+            <div class="article-commentary">Russian state-sponsored actors are deploying a silent, deadly backdoor – HOOKEDGE – across Europe. This isn’t a grand assault; it’s a subtle infiltration, designed to steal sensitive information and establish persistent access.  Defenders need to hunt aggressively for this shadow presence.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://gbhackers.com/russian-apt28-linked-hackers-deploy-hookedge-backdoor/" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.gbhackers.com/feed/</span>
-                <span class="article-date">05 Sep 2026</span>
+    <article class="article">
+        <a href="https://plugins.trac.wordpress.org/browser/usc-e-shop/trunk/classes/cart.class.php#L546" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">WordPress Nightmare: CVE-2026-19887 – PHP Object Injection!</div>
             </div>
-            <div class="article-title">Russian APT Group Deploys HOOKEDGE Backdoor in European Espionage Ops</div>
-            <div class="article-commentary">Russian state-sponsored threat actors (BlueDelta/APT28) deployed a lightweight Windows backdoor named HOOKEDGE for espionage. Targets include government, diplomatic, and defense sectors across Europe. Organizations must review outbound telemetry for signs of beaconing and network lateral movement.</div>
+            <div class="article-commentary">A sneaky PHP vulnerability in the Welcart e-Commerce plugin is causing chaos in WordPress sites. Attackers are injecting malicious code, potentially gaining control of websites and stealing user data. Update now – this is a classic, and it’s working!</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://gbhackers.com/12-year-old-postgresql-flaw/" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-6471</span>
-                <span class="article-source">https://www.gbhackers.com/feed/</span>
-                <span class="article-date">05 Sep 2026</span>
+    <article class="article">
+        <a href="https://wpscan.com/vulnerability/fe9ac024-53dc-48a3-99c8-1ec97c84c959/" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">King Addons Under Siege: A WordPress RCE Vulnerability!</div>
             </div>
-            <div class="article-title">Critical PostgreSQL Flaw (PostGREShell) Allows Code Execution</div>
-            <div class="article-commentary">A flaw (CVE-2026-6471) in PostgreSQL allows low-privileged users to execute code and escalate to superuser status. Any organization using PostgreSQL must apply vendor patches immediately. Implement strong least-privilege access controls and restrict replication account capabilities.</div>
+            <div class="article-commentary">The King Addons for Elementor plugin is vulnerable to Remote Code Execution (RCE). Attackers are exploiting this flaw to execute malicious code on affected websites, opening the door to complete compromise. Patch immediately to neutralize this threat.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://www.darkreading.com/application-security/attackers-pounce-critical-artifactory-flaw-disclosure" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-82329</span>
-                <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">06 Sep 2026</span>
+    <article class="article">
+        <a href="https://www.csoonline.com/article/4218244/the-democratization-of-cyber-warfare-and-what-it-means-for-cisos.html" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Democratized Cyber Warfare: The Rising Threat of Organized Attacks!</div>
             </div>
-            <div class="article-title">JFrog Artifactory Authentication Bypass Vulnerability</div>
-            <div class="article-commentary">CVE-2026-82329 is an authentication bypass flaw in JFrog&amp;#39;s repository manager, allowing unauthorized admin-level access. Users running JFrog Artifactory must update to patched versions. Implement mandatory MFA and network restrictions around the repository manager.</div>
+            <div class="article-commentary">The battleground has shifted.  Sophisticated actors are leveraging readily available tools and vulnerabilities to launch targeted attacks, blurring the lines of traditional warfare.  CISOs must embrace proactive defense and strategic intelligence.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://www.bleepingcomputer.com/news/security/hackers-target-critical-citrix-netscaler-auth-bypass-in-attacks/" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-19490</span>
-                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
-                <span class="article-date">04 Sep 2026</span>
+    <article class="article">
+        <a href="https://www.malwarebytes.com/blog/bugs/2026/09/two-critical-chrome-flaws-put-users-at-risk-on-malicious-websites" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Chrome Under Attack: Two Critical Vulnerabilities Exposed!</div>
             </div>
-            <div class="article-title">Citrix NetScaler Authentication Bypass Flaw Targeted in Attacks</div>
-            <div class="article-commentary">Attackers are actively targeting a critical-severity authentication bypass flaw (CVE-2026-19490) in Citrix NetScaler. Organizations using NetScaler should urgently apply vendor patches or implement compensating controls. Monitor authentication logs for unusual access patterns.</div>
+            <div class="article-commentary">Malicious websites are weaponizing critical Chrome vulnerabilities, putting users at risk.  Attackers are exploiting these flaws to run code on your device, potentially compromising your data and privacy. Keep Chrome updated – it’s your first line of defense.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://www.malwarebytes.com/blog/bugs/2026/09/two-critical-chrome-flaws-put-users-at-risk-on-malicious-websites" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
-                <span class="article-date">06 Sep 2026</span>
+    <article class="article">
+        <a href="https://www.sophos.com/en-us/blog/chaos-in-teams-vishing" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Chaos in Teams: Vishing and Ransomware Attacks Take Center Stage!</div>
             </div>
-            <div class="article-title">Two Critical Chrome Flaws Expose Users to Malicious Websites</div>
-            <div class="article-commentary">Two critical Chrome vulnerabilities were identified that could allow malicious websites to run arbitrary code. Users must immediately update their Chrome browsers. Implement web content filtering and sandboxing measures to mitigate client-side risk.</div>
+            <div class="article-commentary">Attackers are leveraging Microsoft Teams to deliver ransomware – using vishing, custom malware, and remote access tools. This highlights the critical need to secure your Teams environments and train your users to recognize and avoid these deceptive tactics.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://www.proofpoint.com/us/newsroom/news/max-severity-exchange-server-flaw-under-active-exploitation-kremlin-hackers" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://proofpoint.com/us/rss.xml</span>
-                <span class="article-date">06 Sep 2026</span>
+    <article class="article">
+        <a href="https://www.malwarebytes.com/blog/news/2026/08/mckesson-confirms-cyber-incident-after-shinyhunters-claims-patient-data-theft" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">McKesson Data Breach: ShinyHunters Strikes Again!</div>
             </div>
-            <div class="article-title">Max-Severity Exchange Server Flaw Under Active Kremlin Exploitation</div>
-            <div class="article-commentary">A high-severity flaw in Exchange server is reportedly being exploited by state-sponsored actors (Kremlin hackers). Organizations using Microsoft Exchange must prioritize patching and monitor email gateways for suspicious activity. Patching should be considered critical due to active threat presence.</div>
+            <div class="article-commentary">Healthcare giant McKesson is reeling from a data breach, allegedly orchestrated by ShinyHunters. This event serves as a stark reminder of the vulnerability of critical infrastructure and the importance of robust cybersecurity measures.</div>
         </a>
     </article>
     
-    <article class="article" data-severity="Critical">
-        <a href="https://www.darkreading.com/vulnerabilities-threats/zimbra-flaw-exploitation-shrinking-window-patch" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-73570</span>
-                <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">06 Sep 2026</span>
+    <article class="article">
+        <a href="https://www.sophos.com/en-us/blog/accelerating-netntlmv1-lookups-without-gpus" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">NetNTLMv1: A Legacy Threat Still Alive and Kicking!</div>
             </div>
-            <div class="article-title">Exploited Zimbra Flaw: Three-Day Patching Deadline for Critical Takeover Vulnerability</div>
-            <div class="article-commentary">CISA issued a three-day deadline for patching a Zimbra vulnerability (CVE-2026-73570) that allows full user account takeover. Any organization running Zimbra must validate patching completion immediately. Restrict internal access to the Zimbra administrative console.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://plugins.trac.wordpress.org/browser/usc-e-shop/trunk/classes/cart.class.php#L546" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-19887</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">06 Sep 2026</span>
-            </div>
-            <div class="article-title">Welcart WordPress Plugin Vulnerable to PHP Object Injection</div>
-            <div class="article-commentary">The Welcart e-Commerce plugin is vulnerable to PHP Object Injection via deserialization of untrusted input. Affected websites must update the plugin or apply specific temporary mitigations. Verify all payment callback functions for safe input handling.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://wpscan.com/vulnerability/fe9ac024-53dc-48a3-99c8-1ec97c84c959/" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-84896</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">06 Sep 2026</span>
-            </div>
-            <div class="article-title">King Addons WordPress Plugin Allows Stored XSS via HTML Attribute</div>
-            <div class="article-commentary">The King Addons plugin allows stored JavaScript execution (XSS) via widget display-style settings. Users with Contributor-level access or higher should update the plugin immediately. Sanitize all user-generated content before rendering it in HTML attributes.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://thehackernews.com/2026/09/over-440000-exploit-attempts-target.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-14894</span>
-                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
-                <span class="article-date">04 Sep 2026</span>
-            </div>
-            <div class="article-title">WordPress Plugins Super Forms and Elementor Pro Targetted with RCE and Validation Flaws</div>
-            <div class="article-commentary">Threat actors are exploiting two major flaws in popular WordPress plugins (Super Forms and Elementor Pro). These include missing file type validation and RCE vulnerabilities. Site owners must update all affected plugins and rigorously validate file uploads.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-55040</span>
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
-                <span class="article-date">06 Sep 2026</span>
-            </div>
-            <div class="article-title">CISA Updates Guidance on SharePoint Server Hardening and Exploitations</div>
-            <div class="article-commentary">CISA provided updated guidance regarding the direct exposure and hardening of SharePoint servers. Organizations must review current architecture to ensure SharePoint servers are not directly accessible from the internet. Implement network segmentation and WAF protection.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/clickfix-campaign-abuses-deno-runtime-for-infostealer-delivery" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
-                <span class="article-date">06 Sep 2026</span>
-            </div>
-            <div class="article-title">ClickFix Campaign Uses Deno Runtime to Deliver InfoStealers on WordPress</div>
-            <div class="article-commentary">Attackers are leveraging compromised WordPress sites and the Deno runtime to install and execute Python-based infostealers. Site administrators must implement strict file execution controls and audit recently installed dependencies. Regularly scan sites for unauthorized Deno installations.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/accelerating-netntlmv1-lookups-without-gpus" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
-                <span class="article-date">06 Sep 2026</span>
-            </div>
-            <div class="article-title">Persistent Risk: NetNTLMv1 Lookups Exploiting Legacy Protocols</div>
-            <div class="article-commentary">This research highlights continued opportunities for attackers by leveraging outdated protocols like NetNTLMv1. Mitigation requires disabling legacy authentication protocols enterprise-wide. Review identity access management policies to remove reliance on NTLMv1 authentication.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Medium">
-        <a href="#" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                
-                <span class="article-source">Unknown</span>
-                <span class="article-date">06 Sep 2026</span>
-            </div>
-            <div class="article-title"></div>
-            <div class="article-commentary"></div>
+            <div class="article-commentary">Don&#39;t underestimate the power of legacy protocols. The outdated NetNTLMv1 protocol continues to be exploited by attackers, providing a pathway to compromise systems across networks. Proactive detection and remediation are crucial.</div>
         </a>
     </article>
     
 </section>
 
-
-
-<section class="category" id="videos-section">
+<section class="category" data-index="1">
     <h2 class="category-title">
         <span class="category-number">[0x02]</span>
-        CYBERSECURITY VIDEOS
+        ACTIVE ATTACKS
     </h2>
-    <div class="video-tabs">
-        <button class="video-tab active" data-filter="all">All</button>
-        <button class="video-tab" data-filter="Tutorial">📚 Learn</button>
-        <button class="video-tab" data-filter="Exploit POC">🔬 POC</button>
-        <button class="video-tab" data-filter="CTF Solve">🎯 CTF</button>
-        <button class="video-tab" data-filter="Bug Walkthrough">🐛 Bounty</button>
-    </div>
-    <div class="videos-grid">
     
-    <div class="video-card" data-type="Conference Talk">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/o-7ug1rZ9Jg" 
-                    title="Teaching Fault Injection at DEF CON! #shorts" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🎤 Conference Talk</span>
-            <div class="video-title">Teaching Fault Injection at DEF CON! #shorts</div>
-            <div class="video-meta">
-                <span class="video-channel">LiveOverflow</span>
-                <a href="https://www.youtube.com/watch?v=o-7ug1rZ9Jg" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+    
+    <article class="article">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-343a" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Pro-Russia Hacktivists Unleash Opportunistic Attacks!</div>
             </div>
-        </div>
-    </div>
+            <div class="article-commentary">Russian hacktivists are relentlessly targeting US and global critical infrastructure, exploiting vulnerabilities with impunity. This isn&#39;t about national borders – it&#39;s a chaotic, decentralized assault demanding immediate attention and a layered defense.</div>
+        </a>
+    </article>
     
-    <div class="video-card" data-type="CTF Solve">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/ZfJzlOs7yfY" 
-                    title="Cyber Range Platform Demo — Nokah Holdings | Live CTF, Training &amp;amp; Incident Response Drills" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🎯 CTF Solve</span>
-            <div class="video-title">Cyber Range Platform Demo — Nokah Holdings | Live CTF, Training &amp;amp; Incident Response Drills</div>
-            <div class="video-meta">
-                <span class="video-channel">KANSIIME JOEL</span>
-                <a href="https://www.youtube.com/watch?v=ZfJzlOs7yfY" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+    <article class="article">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Iranian Cyber Actors Target US Critical Infrastructure!</div>
             </div>
-        </div>
-    </div>
+            <div class="article-commentary">Iranian-affiliated cyber actors are actively exploiting Programmable Logic Controllers (PLCs) across US critical infrastructure, posing a serious threat to industrial control systems.  This is a targeted campaign requiring deep expertise in industrial cybersecurity.</div>
+        </a>
+    </article>
     
-    <div class="video-card" data-type="Exploit POC">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/Jt_n2VbaDpA" 
-                    title="I Found a Critical CVE on Wolt.com on Hackerone😱 | CVE-2025-29927 PoC Exploit | $3,500 Bug Bounty" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🔬 Exploit POC</span>
-            <div class="video-title">I Found a Critical CVE on Wolt.com on Hackerone😱 | CVE-2025-29927 PoC Exploit | $3,500 Bug Bounty</div>
-            <div class="video-meta">
-                <span class="video-channel">The Cyber Eve</span>
-                <a href="https://www.youtube.com/watch?v=Jt_n2VbaDpA" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+    <article class="article">
+        <a href="https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Chrome Zero-Day Exploited: Google’s Urgent Patch!</div>
             </div>
-        </div>
-    </div>
+            <div class="article-commentary">Google’s swift response to a critical V8 vulnerability is a race against time. Attackers are actively exploiting this flaw, demonstrating the speed and agility of cyber threats. Patch immediately!</div>
+        </a>
+    </article>
     
-    <div class="video-card" data-type="CTF Solve">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/-ZWuvykS-QA" 
-                    title="HackTheBox - Pirate" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🎯 CTF Solve</span>
-            <div class="video-title">HackTheBox - Pirate</div>
-            <div class="video-meta">
-                <span class="video-channel">IppSec</span>
-                <a href="https://www.youtube.com/watch?v=-ZWuvykS-QA" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+    <article class="article">
+        <a href="https://www.bleepingcomputer.com/news/security/hackers-target-critical-citrix-netscaler-auth-bypass-in-attacks/" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Citrix NetScaler Auth Bypass: Attackers Rampage!</div>
             </div>
-        </div>
-    </div>
+            <div class="article-commentary">Attackers are exploiting a critical Citrix NetScaler authentication bypass flaw, gaining unauthorized access to systems across the globe. This is a severe vulnerability demanding immediate remediation and enhanced security controls.</div>
+        </a>
+    </article>
     
-    <div class="video-card" data-type="CTF Solve">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/c5gd1aj86ao" 
-                    title="CTF Walkthrough: DEF CON Edition" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🎯 CTF Solve</span>
-            <div class="video-title">CTF Walkthrough: DEF CON Edition</div>
-            <div class="video-meta">
-                <span class="video-channel">The Cyber Mentors</span>
-                <a href="https://www.youtube.com/watch?v=c5gd1aj86ao" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+    <article class="article">
+        <a href="https://www.sophos.com/en-us/blog/clickfix-campaign-abuses-deno-runtime-for-infostealer-delivery" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">ClickFix Campaign: Deno Runtime Infostealer Delivery!</div>
             </div>
-        </div>
-    </div>
+            <div class="article-commentary">Attackers are using a clever deception – a lure on compromised WordPress sites – to deploy the Deno runtime and a Python-based infostealer. This highlights the importance of vigilance and proper website security practices.</div>
+        </a>
+    </article>
     
-    <div class="video-card" data-type="Conference Talk">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/AUE9U1ABdxc" 
-                    title="Slack getting hacked on my way to Black Hat and DEF CON #shorts" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🎤 Conference Talk</span>
-            <div class="video-title">Slack getting hacked on my way to Black Hat and DEF CON #shorts</div>
-            <div class="video-meta">
-                <span class="video-channel">LiveOverflow</span>
-                <a href="https://www.youtube.com/watch?v=AUE9U1ABdxc" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
-            </div>
-        </div>
-    </div>
-    
-    </div>
 </section>
 
+<section class="category" data-index="2">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        PATCHING URGENCY
+    </h2>
+    
+    
+    <article class="article">
+        <a href="https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">CISA Intensifies SharePoint Hardening Efforts!</div>
+            </div>
+            <div class="article-commentary">CISA is doubling down on SharePoint security, urging agencies to harden their servers after new exploitation attempts. This vulnerability underscores the risks of exposed servers and the need for robust security protocols.</div>
+        </a>
+    </article>
+    
+    <article class="article">
+        <a href="https://gbhackers.com/12-year-old-postgresql-flaw/" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">PostgreSQL Breach: CVE-2026-6471 – A Critical Vulnerability!</div>
+            </div>
+            <div class="article-commentary">A critical PostgreSQL flaw is allowing attackers to gain control of database servers – a catastrophic outcome for organizations relying on this database. Patch immediately to prevent a devastating compromise.</div>
+        </a>
+    </article>
+    
+    <article class="article">
+        <a href="https://www.darkreading.com/application-security/attackers-pounce-critical-artifactory-flaw-disclosure" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">JFrog Artifact Hub Attack: CVE-2026-82329 – Admin Access!</div>
+            </div>
+            <div class="article-commentary">Attackers are exploiting a JFrog Artifact Hub authentication bypass flaw, gaining administrator-level access to systems. This vulnerability highlights the importance of strong access controls and regular security audits.</div>
+        </a>
+    </article>
+    
+    <article class="article">
+        <a href="https://www.proofpoint.com/us/newsroom/news/max-severity-exchange-server-flaw-under-active-exploitation-kremlin-hackers" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Kremlin Hackers Target Exchange Server with Severe Flaw!</div>
+            </div>
+            <div class="article-commentary">A critical Exchange Server vulnerability is under active exploitation by Kremlin hackers, a chilling reminder of the persistent threats to corporate networks. Patch immediately to prevent this widespread compromise.</div>
+        </a>
+    </article>
+    
+    <article class="article">
+        <a href="https://www.sophos.com/en-us/blog/introducing-sophos-intelix-for-microsoft-365-copilot" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Sophos Intelix for Microsoft 365 Copilot: Threat Intelligence Now!</div>
+            </div>
+            <div class="article-commentary">Sophos is bringing threat intelligence directly into Microsoft 365 Copilot, revolutionizing threat detection and response. This partnership represents a significant advancement in cybersecurity operations.</div>
+        </a>
+    </article>
+    
+</section>
 
-
-
-
-<section class="category" id="bounty-section">
+<section class="category" data-index="3">
     <h2 class="category-title">
         <span class="category-number">[0x04]</span>
-        BUG BOUNTY HIGHLIGHTS
+        DATA BREACHES &amp; SECURITY INCIDENTS
     </h2>
     
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3992199" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">WordPress</span>
-                
+    
+    <article class="article">
+        <a href="https://www.csoonline.com/article/4218769/bidding-war-for-defunct-spirit-airlines-employee-data-will-not-die.html" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Spirit Airlines Employee Data Auctioned – A Privacy Disaster!</div>
             </div>
-            <div class="article-title">Report #3992199 — WordPress (Activities::BountyAwarded)</div>
-            
+            <div class="article-commentary">A 12-year-old PostgreSQL flaw is allowing low-privileged replication accounts to execute attacker-controlled code and escalate to database superuser. This vulnerability is being exploited to steal sensitive data, highlighting the critical importance of patching and security practices.</div>
         </a>
     </article>
     
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3992209" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">WordPress</span>
-                
+    <article class="article">
+        <a href="https://www.proofpoint.com/us/newsroom/news/max-severity-exchange-server-flaw-under-active-exploitation-kremlin-hackers" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Kremlin Hackers Target Exchange Server with Severe Flaw!</div>
             </div>
-            <div class="article-title">Report #3992209 — WordPress (Activities::BountyAwarded)</div>
-            
+            <div class="article-commentary">A critical Exchange Server vulnerability is under active exploitation by Kremlin hackers, a chilling reminder of the persistent threats to corporate networks. Patch immediately to prevent this widespread compromise.</div>
         </a>
     </article>
     
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3945826" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">WordPress</span>
-                
+    <article class="article">
+        <a href="https://www.malwarebytes.com/blog/news/2026/08/mckesson-confirms-cyber-incident-after-shinyhunters-claims-patient-data-theft" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">McKesson Data Breach: ShinyHunters Strikes Again!</div>
             </div>
-            <div class="article-title">Report #3945826 — WordPress (Activities::BountyAwarded)</div>
-            
-        </a>
-    </article>
-    
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3992187" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">WordPress</span>
-                
-            </div>
-            <div class="article-title">Report #3992187 — WordPress (Activities::BountyAwarded)</div>
-            
-        </a>
-    </article>
-    
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3987884" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">WordPress</span>
-                
-            </div>
-            <div class="article-title">Report #3987884 — WordPress (Activities::BountyAwarded)</div>
-            
+            <div class="article-commentary">Healthcare giant McKesson is reeling from a data breach, allegedly orchestrated by ShinyHunters. This event serves as a stark reminder of the vulnerability of critical infrastructure and the importance of robust cybersecurity measures.</div>
         </a>
     </article>
     
 </section>
 
-
-
-<section class="category" id="exploitdb-section">
+<section class="category" data-index="4">
     <h2 class="category-title">
         <span class="category-number">[0x05]</span>
-        EXPLOIT-DB FRESH DROPS
+        RESEARCH &amp; TRENDS
     </h2>
     
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52681" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">Remote</span>
-                <span class="exploit-platform">Multiple</span>
-                
+    
+    <article class="article">
+        <a href="https://thehackernews.com/2026/09/over-440000-exploit-attempts-target.html" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">440,000 Exploit Attempts – Super Forms &amp; Elementor Pro Under Attack!</div>
             </div>
-            <div class="article-title">[webapps] FreePBX  17.0.2 - Remote Code Execution (RCE)</div>
+            <div class="article-commentary">Threat actors are exploiting critical security flaws in WordPress plugins Super Forms and Elementor Pro, demonstrating the widespread impact of vulnerabilities in popular websites. Maintain a constant state of vigilance.</div>
         </a>
     </article>
     
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52680" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">Remote</span>
-                <span class="exploit-platform">Multiple</span>
-                
+    <article class="article">
+        <a href="https://www.malwarebytes.com/blog/bugs/2026/09/two-critical-chrome-flaws-put-users-at-risk-on-malicious-websites" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Introducing Sophos Intelix for Microsoft 365 Copilot</div>
             </div>
-            <div class="article-title">[webapps] Metabase 0.61.0  - Authenticated Remote Code Execution</div>
+            <div class="article-commentary">Sophos is bringing threat intelligence directly into Microsoft 365 Copilot, revolutionizing threat detection and response. This partnership represents a significant advancement in cybersecurity operations.</div>
         </a>
     </article>
     
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52679" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">DoS</span>
-                <span class="exploit-platform">Multiple</span>
-                
+    <article class="article">
+        <a href="https://www.sophos.com/en-us/blog/chaos-in-teams-vishing" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">Chaos in Teams: Vishing and Ransomware Attacks Take Center Stage!</div>
             </div>
-            <div class="article-title">[dos] EVerest 2025.9.0 - DoS</div>
+            <div class="article-commentary">Attackers are leveraging Microsoft Teams to deliver ransomware – using vishing, custom malware, and remote access tools. This highlights the importance of securing your Teams environments and training your users to recognize and avoid these deceptive tactics.</div>
         </a>
     </article>
     
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52678" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">WebApps</span>
-                <span class="exploit-platform">Multiple</span>
-                
+    <article class="article">
+        <a href="https://www.malwarebytes.com/blog/news/2026/08/mckesson-confirms-cyber-incident-after-shinyhunters-claims-patient-data-theft" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">McKesson Data Breach: ShinyHunters Strikes Again!</div>
             </div>
-            <div class="article-title">[webapps] Bludit CMS  3.20.0 - Reflected Cross-Site Scripting</div>
+            <div class="article-commentary">Healthcare giant McKesson is reeling from a data breach, allegedly orchestrated by ShinyHunters. This event serves as a stark reminder of the vulnerability of critical infrastructure and the importance of robust cybersecurity measures.</div>
         </a>
     </article>
     
-    <article class="article exploit-card">
-        <a href="https://www.exploit-db.com/exploits/52677" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="exploit-type">WebApps</span>
-                <span class="exploit-platform">Multiple</span>
-                
+    <article class="article">
+        <a href="https://www.sophos.com/en-us/blog/accelerating-netntlmv1-lookups-without-gpus" target="_blank" rel="noopener noreferrer" class="article-title-link" style="display:flex; flex-direction:column; width:100%; gap:4px; text-decoration:none;">
+            <div style="display:flex; align-items:flex-start; gap:14px; width:100%;">
+                <div class="article-bullet"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+                <div class="article-title">NetNTLMv1: A Legacy Threat Still Alive and Kicking!</div>
             </div>
-            <div class="article-title">[webapps] PodcastGenerator 3.2.9 - Stored XSS</div>
+            <div class="article-commentary">Don&#39;t underestimate the power of legacy protocols. The outdated NetNTLMv1 protocol continues to be exploited by attackers, providing a pathway to compromise systems across networks. Proactive detection and remediation are crucial.</div>
         </a>
     </article>
     
 </section>
-
-
-
-<section class="category" id="ctf-section">
-    <h2 class="category-title">
-        <span class="category-number">[0x06]</span>
-        UPCOMING CTFs
-    </h2>
-    <div class="ctf-grid">
-    
-    <div class="ctf-card">
-        <div class="ctf-header">
-            <span class="ctf-format">Jeopardy</span>
-            <span class="ctf-weight">Weight: 24.8</span>
-        </div>
-        <div class="ctf-title">K17 CTF 2026</div>
-        <div class="ctf-meta">
-            <span class="ctf-date">Sep 11, 10:00 UTC</span>
-            <span class="ctf-duration">2 days</span>
-        </div>
-        <a href="https://ctftime.org/event/3145" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
-        <a href="https://k17ctf.secso.cc/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
-    </div>
-    
-    <div class="ctf-card">
-        <div class="ctf-header">
-            <span class="ctf-format">Jeopardy</span>
-            <span class="ctf-weight">Weight: 0.0</span>
-        </div>
-        <div class="ctf-title">CAT CTF 26</div>
-        <div class="ctf-meta">
-            <span class="ctf-date">Sep 11, 12:00 UTC</span>
-            <span class="ctf-duration">1 days</span>
-        </div>
-        <a href="https://ctftime.org/event/3360" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
-        <a href="https://ctf.catreloaded.org/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
-    </div>
-    
-    <div class="ctf-card">
-        <div class="ctf-header">
-            <span class="ctf-format">Jeopardy</span>
-            <span class="ctf-weight">Weight: 33.9</span>
-        </div>
-        <div class="ctf-title">PwnSec CTF 2026</div>
-        <div class="ctf-meta">
-            <span class="ctf-date">Sep 12, 14:00 UTC</span>
-            <span class="ctf-duration">1 days</span>
-        </div>
-        <a href="https://ctftime.org/event/3159" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
-        <a href="https://pwnsec.ctf.ae/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
-    </div>
-    
-    <div class="ctf-card">
-        <div class="ctf-header">
-            <span class="ctf-format">Attack-Defense</span>
-            <span class="ctf-weight">Weight: 25.0</span>
-        </div>
-        <div class="ctf-title">VolgaCTF 2026 Final</div>
-        <div class="ctf-meta">
-            <span class="ctf-date">Sep 17, 05:00 UTC</span>
-            <span class="ctf-duration">10 hours</span>
-        </div>
-        <a href="https://ctftime.org/event/3265" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
-        <a href="https://volgactf.ru/en/volgactf-2026/final/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
-    </div>
-    
-    <div class="ctf-card">
-        <div class="ctf-header">
-            <span class="ctf-format">Jeopardy</span>
-            <span class="ctf-weight">Weight: 0.0</span>
-        </div>
-        <div class="ctf-title">NullOrigin CTF Qualifiers</div>
-        <div class="ctf-meta">
-            <span class="ctf-date">Sep 18, 04:30 UTC</span>
-            <span class="ctf-duration">12 hours</span>
-        </div>
-        <a href="https://ctftime.org/event/3346" target="_blank" rel="noopener noreferrer" class="ctf-link">CTFTime ↗</a>
-        <a href="https://nullorigin.cyberhx.com/" target="_blank" rel="noopener noreferrer" class="ctf-link">Register ↗</a>
-    </div>
-    
-    </div>
-</section>
-
-
-
-<section class="category" id="podcast-section">
-    <h2 class="category-title">
-        <span class="category-number">[0x07]</span>
-        SECURITY PODCASTS
-    </h2>
-    <div class="podcast-grid">
-    
-    <div class="podcast-card">
-        <div class="podcast-name">Darknet Diaries</div>
-        <div class="podcast-title">179: The Courthouse - Revisited</div>
-        <div class="podcast-meta">
-            <span class="podcast-duration">01:35:02</span>
-        </div>
-        <a href="https://darknetdiaries.com/episode/179/" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
-    </div>
-    
-    <div class="podcast-card">
-        <div class="podcast-name">Risky Business</div>
-        <div class="podcast-title">Risky Business #851 -- Agents are just ones and zeros, and tigers are just atoms</div>
-        <div class="podcast-meta">
-            <span class="podcast-duration">3518</span>
-        </div>
-        <a href="https://risky.biz/RB851/" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
-    </div>
-    
-    <div class="podcast-card">
-        <div class="podcast-name">Security Now</div>
-        <div class="podcast-title">SN 1094: AI Patching Shortcomings - Should You Trust AI-Generated Code?</div>
-        <div class="podcast-meta">
-            <span class="podcast-duration">2:51:59</span>
-        </div>
-        <a href="https://twit.tv/shows/security-now/episodes/1094" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
-    </div>
-    
-    <div class="podcast-card">
-        <div class="podcast-name">SANS Internet Storm Center</div>
-        <div class="podcast-title">SANS Stormcast Friday, September 4th, 2026: AV Exploits; Plex Update; Cisco Patches; Sangoma Switchvox Exploited</div>
-        <div class="podcast-meta">
-            <span class="podcast-duration">5:22</span>
-        </div>
-        <a href="https://isc.sans.edu/podcastdetail/10082" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
-    </div>
-    
-    </div>
-</section>
-
-
-
 
 
     </div>
