@@ -1247,8 +1247,8 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "16 articles • 5 CVEs (5 critical) • top signal: 🚨 CRITICAL VULNERABILITIES \u0026 ACTIVE EXPLOITATION";
-    document.getElementById('timestamp').textContent = "16 Sep 2026, 19:40 UTC";
+    document.getElementById('greeting').innerHTML = "18 articles • 5 CVEs (5 critical) • top signal: 🚨 CRITICAL VULNERABILITY \u0026 ACTIVE EXPLOITATION";
+    document.getElementById('timestamp').textContent = "16 Sep 2026, 18:55 UTC";
 </script>
 
 
@@ -1283,17 +1283,6 @@
     
     <details class="cve-card cve-CRITICAL">
         <summary class="cve-header">
-            <span class="cve-id">CVE-2026-87886</span>
-            <span class="cvss-badge">CVSS 9.0</span>
-            <span class="action-badge action-Patch Now">Patch Now</span>
-            <span class="cve-product">Acronis Backup</span>
-        </summary>
-        <div class="cve-description">Acronis Backup plugin for cPanel &amp; WHM and extension for Plesk contains an incorrect default permissions vulnerability that could allow for privilege escalation.</div>
-        <span class="kev-badge">CISA KEV</span>
-    </details>
-    
-    <details class="cve-card cve-CRITICAL">
-        <summary class="cve-header">
             <span class="cve-id">CVE-2026-76461</span>
             <span class="cvss-badge">CVSS 9.0</span>
             <span class="action-badge action-Patch Now">Patch Now</span>
@@ -1314,15 +1303,26 @@
         
     </details>
     
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
+            <span class="cve-id">CVE-2026-83055</span>
+            <span class="cvss-badge">CVSS 9.9</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Multiple Products</span>
+        </summary>
+        <div class="cve-description">Vulnerability in the Oracle Internet Directory product of Oracle Fusion Middleware (component: OID LDAP Server).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploit...</div>
+        
+    </details>
+    
     </div>
 </section>
 
 
 
-<section class="category" data-index="0" data-category="🚨 CRITICAL VULNERABILITIES &amp; ACTIVE EXPLOITATION">
+<section class="category" data-index="0" data-category="🚨 CRITICAL VULNERABILITY &amp; ACTIVE EXPLOITATION">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        🚨 CRITICAL VULNERABILITIES &amp; ACTIVE EXPLOITATION
+        🚨 CRITICAL VULNERABILITY &amp; ACTIVE EXPLOITATION
     </h2>
     
     
@@ -1334,8 +1334,8 @@
                 <span class="article-source">https://www.gbhackers.com/feed/</span>
                 <span class="article-date">15 Sep 2026</span>
             </div>
-            <div class="article-title">WooCommerce Vulnerability Allows Unauthenticated PHP Backdoor Upload (CVE-2026-27540)</div>
-            <div class="article-commentary">Threat actors are actively exploiting a vulnerability in the WooCommerce Wholesale Lead Capture plugin. This flaw permits unauthenticated attackers to upload malicious PHP files, potentially leading to full site compromise. Affected WordPress sites must update the plugin or apply temporary WAF rules to restrict file uploads.</div>
+            <div class="article-title">WooCommerce Plugin Vulnerability Allows PHP Backdoor Upload</div>
+            <div class="article-commentary">Threat actors are exploiting a critical vulnerability (CVE-2026-27540) in the WooCommerce Wholesale Lead Capture plugin. This flaw permits unauthenticated attackers to upload malicious PHP files, potentially compromising the entire WordPress site. Users of WooCommerce must update the plugin and apply network-level restrictions on file uploads.</div>
         </a>
     </article>
     
@@ -1347,8 +1347,8 @@
                 <span class="article-source">https://www.gbhackers.com/feed/</span>
                 <span class="article-date">15 Sep 2026</span>
             </div>
-            <div class="article-title">Marimo RCE Flaw Enables Rapid AWS Credential Harvesting and Pivoting</div>
-            <div class="article-commentary">A critical pre-authentication RCE vulnerability in marimo allows attackers to harvest AWS credentials and pivot to internal bastion hosts extremely quickly. This demonstrates a severe supply chain and cloud misconfiguration risk. Review AWS Secrets Manager policies and restrict service-to-service access to limit the blast radius of any compromised endpoint.</div>
+            <div class="article-title">Marimo RCE Flaw Enables Credential Harvesting and Lateral Movement</div>
+            <div class="article-commentary">A pre-authentication Remote Code Execution (RCE) vulnerability was exploited in Marimo, allowing attackers to rapidly harvest AWS credentials. The attacker then pivoted to retrieve keys and access a bastion host. Systems using Marimo must apply security patches and assume credentials stored in secrets managers are compromised.</div>
         </a>
     </article>
     
@@ -1360,139 +1360,8 @@
                 <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
                 <span class="article-date">15 Sep 2026</span>
             </div>
-            <div class="article-title">Mass-Scanning Campaign Targets Exposed Vite Deployments for Cloud Credential Theft</div>
-            <div class="article-commentary">Attackers are running mass-scanning campaigns specifically targeting internet-exposed Vite development servers. The objective is to siphon sensitive cloud credentials and configuration details. Organizations must ensure all development environments are either strictly segmented from the internet or protected by strong authentication mechanisms.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://documentation.concretecms.org/developers/introduction/version-history/953-release-notes" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-18110</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">16 Sep 2026</span>
-            </div>
-            <div class="article-title">Concrete CMS: Authorization Flaw in User Selector Endpoint (CVE-2026-18110)</div>
-            <div class="article-commentary">Concrete CMS does not validate authorization when accessing the user selector autocomplete endpoint, enabling potential privilege escalation or data theft. All administrators should ensure they are running versions newer than 9.5.2. Patching is required to enforce proper role-based access controls on backend endpoints.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://github.com/go-vikunja/vikunja/security/advisories/GHSA-88f6-4rjv-x774" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-91982</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">16 Sep 2026</span>
-            </div>
-            <div class="article-title">Vikunja TOTP Secret Leakage: Attackers Can Read Shared Secrets Without Re-authentication</div>
-            <div class="article-commentary">In versions prior to 2.6.0, Vikunja exposes the raw Time-based One-Time Password (TOTP) shared secret via specific API endpoints without requiring re-authentication. Attackers with a valid access token can compromise user accounts. Update Vikunja to version 2.6.0 or later and enforce API rate limiting.</div>
-        </a>
-    </article>
-    
-</section>
-
-<section class="category" data-index="1" data-category="🤖 AI SECURITY &amp; MODERN THREAT LANDSCAPE">
-    <h2 class="category-title">
-        <span class="category-number">[0x02]</span>
-        🤖 AI SECURITY &amp; MODERN THREAT LANDSCAPE
-    </h2>
-    
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.csoonline.com/article/4221307/threat-actors-are-coming-for-your-ai-assets-to-operationalize-their-use-of-ai.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.csoonline.com/feed</span>
-                <span class="article-date">15 Sep 2026</span>
-            </div>
-            <div class="article-title">Threat Actors Targeting AI Assets and Infrastructure Components</div>
-            <div class="article-commentary">The surface area for cyber attacks is expanding to encompass AI assets and related operational technology. Security teams must expand their threat models to include AI model data integrity and the security of ML pipelines. Implement rigorous access controls and monitoring for all data used in AI training and inference.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.darkreading.com/vulnerabilities-threats/bhusa26huggingfacetalk" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">16 Sep 2026</span>
-            </div>
-            <div class="article-title">Postmortem Analysis: Implications of the OpenAI-Hugging Face Incident for AI Security</div>
-            <div class="article-commentary">Security researchers reconstructed the OpenAI-Hugging Face incident, highlighting systemic vulnerabilities in modern AI deployments. This demonstrates that merely implementing model rules is insufficient; strong, layered security controls are mandatory. Organizations utilizing LLMs must implement granular access controls and robust API throttling.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.darkreading.com/cyber-risk/model-knowing-rules-is-not-security-control" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">16 Sep 2026</span>
-            </div>
-            <div class="article-title">Security Review: AI Model Rules vs. Enforceable Security Controls</div>
-            <div class="article-commentary">The analysis of the Hugging Face incident confirms that conceptual &amp;#39;AI model rules&amp;#39; are insufficient substitutes for strong technical security controls. Defenses must rely on robust infrastructure hardening, proper authentication, and mandatory governance layers. Focus remediation efforts on platform controls rather than model-level policy enforcement.</div>
-        </a>
-    </article>
-    
-</section>
-
-<section class="category" data-index="2" data-category="🌎 GEOPOLITICAL &amp; INFRASTRUCTURE TARGETING">
-    <h2 class="category-title">
-        <span class="category-number">[0x03]</span>
-        🌎 GEOPOLITICAL &amp; INFRASTRUCTURE TARGETING
-    </h2>
-    
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
-                <span class="article-date">16 Sep 2026</span>
-            </div>
-            <div class="article-title">Iranian-Affiliated Actors Exploiting PLCs in US Critical Infrastructure</div>
-            <div class="article-commentary">Iranian-affiliated cyber actors are observed exploiting Programmable Logic Controllers (PLCs) across US critical infrastructure sectors. This represents a significant risk to industrial control systems (ICS). Organizations operating OT environments must isolate PLCs, enforce network segmentation (air-gapping where possible), and implement deep packet inspection on ICS protocols.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.malwarebytes.com/blog/bugs/2026/09/bluemoon-exploit-kit-turns-chrome-and-windows-flaws-into-attacks" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
-                <span class="article-date">16 Sep 2026</span>
-            </div>
-            <div class="article-title">BlueMoon Exploit Kit Targets Recently Patched Flaws in Web Browsers and OS</div>
-            <div class="article-commentary">Exploitation groups are using a single exploit kit (BlueMoon) to target flaws in browsers and operating systems, sometimes targeting recently patched vulnerabilities. This underscores the danger of delayed patching and inconsistent patch management. Maintain rapid patch cycles and deploy endpoint detection and response (EDR) solutions for behavioral analysis.</div>
-        </a>
-    </article>
-    
-</section>
-
-<section class="category" data-index="3" data-category="🛡️ OPERATIONAL SECURITY &amp; THREAT RESEARCH">
-    <h2 class="category-title">
-        <span class="category-number">[0x04]</span>
-        🛡️ OPERATIONAL SECURITY &amp; THREAT RESEARCH
-    </h2>
-    
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2024-36401</span>
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
-                <span class="article-date">16 Sep 2026</span>
-            </div>
-            <div class="article-title">CISA Lessons Learned from U.S. Federal Agency Incident Response Engagement</div>
-            <div class="article-commentary">CISA documented its incident response procedures following potential malicious activity within a U.S. federal agency. This provides valuable insight into federal security posture and threat detection methodologies. Private sector organizations should review similar frameworks and implement advanced threat hunting procedures based on security alerts.</div>
+            <div class="article-title">Vite Flaw Targeted by Mass-Scanning Campaign to Steal Cloud Credentials</div>
+            <div class="article-commentary">A mass-scanning campaign is targeting internet-exposed Vite development servers to extract cloud credentials and configurations from AWS. Organizations deploying Vite-based frontends should secure these development servers, restrict internet access, and review IAM roles.</div>
         </a>
     </article>
     
@@ -1504,8 +1373,82 @@
                 <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
                 <span class="article-date">16 Sep 2026</span>
             </div>
-            <div class="article-title">ClickFix Campaign Utilizes Deno Runtime for WordPress Infostealer Delivery</div>
-            <div class="article-commentary">Compromised WordPress sites are used as lures for the ClickFix campaign, leading to the installation of Deno and subsequently a Python-based infostealer. This highlights the risk of dependency injection and supply chain compromise on CMS platforms. Vendors should monitor their platform for unexpected runtime installations and malicious content.</div>
+            <div class="article-title">ClickFix Campaign Delivers Infostealer via Deno Runtime on WordPress</div>
+            <div class="article-commentary">The ClickFix campaign utilizes compromised WordPress sites, installing Deno to deliver a Python-based infostealer. Users of WordPress should implement strong content security policies (CSP) and use robust filtering to prevent malicious script execution.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="1" data-category="🛡️ INFRASTRUCTURE &amp; THEATRE GROUP THREATS">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        🛡️ INFRASTRUCTURE &amp; THEATRE GROUP THREATS
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">16 Sep 2026</span>
+            </div>
+            <div class="article-title">Iranian Actors Exploit PLCs in US Critical Infrastructure</div>
+            <div class="article-commentary">Iranian-affiliated threat actors are exploiting Programmable Logic Controllers (PLCs) across U.S. critical infrastructure. These attacks threaten operational technology (OT) environments. Defenders must implement strict network segmentation between IT and OT networks and monitor ICS traffic for anomalies.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.malwarebytes.com/blog/bugs/2026/09/bluemoon-exploit-kit-turns-chrome-and-windows-flaws-into-attacks" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
+                <span class="article-date">16 Sep 2026</span>
+            </div>
+            <div class="article-title">BlueMoon Exploit Kit Targets Fixed Flaws on Chrome and Windows</div>
+            <div class="article-commentary">Four espionage groups were observed utilizing the BlueMoon exploit kit to exploit recently patched flaws in Chrome and Windows. This highlights the danger of &amp;#39;patch lag&amp;#39; and the need for continuous monitoring. Organizations must maintain rigorous patch management across all endpoints.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.csoonline.com/article/4221307/threat-actors-are-coming-for-your-ai-assets-to-operationalize-their-use-of-ai.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.csoonline.com/feed</span>
+                <span class="article-date">15 Sep 2026</span>
+            </div>
+            <div class="article-title">AI Assets Targeted by Threat Actors: Security Imperatives</div>
+            <div class="article-commentary">Threat actors are increasingly targeting AI assets and underlying models to operationalize their use. Security measures must evolve to protect data pipelines, training models, and API endpoints. Review API access controls and implement Model Drift Detection (MDD).</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darkreading.com/vulnerabilities-threats/bhusa26huggingfacetalk" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
+                <span class="article-date">16 Sep 2026</span>
+            </div>
+            <div class="article-title">OpenAI-Hugging Face Incident: Implications for AI Security</div>
+            <div class="article-commentary">This reconstruction details a major incident involving OpenAI and Hugging Face, emphasizing the unique risks in the AI supply chain. The incident demonstrated that merely setting up rules is insufficient; strong, auditable technical controls are required to govern AI usage.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darkreading.com/cyber-risk/model-knowing-rules-is-not-security-control" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
+                <span class="article-date">16 Sep 2026</span>
+            </div>
+            <div class="article-title">AI Model Governance: Rules Are Not Sufficient Security Controls</div>
+            <div class="article-commentary">Postmortems on AI incidents confirm that policy rules and internal guidelines alone do not provide adequate security. Strong technical controls—including granular access controls, input validation, and continuous monitoring—must be implemented to secure LLM deployments.</div>
         </a>
     </article>
     
@@ -1517,8 +1460,69 @@
                 <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
                 <span class="article-date">16 Sep 2026</span>
             </div>
-            <div class="article-title">Enterprise Cybersecurity Frameworks for Microsoft Environments</div>
-            <div class="article-commentary">Sophos published a comprehensive guide detailing security operations and threat intelligence for Microsoft environments. This resource outlines services ranging from MDR to threat intelligence integration. Security teams should review maturity models and consider augmenting internal capabilities with specialized Managed Detection and Response (MDR) services.</div>
+            <div class="article-title">Comprehensive Security Services for Microsoft Environments</div>
+            <div class="article-commentary">Sophos advises utilizing comprehensive security services, including MDR and dedicated threat intelligence, for Microsoft environments. This serves as a reminder for organizations to adopt layered defense strategies rather than relying on single product solutions.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="2" data-category="⚙️ WEB APPLICATION &amp; API VULNERABILITIES">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        ⚙️ WEB APPLICATION &amp; API VULNERABILITIES
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://documentation.concretecms.org/developers/introduction/version-history/953-release-notes" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-18110</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">16 Sep 2026</span>
+            </div>
+            <div class="article-title">Concrete CMS Authorization Flaw in User Selector Endpoint</div>
+            <div class="article-commentary">Concrete CMS 9 versions (9.0.0 through 9.5.2) lack proper authorization checks on the user selector autocomplete endpoint. This flaw permits unauthorized access to user data or functionality. Affected systems must upgrade immediately or implement strict access control measures.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://github.com/go-vikunja/vikunja/security/advisories/GHSA-88f6-4rjv-x774" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-91982</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">16 Sep 2026</span>
+            </div>
+            <div class="article-title">Vikunja TOTP Shared Secret Exposed Without Re-authentication</div>
+            <div class="article-commentary">Before version 2.6.0, Vikunja allows an attacker with a valid access token to read the raw TOTP shared secret via specific API endpoints. This bypasses standard re-authentication requirements and mandates an immediate upgrade to the latest version.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.csoonline.com/article/4221934/a-maximum-severity-gitlab-flaw-could-turn-your-ci-cd-server-into-an-attackers-treasure-trove.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-85706</span>
+                <span class="article-source">https://www.csoonline.com/feed</span>
+                <span class="article-date">15 Sep 2026</span>
+            </div>
+            <div class="article-title">GitLab Flaw Allows Potential CI/CD Server Compromise</div>
+            <div class="article-commentary">A critical vulnerability was identified in GitLab that could allow an attacker to compromise CI/CD server functionality. Exposure of the build system represents a high-value target for attackers. Teams must isolate CI/CD runners and apply all pending GitLab security patches.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2024-36401</span>
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">16 Sep 2026</span>
+            </div>
+            <div class="article-title">CISA Lessons Learned from Federal Incident Response</div>
+            <div class="article-commentary">CISA published findings from an incident response engagement at a U.S. federal civilian executive branch. This provides practical lessons on threat detection and incident handling in high-value government environments. Organizations should review their own IR plans based on these findings.</div>
         </a>
     </article>
     
@@ -1528,7 +1532,7 @@
 
 <section class="category" id="videos-section">
     <h2 class="category-title">
-        <span class="category-number">[0x05]</span>
+        <span class="category-number">[0x04]</span>
         CYBERSECURITY VIDEOS
     </h2>
     <div class="video-tabs">
@@ -1663,57 +1667,9 @@
 
 <section class="category" id="bounty-section">
     <h2 class="category-title">
-        <span class="category-number">[0x07]</span>
+        <span class="category-number">[0x06]</span>
         BUG BOUNTY HIGHLIGHTS
     </h2>
-    
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3986083" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">X / xAI</span>
-                
-            </div>
-            <div class="article-title">Report #3986083 — X / xAI (Activities::BugResolved)</div>
-            
-        </a>
-    </article>
-    
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3999995" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">X / xAI</span>
-                
-            </div>
-            <div class="article-title">Report #3999995 — X / xAI (Activities::BugResolved)</div>
-            
-        </a>
-    </article>
-    
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/4024999" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">TransUnion LLC</span>
-                
-            </div>
-            <div class="article-title">Report #4024999 — TransUnion LLC (Activities::BugResolved)</div>
-            
-        </a>
-    </article>
-    
-    <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/4024189" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Airbnb</span>
-                <span class="bounty-amount">$100</span>
-            </div>
-            <div class="article-title">Report #4024189 — Airbnb (Activities::BountyAwarded)</div>
-            
-        </a>
-    </article>
     
     <article class="article bounty-card">
         <a href="https://hackerone.com/reports/3149331" target="_blank" rel="noopener noreferrer" class="article-title-link">
@@ -1727,13 +1683,61 @@
         </a>
     </article>
     
+    <article class="article bounty-card">
+        <a href="https://hackerone.com/reports/3977277" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Medium">Medium</span>
+                <span class="bounty-program">Vercel Open Source</span>
+                
+            </div>
+            <div class="article-title">Report #3977277 — Vercel Open Source (Activities::BugResolved)</div>
+            
+        </a>
+    </article>
+    
+    <article class="article bounty-card">
+        <a href="https://hackerone.com/reports/3895844" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Medium">Medium</span>
+                <span class="bounty-program">WordPress</span>
+                
+            </div>
+            <div class="article-title">Report #3895844 — WordPress (Activities::BugResolved)</div>
+            
+        </a>
+    </article>
+    
+    <article class="article bounty-card">
+        <a href="https://hackerone.com/reports/3895838" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Medium">Medium</span>
+                <span class="bounty-program">WordPress</span>
+                
+            </div>
+            <div class="article-title">Report #3895838 — WordPress (Activities::BugResolved)</div>
+            
+        </a>
+    </article>
+    
+    <article class="article bounty-card">
+        <a href="https://hackerone.com/reports/3994203" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Medium">Medium</span>
+                <span class="bounty-program">Goldman Sachs</span>
+                
+            </div>
+            <div class="article-title">Report #3994203 — Goldman Sachs (Activities::BountyAwarded)</div>
+            
+        </a>
+    </article>
+    
 </section>
 
 
 
 <section class="category" id="exploitdb-section">
     <h2 class="category-title">
-        <span class="category-number">[0x08]</span>
+        <span class="category-number">[0x07]</span>
         EXPLOIT-DB FRESH DROPS
     </h2>
     
@@ -1798,7 +1802,7 @@
 
 <section class="category" id="ctf-section">
     <h2 class="category-title">
-        <span class="category-number">[0x09]</span>
+        <span class="category-number">[0x08]</span>
         UPCOMING CTFs
     </h2>
     <div class="ctf-grid">
@@ -1880,7 +1884,7 @@
 
 <section class="category" id="podcast-section">
     <h2 class="category-title">
-        <span class="category-number">[0x0a]</span>
+        <span class="category-number">[0x09]</span>
         SECURITY PODCASTS
     </h2>
     <div class="podcast-grid">
