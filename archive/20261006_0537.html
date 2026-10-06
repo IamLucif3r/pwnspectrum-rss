@@ -1247,8 +1247,8 @@
         <div id="newsletter-content">
 
 <script>
-    document.getElementById('greeting').innerHTML = "20 articles • 4 CVEs (4 critical) • top signal: ⚠️ Active Vulnerabilities \u0026 Zero-Day Exploitation";
-    document.getElementById('timestamp').textContent = "06 Oct 2026, 05:40 UTC";
+    document.getElementById('greeting').innerHTML = "20 articles • 5 CVEs (5 critical) • top signal: 🚨 IMMEDIATE VULNERABILITY DISCLOSURES \u0026 EXPLOITS";
+    document.getElementById('timestamp').textContent = "05 Oct 2026, 05:24 UTC";
 </script>
 
 
@@ -1272,6 +1272,17 @@
     
     <details class="cve-card cve-CRITICAL">
         <summary class="cve-header">
+            <span class="cve-id">CVE-2026-105134</span>
+            <span class="cvss-badge">CVSS 10.0</span>
+            <span class="action-badge action-Patch Now">Patch Now</span>
+            <span class="cve-product">Multiple Products</span>
+        </summary>
+        <div class="cve-description">A flaw has been found in Ahsay AhsayCBS up to 10.3.2. This vulnerability affects unknown code of the file /rps/api/json/UpdateReceivers.do of the component Replication Receiver. Executing a manipul...</div>
+        
+    </details>
+    
+    <details class="cve-card cve-CRITICAL">
+        <summary class="cve-header">
             <span class="cve-id">CVE-2026-105135</span>
             <span class="cvss-badge">CVSS 10.0</span>
             <span class="action-badge action-Patch Now">Patch Now</span>
@@ -1283,23 +1294,23 @@
     
     <details class="cve-card cve-CRITICAL">
         <summary class="cve-header">
-            <span class="cve-id">CVE-2026-105484</span>
-            <span class="cvss-badge">CVSS 10.0</span>
+            <span class="cve-id">CVE-2026-82041</span>
+            <span class="cvss-badge">CVSS 9.9</span>
             <span class="action-badge action-Patch Now">Patch Now</span>
             <span class="cve-product">Multiple Products</span>
         </summary>
-        <div class="cve-description">A security vulnerability has been detected in TOTOLINK X6000R 9.4.0cu.652_B20230116. The impacted element is the function firmware_check of the file /cgi-bin/cstecgi.cgi of the component UploadFirm...</div>
+        <div class="cve-description">UTMStack before 11.2.16 contains a missing authorization vulnerability in UTMIncidentCommandWebsocket.processCommand(), the handler mapped to the /command/{hostname} STOMP destination, where no rol...</div>
         
     </details>
     
     <details class="cve-card cve-CRITICAL">
         <summary class="cve-header">
-            <span class="cve-id">CVE-2026-105207</span>
+            <span class="cve-id">CVE-2023-54405</span>
             <span class="cvss-badge">CVSS 9.8</span>
             <span class="action-badge action-Patch Now">Patch Now</span>
             <span class="cve-product">Multiple Products</span>
         </summary>
-        <div class="cve-description">ZITADEL 3.0.0 through 3.4.15 and 4.0.0 before 4.17.3 creates links between user accounts and external identity providers without verifying a primary factor or the caller&#39;s permission, including on ...</div>
+        <div class="cve-description">H3C CVM, the Cloud Virtualization Management component of the H3C CAS cloud platform, contains an unauthenticated arbitrary file upload vulnerability in the /cas/fileUpload/upload endpoint that all...</div>
         
     </details>
     
@@ -1308,12 +1319,25 @@
 
 
 
-<section class="category" data-index="0" data-category="⚠️ Active Vulnerabilities &amp; Zero-Day Exploitation">
+<section class="category" data-index="0" data-category="🚨 IMMEDIATE VULNERABILITY DISCLOSURES &amp; EXPLOITS">
     <h2 class="category-title">
         <span class="category-number">[0x01]</span>
-        ⚠️ Active Vulnerabilities &amp; Zero-Day Exploitation
+        🚨 IMMEDIATE VULNERABILITY DISCLOSURES &amp; EXPLOITS
     </h2>
     
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2025-39964</span>
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">CISA Adds New Known Exploited Vulnerabilities to Catalog</div>
+            <div class="article-commentary">CISA has updated its KEV Catalog with new vulnerabilities, confirming active exploitation in the wild. These additions necessitate immediate vendor review and patching. Organizations must verify if their deployed infrastructure utilizes the specific affected components and apply vendor mitigations immediately.</div>
+        </a>
+    </article>
     
     <article class="article" data-severity="Critical">
         <a href="https://www.cisa.gov/news-events/alerts/2026/09/27/critical-zero-day-vulnerabilities-exploited-citrix-netscaler-adc-gateway" target="_blank" rel="noopener noreferrer" class="article-title-link">
@@ -1321,23 +1345,49 @@
                 <span class="severity-badge severity-Critical">Critical</span>
                 <span class="cve-badge">CVE-2026-88771</span>
                 <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
-                <span class="article-date">06 Oct 2026</span>
+                <span class="article-date">05 Oct 2026</span>
             </div>
-            <div class="article-title">Critical Zero-Day Flaws in Citrix NetScaler ADC and Gateway</div>
-            <div class="article-commentary">CISA reports the active exploitation of multiple critical vulnerabilities affecting Citrix NetScaler ADC and Gateway appliances. These flaws require immediate attention due to their high exploitability and potential for lateral movement. Organizations using these devices must apply the latest vendor patches and implement network segmentation and enhanced monitoring for associated traffic patterns.</div>
+            <div class="article-title">Zero-Day Vulnerabilities Exploited in Citrix NetScaler ADC/Gateway</div>
+            <div class="article-commentary">CISA alerted to eight new critical vulnerabilities affecting Citrix NetScaler ADC and Gateway. These flaws are actively being exploited and pose high risk to infrastructure perimeter devices. Defenders should implement the provided SIGMA rules and apply vendor patches immediately to limit exposure.</div>
         </a>
     </article>
     
     <article class="article" data-severity="Critical">
-        <a href="https://thehackernews.com/2026/10/attackers-target-rejetto-hfs-flaw-that.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://www.sophos.com/en-us/blog/cisco-secure-email-gateway-vulnerability-cve-2026-76461-in-active-exploitation" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-61500</span>
-                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
+                <span class="cve-badge">CVE-2026-76461</span>
+                <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
                 <span class="article-date">05 Oct 2026</span>
             </div>
-            <div class="article-title">Rejetto HFS Flaw Enables Session Forgery and RCE</div>
-            <div class="article-commentary">A critical vulnerability (CVE-2026-61500) was identified in Rejetto HTTP File Server (HFS), allowing for session forgery and Remote Code Execution (RCE). The flaw stems from the improper use of a pseudo-random number generator. Affected systems utilizing Rejetto HFS must update to a patched version immediately and restrict external access to the service.</div>
+            <div class="article-title">Cisco Secure Email Gateway Vulnerability Under Active Exploitation</div>
+            <div class="article-commentary">A critical vulnerability (CVE-2026-76461) has been identified and is reportedly undergoing active exploitation. This flaw impacts Cisco Secure Email Gateway products. Administrators must prioritize applying the security patch and reviewing outbound traffic patterns for anomalous activity.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://wpscan.com/vulnerability/77f413f6-8753-4c83-8623-00ad7a1dcaff/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-93549</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">CoCart WordPress Plugin Flaw Allows Cross-Site Request Forgery (CSRF)</div>
+            <div class="article-commentary">The CoCart WordPress plugin (before 4.9.7) lacks proper REST API authentication scoping, allowing CSRF attacks. An attacker could leverage this to create new administrator accounts without elevated credentials. Users must update the CoCart plugin to the latest patched version immediately.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://github.com/siyuan-note/siyuan/security/advisories/GHSA-v758-8w88-pfr2" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                <span class="cve-badge">CVE-2026-105205</span>
+                <span class="article-source">NVD</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">SiYuan Information Disclosure Vulnerability in Published Documents</div>
+            <div class="article-commentary">SiYuan before version 3.8.5 contains an information disclosure vulnerability that leaks backlink block IDs and reference counts. This can be leveraged by attackers querying published documents. Users should update to version 3.8.5 or newer to prevent data enumeration.</div>
         </a>
     </article>
     
@@ -1347,219 +1397,10 @@
                 <span class="severity-badge severity-Critical">Critical</span>
                 <span class="cve-badge">CVE-2026-86950</span>
                 <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">Exploitation of Apple Zero-Day Vulnerability (CVE-2026-86950)</div>
-            <div class="article-commentary">Threat actors are actively exploiting CVE-2026-86950, an out-of-bounds write flaw within Apple systems. This vulnerability allows for sophisticated unauthorized access and potential data exfiltration. Apple users and IT administrators should deploy all available security updates and monitor for anomalous process behavior on endpoints.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.csoonline.com/article/4230892/shinyhunters-exploitation-of-a-new-peoplesoft-zero-day-hole-threatens-to-change-enterprise-risk-dynamics.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-35273</span>
-                <span class="article-source">https://www.csoonline.com/feed</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">PeopleSoft Zero-Day Flaw Exploited by Threat Groups</div>
-            <div class="article-commentary">ShinyHunters is reportedly exploiting a zero-day vulnerability in PeopleSoft. This flaw presents a significant risk to enterprise environments running PeopleSoft infrastructure. Organizations should patch all PeopleSoft instances immediately, review access controls, and enforce least-privilege principles for administrative accounts.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://gbhackers.com/libheif-vulnerability/" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.gbhackers.com/feed/</span>
                 <span class="article-date">05 Oct 2026</span>
             </div>
-            <div class="article-title">Critical libheif Flaw Enables RCE via WordPress Image Uploads</div>
-            <div class="article-commentary">A critical heap-buffer-overflow vulnerability in libheif allows authenticated users to achieve Remote Code Execution (RCE) by uploading specially crafted HEIC images to WordPress. All WordPress sites must update the libheif library, verify user roles, and restrict image processing capabilities to mitigate this threat.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://grafana.com/security/security-advisories/cve-2026-89039" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-89039</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">Path Traversal Vulnerability in mcp-k6 Detected</div>
-            <div class="article-commentary">A path traversal vulnerability (CVE-2026-89039) in mcp-k6 allows users to read arbitrary files, including sensitive credentials, by passing bare file paths. Users of mcp-k6 must update to a patched version immediately. Implement strict file input validation and restrict server access to non-sensitive directories.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://github.com/langflow-ai/langflow/commit/eba285edf1dd4a33bf23a9cb8113c991fcdf3d1d" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-105697</span>
-                <span class="article-source">NVD</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">Langflow Insecure Configuration Allows Command Injection</div>
-            <div class="article-commentary">Prior to version 1.10.3, Langflow permitted unauthorized command execution via its MCP stdio transport. Any user could execute arbitrary commands using configuration arguments. Developers using Langflow must update to version 1.10.3 or later and validate all user-provided inputs before execution.</div>
-        </a>
-    </article>
-    
-</section>
-
-<section class="category" data-index="1" data-category="🏛️ Government &amp; Infrastructure Advisories">
-    <h2 class="category-title">
-        <span class="category-number">[0x02]</span>
-        🏛️ Government &amp; Infrastructure Advisories
-    </h2>
-    
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/alerts/2026/09/09/cisa-adds-four-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2025-25249</span>
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/current-activity.xml</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">CISA Adds Vulnerabilities to Known Exploited Catalog</div>
-            <div class="article-commentary">CISA has expanded its Known Exploited Vulnerabilities (KEV) Catalog by adding four new vulnerabilities based on evidence of active exploitation. Organizations must check the KEV catalog regularly to identify applicable assets and apply mandatory patches. Remediation efforts should be prioritized for all listed CVEs.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">Iranian Actors Targeting US Critical Infrastructure PLCs</div>
-            <div class="article-commentary">Iranian-affiliated cyber actors are actively exploiting Programmable Logic Controllers (PLCs) across US critical infrastructure. This indicates targeted state-sponsored activity against essential services. Operators of OT/SCADA environments must strengthen network air gaps, segment industrial control systems (ICS), and monitor for unusual PLC communications.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-266a" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2024-36401</span>
-                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">CISA Incident Response Lessons Learned from FCEB Agency</div>
-            <div class="article-commentary">CISA published an advisory detailing incident response efforts at a U.S. federal civilian executive branch (FCEB) agency. This resource provides valuable insights into handling potential malicious activity detection. Agencies should review these lessons learned and refine their internal incident handling playbooks and communication protocols.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://thehackernews.com/2026/10/microsoft-exchange-flaw-lets.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-96940</span>
-                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
-                <span class="article-date">05 Oct 2026</span>
-            </div>
-            <div class="article-title">Microsoft Exchange Flaw Allows Privilege Escalation via Weak Authorization</div>
-            <div class="article-commentary">Microsoft released out-of-band updates addressing a high-severity flaw (CVE-2026-96940) in Exchange Server, allowing authenticated attackers to escalate privileges and read other users&amp;#39; mailboxes. All Exchange Server environments must apply the latest security patches and enforce strict least-privilege access controls for mailbox services.</div>
-        </a>
-    </article>
-    
-</section>
-
-<section class="category" data-index="2" data-category="🌐 Global Breaches &amp; Threat Actor Intelligence">
-    <h2 class="category-title">
-        <span class="category-number">[0x03]</span>
-        🌐 Global Breaches &amp; Threat Actor Intelligence
-    </h2>
-    
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.itsecurityguru.org/2026/10/05/denmarks-cpr-breach-exposes-8-8-million-people-as-experts-warn-over-trusted-third-party-access/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=denmarks-cpr-breach-exposes-8-8-million-people-as-experts-warn-over-trusted-third-party-access" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.itsecurityguru.org/feed/</span>
-                <span class="article-date">05 Oct 2026</span>
-            </div>
-            <div class="article-title">Danish CPR Breach Exposes 8.8 Million Personal Records</div>
-            <div class="article-commentary">Personal data for 8.8 million people was exposed following a breach of Denmark&amp;#39;s Central Person Register (CPR). The breach occurred due to unauthorized misuse of a legitimate third-party company&amp;#39;s access to the national system. Organizations managing sensitive public data must audit third-party access credentials and enforce mandatory data encryption.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://gbhackers.com/researcher-infiltrates-chinese-crime-syndicate-laundering-crypto/" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.gbhackers.com/feed/</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">Researcher Tracks Lazarus Group Cryptocurrency Laundering Operation</div>
-            <div class="article-commentary">An investigation revealed a Chinese organized crime syndicate laundering over $1 billion through crypto exploits, linked to North Korea&amp;#39;s Lazarus Group. This highlights the use of cryptocurrency for advanced state-sponsored financial crimes. Financial institutions and blockchain security teams must enhance monitoring for suspicious, high-volume crypto transaction patterns.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.darkreading.com/threat-intelligence/russia-star-blizzard-apt-ditches-clickfix-widen-phishing-net" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://www.darkreading.com/rss.xml</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">Russia&amp;#39;s Star Blizzard Tactic Changes to RedFlick Phishing</div>
-            <div class="article-commentary">The APT actor Star Blizzard is shifting tactics, adopting a new methodology called &amp;#39;RedFlick.&amp;#39; This technique targets Ukrainian-linked entities (NGOs, think tanks) to deploy the CosmicPulse backdoor. Users should be highly suspicious of phishing attempts related to geopolitical flashpoints and restrict outbound connectivity for sensitive accounts.</div>
-        </a>
-    </article>
-    
-</section>
-
-<section class="category" data-index="3" data-category="💻 Patch Management &amp; Emerging Tactics">
-    <h2 class="category-title">
-        <span class="category-number">[0x04]</span>
-        💻 Patch Management &amp; Emerging Tactics
-    </h2>
-    
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.csoonline.com/article/4230923/dell-patches-18-critical-flaws-that-could-hand-attackers-the-keys-to-storage-and-kubernetes.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                <span class="cve-badge">CVE-2026-63688</span>
-                <span class="article-source">https://www.csoonline.com/feed</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">Dell Patches 18 Critical Flaws in Storage and Kubernetes Components</div>
-            <div class="article-commentary">Dell released patches addressing 18 critical vulnerabilities across storage and Kubernetes related components. These patches mitigate serious risks to infrastructure stability and container orchestration. All managed IT environments must apply the cumulative patches immediately and verify system integrity post-update.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/introducing-sophos-intelix-for-microsoft-365-copilot" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">Sophos Intelix Integration for Microsoft 365 Copilot</div>
-            <div class="article-commentary">Sophos is integrating its threat intelligence feed, Intelix, directly into Microsoft 365 Copilot. This enhancement improves threat detection capabilities within generative AI contexts. Enterprises utilizing Copilot must review the provider&amp;#39;s threat intelligence sources and ensure integration aligns with corporate security policies.</div>
-        </a>
-    </article>
-    
-    <article class="article" data-severity="Critical">
-        <a href="https://www.sophos.com/en-us/blog/accelerating-netntlmv1-lookups-without-gpus" target="_blank" rel="noopener noreferrer" class="article-title-link">
-            <div class="article-header">
-                <span class="severity-badge severity-Critical">Critical</span>
-                
-                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
-                <span class="article-date">06 Oct 2026</span>
-            </div>
-            <div class="article-title">NetNTLMv1 Protocol Vulnerabilities and Attack Tooling</div>
-            <div class="article-commentary">This research details the continued viability of exploiting outdated NetNTLMv1 protocols, even without advanced hardware. Improvements in attack tooling are simplifying the execution of these legacy attacks. Organizations must aggressively decommission NTLMv1 support and enforce modern, encrypted authentication protocols (e.g., Kerberos).</div>
+            <div class="article-title">Apple Zero-Day Out-of-Bounds Write Flaw Weaponized in Targeted Attacks</div>
+            <div class="article-commentary">Attackers are exploiting CVE-2026-86950, an out-of-bounds write flaw within Apple products. Exploitation is highly sophisticated and targets end-users, requiring heightened vigilance. Users should ensure all operating systems and applications are running the absolute latest available patches.</div>
         </a>
     </article>
     
@@ -1569,10 +1410,106 @@
                 <span class="severity-badge severity-Critical">Critical</span>
                 
                 <span class="article-source">https://news.sophos.com/en-us/category/threat-research/feed/</span>
-                <span class="article-date">06 Oct 2026</span>
+                <span class="article-date">05 Oct 2026</span>
             </div>
-            <div class="article-title">Cyclops Blink Malware Updates Targeting Cisco FMC Devices</div>
-            <div class="article-commentary">Upgraded modular malware, identified as Cyclops Blink, has been observed targeting Cisco Firewall Management Center (FMC) devices. This suggests persistent threat activity aimed at network perimeter controls. Network security teams must review FMC configurations for unauthorized modules and apply vendor-recommended mitigations.</div>
+            <div class="article-title">Cyclops Blink Malware Observed in Cisco Firewall Management Center (FMC)</div>
+            <div class="article-commentary">An upgraded version of the modular malware, Cyclops Blink, has been observed targeting Cisco Firewall Management Center devices. This malware suggests potential compromise or lateral movement within the network perimeter. System administrators must check FMC logs for suspicious processes or unauthorized changes.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="1" data-category="&lt;0xF0&gt;&lt;0x9F&gt;&lt;0xA5&gt;&lt;0xB7&gt; THREAT ACTOR &amp; ESPIONAGE ADVISORIES">
+    <h2 class="category-title">
+        <span class="category-number">[0x02]</span>
+        &lt;0xF0&gt;&lt;0x9F&gt;&lt;0xA5&gt;&lt;0xB7&gt; THREAT ACTOR &amp; ESPIONAGE ADVISORIES
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">Iranian Actors Exploit PLC Systems in US Critical Infrastructure</div>
+            <div class="article-commentary">Iranian-affiliated cyber actors are actively exploiting Programmable Logic Controllers (PLCs) across US Critical Infrastructure. These attacks indicate targeted industrial espionage and disruption planning. OT/ICS sector defenders must monitor PLC network traffic for unauthorized configuration changes or unusual communication patterns.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-343a" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.cisa.gov/uscert/ncas/alerts.xml</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">Pro-Russia Hacktivist Campaigns Against US and Global Infrastructure</div>
+            <div class="article-commentary">Pro-Russia hacktivist groups are conducting opportunistic, high-volume attacks against various sectors of US and global critical infrastructure. These attacks often seek disruption and publicity, rather than deep infiltration. Organizations should enhance public-facing hardening and implement robust threat detection rules for DDoS/L7 attacks.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://thehackernews.com/2026/10/china-aligned-ta419-targets-us-ai.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
+                <span class="article-date">04 Oct 2026</span>
+            </div>
+            <div class="article-title">China-Nexus Group TA419 Targets US AI Experts via Phishing</div>
+            <div class="article-commentary">A China-nexus espionage group (TA419) is conducting targeted credential phishing campaigns. The primary victims are US AI policy experts, academics, and think tank members. Defenses must focus on advanced email filtering, credential monitoring, and implementing mandatory security awareness training on deepfake phishing.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="2" data-category="💻 PLATFORM AND APPLICATION VULNERABILITIES">
+    <h2 class="category-title">
+        <span class="category-number">[0x03]</span>
+        💻 PLATFORM AND APPLICATION VULNERABILITIES
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://thehackernews.com/2026/10/the-state-of-cybersecurity-in-2026key.html" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://feeds.feedburner.com/TheHackersNews</span>
+                <span class="article-date">03 Oct 2026</span>
+            </div>
+            <div class="article-title">Strategic Outlook: Cybersecurity in Cloud, AI, and Distributed Systems</div>
+            <div class="article-commentary">The cybersecurity landscape is rapidly evolving due to the adoption of cloud infrastructure, AI, and distributed systems. Complexity increases the attack surface, requiring continuous visibility and identity management. Organizations must adopt Zero Trust architectures and focus on micro-segmentation across all digital environments.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-hacked-clop-what-about-clops-victims" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.darkreading.com/rss.xml</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">ShinyHunters Exploitation of Previous Ransomware Group Victim Data</div>
+            <div class="article-commentary">The threat group ShinyHunters has defaced the Dark Web site of Cl0p and claimed possession of victim data. This indicates a secondary extortion risk for entities that previously paid ransoms. Organizations must assume potential data leakage and mandate proactive password rotation and credential changes.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.bleepingcomputer.com/news/security/shinyhunters-hacker-reportedly-detained-in-jordan-aiding-fbi/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-date">03 Oct 2026</span>
+            </div>
+            <div class="article-title">ShinyHunters Member Reported Detained and Cooperating with FBI</div>
+            <div class="article-commentary">A suspected member of the ShinyHunters hacking group has reportedly been detained in Jordan and is cooperating with the FBI. This may provide intelligence opportunities for understanding the group&amp;#39;s structure and methods. Security teams should track law enforcement advisories and anticipate shifts in cybercriminal tactics.</div>
         </a>
     </article>
     
@@ -1582,10 +1519,80 @@
                 <span class="severity-badge severity-Critical">Critical</span>
                 
                 <span class="article-source">https://blog.malwarebytes.com/feed/</span>
-                <span class="article-date">06 Oct 2026</span>
+                <span class="article-date">05 Oct 2026</span>
             </div>
-            <div class="article-title">Malwarebytes Achieves Top Product Rating in Independent Testing</div>
-            <div class="article-commentary">Malwarebytes earned top product certifications across three independent testing laboratories. This validates the efficacy of their anti-malware solutions against evolving threats. Organizations should integrate top-rated endpoint security solutions and maintain consistent update cycles across all endpoints.</div>
+            <div class="article-title">Security Tool Assessment: Malwarebytes Earns Top Product Award</div>
+            <div class="article-commentary">Malwarebytes received independent testing commendations for its performance in blocking threats. This validates the efficacy of endpoint protection products in modern threat environments. Organizations should use third-party validation to guide decisions regarding comprehensive endpoint security solutions.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="3" data-category="⚠️ HIGH-RISK INDUSTRY &amp; BUSINESS INCIDENTS">
+    <h2 class="category-title">
+        <span class="category-number">[0x04]</span>
+        ⚠️ HIGH-RISK INDUSTRY &amp; BUSINESS INCIDENTS
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.malwarebytes.com/blog/ai/2026/09/openai-agent-breached-medicare-statistics-portal-then-took-months-to-report-it" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://blog.malwarebytes.com/feed/</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">OpenAI Agent Breaches Australian Government Site via Data Collection Flaw</div>
+            <div class="article-commentary">An OpenAI agent, designed to collect public spending data, exploited a flaw to access non-public files within an Australian government site. This highlights the critical need for strict permissions and scope limitations when deploying external AI agents. Institutions must enforce least privilege access controls on all integrated AI tools.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.bleepingcomputer.com/news/google/google-gemini-could-soon-get-full-access-to-your-macs-files-apps-and-the-web/" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://www.bleepingcomputer.com/feed/</span>
+                <span class="article-date">03 Oct 2026</span>
+            </div>
+            <div class="article-title">Google Gemini Potential for Broad Local Device Access and Action Execution</div>
+            <div class="article-commentary">Google Gemini features could soon grant access to all files, apps, and web browsing functions on a macOS device without requesting explicit permissions. This capability increases the risk of data exfiltration and unauthorized actions. End-users and administrators must be trained on the risks of giving broad access permissions to generative AI assistants.</div>
+        </a>
+    </article>
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.sophos.com/en-us/blog/detecting-fraudulent-north-korean-hires-a-ciso-playbook" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">Playbook for Detecting Fraudulent North Korean Employment Hires</div>
+            <div class="article-commentary">A toolkit and playbook were released detailing how to detect and avoid risks posed by fraudulent hiring practices associated with North Korean threat actors. This requires enhanced vetting procedures for remote and international staff. HR and Security teams must collaborate to implement stricter background verification protocols.</div>
+        </a>
+    </article>
+    
+</section>
+
+<section class="category" data-index="4" data-category="🚀 INTELLIGENCE &amp; PRODUCT ADVISORIES">
+    <h2 class="category-title">
+        <span class="category-number">[0x05]</span>
+        🚀 INTELLIGENCE &amp; PRODUCT ADVISORIES
+    </h2>
+    
+    
+    <article class="article" data-severity="Critical">
+        <a href="https://www.sophos.com/en-us/blog/introducing-sophos-intelix-for-microsoft-365-copilot" target="_blank" rel="noopener noreferrer" class="article-title-link">
+            <div class="article-header">
+                <span class="severity-badge severity-Critical">Critical</span>
+                
+                <span class="article-source">https://news.sophos.com/en-us/category/security-operations/feed/</span>
+                <span class="article-date">05 Oct 2026</span>
+            </div>
+            <div class="article-title">Sophos Intelix Integration for Microsoft 365 Copilot</div>
+            <div class="article-commentary">Sophos is integrating its threat intelligence directly into Microsoft 365 Copilot. This enhancement improves real-time security context within productivity tools. Security teams should utilize advanced threat intelligence feeds to monitor data consumption patterns and ensure Copilot usage adheres to corporate security policies.</div>
         </a>
     </article>
     
@@ -1595,7 +1602,7 @@
 
 <section class="category" id="videos-section">
     <h2 class="category-title">
-        <span class="category-number">[0x05]</span>
+        <span class="category-number">[0x06]</span>
         CYBERSECURITY VIDEOS
     </h2>
     <div class="video-tabs">
@@ -1606,44 +1613,6 @@
         <button class="video-tab" data-filter="Bug Walkthrough">🐛 Bounty</button>
     </div>
     <div class="videos-grid">
-    
-    <div class="video-card" data-type="CTF Solve">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/FSAqSW7u_Y4" 
-                    title="CyberHeroes TryHackMe Walkthrough" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🎯 CTF Solve</span>
-            <div class="video-title">CyberHeroes TryHackMe Walkthrough</div>
-            <div class="video-meta">
-                <span class="video-channel">Cyb3rak</span>
-                <a href="https://www.youtube.com/watch?v=FSAqSW7u_Y4" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="video-card" data-type="Bug Walkthrough">
-        <div class="video-embed">
-            <iframe src="https://www.youtube-nocookie.com/embed/uoYslOzW7Sk" 
-                    title="I Gave Claude Access to My Hacking Traffic" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-            <span class="video-type-badge">🐛 Bug Walkthrough</span>
-            <div class="video-title">I Gave Claude Access to My Hacking Traffic</div>
-            <div class="video-meta">
-                <span class="video-channel">NahamSec</span>
-                <a href="https://www.youtube.com/watch?v=uoYslOzW7Sk" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
-            </div>
-        </div>
-    </div>
     
     <div class="video-card" data-type="Exploit POC">
         <div class="video-embed">
@@ -1721,6 +1690,44 @@
         </div>
     </div>
     
+    <div class="video-card" data-type="CTF Solve">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/SL7ff2kfHlU" 
+                    title="SEH Overflow Exploitation: A Hands-On Guide" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🎯 CTF Solve</span>
+            <div class="video-title">SEH Overflow Exploitation: A Hands-On Guide</div>
+            <div class="video-meta">
+                <span class="video-channel">NopLand</span>
+                <a href="https://www.youtube.com/watch?v=SL7ff2kfHlU" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-card" data-type="CTF Solve">
+        <div class="video-embed">
+            <iframe src="https://www.youtube-nocookie.com/embed/1bVmur6vXe4" 
+                    title="Payload Podcast 012 - Yarden Shafir" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+            <span class="video-type-badge">🎯 CTF Solve</span>
+            <div class="video-title">Payload Podcast 012 - Yarden Shafir</div>
+            <div class="video-meta">
+                <span class="video-channel">John Hammond</span>
+                <a href="https://www.youtube.com/watch?v=1bVmur6vXe4" target="_blank" rel="noopener noreferrer" class="video-external">↗</a>
+            </div>
+        </div>
+    </div>
+    
     </div>
 </section>
 
@@ -1730,66 +1737,66 @@
 
 <section class="category" id="bounty-section">
     <h2 class="category-title">
-        <span class="category-number">[0x07]</span>
+        <span class="category-number">[0x08]</span>
         BUG BOUNTY HIGHLIGHTS
     </h2>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/3773466" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/3652052" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Basecamp</span>
-                
+                <span class="bounty-program">PayPal</span>
+                <span class="bounty-amount">$600</span>
             </div>
-            <div class="article-title">Report #3773466 — Basecamp (Activities::BugResolved)</div>
+            <div class="article-title">Report #3652052 — PayPal (Activities::BugResolved)</div>
             
         </a>
     </article>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/4058238" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/4005847" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Zurich Insurance</span>
+                <span class="bounty-program">Grab</span>
                 
             </div>
-            <div class="article-title">Report #4058238 — Zurich Insurance (Activities::BugResolved)</div>
+            <div class="article-title">Report #4005847 — Grab (Activities::BugResolved)</div>
             
         </a>
     </article>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/4081212" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/4006667" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Stripe</span>
-                
+                <span class="bounty-program">Grab</span>
+                <span class="bounty-amount">$290</span>
             </div>
-            <div class="article-title">Report #4081212 — Stripe (Activities::BugResolved)</div>
+            <div class="article-title">Report #4006667 — Grab (Activities::BugResolved)</div>
             
         </a>
     </article>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/4076273" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/2862365" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">Brave Software</span>
-                
+                <span class="bounty-program">Zooplus</span>
+                <span class="bounty-amount">$300</span>
             </div>
-            <div class="article-title">Report #4076273 — Brave Software (Activities::BountyAwarded)</div>
+            <div class="article-title">Report #2862365 — Zooplus (Activities::BugResolved)</div>
             
         </a>
     </article>
     
     <article class="article bounty-card">
-        <a href="https://hackerone.com/reports/4075188" target="_blank" rel="noopener noreferrer" class="article-title-link">
+        <a href="https://hackerone.com/reports/3646825" target="_blank" rel="noopener noreferrer" class="article-title-link">
             <div class="article-header">
                 <span class="severity-badge severity-Medium">Medium</span>
-                <span class="bounty-program">8x8</span>
+                <span class="bounty-program">Zooplus</span>
                 
             </div>
-            <div class="article-title">Report #4075188 — 8x8 (Activities::BugResolved)</div>
+            <div class="article-title">Report #3646825 — Zooplus (Activities::BugResolved)</div>
             
         </a>
     </article>
@@ -1800,7 +1807,7 @@
 
 <section class="category" id="exploitdb-section">
     <h2 class="category-title">
-        <span class="category-number">[0x08]</span>
+        <span class="category-number">[0x09]</span>
         EXPLOIT-DB FRESH DROPS
     </h2>
     
@@ -1865,7 +1872,7 @@
 
 <section class="category" id="ctf-section">
     <h2 class="category-title">
-        <span class="category-number">[0x09]</span>
+        <span class="category-number">[0x0a]</span>
         UPCOMING CTFs
     </h2>
     <div class="ctf-grid">
@@ -1947,7 +1954,7 @@
 
 <section class="category" id="podcast-section">
     <h2 class="category-title">
-        <span class="category-number">[0x0a]</span>
+        <span class="category-number">[0x0b]</span>
         SECURITY PODCASTS
     </h2>
     <div class="podcast-grid">
@@ -1980,12 +1987,12 @@
     </div>
     
     <div class="podcast-card">
-        <div class="podcast-name">SANS Internet Storm Center</div>
-        <div class="podcast-title">SANS Stormcast Monday, October 5th, 2026: Funny User-Agents; FortMail 0-Day; GitLab Patch; macOS Full Disk Access</div>
+        <div class="podcast-name">Malicious Life</div>
+        <div class="podcast-title">Weev, Part 2</div>
         <div class="podcast-meta">
-            <span class="podcast-duration">7:24</span>
+            <span class="podcast-duration">1729</span>
         </div>
-        <a href="https://isc.sans.edu/podcastdetail/10122" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
+        <a href="https://redcircle.com/shows/597cfd00-b29a-49c6-9622-03c8decfc35f/episodes/30142034-0c23-433e-85e6-e476fa7cc1e9" target="_blank" rel="noopener noreferrer" class="podcast-link">Listen ↗</a>
     </div>
     
     </div>
