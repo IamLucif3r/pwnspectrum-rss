@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AhsayCBS Flaws Exploited for Webshells and Crypto Mining · PwnSpectrum 11 Oct</title>
+    <meta name="description" content="Daily cybersecurity brief for 11 Oct 2026: AhsayCBS Flaws Exploited for Webshells and Crypto Mining; Grid Protection Alliance: Multiple Vulnerabilities in openPDC and openHistorian; ARTEX AI and Claude Agents Used in Cyberattacks on South Korean Banks.">
+    <link rel="canonical" href="http://feed.anmolsinghyadav.com/2026/10/11/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+    <meta property="og:site_name" content="PwnSpectrum">
+    <meta property="og:title" content="AhsayCBS Flaws Exploited for Webshells and Crypto Mining · PwnSpectrum 11 Oct">
+    <meta property="og:description" content="Daily cybersecurity brief for 11 Oct 2026: AhsayCBS Flaws Exploited for Webshells and Crypto Mining; Grid Protection Alliance: Multiple Vulnerabilities in openPDC and openHistorian; ARTEX AI and Claude Agents Used in Cyberattacks on South Korean Banks.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://feed.anmolsinghyadav.com/2026/10/11/">
+    <meta property="og:image" content="http://feed.anmolsinghyadav.com/assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@IamLucif3r_">
+    <meta name="twitter:title" content="AhsayCBS Flaws Exploited for Webshells and Crypto Mining · PwnSpectrum 11 Oct">
+    <meta name="twitter:description" content="Daily cybersecurity brief for 11 Oct 2026: AhsayCBS Flaws Exploited for Webshells and Crypto Mining; Grid Protection Alliance: Multiple Vulnerabilities in openPDC and openHistorian; ARTEX AI and Claude Agents Used in Cyberattacks on South Korean Banks.">
+    <meta name="twitter:image" content="http://feed.anmolsinghyadav.com/assets/og.png">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap">
+    <link rel="stylesheet" href="../../../assets/site.css?v=ff2ab70d3b">
+    <script>
+        (function () {
+            var d = document.documentElement; d.classList.add('js');
+            try { var t = localStorage.getItem('pwn_theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","author":{"@type":"Person","name":"Anmol Singh Yadav","url":"https://www.linkedin.com/in/anmolsinghyadav/"},"dateModified":"2026-10-11T01:03:38Z","datePublished":"2026-10-11","description":"Defenders should prioritize patching AhsayCBS to mitigate webshell and crypto mining risks. Additionally, vulnerabilities in Grid Protection Alliance openPDC and openHistorian require immediate attention. Monitoring for AI-assisted attacks targeting financial sectors is also advised.","hasPart":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"AhsayCBS Flaws Exploited for Webshells and Crypto Mining","position":1,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#ahsaycbs-flaws-exploited-for-webshells-and-crypto-mining"},{"@type":"ListItem","name":"Hitachi Energy SOI: RCE in Apache ActiveMQ Component","position":2,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#hitachi-energy-soi-rce-in-apache-activemq-component"},{"@type":"ListItem","name":"FBI Details FortiBleed Persistence Tactics Affecting Firewalls","position":3,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#fbi-details-fortibleed-persistence-tactics-affecting-firewal"},{"@type":"ListItem","name":"Langflow Vulnerability Allows Root RCE via Custom Component Editor","position":4,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#langflow-vulnerability-allows-root-rce-via-custom-component"},{"@type":"ListItem","name":"Grid Protection Alliance: Multiple Vulnerabilities in openPDC and openHistorian","position":5,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#grid-protection-alliance-multiple-vulnerabilities-in-openpdc"},{"@type":"ListItem","name":"Savannah lwIP SMTP client: Buffer Overflow Allows Remote Code Execution","position":6,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#savannah-lwip-smtp-client-buffer-overflow-allows-remote-code"},{"@type":"ListItem","name":"AWS Bedrock AgentCore Vulnerability Allows Agent Takeover via Prompt","position":7,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#aws-bedrock-agentcore-vulnerability-allows-agent-takeover-vi"},{"@type":"ListItem","name":"Cisco Finesse SSRF Vulnerability (CVE-2026-20362)","position":8,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#cisco-finesse-ssrf-vulnerability-cve-2026-20362"},{"@type":"ListItem","name":"ARTEX AI and Claude Agents Used in Cyberattacks on South Korean Banks","position":9,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#artex-ai-and-claude-agents-used-in-cyberattacks-on-south-kor"},{"@type":"ListItem","name":"Hackers Hijack Google Domains and ccTLDs via DNS Compromise","position":10,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#hackers-hijack-google-domains-and-cctlds-via-dns-compromise"},{"@type":"ListItem","name":"DarkBlinders Hackers Use Fake App for Cyberespionage Targeting Government Data","position":11,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#darkblinders-hackers-use-fake-app-for-cyberespionage-targeti"},{"@type":"ListItem","name":"FortiBleed Campaign Targets Fortinet Devices via Credential Theft","position":12,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#fortibleed-campaign-targets-fortinet-devices-via-credential"},{"@type":"ListItem","name":"GhostAction Campaign Compromises GitHub Accounts for Credential Theft","position":13,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#ghostaction-campaign-compromises-github-accounts-for-credent"},{"@type":"ListItem","name":"FBI Reports Chinese-Linked Hackers Stealing Emails via Third-Party Portal","position":14,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#fbi-reports-chinese-linked-hackers-stealing-emails-via-third"},{"@type":"ListItem","name":"Anthropic Launches Program for Critical Infrastructure and OSS Security","position":15,"url":"http://feed.anmolsinghyadav.com/2026/10/11/#anthropic-launches-program-for-critical-infrastructure-and-o"}]},"headline":"PwnSpectrum daily cybersecurity brief — 11 October 2026","image":"http://feed.anmolsinghyadav.com/assets/og.png","publisher":{"@type":"Organization","name":"PwnSpectrum","url":"http://feed.anmolsinghyadav.com"},"url":"http://feed.anmolsinghyadav.com/2026/10/11/"}</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9ZF36FC9M');</script>
+</head>
+<body data-edition="2026-10-11">
+<a class="skip" href="#main">Skip to the brief</a>
+<header class="bar">
+    <div class="bar-inner">
+        <a class="wordmark" href="../../../" aria-label="PwnSpectrum home">pwn<span>spectrum</span></a>
+        <p class="bar-meta" aria-live="polite"><span class="bar-date">Sun 11 Oct</span><span class="bar-read" id="bar-read" hidden></span></p>
+        <div class="bar-actions">
+            <button class="icon-btn" id="search-btn" type="button" aria-label="Search stories" aria-keyshortcuts="/" aria-expanded="false" aria-controls="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            </button>
+            <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch between light and dark theme" aria-keyshortcuts="d">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+            </button>
+            <button class="icon-btn only-fine" id="keys-btn" type="button" aria-label="Keyboard shortcuts" aria-keyshortcuts="?">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="scroll-line" aria-hidden="true"><span id="scroll-line"></span></div>
+    <div class="search" id="search" hidden>
+        <div class="search-inner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="search-input" type="search" placeholder="Search today's stories" aria-label="Search today's stories" autocomplete="off" spellcheck="false">
+            <span class="search-count" id="search-count" aria-live="polite"></span>
+            <button class="text-btn" id="search-close" type="button">Close</button>
+        </div>
+    </div>
+</header>
+
+
+<main id="main" class="page">
+<div class="layout">
+    <nav class="rail" aria-label="Sections">
+        <ol class="rail-list">
+            <li><a href="#top3">Today in 60 seconds</a></li>
+            <li><a href="#s-active_exploitation">Actively Exploited<span class="n">4</span></a></li><li><a href="#s-vulnerability">Vulnerabilities &amp; Patches<span class="n">4</span></a></li><li><a href="#watch">Worth watching</a></li><li><a href="#s-malware_ransomware">Malware &amp; Ransomware<span class="n">1</span></a></li><li><a href="#s-threat_actor">Threat Actors &amp; Campaigns<span class="n">3</span></a></li><li><a href="#s-breach_incident">Breaches &amp; Incidents<span class="n">2</span></a></li><li><a href="#s-ai_security">AI Security<span class="n">1</span></a></li>
+            
+            <li><a href="#cves">CVE spotlight</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#tomorrow">Tomorrow</a></li>
+            <li><a href="#also">Also worth your time</a></li>
+        </ol>
+        <p class="rail-hint only-fine">Press <kbd>j</kbd> <kbd>k</kbd> to move, <kbd>?</kbd> for all keys</p>
+    </nav>
+
+    <article class="brief">
+        <header class="masthead">
+            <p class="kicker">The daily cybersecurity brief</p>
+            <h1 class="date"><time datetime="2026-10-11">Sunday, 11 October 2026</time></h1>
+            <p class="dateline">
+                <span>15 stories</span>
+                <span class="crit-count">4 critical</span>
+                <span>6 min read</span>
+                <span>Updated 06:30 IST</span>
+            </p>
+            <p class="new-banner" id="new-banner" hidden></p>
+        </header>
+
+        <section class="lede" aria-label="Editor's note">
+            <p class="note">Defenders should prioritize patching AhsayCBS to mitigate webshell and crypto mining risks. Additionally, vulnerabilities in Grid Protection Alliance openPDC and openHistorian require immediate attention. Monitoring for AI-assisted attacks targeting financial sectors is also advised.</p>
+            <div class="meter meter-HIGH" title="Threat level compared with the last 30 briefs">
+                <span class="meter-label">Threat level</span>
+                <span class="meter-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                <span class="meter-value">high</span>
+            </div>
+        </section>
+
+        
+        <section class="top3" id="top3" data-track-section="top3" aria-labelledby="top3-h">
+            <h2 class="label" id="top3-h">Today in 60 seconds</h2>
+            <ol class="top3-list">
+            
+                <li data-story="179">
+                    <a class="top3-item" href="#ahsaycbs-flaws-exploited-for-webshells-and-crypto-mining" data-open="ahsaycbs-flaws-exploited-for-webshells-and-crypto-mining">
+                        <span class="top3-num" aria-hidden="true">01</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Critical" aria-hidden="true"></i><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span>Exploited<span class="sep">·</span>CVSS 10.0<span class="sep">·</span>5 outlets</span>
+                            <span class="top3-head">AhsayCBS Flaws Exploited for Webshells and Crypto Mining</span>
+                            <span class="top3-tldr">Threat actors are exploiting unpatched AhsayCBS vulnerabilities to gain access and deploy miners.</span>
+                            <span class="top3-do"><b>Do this today</b> Restrict access to the AhsayCBS management interface to trusted IP addresses only.</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="146">
+                    <a class="top3-item" href="#grid-protection-alliance-multiple-vulnerabilities-in-openpdc" data-open="grid-protection-alliance-multiple-vulnerabilities-in-openpdc">
+                        <span class="top3-num" aria-hidden="true">02</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="sep">·</span>CVSS 9.8</span>
+                            <span class="top3-head">Grid Protection Alliance: Multiple Vulnerabilities in openPDC and openHistorian</span>
+                            <span class="top3-tldr">Multiple vulnerabilities exist in Grid Protection Alliance openPDC and openHistorian affecting critical infrastructure.</span>
+                            <span class="top3-do"><b>Do this today</b> Patch openPDC and openHistorian to versions higher than the listed affected versions.</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="228">
+                    <a class="top3-item" href="#artex-ai-and-claude-agents-used-in-cyberattacks-on-south-kor" data-open="artex-ai-and-claude-agents-used-in-cyberattacks-on-south-kor">
+                        <span class="top3-num" aria-hidden="true">03</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span></span>
+                            <span class="top3-head">ARTEX AI and Claude Agents Used in Cyberattacks on South Korean Banks</span>
+                            <span class="top3-tldr">A Chinese hacker utilized ARTEX AI and Claude agents to target South Korean financial institutions.</span>
+                            <span class="top3-do"><b>Do this today</b> Hunt for open directories containing Claude Code session histories, ARTEX configuration files, or Claude memory files.</span>
+                        </span>
+                    </a>
+                </li>
+            
+            </ol>
+        </section>
+        
+
+        <nav class="index" aria-label="Jump to section">
+            <a href="#s-active_exploitation">Actively Exploited <span class="n">4</span></a><a href="#s-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></a><a href="#watch">Watch</a><a href="#s-malware_ransomware">Malware &amp; Ransomware <span class="n">1</span></a><a href="#s-threat_actor">Threat Actors &amp; Campaigns <span class="n">3</span></a><a href="#s-breach_incident">Breaches &amp; Incidents <span class="n">2</span></a><a href="#s-ai_security">AI Security <span class="n">1</span></a>
+            
+            <a href="#cves">CVEs</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#tomorrow">Tomorrow</a>
+        </nav>
+
+        <p class="no-results" id="no-results" hidden>No stories match your search.</p>
+
+        
+        
+        <section class="sec" id="s-active_exploitation" data-track-section="active_exploitation" aria-labelledby="h-active_exploitation">
+            <h2 class="label" id="h-active_exploitation">Actively Exploited <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="ahsaycbs-flaws-exploited-for-webshells-and-crypto-mining" data-story="179" data-severity="Critical" data-section="active_exploitation" data-rank="1" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">AhsayCBS Flaws Exploited for Webshells and Crypto Mining</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">CVSS 10.0</span><span class="sep">·</span><span class="b b-">5 outlets</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actors are exploiting unpatched AhsayCBS vulnerabilities to gain access and deploy miners.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Threat actors exploited <span class="nw">CVE-2026-105133</span> and <span class="nw">CVE-2026-105134</span> in the AhsayCBS backup management platform. The attack chained these flaws to bypass authentication and execute OS commands. Observed activity included deploying JSP webshells and the XMRig miner.</p>
+            <p><b>Why it matters.</b> Compromise allows attackers to establish persistence, deploy miners, and potentially install additional backdoors. Full host restoration from a safe backup is recommended if compromise is confirmed.</p>
+            <p class="do"><b>Do this today</b> Restrict access to the AhsayCBS management interface to trusted IP addresses only.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>AhsayCBS</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-105133, CVE-2026-105134</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Sat 10 Oct</span>AhsayCBS Vulnerabilities Exploited for Webshells and Crypto Mining</li><li><span class="t-date">Today</span>AhsayCBS Flaws Exploited for Webshells and Crypto Mining</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/unpatched-ahsaycbs-flaws-exploited-to-deploy-webshells-mine-crypto/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="ahsaycbs-flaws-exploited-for-webshells-and-crypto-mining">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=AhsayCBS%20Flaws%20Exploited%20for%20Webshells%20and%20Crypto%20Mining%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23ahsaycbs-flaws-exploited-for-webshells-and-crypto-mining" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23ahsaycbs-flaws-exploited-for-webshells-and-crypto-mining" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://www.huntress.com/blog/ahsaycbs-flaws-exploit" target="_blank" rel="noopener">Huntress</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.229,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.778}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="hitachi-energy-soi-rce-in-apache-activemq-component" data-story="137" data-severity="Critical" data-section="active_exploitation" data-rank="2" data-source="CISA">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Hitachi Energy SOI: RCE in Apache ActiveMQ Component</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-kev">KEV</span><span class="sep">·</span><span class="b b-">CVSS 8.8</span><span class="sep">·</span><span class="b b-">EPSS 15%</span><span class="sep">·</span><span class="src">CISA</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">CISA advises on an RCE vulnerability in Apache ActiveMQ within Hitachi Energy SOI product versions.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>An improper input validation vulnerability (<span class="nw">CVE-2026-34197</span>) exists in the Apache ActiveMQ component used by Hitachi Energy SOI. This flaw allows for Remote Code Execution via the Jolokia JMX-HTTP bridge.</p>
+            <p><b>Why it matters.</b> Exploitation can impact the confidentiality, integrity, and availability of the affected product. The vulnerability is listed in CISA KEV and has a CVSS score of 8.8.</p>
+            <p class="do"><b>Do this today</b> Apply vendor-recommended mitigations for <span class="nw">CVE-2026-34197</span>.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Hitachi Energy SOI versions 2.0.0 through 2.2.0</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-34197</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-04" target="_blank" rel="noopener">Read on CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="hitachi-energy-soi-rce-in-apache-activemq-component">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Hitachi%20Energy%20SOI%3a%20RCE%20in%20Apache%20ActiveMQ%20Component%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23hitachi-energy-soi-rce-in-apache-activemq-component" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23hitachi-energy-soi-rce-in-apache-activemq-component" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:1,&#34;freshness&#34;:0.048,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.733}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="fbi-details-fortibleed-persistence-tactics-affecting-firewal" data-story="144" data-severity="Critical" data-section="active_exploitation" data-rank="3" data-source="CSO Online">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FBI Details FortiBleed Persistence Tactics Affecting Firewalls</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="src">CSO Online</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers using FortiBleed can establish persistence, enumerate environments, and lock out victims from their firewalls.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>FBI investigation details show FortiBleed actors can lock out organizations from their own firewalls by deleting or changing existing accounts. Attackers create administrative accounts, enumerate Active Directory, and use compromised credentials for lateral movement.</p>
+            <p><b>Why it matters.</b> The threat is characterized as a persistence issue, meaning credentials taken months ago may still be actively used for access and disruption.</p>
+            <p class="do"><b>Do this today</b> Review Fortinet accounts and configurations for unauthorized changes, and check firewall, VPN, authentication, and domain controller logs for suspicious activity.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>FortiGate devices</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.csoonline.com/article/4232481/fbi-fortibleed-attackers-can-lock-organizations-out-of-their-own-firewalls.html" target="_blank" rel="noopener">Read on CSO Online <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fbi-details-fortibleed-persistence-tactics-affecting-firewal">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FBI%20Details%20FortiBleed%20Persistence%20Tactics%20Affecting%20Firewalls%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23fbi-details-fortibleed-persistence-tactics-affecting-firewal" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23fbi-details-fortibleed-persistence-tactics-affecting-firewal" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.182,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.706}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="langflow-vulnerability-allows-root-rce-via-custom-component" data-story="7" data-severity="Critical" data-section="active_exploitation" data-rank="4" data-source="CSO Online">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Langflow Vulnerability Allows Root RCE via Custom Component Editor</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="b b-">EPSS 23%</span><span class="sep">·</span><span class="src">CSO Online</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Langflow allows unauthenticated RCE via a validate endpoint, enabling attackers to execute arbitrary code as root.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p><span class="nw">CVE-2026-0768</span> exists in Langflow&#39;s custom component editor validate endpoint. This endpoint executes submitted code directly using Python&#39;s exec() without input validation or authentication. Exploitation allows an attacker to execute arbitrary Python code as root.</p>
+            <p><b>Why it matters.</b> Successful exploitation enables attackers to harvest sensitive credentials, including API keys, AWS credentials, and SSH keys, facilitating lateral movement. Compromised secrets remain useful even after patching.</p>
+            <p class="do"><b>Do this today</b> Rotate every credential that touched an exposed Langflow instance.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Langflow versions up to and including 1.4.2</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-0768</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.csoonline.com/article/4230802/the-ai-app-builder-your-team-trusts-has-a-root-level-backdoor.html" target="_blank" rel="noopener">Read on CSO Online <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="langflow-vulnerability-allows-root-rce-via-custom-component">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Langflow%20Vulnerability%20Allows%20Root%20RCE%20via%20Custom%20Component%20Editor%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23langflow-vulnerability-allows-root-rce-via-custom-component" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23langflow-vulnerability-allows-root-rce-via-custom-component" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.046,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.693}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="s-vulnerability" data-track-section="vulnerability" aria-labelledby="h-vulnerability">
+            <h2 class="label" id="h-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="grid-protection-alliance-multiple-vulnerabilities-in-openpdc" data-story="146" data-severity="High" data-section="vulnerability" data-rank="5" data-source="CISA">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Grid Protection Alliance: Multiple Vulnerabilities in openPDC and openHistorian</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="src">CISA</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Multiple vulnerabilities exist in Grid Protection Alliance openPDC and openHistorian affecting critical infrastructure.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Grid Protection Alliance released advisories detailing several vulnerabilities in openPDC and openHistorian. These flaws include deserialization issues, missing authentication for critical functions, and SSRF.</p>
+            <p><b>Why it matters.</b> Exploitation could impact critical infrastructure sectors, including energy, via multiple attack vectors. The highest assessed CVSS score is 9.8.</p>
+            <p class="do"><b>Do this today</b> Patch openPDC and openHistorian to versions higher than the listed affected versions.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>openPDC &lt;2.9.477, &lt;2.9.482; openPDC (Docker image) &lt;2.9.477, &lt;2.9.482; openHistorian &lt;2.8.580, &lt;2.8.585</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-100730, CVE-2026-101022, CVE-2026-104629, &#43;3 more</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-281-02" target="_blank" rel="noopener">Read on CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="grid-protection-alliance-multiple-vulnerabilities-in-openpdc">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Grid%20Protection%20Alliance%3a%20Multiple%20Vulnerabilities%20in%20openPDC%20and%20openHistorian%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23grid-protection-alliance-multiple-vulnerabilities-in-openpdc" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23grid-protection-alliance-multiple-vulnerabilities-in-openpdc" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.7,&#34;freshness&#34;:0.184,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.671}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="savannah-lwip-smtp-client-buffer-overflow-allows-remote-code" data-story="16" data-severity="High" data-section="vulnerability" data-rank="6" data-source="CISA">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Savannah lwIP SMTP client: Buffer Overflow Allows Remote Code Execution</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="src">CISA</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A buffer overflow in the Savannah lwIP SMTP client permits unauthenticated remote code execution.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The lwIP SMTP client fails to check the size of inputs, leading to a buffer copy without size validation. This condition can result in a buffer overflow.</p>
+            <p><b>Why it matters.</b> Successful exploitation could allow remote code execution or cause the targeted device to crash. This affects critical infrastructure sectors globally.</p>
+            <p class="do"><b>Do this today</b> Apply the patch available at git commit 614420f82c8729d070e01464c0dddb3c9525c772.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Savannah lwIP SMTP client 2.2.1</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-15340</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-02" target="_blank" rel="noopener">Read on CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="savannah-lwip-smtp-client-buffer-overflow-allows-remote-code">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Savannah%20lwIP%20SMTP%20client%3a%20Buffer%20Overflow%20Allows%20Remote%20Code%20Execution%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23savannah-lwip-smtp-client-buffer-overflow-allows-remote-code" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23savannah-lwip-smtp-client-buffer-overflow-allows-remote-code" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.7,&#34;freshness&#34;:0.048,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.658}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="aws-bedrock-agentcore-vulnerability-allows-agent-takeover-vi" data-story="156" data-severity="Medium" data-section="vulnerability" data-rank="9" data-source="Dark Reading">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">AWS Bedrock AgentCore Vulnerability Allows Agent Takeover via Prompt</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">Dark Reading</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A patched flaw in AWS Bedrock AgentCore permits attackers to compromise multiple AI agents using a single malicious prompt.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A vulnerability in AWS Bedrock AgentCore was disclosed, allowing an attacker to compromise an organization&#39;s AI agent fleet. The flaw permitted lateral movement and credential theft using a single malicious prompt.</p>
+            <p><b>Why it matters.</b> Exploitation could lead to the compromise of multiple AI agents within the same AWS account and region.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>AWS Bedrock AgentCore</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.darkreading.com/cloud-security/agentcorruption-aws-environments-at-risk-single-prompt" target="_blank" rel="noopener">Read on Dark Reading <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="aws-bedrock-agentcore-vulnerability-allows-agent-takeover-vi">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=AWS%20Bedrock%20AgentCore%20Vulnerability%20Allows%20Agent%20Takeover%20via%20Prompt%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23aws-bedrock-agentcore-vulnerability-allows-agent-takeover-vi" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23aws-bedrock-agentcore-vulnerability-allows-agent-takeover-vi" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://gbhackers.com/aws-bedrock-agentcore-flaw-allowed-attackers/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.613,&#34;evidence&#34;:0,&#34;freshness&#34;:0.234,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.85,&#34;total&#34;:0.525}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="cisco-finesse-ssrf-vulnerability-cve-2026-20362" data-story="59" data-severity="High" data-section="vulnerability" data-rank="10" data-source="Cisco PSIRT">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Cisco Finesse SSRF Vulnerability (<span class="nw">CVE-2026-20362</span>)</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 7.2</span><span class="sep">·</span><span class="src">Cisco PSIRT</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Unauthenticated remote attackers can perform SSRF on Cisco Finesse via its web management interface.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Improper input validation in the web management interface of Cisco Finesse allows unauthenticated remote attackers to conduct Server-Side Request Forgery (SSRF) attacks. Successful exploitation can allow an attacker to obtain limited sensitive information associated with the affected device.</p>
+            <p><b>Why it matters.</b> Defenders must prioritize patching to prevent unauthorized information disclosure via the management interface.</p>
+            <p class="do"><b>Do this today</b> Upgrade Cisco Finesse to fixed releases: 12.6 and earlier to 15.0; Packaged CCE/Unified CCE to 15.0(1)ES202701; Unified CCX to 15.0(1) SU2.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Cisco Finesse, Packaged CCE, Unified CCE, Unified CCX</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-20362</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1" target="_blank" rel="noopener">Read on Cisco PSIRT <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cisco-finesse-ssrf-vulnerability-cve-2026-20362">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Cisco%20Finesse%20SSRF%20Vulnerability%20%28CVE-2026-20362%29%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23cisco-finesse-ssrf-vulnerability-cve-2026-20362" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23cisco-finesse-ssrf-vulnerability-cve-2026-20362" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.4,&#34;freshness&#34;:0.105,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.514}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        <section class="sec" id="watch" data-track-section="watch" aria-labelledby="h-watch">
+            <h2 class="label" id="h-watch">Worth watching</h2>
+            <ul class="videos">
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=uID6Ne48ENo" target="_blank" rel="noopener" data-video="uID6Ne48ENo" aria-label="Play: Vercel paid a $50,000 bounty! 👀👀">
+                        <img src="https://i.ytimg.com/vi/uID6Ne48ENo/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Walkthrough</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=uID6Ne48ENo" target="_blank" rel="noopener" data-track="video">Vercel paid a $50,000 bounty! 👀👀</a>
+                        <span class="video-meta">NahamSec · 9 Oct</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=3y-ByY_wCr4" target="_blank" rel="noopener" data-video="3y-ByY_wCr4" aria-label="Play: 🍍📟 Theme Hacking Techniques - WiFi Pineapple Pager">
+                        <img src="https://i.ytimg.com/vi/3y-ByY_wCr4/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Tool demo</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=3y-ByY_wCr4" target="_blank" rel="noopener" data-track="video">🍍📟 Theme Hacking Techniques - WiFi Pineapple Pager</a>
+                        <span class="video-meta">Hak5 · 2 Oct</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=lCUZoZomkq8" target="_blank" rel="noopener" data-video="lCUZoZomkq8" aria-label="Play: Black Hat Asia 2026 Highlights">
+                        <img src="https://i.ytimg.com/vi/lCUZoZomkq8/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Conference talk</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=lCUZoZomkq8" target="_blank" rel="noopener" data-track="video">Black Hat Asia 2026 Highlights</a>
+                        <span class="video-meta">Black Hat · 10 Oct</span>
+                    </div>
+                </li>
+            
+            </ul>
+        </section>
+
+        
+        <section class="sec" id="s-malware_ransomware" data-track-section="malware_ransomware" aria-labelledby="h-malware_ransomware">
+            <h2 class="label" id="h-malware_ransomware">Malware &amp; Ransomware <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="artex-ai-and-claude-agents-used-in-cyberattacks-on-south-kor" data-story="228" data-severity="High" data-section="malware_ransomware" data-rank="7" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">ARTEX AI and Claude Agents Used in Cyberattacks on South Korean Banks</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A Chinese hacker utilized ARTEX AI and Claude agents to target South Korean financial institutions.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A Chinese hacker conducted cyberattacks against multiple South Korean banks using the ARTEX AI penetration testing suite and Claude agents. The activity exposed client personal data and credit card information and caused system outages.</p>
+            <p><b>Why it matters.</b> The use of specialized AI tools for targeted attacks indicates a sophisticated threat actor capability against critical financial infrastructure.</p>
+            <p class="do"><b>Do this today</b> Hunt for open directories containing Claude Code session histories, ARTEX configuration files, or Claude memory files.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>South Korean banks</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="artex-ai-and-claude-agents-used-in-cyberattacks-on-south-kor">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=ARTEX%20AI%20and%20Claude%20Agents%20Used%20in%20Cyberattacks%20on%20South%20Korean%20Banks%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23artex-ai-and-claude-agents-used-in-cyberattacks-on-south-kor" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23artex-ai-and-claude-agents-used-in-cyberattacks-on-south-kor" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.742,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.552}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="s-threat_actor" data-track-section="threat_actor" aria-labelledby="h-threat_actor">
+            <h2 class="label" id="h-threat_actor">Threat Actors &amp; Campaigns <span class="n">3</span></h2>
+            <ul class="stories">
+<li class="story" id="hackers-hijack-google-domains-and-cctlds-via-dns-compromise" data-story="34" data-severity="High" data-section="threat_actor" data-rank="8" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Hackers Hijack Google Domains and ccTLDs via DNS Compromise</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">6 outlets</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actors compromised third-party DNS operators to obtain unauthorized HTTPS certificates for Google and various ccTLDs.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Hackers compromised third-party operators and modified authoritative DNS records for ccTLDs including .gh, .sl, and .as. This allowed them to request and obtain valid TLS certificates for domains they did not own, enabling impersonation.</p>
+            <p><b>Why it matters.</b> Compromise of DNS records allows attackers to issue valid certificates for domains, enabling phishing and content serving from impersonated sites.</p>
+            <p class="do"><b>Do this today</b> Publish restrictive Certification Authority Authorization (CAA) records for owned domains.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>.gh, .sl, and .as ccTLDs; several Google domains</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Fri 9 Oct</span>Hackers Hijack Google Domains via ccTLD Registry Compromise</li><li><span class="t-date">Today</span>Hackers Hijack Google Domains and ccTLDs via DNS Compromise</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/hackers-hijack-google-domains-after-breaching-cctld-registries/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="hackers-hijack-google-domains-and-cctlds-via-dns-compromise">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Hackers%20Hijack%20Google%20Domains%20and%20ccTLDs%20via%20DNS%20Compromise%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23hackers-hijack-google-domains-and-cctlds-via-dns-compromise" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23hackers-hijack-google-domains-and-cctlds-via-dns-compromise" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://arstechnica.com/security/2026/10/hackers-obtain-counterfeit-tls-certificates-for-google-and-other-large-services/" target="_blank" rel="noopener">Ars Technica</a>, <a href="https://www.securityweek.com/google-domains-impacted-by-recent-cctld-domain-hijacks/" target="_blank" rel="noopener">SecurityWeek</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0,&#34;freshness&#34;:0.059,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.536}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="darkblinders-hackers-use-fake-app-for-cyberespionage-targeti" data-story="216" data-severity="High" data-section="threat_actor" data-rank="12" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">DarkBlinders Hackers Use Fake App for Cyberespionage Targeting Government Data</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Hackers deployed a fake meeting app and abused GitHub to steal government data from targets in Israel and Iraq.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>DarkBlinders hackers used a fake video meeting application, StarkMeet, and abused GitHub repositories in a cyberespionage campaign. The operation involved credential theft and exfiltrated government cloud data from a Kurdistan environment. Persistence was established via the Windows Run registry key, loading a backdoor that polled a separate repository.</p>
+            <p><b>Why it matters.</b> The attack chain utilized multiple vectors, including webmail impersonation and a decoy meeting client, to achieve persistence and exfiltrate data while evading detection mechanisms.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://gbhackers.com/darkblinders-hackers-use-fake-meeting-app/" target="_blank" rel="noopener">Read on GBHackers <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="darkblinders-hackers-use-fake-app-for-cyberespionage-targeti">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=DarkBlinders%20Hackers%20Use%20Fake%20App%20for%20Cyberespionage%20Targeting%20Government%20Data%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23darkblinders-hackers-use-fake-app-for-cyberespionage-targeti" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23darkblinders-hackers-use-fake-app-for-cyberespionage-targeti" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.618,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.51}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="fortibleed-campaign-targets-fortinet-devices-via-credential" data-story="84" data-severity="High" data-section="threat_actor" data-rank="14" data-source="SecurityWeek">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FortiBleed Campaign Targets Fortinet Devices via Credential Theft</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">SecurityWeek</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers are locking users out of Fortinet devices by deleting or changing accounts and passwords.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The FortiBleed campaign targets internet-accessible Fortinet devices using compromised credentials and brute-force techniques. Threat actors are observed deleting existing accounts or changing passwords to prevent legitimate access and maintain persistence. The FBI and US Secret Service issued advisories regarding this activity.</p>
+            <p><b>Why it matters.</b> Compromise of management access can lead to complete denial of service for critical network infrastructure. Organizations must scope the intrusion and evict threat actors to prevent lateral movement.</p>
+            <p class="do"><b>Do this today</b> Reset all Fortinet VPN and administrative passwords; implement phishing-resistant multifactor authentication (MFA).</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Fortinet FortiGate firewalls, SSL VPN appliances</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.securityweek.com/fortibleed-attackers-locking-victims-out-of-fortinet-devices/" target="_blank" rel="noopener">Read on SecurityWeek <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fortibleed-campaign-targets-fortinet-devices-via-credential">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FortiBleed%20Campaign%20Targets%20Fortinet%20Devices%20via%20Credential%20Theft%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23fortibleed-campaign-targets-fortinet-devices-via-credential" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23fortibleed-campaign-targets-fortinet-devices-via-credential" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.164,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.489}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="s-breach_incident" data-track-section="breach_incident" aria-labelledby="h-breach_incident">
+            <h2 class="label" id="h-breach_incident">Breaches &amp; Incidents <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="ghostaction-campaign-compromises-github-accounts-for-credent" data-story="218" data-severity="High" data-section="breach_incident" data-rank="11" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">GhostAction Campaign Compromises GitHub Accounts for Credential Theft</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">GhostAction compromised over 500 GitHub accounts, injecting malicious workflows to steal secrets and API keys.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>GhostAction injected malicious workflows into numerous repositories since October 7, 2026. These workflows run on push events and harvest credentials, including AWS, OpenAI, and GitHub tokens. The payloads also scan repository history for previously committed secrets.</p>
+            <p><b>Why it matters.</b> Compromise of maintainer accounts allows attackers to access and exfiltrate sensitive credentials embedded in source code and repository history. This can lead to lateral movement across cloud and AI services.</p>
+            <p class="do"><b>Do this today</b> Remove injected workflows, review execution logs, and rotate exposed credentials for affected repositories.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>GitHub repositories, GitHub Actions secrets, cloud credentials, AI service API keys</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://gbhackers.com/ghostaction-hackers-compromise-500-github-accounts-to-steal-cloud-and-ai-api-credentials/" target="_blank" rel="noopener">Read on GBHackers <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="ghostaction-campaign-compromises-github-accounts-for-credent">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=GhostAction%20Campaign%20Compromises%20GitHub%20Accounts%20for%20Credential%20Theft%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23ghostaction-campaign-compromises-github-accounts-for-credent" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23ghostaction-campaign-compromises-github-accounts-for-credent" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.642,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.512}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="fbi-reports-chinese-linked-hackers-stealing-emails-via-third" data-story="120" data-severity="High" data-section="breach_incident" data-rank="15" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FBI Reports Chinese-Linked Hackers Stealing Emails via Third-Party Portal</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Chinese-linked hackers stole emails from various Southeast Asian sectors using a third-party portal.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The FBI and six other agencies reported that hackers linked to Integrity Technology Group stole emails. The compromised data originated from government, law enforcement, healthcare, and religious institutions in Southeast Asia.</p>
+            <p><b>Why it matters.</b> Third-party portals can serve as an indirect vector for data exfiltration, bypassing direct network defenses.</p>
+            <p class="do"><b>Do this today</b> Investigate for unauthorized access to third-party portals handling sensitive organizational data.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Government organizations, law enforcement agencies, healthcare systems, and religious institutions in Southeast Asia</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/10/fbi-says-china-linked-hackers-ran.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fbi-reports-chinese-linked-hackers-stealing-emails-via-third">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FBI%20Reports%20Chinese-Linked%20Hackers%20Stealing%20Emails%20via%20Third-Party%20Portal%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23fbi-reports-chinese-linked-hackers-stealing-emails-via-third" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23fbi-reports-chinese-linked-hackers-stealing-emails-via-third" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.22,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.485}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="s-ai_security" data-track-section="ai_security" aria-labelledby="h-ai_security">
+            <h2 class="label" id="h-ai_security">AI Security <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="anthropic-launches-program-for-critical-infrastructure-and-o" data-story="38" data-severity="Info" data-section="ai_security" data-rank="13" data-source="CyberScoop">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Anthropic Launches Program for Critical Infrastructure and OSS Security</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="b b-">7 outlets</span><span class="sep">·</span><span class="src">CyberScoop</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Anthropic is launching a program to use its AI models and research to help secure critical infrastructure and open-source software.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Anthropic announced a new program pairing its Claude models and engineers with cybersecurity firms to find and fix vulnerabilities. The program includes an opt-in scanning service for open-source software, providing free, periodic scans with suggested patches.</p>
+            <p><b>Why it matters.</b> The initiative aims to assist in securing critical infrastructure and OSS against vulnerabilities, though provided reports may contain inaccuracies.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://cyberscoop.com/anthropic-cybersecurity-program-critical-infrastructure-open-source/" target="_blank" rel="noopener">Read on CyberScoop <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="anthropic-launches-program-for-critical-infrastructure-and-o">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Anthropic%20Launches%20Program%20for%20Critical%20Infrastructure%20and%20OSS%20Security%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23anthropic-launches-program-for-critical-infrastructure-and-o" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f11%2f%23anthropic-launches-program-for-critical-infrastructure-and-o" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/anthropic-fast-tracks-ai-bug-reports-to-oss-maintainers-taps-11-firms-for-ot-security/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://www.theregister.com/security/2026/10/07/anthropic-reconfigures-its-cool-kids-security-program/5301509" target="_blank" rel="noopener">The Register</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0,&#34;freshness&#34;:0.067,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.497}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+
+
+        
+        <section class="sec" id="cves" data-track-section="cves" aria-labelledby="h-cves">
+            <h2 class="label" id="h-cves">CVE spotlight</h2>
+            <table class="cve-table">
+                <thead><tr><th scope="col">CVE</th><th scope="col">Affects</th><th scope="col" class="num">CVSS</th><th scope="col" class="num">EPSS</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2015-3306" target="_blank" rel="noopener" data-track="cve">CVE-2015-3306</a></td>
+                    <td data-label="Affects"><span class="cve-product">ProFTPD</span><span class="cve-desc">The mod_copy module in ProFTPD 1.3.5 allows remote attackers to read and write to arbitrary files via the site cpfr and site cpto commands.</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">10.0</span></td>
+                    <td data-label="EPSS" class="num">98%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 11 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2016-3081" target="_blank" rel="noopener" data-track="cve">CVE-2016-3081</a></td>
+                    <td data-label="Affects"><span class="cve-product">Apache Struts</span><span class="cve-desc">Apache Struts 2.3.19 to 2.3.20.2, 2.3.21 to 2.3.24.1, and 2.3.25 to 2.3.28, when Dynamic Method Invocation is enabled, allow remote attacker…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.1</span></td>
+                    <td data-label="EPSS" class="num">95%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 11 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2015-5477" target="_blank" rel="noopener" data-track="cve">CVE-2015-5477</a></td>
+                    <td data-label="Affects"><span class="cve-product">ISC BIND</span><span class="cve-desc">named in ISC BIND 9.x before 9.9.7-P2 and 9.10.x before 9.10.2-P3 allows remote attackers to cause a denial of service (REQUIRE assertion fa…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">7.5</span></td>
+                    <td data-label="EPSS" class="num">92%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 11 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2021-3199" target="_blank" rel="noopener" data-track="cve">CVE-2021-3199</a></td>
+                    <td data-label="Affects"><span class="cve-product">ONLYOFFICE Docs</span><span class="cve-desc">Directory traversal with remote code execution can occur in /upload in ONLYOFFICE Document Server before 5.6.3, when JWT is used, via a /.. …</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">15%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 11 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2023-22894" target="_blank" rel="noopener" data-track="cve">CVE-2023-22894</a></td>
+                    <td data-label="Affects"><span class="cve-product">Strapi</span><span class="cve-desc">Strapi through 4.5.5 allows attackers (with access to the admin panel) to discover sensitive user details by exploiting the query filter. Th…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-med">4.9</span></td>
+                    <td data-label="EPSS" class="num">3%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 11 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-34197" target="_blank" rel="noopener" data-track="cve">CVE-2026-34197</a></td>
+                    <td data-label="Affects"><span class="cve-product">Apache ActiveMQ</span><span class="cve-desc">Improper Input Validation, Improper Control of Generation of Code (&#39;Code Injection&#39;) vulnerability in Apache ActiveMQ Broker, Apache ActiveM…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.8</span></td>
+                    <td data-label="EPSS" class="num">15%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 30 Apr (passed)</span></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section class="sec quiz-sec" id="quiz" data-track-section="quiz" aria-labelledby="h-quiz">
+            <h2 class="label" id="h-quiz">Quiz</h2>
+            
+            <div class="reveal" data-quiz-date="2026-10-10" data-answer="1">
+                <p class="small-label">Yesterday's answer</p>
+                <p class="q">According to the security advisory, what specific component is affected by the SSRF vulnerability (<span class="nw">CVE-2026-102255</span>)??</p>
+                <p class="answer"><span class="check" aria-hidden="true">✓</span> The SMA1000 Appliance Work Place interface</p>
+                <p class="explain">The story explicitly states that the vulnerability impacts the SMA1000 Appliance Work Place interface.</p>
+                <p class="result" id="quiz-result" hidden></p>
+            </div>
+            
+            
+            <div class="quiz" data-quiz-date="2026-10-11">
+                <p class="small-label">Today's question</p>
+                <p class="q" id="quiz-q">According to the report, what specific malicious payloads were observed during the exploitation of the AhsayCBS platform?</p>
+                <ol class="options" aria-labelledby="quiz-q">
+                    <li><button class="option" type="button" data-index="0"><span class="opt-key">A</span><span>The initial vector was a phishing campaign targeting credentials.</span></button></li><li><button class="option" type="button" data-index="1"><span class="opt-key">B</span><span>The attackers only managed to steal sensitive customer data.</span></button></li><li><button class="option" type="button" data-index="2"><span class="opt-key">C</span><span>Observed activity included deploying JSP webshells and the XMRig miner.</span></button></li><li><button class="option" type="button" data-index="3"><span class="opt-key">D</span><span>The vulnerability was related to an unpatched network service.</span></button></li>
+                </ol>
+                <p class="locked" id="quiz-locked" hidden>Locked in. The answer is in tomorrow's brief.</p>
+                <p class="score" id="quiz-score" hidden></p>
+            </div>
+            
+        </section>
+        
+
+        
+        <section class="sec" id="tomorrow" data-track-section="tomorrow" aria-labelledby="h-tomorrow">
+            <h2 class="label" id="h-tomorrow">On the radar tomorrow</h2>
+            <ul class="radar">
+            <li class="radar-deadline"><span class="when">KEV deadline Tue 13 Oct</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-86950" target="_blank" rel="noopener" data-track="radar">CVE-2026-86950 · Apple Multiple Products</a></span></li><li class="radar-patch_tuesday"><span class="when">Patch Tuesday in 2 days</span><span class="what">Tuesday 13 October</span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/low-cost-android-phones-ship-with-residential-proxy-malware/" target="_blank" rel="noopener" data-track="radar">Low-cost Android phones ship with residential proxy malware</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/cyber-exec-arrested-in-case-allegedly-tied-to-shinyhunters-hackers/" target="_blank" rel="noopener" data-track="radar">Cyber exec arrested in case allegedly tied to ShinyHunters hackers</a></span></li>
+            </ul>
+        </section>
+        
+
+        
+        <section class="sec" id="also" data-track-section="also" aria-labelledby="h-also">
+            <h2 class="label" id="h-also">Also worth your time</h2>
+            <div class="tabs" role="tablist" aria-label="Also worth your time">
+                <button class="tab" type="button" role="tab" id="tab-exploits" aria-controls="panel-exploits" aria-selected="true" tabindex="0">Exploits</button><button class="tab" type="button" role="tab" id="tab-tools" aria-controls="panel-tools" aria-selected="false" tabindex="-1">Tools</button><button class="tab" type="button" role="tab" id="tab-community" aria-controls="panel-community" aria-selected="false" tabindex="-1">Community</button><button class="tab" type="button" role="tab" id="tab-podcasts" aria-controls="panel-podcasts" aria-selected="false" tabindex="-1">Podcasts</button>
+            </div>
+            
+            <div class="panel active" id="panel-exploits" role="tabpanel" aria-labelledby="tab-exploits">
+                <h3 class="panel-title">Exploits</h3>
+                <ul class="side-list">
+                <li><a href="https://www.exploit-db.com/exploits/52692" target="_blank" rel="noopener" data-track="exploits">Teltonika_RutOS 00.07.06.21 - command injection</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52691" target="_blank" rel="noopener" data-track="exploits">TigerGraph_Community_Edition 4.2.4  - arbitrary file write</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52690" target="_blank" rel="noopener" data-track="exploits">WordPress 7.0.2 - Path Travesal</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52689" target="_blank" rel="noopener" data-track="exploits">Food-Ordering 1.0  -  LFI</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52688" target="_blank" rel="noopener" data-track="exploits">Ecava_ntegraXor  IGX_16.0.701.10 - RCE</a><span class="side-meta">Remote</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
+                <h3 class="panel-title">Tools</h3>
+                <ul class="side-list">
+                <li><a href="https://github.com/foundry-rs/foundry" target="_blank" rel="noopener" data-track="tools">foundry-rs/foundry</a><span class="side-meta">★ 10652 · Rust</span><span class="side-desc">Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.</span></li><li><a href="https://github.com/HypothesisWorks/hypothesis" target="_blank" rel="noopener" data-track="tools">HypothesisWorks/hypothesis</a><span class="side-meta">★ 9074 · Python</span><span class="side-desc">The property-based testing library for Python</span></li><li><a href="https://github.com/trickest/cve" target="_blank" rel="noopener" data-track="tools">trickest/cve</a><span class="side-meta">★ 8131 · HTML</span><span class="side-desc">Gather and update all available and newest CVEs with their PoC.</span></li><li><a href="https://github.com/yaklang/yakit" target="_blank" rel="noopener" data-track="tools">yaklang/yakit</a><span class="side-meta">★ 7801 · TypeScript</span><span class="side-desc">Cyber Security ALL-IN-ONE Platform</span></li><li><a href="https://github.com/AFLplusplus/AFLplusplus" target="_blank" rel="noopener" data-track="tools">AFLplusplus/AFLplusplus</a><span class="side-meta">★ 6788 · C</span><span class="side-desc">AFL&#43;&#43; is a state-of-the-art fuzzer, and #1 in benchmarks. It was originally based on AFL. Today it comes with qemu 5.1, …</span></li><li><a href="https://github.com/Pennyw0rth/NetExec" target="_blank" rel="noopener" data-track="tools">Pennyw0rth/NetExec</a><span class="side-meta">★ 5923 · Python</span><span class="side-desc">The Network Execution Tool</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community">
+                <h3 class="panel-title">Community</h3>
+                <ul class="side-list">
+                <li><a href="https://www.reddit.com/r/netsec/comments/1x2l1ii/a_story_of_wifi_secrets_uart_lockdowns_and_a/" target="_blank" rel="noopener" data-track="community">A story of wifi secrets, UART lockdowns and a damaged flash memory chip</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x2g7j7/ai_agent_security_six_controls_from_nine_real/" target="_blank" rel="noopener" data-track="community">AI Agent Security: Six Controls From Nine Real Incidents</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x2dgsg/github_actions_leaking_secrets_when_miri_output/" target="_blank" rel="noopener" data-track="community">GitHub Actions leaking secrets when Miri output is cached</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x2bhmo/smashing_the_token_limit_with_overlapping/" target="_blank" rel="noopener" data-track="community">Smashing the token limit with overlapping fragments (CSS injection token exfiltration, PortSwigger Research)</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x1squu/death_by_a_thousand_papercuts_papercut_preauth/" target="_blank" rel="noopener" data-track="community">Death By A Thousand PaperCuts (PaperCut Pre-Auth RCE Chain and Patch Bypasses WT-2026-0141-0144/CVE-2026-82077/CVE-2026-82078/CVE-2026-81578) - watchTowr Labs</a><span class="side-meta">r/netsec</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-podcasts" role="tabpanel" aria-labelledby="tab-podcasts">
+                <h3 class="panel-title">Podcasts</h3>
+                <ul class="side-list">
+                <li><a href="https://darknetdiaries.com/episode/180/" target="_blank" rel="noopener" data-track="podcasts">180: Conti</a><span class="side-meta">Darknet Diaries · 59:17</span></li><li><a href="https://risky.biz/SOAPBOX111/" target="_blank" rel="noopener" data-track="podcasts">Soap Box: HD Moore talks OT security, frontier fearmongering and more</a><span class="side-meta">Risky Business · 34:01</span></li><li><a href="https://twit.tv/shows/security-now/episodes/1099" target="_blank" rel="noopener" data-track="podcasts">SN 1099: An Alien Mind - From RSA Weakness to Agentic Attacks</a><span class="side-meta">Security Now · 3:03:15</span></li><li><a href="https://isc.sans.edu/podcastdetail/10130" target="_blank" rel="noopener" data-track="podcasts">SANS Stormcast Friday, October 9th, 2026: AI Agent Forensics; AI-Assisted Attack on South Korean Banks; IDN Typosquatting; Cisco Finesse SSRF (CVE-2026-20362)</a><span class="side-meta">SANS Internet Storm Center · 6:14</span></li>
+                </ul>
+            </div>
+            
+        </section>
+        
+
+        <section class="done" id="done" aria-label="End of today's brief">
+            <p class="done-title" id="done-title">That's today's brief.</p>
+            <p class="done-sub" id="countdown" data-next="2026-10-12T01:00:00Z">The next brief lands at 06:30 IST.</p>
+            
+            <nav class="edition-nav" aria-label="Other briefs">
+                <a href="../../../2026/10/10/" rel="prev">← Sat 10 Oct</a>
+                <a href="../../../archive/">All briefs</a>
+                <span></span>
+            </nav>
+        </section>
+    </article>
+</div>
+</main>
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <a class="wordmark small" href="../../../">pwn<span>spectrum</span></a>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="../../../">Today</a>
+            <a href="../../../archive/">Archive</a>
+            <a href="https://forms.gle/RcsGHJHpb761EZA38" target="_blank" rel="noopener">Send a tip</a>
+            <a href="https://x.com/IamLucif3r_" target="_blank" rel="noopener">X</a>
+            <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/iamlucif3r" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <p>Curated by <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">Anmol Singh Yadav</a>. Stories come from public sources and are summarised by a local model; always check the original before acting.</p>
+    </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+</button>
+
+<dialog class="keys" id="keys">
+    <form method="dialog">
+        <h2>Keyboard shortcuts</h2>
+        <dl>
+            <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>Next / previous story</dd>
+            <dt><kbd>o</kbd> or <kbd>Enter</kbd></dt><dd>Open / close story</dd>
+            <dt><kbd>v</kbd></dt><dd>Read the source in a new tab</dd>
+            <dt><kbd>e</kbd></dt><dd>Expand / collapse all</dd>
+            <dt><kbd>/</kbd></dt><dd>Search</dd>
+            <dt><kbd>d</kbd></dt><dd>Light / dark theme</dd>
+            <dt><kbd>Esc</kbd></dt><dd>Close</dd>
+        </dl>
+        <button class="text-btn" value="close">Close</button>
+    </form>
+</dialog>
+<script src="../../../assets/site.js?v=ff2ab70d3b" defer></script>
+</body>
+</html>
