@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE · PwnSpectrum 17 Oct</title>
+    <meta name="description" content="Daily cybersecurity brief for 17 Oct 2026: BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE; Magento/Adobe Commerce: BlockStrap Flaw Allows Arbitrary PHP Code Execution; BAE Systems Cyberattack Disrupts US Federal Bankruptcy Court Notice System.">
+    <link rel="canonical" href="http://feed.anmolsinghyadav.com/2026/10/17/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+    <meta property="og:site_name" content="PwnSpectrum">
+    <meta property="og:title" content="BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE · PwnSpectrum 17 Oct">
+    <meta property="og:description" content="Daily cybersecurity brief for 17 Oct 2026: BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE; Magento/Adobe Commerce: BlockStrap Flaw Allows Arbitrary PHP Code Execution; BAE Systems Cyberattack Disrupts US Federal Bankruptcy Court Notice System.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://feed.anmolsinghyadav.com/2026/10/17/">
+    <meta property="og:image" content="http://feed.anmolsinghyadav.com/assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@IamLucif3r_">
+    <meta name="twitter:title" content="BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE · PwnSpectrum 17 Oct">
+    <meta name="twitter:description" content="Daily cybersecurity brief for 17 Oct 2026: BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE; Magento/Adobe Commerce: BlockStrap Flaw Allows Arbitrary PHP Code Execution; BAE Systems Cyberattack Disrupts US Federal Bankruptcy Court Notice System.">
+    <meta name="twitter:image" content="http://feed.anmolsinghyadav.com/assets/og.png">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap">
+    <link rel="stylesheet" href="../../../assets/site.css?v=ff2ab70d3b">
+    <script>
+        (function () {
+            var d = document.documentElement; d.classList.add('js');
+            try { var t = localStorage.getItem('pwn_theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","author":{"@type":"Person","name":"Anmol Singh Yadav","url":"https://www.linkedin.com/in/anmolsinghyadav/"},"dateModified":"2026-10-17T01:03:11Z","datePublished":"2026-10-17","description":"Prioritize remediation for BeyondTrust Remote Support due to the addition of CVE-2026-102764 to KEV. Address the unauthenticated RCE vulnerability, CVE-2026-103849, affecting Magento. Monitor for activity related to the BAE Systems cyberattack impacting federal bankruptcy court notice systems.","hasPart":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE","position":1,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#beyondtrust-remote-support-vulnerability-exploited-by-armory"},{"@type":"ListItem","name":"Collabora RCE Flaw Exploited in Nextcloud via CODE Server App","position":2,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#collabora-rce-flaw-exploited-in-nextcloud-via-code-server-ap"},{"@type":"ListItem","name":"Microsoft Patches 1,413 Flaws, Including Exploited Windows Shell Bug","position":3,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#microsoft-patches-1-413-flaws-including-exploited-windows-sh"},{"@type":"ListItem","name":"Unit 42 Reports PEERSTITCH Implant via FortiOS Flaws","position":4,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#unit-42-reports-peerstitch-implant-via-fortios-flaws"},{"@type":"ListItem","name":"Magento/Adobe Commerce: BlockStrap Flaw Allows Arbitrary PHP Code Execution","position":5,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#magento-adobe-commerce-blockstrap-flaw-allows-arbitrary-php"},{"@type":"ListItem","name":"Guangzhou Juan IoT EseeCloud Vulnerabilities Affect Critical Infrastructure","position":6,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#guangzhou-juan-iot-eseecloud-vulnerabilities-affect-critical"},{"@type":"ListItem","name":"Linux Kernel Flaws: Local Root Access and VM Escape Vulnerabilities","position":7,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#linux-kernel-flaws-local-root-access-and-vm-escape-vulnerabi"},{"@type":"ListItem","name":"Researchers Demonstrate OpenBSD Root Exploit Chaining Old Bug","position":8,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#researchers-demonstrate-openbsd-root-exploit-chaining-old-bu"},{"@type":"ListItem","name":"AOMEI Backupper Update Servers Compromised for Backdoor Distribution","position":9,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#aomei-backupper-update-servers-compromised-for-backdoor-dist"},{"@type":"ListItem","name":"Discover-Tech Platform Used for Zero-Click Spyware Delivery via Online Ads","position":10,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#discover-tech-platform-used-for-zero-click-spyware-delivery"},{"@type":"ListItem","name":"Microsoft Seizes Phishing Platforms Used by Chinese Cybercriminals","position":11,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#microsoft-seizes-phishing-platforms-used-by-chinese-cybercri"},{"@type":"ListItem","name":"CISA Warns Election Officials of Phishing and Smishing Threats","position":12,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#cisa-warns-election-officials-of-phishing-and-smishing-threa"},{"@type":"ListItem","name":"AOMEI Technology Update Infrastructure Compromise by UNC7017","position":13,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#aomei-technology-update-infrastructure-compromise-by-unc7017"},{"@type":"ListItem","name":"BAE Systems Cyberattack Disrupts US Federal Bankruptcy Court Notice System","position":14,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#bae-systems-cyberattack-disrupts-us-federal-bankruptcy-court"},{"@type":"ListItem","name":"Anne Arundel County Confirms Data Breach After Ransomware Claim","position":15,"url":"http://feed.anmolsinghyadav.com/2026/10/17/#anne-arundel-county-confirms-data-breach-after-ransomware-cl"}]},"headline":"PwnSpectrum daily cybersecurity brief — 17 October 2026","image":"http://feed.anmolsinghyadav.com/assets/og.png","publisher":{"@type":"Organization","name":"PwnSpectrum","url":"http://feed.anmolsinghyadav.com"},"url":"http://feed.anmolsinghyadav.com/2026/10/17/"}</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9ZF36FC9M');</script>
+</head>
+<body data-edition="2026-10-17">
+<a class="skip" href="#main">Skip to the brief</a>
+<header class="bar">
+    <div class="bar-inner">
+        <a class="wordmark" href="../../../" aria-label="PwnSpectrum home">pwn<span>spectrum</span></a>
+        <p class="bar-meta" aria-live="polite"><span class="bar-date">Sat 17 Oct</span><span class="bar-read" id="bar-read" hidden></span></p>
+        <div class="bar-actions">
+            <button class="icon-btn" id="search-btn" type="button" aria-label="Search stories" aria-keyshortcuts="/" aria-expanded="false" aria-controls="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            </button>
+            <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch between light and dark theme" aria-keyshortcuts="d">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+            </button>
+            <button class="icon-btn only-fine" id="keys-btn" type="button" aria-label="Keyboard shortcuts" aria-keyshortcuts="?">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="scroll-line" aria-hidden="true"><span id="scroll-line"></span></div>
+    <div class="search" id="search" hidden>
+        <div class="search-inner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="search-input" type="search" placeholder="Search today's stories" aria-label="Search today's stories" autocomplete="off" spellcheck="false">
+            <span class="search-count" id="search-count" aria-live="polite"></span>
+            <button class="text-btn" id="search-close" type="button">Close</button>
+        </div>
+    </div>
+</header>
+
+
+<main id="main" class="page">
+<div class="layout">
+    <nav class="rail" aria-label="Sections">
+        <ol class="rail-list">
+            <li><a href="#top3">Today in 60 seconds</a></li>
+            <li><a href="#s-active_exploitation">Actively Exploited<span class="n">4</span></a></li><li><a href="#s-vulnerability">Vulnerabilities &amp; Patches<span class="n">4</span></a></li><li><a href="#watch">Worth watching</a></li><li><a href="#s-malware_ransomware">Malware &amp; Ransomware<span class="n">2</span></a></li><li><a href="#s-threat_actor">Threat Actors &amp; Campaigns<span class="n">3</span></a></li><li><a href="#s-breach_incident">Breaches &amp; Incidents<span class="n">2</span></a></li>
+            
+            <li><a href="#cves">CVE spotlight</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#tomorrow">Tomorrow</a></li>
+            <li><a href="#also">Also worth your time</a></li>
+        </ol>
+        <p class="rail-hint only-fine">Press <kbd>j</kbd> <kbd>k</kbd> to move, <kbd>?</kbd> for all keys</p>
+    </nav>
+
+    <article class="brief">
+        <header class="masthead">
+            <p class="kicker">The daily cybersecurity brief</p>
+            <h1 class="date"><time datetime="2026-10-17">Saturday, 17 October 2026</time></h1>
+            <p class="dateline">
+                <span>15 stories</span>
+                <span class="crit-count">4 critical</span>
+                <span>6 min read</span>
+                <span>Updated 06:30 IST</span>
+            </p>
+            <p class="new-banner" id="new-banner" hidden></p>
+        </header>
+
+        <section class="lede" aria-label="Editor's note">
+            <p class="note">Prioritize remediation for BeyondTrust Remote Support due to the addition of <span class="nw">CVE-2026-102764</span> to KEV. Address the unauthenticated RCE vulnerability, <span class="nw">CVE-2026-103849</span>, affecting Magento. Monitor for activity related to the BAE Systems cyberattack impacting federal bankruptcy court notice systems.</p>
+            <div class="meter meter-HIGH" title="Threat level compared with the last 30 briefs">
+                <span class="meter-label">Threat level</span>
+                <span class="meter-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                <span class="meter-value">high</span>
+            </div>
+        </section>
+
+        
+        <section class="top3" id="top3" data-track-section="top3" aria-labelledby="top3-h">
+            <h2 class="label" id="top3-h">Today in 60 seconds</h2>
+            <ol class="top3-list">
+            
+                <li data-story="512">
+                    <a class="top3-item" href="#beyondtrust-remote-support-vulnerability-exploited-by-armory" data-open="beyondtrust-remote-support-vulnerability-exploited-by-armory">
+                        <span class="top3-num" aria-hidden="true">01</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Critical" aria-hidden="true"></i><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span>KEV<span class="sep">·</span>CVSS 9.8<span class="sep">·</span>9 outlets</span>
+                            <span class="top3-head">BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE</span>
+                            <span class="top3-tldr">CISA added <span class="nw">CVE-2026-102764</span> to KEV; threat actors exploit BeyondTrust Remote Support for persistence.</span>
+                            <span class="top3-do"><b>Do this today</b> Apply the BT26-05-RS patch or upgrade to a version 24.3.1 or later.</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="586">
+                    <a class="top3-item" href="#magento-adobe-commerce-blockstrap-flaw-allows-arbitrary-php" data-open="magento-adobe-commerce-blockstrap-flaw-allows-arbitrary-php">
+                        <span class="top3-num" aria-hidden="true">02</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="sep">·</span>CVSS 10.0</span>
+                            <span class="top3-head">Magento/Adobe Commerce: BlockStrap Flaw Allows Arbitrary PHP Code Execution</span>
+                            <span class="top3-tldr"><span class="nw">CVE-2026-103849</span> in Magento allows unauthenticated RCE via template engine injection.</span>
+                            <span class="top3-do"><b>Do this today</b> Apply the 2026-oct release or Adobe’s isolated patch, and ensure the September VULN-39341 hotfix remains in place.</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="535">
+                    <a class="top3-item" href="#bae-systems-cyberattack-disrupts-us-federal-bankruptcy-court" data-open="bae-systems-cyberattack-disrupts-us-federal-bankruptcy-court">
+                        <span class="top3-num" aria-hidden="true">03</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="sep">·</span>5 outlets</span>
+                            <span class="top3-head">BAE Systems Cyberattack Disrupts US Federal Bankruptcy Court Notice System</span>
+                            <span class="top3-tldr">A cyberattack on BAE Systems has disabled the notice system used by federal bankruptcy courts.</span>
+                            
+                        </span>
+                    </a>
+                </li>
+            
+            </ol>
+        </section>
+        
+
+        <nav class="index" aria-label="Jump to section">
+            <a href="#s-active_exploitation">Actively Exploited <span class="n">4</span></a><a href="#s-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></a><a href="#watch">Watch</a><a href="#s-malware_ransomware">Malware &amp; Ransomware <span class="n">2</span></a><a href="#s-threat_actor">Threat Actors &amp; Campaigns <span class="n">3</span></a><a href="#s-breach_incident">Breaches &amp; Incidents <span class="n">2</span></a>
+            
+            <a href="#cves">CVEs</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#tomorrow">Tomorrow</a>
+        </nav>
+
+        <p class="no-results" id="no-results" hidden>No stories match your search.</p>
+
+        
+        
+        <section class="sec" id="s-active_exploitation" data-track-section="active_exploitation" aria-labelledby="h-active_exploitation">
+            <h2 class="label" id="h-active_exploitation">Actively Exploited <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="beyondtrust-remote-support-vulnerability-exploited-by-armory" data-story="512" data-severity="Critical" data-section="active_exploitation" data-rank="1" data-source="Google Threat Intelligence">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-kev">KEV</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="b b-">9 outlets</span><span class="sep">·</span><span class="src">Google Threat Intelligence</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">CISA added <span class="nw">CVE-2026-102764</span> to KEV; threat actors exploit BeyondTrust Remote Support for persistence.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p><span class="nw">CVE-2026-102764</span> is an authentication bypass vulnerability in BeyondTrust Remote Support. Threat actors have exploited this to gain initial access, escalate privileges to root, and establish persistence. Exploitation allowed access to credential vaults and modification of configuration templates.</p>
+            <p><b>Why it matters.</b> Successful exploitation grants total control of the asset, enabling credential theft and long-term backdoor establishment. CISA added this to the KEV catalog, indicating active exploitation risk.</p>
+            <p class="do"><b>Do this today</b> Apply the BT26-05-RS patch or upgrade to a version 24.3.1 or later.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>BeyondTrust Remote Support (formerly Bomgar) versions 26.2.3 and earlier</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2025-61624, CVE-2026-102764</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Fri 16 Oct</span>ARMORY CASTLE Exploits BeyondTrust Remote Support via <span class="nw">CVE-2026-102764</span></li><li><span class="t-date">Today</span>BeyondTrust Remote Support Vulnerability Exploited by ARMORY CASTLE</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-beyondtrust/" target="_blank" rel="noopener">Read on Google Threat Intelligence <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="beyondtrust-remote-support-vulnerability-exploited-by-armory">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=BeyondTrust%20Remote%20Support%20Vulnerability%20Exploited%20by%20ARMORY%20CASTLE%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23beyondtrust-remote-support-vulnerability-exploited-by-armory" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23beyondtrust-remote-support-vulnerability-exploited-by-armory" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:1,&#34;freshness&#34;:0.378,&#34;importance&#34;:1,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.893}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="collabora-rce-flaw-exploited-in-nextcloud-via-code-server-ap" data-story="426" data-severity="Critical" data-section="active_exploitation" data-rank="2" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Collabora RCE Flaw Exploited in Nextcloud via CODE Server App</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">CVSS 9.2</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actors exploit an unauthenticated command injection flaw in the Nextcloud Collabora CODE Server app.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Threat actors exploited <span class="nw">CVE-2026-110447</span>, a critical command execution flaw in the Collabora Online - Built-in CODE Server app for Nextcloud. This flaw allows remote attackers to run commands as the web server user via a malicious request to the app’s proxy.php endpoint.</p>
+            <p><b>Why it matters.</b> Successful exploitation allows attackers to plant web shells and search for sensitive data such as password databases and cryptocurrency wallets. Standalone Collabora Online servers and Docker/RPM/DEB installations are unaffected.</p>
+            <p class="do"><b>Do this today</b> Upgrade Nextcloud to version 26.4.303 or later, or remove the server app if not needed.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Nextcloud with Collabora Online - Built-in CODE Server app</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-110447</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/hackers-exploit-collabora-rce-flaw-to-backdoor-nextcloud-servers/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="collabora-rce-flaw-exploited-in-nextcloud-via-code-server-ap">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Collabora%20RCE%20Flaw%20Exploited%20in%20Nextcloud%20via%20CODE%20Server%20App%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23collabora-rce-flaw-exploited-in-nextcloud-via-code-server-ap" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23collabora-rce-flaw-exploited-in-nextcloud-via-code-server-ap" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" target="_blank" rel="noopener">The Hacker News</a>, <a href="https://gbhackers.com/collabora-online-nextcloud-security-flaw/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.215,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.783}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="microsoft-patches-1-413-flaws-including-exploited-windows-sh" data-story="362" data-severity="Critical" data-section="active_exploitation" data-rank="3" data-source="Krebs on Security">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Microsoft Patches 1,413 Flaws, Including Exploited Windows Shell Bug</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">Krebs on Security</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Microsoft released patches for 1,413 vulnerabilities, including one already under active exploitation.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Microsoft issued updates addressing over 1,400 security vulnerabilities across its software suite. The patches included 1,102 flaws in Windows, 134 in Office, and fixes for multiple privilege escalation issues. One patched vulnerability is a security feature bypass in the Windows Shell.</p>
+            <p><b>Why it matters.</b> A significant number of the fixed flaws are rated critical, potentially allowing attackers to execute code with minimal user action. Security teams must manage the deployment of this large patch volume to prevent operational issues.</p>
+            <p class="do"><b>Do this today</b> Prioritize patching vulnerabilities listed in the CISA Known Exploited Vulnerabilities catalog.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Windows 10, Windows 11, Server versions, Office, Developer Tools, SharePoint Server, SQL Server</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://krebsonsecurity.com/2026/10/microsoft-patches-more-than-1400-security-flaws/" target="_blank" rel="noopener">Read on Krebs on Security <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="microsoft-patches-1-413-flaws-including-exploited-windows-sh">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Microsoft%20Patches%201%2c413%20Flaws%2c%20Including%20Exploited%20Windows%20Shell%20Bug%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23microsoft-patches-1-413-flaws-including-exploited-windows-sh" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23microsoft-patches-1-413-flaws-including-exploited-windows-sh" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/microsoft-patches-two-dozen-rce-flaws-in-office/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html" target="_blank" rel="noopener">The Hacker News</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.13,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:1,&#34;total&#34;:0.779}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="unit-42-reports-peerstitch-implant-via-fortios-flaws" data-story="434" data-severity="Critical" data-section="active_exploitation" data-rank="4" data-source="Unit 42">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Unit 42 Reports PEERSTITCH Implant via FortiOS Flaws</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-kev">KEV</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="b b-">EPSS 95%</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">Unit 42</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers used <span class="nw">CVE-2024-47575</span> and <span class="nw">CVE-2025-61624</span> to deploy memory-resident malware on FortiGate devices.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Attackers initially compromised a FortiManager appliance by exploiting <span class="nw">CVE-2024-47575</span>. They then used <span class="nw">CVE-2025-61624</span> to deploy PEERSTITCH, a memory-resident malware implant on managed FortiGate firewalls. PEERSTITCH operates by hijacking legitimate processes, avoiding disk persistence and outbound connections.</p>
+            <p><b>Why it matters.</b> The malware&#39;s in-memory nature and use of legitimate process traffic make it difficult for conventional endpoint and network security tools to detect.</p>
+            <p class="do"><b>Do this today</b> Review logs for unauthorized device registrations or unusual traffic patterns on management ports.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>FortiGate firewalls, FortiManager appliance</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2024-47575, CVE-2025-61624</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Thu 15 Oct</span>Unit 42 Reports PEERSTITCH Implant via FortiGate Exploitation</li><li><span class="t-date">Today</span>Unit 42 Reports PEERSTITCH Implant via FortiOS Flaws</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://unit42.paloaltonetworks.com/fortimanager-cve-2024-47575-peerstitch-malware/" target="_blank" rel="noopener">Read on Unit 42 <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="unit-42-reports-peerstitch-implant-via-fortios-flaws">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Unit%2042%20Reports%20PEERSTITCH%20Implant%20via%20FortiOS%20Flaws%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23unit-42-reports-peerstitch-implant-via-fortios-flaws" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23unit-42-reports-peerstitch-implant-via-fortios-flaws" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://thehackernews.com/2026/10/attackers-exploit-fortios-flaw-to.html" target="_blank" rel="noopener">The Hacker News</a>, <a href="https://gbhackers.com/peerstitch-malware/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:1,&#34;freshness&#34;:0.243,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.77}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="s-vulnerability" data-track-section="vulnerability" aria-labelledby="h-vulnerability">
+            <h2 class="label" id="h-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="magento-adobe-commerce-blockstrap-flaw-allows-arbitrary-php" data-story="586" data-severity="High" data-section="vulnerability" data-rank="5" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Magento/Adobe Commerce: BlockStrap Flaw Allows Arbitrary PHP Code Execution</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 10.0</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr"><span class="nw">CVE-2026-103849</span> in Magento allows unauthenticated RCE via template engine injection.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A maximum-severity vulnerability, <span class="nw">CVE-2026-103849</span>, affects Magento and Adobe Commerce. The flaw, named BlockStrap, is a second-pass template engine directive injection allowing arbitrary PHP code execution.</p>
+            <p><b>Why it matters.</b> Exploitation could lead to complete compromise of store servers. Defense effectiveness drops significantly once initial access is gained using valid credentials.</p>
+            <p class="do"><b>Do this today</b> Apply the 2026-oct release or Adobe’s isolated patch, and ensure the September VULN-39341 hotfix remains in place.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Magento Open Source through 2.4.9, Adobe Commerce B2B through 1.5.3</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-103849</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/critical-blockstrap-flaw-lets-hackers-run-code-on-magento-servers/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="magento-adobe-commerce-blockstrap-flaw-allows-arbitrary-php">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Magento%2fAdobe%20Commerce%3a%20BlockStrap%20Flaw%20Allows%20Arbitrary%20PHP%20Code%20Execution%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23magento-adobe-commerce-blockstrap-flaw-allows-arbitrary-php" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23magento-adobe-commerce-blockstrap-flaw-allows-arbitrary-php" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.7,&#34;freshness&#34;:0.871,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.74}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="guangzhou-juan-iot-eseecloud-vulnerabilities-affect-critical" data-story="502" data-severity="High" data-section="vulnerability" data-rank="6" data-source="CISA">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Guangzhou Juan IoT EseeCloud Vulnerabilities Affect Critical Infrastructure</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="src">CISA</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Multiple vulnerabilities in EseeCloud affect IP cameras used in critical infrastructure sectors.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>CISA identified vulnerabilities in Guangzhou Juan IoT Technology EseeCloud, including hard-coded credential usage. Successful exploitation could grant an attacker control over affected IP cameras.</p>
+            <p><b>Why it matters.</b> The affected devices are deployed in critical sectors including energy, communications, and financial services.</p>
+            <p class="do"><b>Do this today</b> Review network segmentation protecting IP cameras connected to EseeCloud devices.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>EseeCloud App &lt;=4.9.6; EseeCloud Firmware &lt;=4.9.86.0</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-105664, CVE-2026-107617, CVE-2026-97858</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-288-02" target="_blank" rel="noopener">Read on CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="guangzhou-juan-iot-eseecloud-vulnerabilities-affect-critical">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Guangzhou%20Juan%20IoT%20EseeCloud%20Vulnerabilities%20Affect%20Critical%20Infrastructure%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23guangzhou-juan-iot-eseecloud-vulnerabilities-affect-critical" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23guangzhou-juan-iot-eseecloud-vulnerabilities-affect-critical" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.7,&#34;freshness&#34;:0.358,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.689}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="linux-kernel-flaws-local-root-access-and-vm-escape-vulnerabi" data-story="364" data-severity="High" data-section="vulnerability" data-rank="7" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Linux Kernel Flaws: Local Root Access and VM Escape Vulnerabilities</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 9.3</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Two critical Linux kernel flaws allow local root escalation and guest-to-host VM escape.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p><span class="nw">CVE-2026-74580</span> allows local users to read and write kernel memory and achieve root across many kernel versions. <span class="nw">CVE-2026-99999</span> permits a guest VM to read host memory and potentially execute code on the host system.</p>
+            <p><b>Why it matters.</b> These vulnerabilities compromise core isolation boundaries, enabling privilege escalation from local users or compromised virtual environments to the host system level.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>Linux kernel</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-74580, CVE-2026-99999</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Thu 15 Oct</span>Linux Kernel vhost Flaw (<span class="nw">CVE-2026-74580</span>) Allows Local Root and Host Escape</li><li><span class="t-date">Today</span>Linux Kernel Flaws: Local Root Access and VM Escape Vulnerabilities</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/10/ai-found-linux-kernel-flaw-gives-local.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="linux-kernel-flaws-local-root-access-and-vm-escape-vulnerabi">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Linux%20Kernel%20Flaws%3a%20Local%20Root%20Access%20and%20VM%20Escape%20Vulnerabilities%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23linux-kernel-flaws-local-root-access-and-vm-escape-vulnerabi" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23linux-kernel-flaws-local-root-access-and-vm-escape-vulnerabi" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.csoonline.com/article/4236460/linux-kernel-gets-a-fix-for-a-flaw-that-enabled-attackers-to-escape-vms.html" target="_blank" rel="noopener">CSO Online</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0.7,&#34;freshness&#34;:0.144,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.8,&#34;total&#34;:0.67}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="researchers-demonstrate-openbsd-root-exploit-chaining-old-bu" data-story="582" data-severity="Medium" data-section="vulnerability" data-rank="8" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Researchers Demonstrate OpenBSD Root Exploit Chaining Old Bug</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A local privilege escalation exploit was demonstrated for OpenBSD 7.9 using chained kernel flaws.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Researchers demonstrated a root exploit for OpenBSD 7.9. The exploit chains a roughly 37-year-old integer overflow with a separate kernel flaw. This chain bypasses KARL, SMAP, and SMEP protections.</p>
+            <p><b>Why it matters.</b> This vulnerability allows for local privilege escalation to root on affected systems. The exploit bypasses multiple established kernel mitigations.</p>
+            <p class="do"><b>Do this today</b> Review security advisories for OpenBSD regarding local privilege escalation vulnerabilities.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>OpenBSD 7.9</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/10/researchers-demonstrate-openbsd-root.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="researchers-demonstrate-openbsd-root-exploit-chaining-old-bu">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Researchers%20Demonstrate%20OpenBSD%20Root%20Exploit%20Chaining%20Old%20Bug%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23researchers-demonstrate-openbsd-root-exploit-chaining-old-bu" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23researchers-demonstrate-openbsd-root-exploit-chaining-old-bu" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.5,&#34;freshness&#34;:0.819,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.67}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        <section class="sec" id="watch" data-track-section="watch" aria-labelledby="h-watch">
+            <h2 class="label" id="h-watch">Worth watching</h2>
+            <ul class="videos">
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=qFEuYUfauNY" target="_blank" rel="noopener" data-video="qFEuYUfauNY" aria-label="Play: I Tested The Viral Reverse Engineering Repo">
+                        <img src="https://i.ytimg.com/vi/qFEuYUfauNY/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Malware analysis</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=qFEuYUfauNY" target="_blank" rel="noopener" data-track="video">I Tested The Viral Reverse Engineering Repo</a>
+                        <span class="video-meta">Low Level · 16 Oct</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=lCUZoZomkq8" target="_blank" rel="noopener" data-video="lCUZoZomkq8" aria-label="Play: Black Hat Asia 2026 Highlights">
+                        <img src="https://i.ytimg.com/vi/lCUZoZomkq8/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Conference talk</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=lCUZoZomkq8" target="_blank" rel="noopener" data-track="video">Black Hat Asia 2026 Highlights</a>
+                        <span class="video-meta">Black Hat · 10 Oct</span>
+                    </div>
+                </li>
+            
+            </ul>
+        </section>
+
+        
+        <section class="sec" id="s-malware_ransomware" data-track-section="malware_ransomware" aria-labelledby="h-malware_ransomware">
+            <h2 class="label" id="h-malware_ransomware">Malware &amp; Ransomware <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="aomei-backupper-update-servers-compromised-for-backdoor-dist" data-story="577" data-severity="High" data-section="malware_ransomware" data-rank="13" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">AOMEI Backupper Update Servers Compromised for Backdoor Distribution</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers manipulated AOMEI Backupper update servers between May and July 2026 to distribute a backdoor.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Attackers altered files fetched by AOMEI Backupper from the vendor&#39;s update servers. This occurred in intermittent windows lasting five to ten minutes between May and July 2026. Any instance checking for an update during these windows would download and execute a backdoor.</p>
+            <p><b>Why it matters.</b> Systems running AOMEI Backupper that check for updates during the specified timeframe are vulnerable to backdoor installation.</p>
+            <p class="do"><b>Do this today</b> Verify all AOMEI Backupper updates against vendor advisories.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>AOMEI Backupper</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/10/attackers-tampered-with-aomei.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="aomei-backupper-update-servers-compromised-for-backdoor-dist">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=AOMEI%20Backupper%20Update%20Servers%20Compromised%20for%20Backdoor%20Distribution%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23aomei-backupper-update-servers-compromised-for-backdoor-dist" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23aomei-backupper-update-servers-compromised-for-backdoor-dist" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.795,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.542}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="discover-tech-platform-used-for-zero-click-spyware-delivery" data-story="489" data-severity="High" data-section="malware_ransomware" data-rank="14" data-source="The Record">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Discover-Tech Platform Used for Zero-Click Spyware Delivery via Online Ads</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">The Record</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Spyware is being delivered to devices globally through targeted online advertisements using the Controlium platform.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Researchers documented that Discover-Tech used its Controlium platform to deliver zero-click spyware via targeted ads. The platform automatically infects devices when an ad is rendered, allowing data collection without user interaction.</p>
+            <p><b>Why it matters.</b> This method bypasses traditional security controls by weaponizing the legitimate online advertising ecosystem. It has been observed targeting journalists, government agencies, and international organizations.</p>
+            
+            
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Fri 16 Oct</span>Discover-Tech Used for Zero-Click Spyware Delivery via Online Ads</li><li><span class="t-date">Today</span>Discover-Tech Platform Used for Zero-Click Spyware Delivery via Online Ads</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://therecord.media/spyware-citizen-lab-advertising" target="_blank" rel="noopener">Read on The Record <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="discover-tech-platform-used-for-zero-click-spyware-delivery">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Discover-Tech%20Platform%20Used%20for%20Zero-Click%20Spyware%20Delivery%20via%20Online%20Ads%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23discover-tech-platform-used-for-zero-click-spyware-delivery" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23discover-tech-platform-used-for-zero-click-spyware-delivery" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.csoonline.com/article/4236143/no-click-required-how-the-ad-industry-became-a-pipeline-for-mercenary-spyware.html" target="_blank" rel="noopener">CSO Online</a>, <a href="https://gbhackers.com/online-ads-spyware-attacks/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0,&#34;freshness&#34;:0.387,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.535}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="s-threat_actor" data-track-section="threat_actor" aria-labelledby="h-threat_actor">
+            <h2 class="label" id="h-threat_actor">Threat Actors &amp; Campaigns <span class="n">3</span></h2>
+            <ul class="stories">
+<li class="story" id="microsoft-seizes-phishing-platforms-used-by-chinese-cybercri" data-story="394" data-severity="High" data-section="threat_actor" data-rank="11" data-source="The Record">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Microsoft Seizes Phishing Platforms Used by Chinese Cybercriminals</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">7 outlets</span><span class="sep">·</span><span class="src">The Record</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 3</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Microsoft seized infrastructure from three major phishing platforms used by Chinese cybercriminals to target global organizations.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Microsoft obtained a U.S. court order to seize and redirect domains underlying YAM Store, CoGUI, and Iron Man. These platforms were used to send malicious messages impersonating numerous organizations.</p>
+            <p><b>Why it matters.</b> The platforms facilitated credential theft and the distribution of malicious content targeting consumers, healthcare, and financial institutions globally.</p>
+            
+            
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Thu 15 Oct</span>Microsoft Seizes Phishing Platforms Used by Chinese Cybercriminals</li><li><span class="t-date">Fri 16 Oct</span>Microsoft Seizes Phishing Platforms Used by Chinese Cybercriminals</li><li><span class="t-date">Today</span>Microsoft Seizes Phishing Platforms Used by Chinese Cybercriminals</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://therecord.media/microsoft-takes-down-3-major-chinese-phishing-platforms" target="_blank" rel="noopener">Read on The Record <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="microsoft-seizes-phishing-platforms-used-by-chinese-cybercri">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Microsoft%20Seizes%20Phishing%20Platforms%20Used%20by%20Chinese%20Cybercriminals%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23microsoft-seizes-phishing-platforms-used-by-chinese-cybercri" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23microsoft-seizes-phishing-platforms-used-by-chinese-cybercri" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/microsoft-disrupts-chinese-language-phishing-market-behind-1b-messages/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://cyberscoop.com/microsoft-disrupts-chinese-language-phishing-kit-ecosystem/" target="_blank" rel="noopener">CyberScoop</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0,&#34;freshness&#34;:0.189,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.549}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="cisa-warns-election-officials-of-phishing-and-smishing-threa" data-story="559" data-severity="High" data-section="threat_actor" data-rank="12" data-source="CISA">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">CISA Warns Election Officials of Phishing and Smishing Threats</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">CISA</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Cyber actors are using phishing and smishing to target election and campaign officials for sensitive data.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>CISA and the FBI issued a PSA warning election and campaign officials about cyber threats during the 2026 U.S. midterm elections. Malicious actors may use phishing and smishing to steal credentials or install malware. These campaigns can use emails, texts, audio, and video content.</p>
+            <p><b>Why it matters.</b> Targeted theft of voter registration data and sensitive campaign information poses a risk to election integrity.</p>
+            <p class="do"><b>Do this today</b> Review CISA and FBI PSA for recommended cybersecurity practices.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Election and campaign officials</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/resources-tools/resources/cyber-threat-actors-use-variety-techniques-target-election-and-campaign-officials" target="_blank" rel="noopener">Read on CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cisa-warns-election-officials-of-phishing-and-smishing-threa">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=CISA%20Warns%20Election%20Officials%20of%20Phishing%20and%20Smishing%20Threats%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23cisa-warns-election-officials-of-phishing-and-smishing-threa" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23cisa-warns-election-officials-of-phishing-and-smishing-threa" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.697,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.548}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="aomei-technology-update-infrastructure-compromise-by-unc7017" data-story="555" data-severity="High" data-section="threat_actor" data-rank="15" data-source="Google Threat Intelligence">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">AOMEI Technology Update Infrastructure Compromise by UNC7017</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Google Threat Intelligence</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">UNC7017 compromised AOMEI update servers with short-burst tampering to deliver malware payloads.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Threat actors compromised AOMEI Technology&#39;s update infrastructure between April 2026 and July 2026. The adversary performed short-burst configuration tampering on origin servers, which reverted to authentic versions after minutes. This allowed the delivery of a multi-stage payload involving CROSSROAD and SHINYROAD.</p>
+            <p><b>Why it matters.</b> The ephemeral nature of the tampering evades traditional point-in-time triage and automated file scanning. Compromise requires the endpoint to poll for updates during the brief active window.</p>
+            <p class="do"><b>Do this today</b> Monitor network traffic for unusual HTTPS requests to www2.aomeisoftware.com or account.aomeitech.com during update checks.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>AOMEI Technology products using ABMarket update flow</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://cloud.google.com/blog/topics/threat-intelligence/investigating-ephemeral-supply-chain-tampering/" target="_blank" rel="noopener">Read on Google Threat Intelligence <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="aomei-technology-update-infrastructure-compromise-by-unc7017">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=AOMEI%20Technology%20Update%20Infrastructure%20Compromise%20by%20UNC7017%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23aomei-technology-update-infrastructure-compromise-by-unc7017" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23aomei-technology-update-infrastructure-compromise-by-unc7017" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.348,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.513}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="s-breach_incident" data-track-section="breach_incident" aria-labelledby="h-breach_incident">
+            <h2 class="label" id="h-breach_incident">Breaches &amp; Incidents <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="bae-systems-cyberattack-disrupts-us-federal-bankruptcy-court" data-story="535" data-severity="High" data-section="breach_incident" data-rank="9" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">BAE Systems Cyberattack Disrupts US Federal Bankruptcy Court Notice System</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">5 outlets</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A cyberattack on BAE Systems has disabled the notice system used by federal bankruptcy courts.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A cyberattack on BAE Systems, a government contractor, disrupted the notice system for federal bankruptcy courts. This incident halted the production and distribution of bankruptcy notices nationwide.</p>
+            <p><b>Why it matters.</b> The outage rendered multiple BNC systems and websites unavailable, impacting the national bankruptcy noticing process.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>Federal bankruptcy courts</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/bae-systems-cyberattack-disrupts-us-federal-court-operations/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="bae-systems-cyberattack-disrupts-us-federal-bankruptcy-court">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=BAE%20Systems%20Cyberattack%20Disrupts%20US%20Federal%20Bankruptcy%20Court%20Notice%20System%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23bae-systems-cyberattack-disrupts-us-federal-bankruptcy-court" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23bae-systems-cyberattack-disrupts-us-federal-bankruptcy-court" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/bae-systems-security-incident-stalls-notices-from-us-bankruptcy-courts/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://cyberscoop.com/bae-systems-cybersecurity-incident-us-bankruptcy-courts/" target="_blank" rel="noopener">CyberScoop</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0,&#34;freshness&#34;:0.617,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.632}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="anne-arundel-county-confirms-data-breach-after-ransomware-cl" data-story="551" data-severity="High" data-section="breach_incident" data-rank="10" data-source="The Record">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Anne Arundel County Confirms Data Breach After Ransomware Claim</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Record</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Anne Arundel County confirmed an unauthorized actor stole files from government systems in August.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>An intruder gained access to a limited number of systems within Anne Arundel County&#39;s network in August. The attack was claimed by the Rhysida ransomware gang.</p>
+            <p><b>Why it matters.</b> The breach involves government systems in a county housing numerous federal agency offices. Investigators are determining if resident data was compromised.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>Anne Arundel County, Maryland</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://therecord.media/anne-arundel-county-maryland-confirms-data-breach" target="_blank" rel="noopener">Read on The Record <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="anne-arundel-county-confirms-data-breach-after-ransomware-cl">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Anne%20Arundel%20County%20Confirms%20Data%20Breach%20After%20Ransomware%20Claim%20%e2%80%94%20via%20PwnSpectrum&url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23anne-arundel-county-confirms-data-breach-after-ransomware-cl" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f17%2f%23anne-arundel-county-confirms-data-breach-after-ransomware-cl" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.718,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.55}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+
+
+        
+        <section class="sec" id="cves" data-track-section="cves" aria-labelledby="h-cves">
+            <h2 class="label" id="h-cves">CVE spotlight</h2>
+            <table class="cve-table">
+                <thead><tr><th scope="col">CVE</th><th scope="col">Affects</th><th scope="col" class="num">CVSS</th><th scope="col" class="num">EPSS</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-102764" target="_blank" rel="noopener" data-track="cve">CVE-2026-102764</a></td>
+                    <td data-label="Affects"><span class="cve-product">BeyondTrust Remote Support</span><span class="cve-desc">The vulnerability exists within internal components of BeyondTrust’s Remote Support product. The components did not adequately validate the …</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 19 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2025-61624" target="_blank" rel="noopener" data-track="cve">CVE-2025-61624</a></td>
+                    <td data-label="Affects"><span class="cve-product">Fortinet Multiple Products</span><span class="cve-desc">An Improper Limitation of a Pathname to a Restricted Directory (&#39;Path Traversal&#39;) [CWE-22] vulnerability in Fortinet FortiOS 7.6.0 through 7…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-med">6.5</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 19 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-21589" target="_blank" rel="noopener" data-track="cve">CVE-2026-21589</a></td>
+                    <td data-label="Affects"><span class="cve-product">Atlassian Multiple Products</span><span class="cve-desc">This is a vulnerability in Bitbucket Data Center, Confluence Data Center, Jira Service Management Data Center, Jira Software Data Center, Ba…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">7.5</span></td>
+                    <td data-label="EPSS" class="num">3%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 18 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-105134" target="_blank" rel="noopener" data-track="cve">CVE-2026-105134</a></td>
+                    <td data-label="Affects"><span class="cve-product">AhsayCBS</span><span class="cve-desc">A flaw has been found in Ahsay AhsayCBS up to 10.3.2. This vulnerability affects unknown code of the file /rps/api/json/UpdateReceivers.do o…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">10.0</span></td>
+                    <td data-label="EPSS" class="num">5%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 17 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-76519" target="_blank" rel="noopener" data-track="cve">CVE-2026-76519</a></td>
+                    <td data-label="Affects"><span class="cve-product">Cisco Secure Email Gateway</span><span class="cve-desc">A vulnerability in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway could allow an unauthenticated, remote attack…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">2%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 17 Oct</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-0322" target="_blank" rel="noopener" data-track="cve">CVE-2026-0322</a></td>
+                    <td data-label="Affects"><span class="cve-product">Palo Alto Networks PAN-OS</span><span class="cve-desc">A remote code execution (RCE) vulnerability in the management interface of Palo Alto Networks PAN-OS® software enables an authenticated atta…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">7.2</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 17 Oct</span></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section class="sec quiz-sec" id="quiz" data-track-section="quiz" aria-labelledby="h-quiz">
+            <h2 class="label" id="h-quiz">Quiz</h2>
+            
+            <div class="reveal" data-quiz-date="2026-10-16" data-answer="0">
+                <p class="small-label">Yesterday's answer</p>
+                <p class="q">According to the provided text, which of the following vulnerabilities was added to the KEV Catalog due to evidence of active exploitation?</p>
+                <p class="answer"><span class="check" aria-hidden="true">✓</span> <span class="nw">CVE-2026-0322</span> (Palo Alto Networks PAN-OS Code Injection)</p>
+                <p class="explain">The story explicitly lists <span class="nw">CVE-2026-0322</span> as one of the four vulnerabilities added to the KEV Catalog.</p>
+                <p class="result" id="quiz-result" hidden></p>
+            </div>
+            
+            
+            <div class="quiz" data-quiz-date="2026-10-17">
+                <p class="small-label">Today's question</p>
+                <p class="q" id="quiz-q">According to the news story, what indicator suggests the immediate danger posed by the BeyondTrust Remote Support vulnerability?</p>
+                <ol class="options" aria-labelledby="quiz-q">
+                    <li><button class="option" type="button" data-index="0"><span class="opt-key">A</span><span>The vulnerability allows for direct network sniffing.</span></button></li><li><button class="option" type="button" data-index="1"><span class="opt-key">B</span><span>Exploitation requires physical access to the target machine.</span></button></li><li><button class="option" type="button" data-index="2"><span class="opt-key">C</span><span>CISA added this to the KEV catalog, indicating active exploitation risk.</span></button></li><li><button class="option" type="button" data-index="3"><span class="opt-key">D</span><span>The vulnerability only affects Windows-based operating systems.</span></button></li>
+                </ol>
+                <p class="locked" id="quiz-locked" hidden>Locked in. The answer is in tomorrow's brief.</p>
+                <p class="score" id="quiz-score" hidden></p>
+            </div>
+            
+        </section>
+        
+
+        
+        <section class="sec" id="tomorrow" data-track-section="tomorrow" aria-labelledby="h-tomorrow">
+            <h2 class="label" id="h-tomorrow">On the radar tomorrow</h2>
+            <ul class="radar">
+            <li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-21589" target="_blank" rel="noopener" data-track="radar">CVE-2026-21589 · Atlassian Multiple Products</a></span></li><li class="radar-deadline"><span class="when">KEV deadline Mon 19 Oct</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2025-61624" target="_blank" rel="noopener" data-track="radar">CVE-2025-61624 · Fortinet Multiple Products</a></span></li><li class="radar-ctf"><span class="when">CTF starts Sat 09:00 UTC</span><span class="what"><a href="https://ctftime.org/event/3364" target="_blank" rel="noopener" data-track="radar">Securinets CTF Quals 2026</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/anthropic-takes-risky-ai-tests-offline-after-models-breach-govt-sites/" target="_blank" rel="noopener" data-track="radar">Anthropic takes risky AI tests offline after models breach govt sites</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/" target="_blank" rel="noopener" data-track="radar">Ledger confirms spy chip implant behind wallet crypto thefts</a></span></li>
+            </ul>
+        </section>
+        
+
+        
+        <section class="sec" id="also" data-track-section="also" aria-labelledby="h-also">
+            <h2 class="label" id="h-also">Also worth your time</h2>
+            <div class="tabs" role="tablist" aria-label="Also worth your time">
+                <button class="tab" type="button" role="tab" id="tab-exploits" aria-controls="panel-exploits" aria-selected="true" tabindex="0">Exploits</button><button class="tab" type="button" role="tab" id="tab-tools" aria-controls="panel-tools" aria-selected="false" tabindex="-1">Tools</button><button class="tab" type="button" role="tab" id="tab-community" aria-controls="panel-community" aria-selected="false" tabindex="-1">Community</button><button class="tab" type="button" role="tab" id="tab-podcasts" aria-controls="panel-podcasts" aria-selected="false" tabindex="-1">Podcasts</button>
+            </div>
+            
+            <div class="panel active" id="panel-exploits" role="tabpanel" aria-labelledby="tab-exploits">
+                <h3 class="panel-title">Exploits</h3>
+                <ul class="side-list">
+                <li><a href="https://www.exploit-db.com/exploits/52692" target="_blank" rel="noopener" data-track="exploits">Teltonika_RutOS 00.07.06.21 - command injection</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52691" target="_blank" rel="noopener" data-track="exploits">TigerGraph_Community_Edition 4.2.4  - arbitrary file write</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52690" target="_blank" rel="noopener" data-track="exploits">WordPress 7.0.2 - Path Travesal</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52689" target="_blank" rel="noopener" data-track="exploits">Food-Ordering 1.0  -  LFI</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52688" target="_blank" rel="noopener" data-track="exploits">Ecava_ntegraXor  IGX_16.0.701.10 - RCE</a><span class="side-meta">Remote</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
+                <h3 class="panel-title">Tools</h3>
+                <ul class="side-list">
+                <li><a href="https://github.com/trhhubsd/ARTEX" target="_blank" rel="noopener" data-track="tools">trhhubsd/ARTEX</a><span class="side-meta">★ 1205 · Go</span><span class="side-desc">ARTEX，AI 自主渗透测试系统。百度 agent&#43; 攻防挑战赛冠军项目。</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community">
+                <h3 class="panel-title">Community</h3>
+                <ul class="side-list">
+                <li><a href="https://www.reddit.com/r/netsec/comments/1x7ux7j/new_web_obfuscation_technique_where_even_just/" target="_blank" rel="noopener" data-track="community">New web obfuscation technique where even just formatting rewrites script logic (Chromium DevTools, prettier, WebCrack, Terser and more)</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x7n3e7/deepdive_into_android_binder_uaf_cve202320938/" target="_blank" rel="noopener" data-track="community">Deep-Dive into Android Binder UaF (CVE-2023-20938) using Time-Travel Debugging</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x7kgpw/nadella_calls_your_ai_an_insider_risk_lawmakers/" target="_blank" rel="noopener" data-track="community">Nadella Calls Your AI an Insider Risk. Lawmakers Already Put Your Name on the Liability Certification.</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x7i0l6/16_of_rpkicovered_ipv4_routes_still_allow_a/" target="_blank" rel="noopener" data-track="community">16% of RPKI-covered IPv4 routes still allow a forged-origin hijack that passes validation, the setup behind the Virtualizor update attack</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x7httc/cve2026108082_symfony_redos_one_request_seconds/" target="_blank" rel="noopener" data-track="community">CVE-2026-108082: Symfony ReDoS. One request. Seconds of CPU</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1x7fpdw/the_cloudflare_appstore_appflare_malware_audit/" target="_blank" rel="noopener" data-track="community">The Cloudflare Appstore (Appflare) Malware Audit</a><span class="side-meta">r/netsec</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-podcasts" role="tabpanel" aria-labelledby="tab-podcasts">
+                <h3 class="panel-title">Podcasts</h3>
+                <ul class="side-list">
+                <li><a href="https://darknetdiaries.com/episode/180/" target="_blank" rel="noopener" data-track="podcasts">180: Conti</a><span class="side-meta">Darknet Diaries · 59:17</span></li><li><a href="https://risky.biz/RB855/" target="_blank" rel="noopener" data-track="podcasts">Risky Business #855 -- ShinyHunters done sowing, enters reaping phase</a><span class="side-meta">Risky Business · 1:06:27</span></li><li><a href="https://twit.tv/shows/security-now/episodes/1100" target="_blank" rel="noopener" data-track="podcasts">SN 1100: Booby Trapping LLMs - AI Frenzy in Cybercrime</a><span class="side-meta">Security Now · 2:49:02</span></li><li><a href="https://isc.sans.edu/podcastdetail/10140" target="_blank" rel="noopener" data-track="podcasts">SANS Stormcast Friday, October 16th, 2026: Panchan Crypto Mining Worm; Exploited 0-Days in Cisco Secure Email Gateway (CVE-2026-76519), Palo Alto PAN-OS (CVE-2026-0322) and Ivanti Connect Secure</a><span class="side-meta">SANS Internet Storm Center · 5:59</span></li>
+                </ul>
+            </div>
+            
+        </section>
+        
+
+        <section class="done" id="done" aria-label="End of today's brief">
+            <p class="done-title" id="done-title">That's today's brief.</p>
+            <p class="done-sub" id="countdown" data-next="2026-10-18T01:00:00Z">The next brief lands at 06:30 IST.</p>
+            
+            <nav class="edition-nav" aria-label="Other briefs">
+                <a href="../../../2026/10/16/" rel="prev">← Fri 16 Oct</a>
+                <a href="../../../archive/">All briefs</a>
+                <span></span>
+            </nav>
+        </section>
+    </article>
+</div>
+</main>
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <a class="wordmark small" href="../../../">pwn<span>spectrum</span></a>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="../../../">Today</a>
+            <a href="../../../archive/">Archive</a>
+            <a href="https://forms.gle/RcsGHJHpb761EZA38" target="_blank" rel="noopener">Send a tip</a>
+            <a href="https://x.com/IamLucif3r_" target="_blank" rel="noopener">X</a>
+            <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/iamlucif3r" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <p>Curated by <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">Anmol Singh Yadav</a>. Stories come from public sources and are summarised by a local model; always check the original before acting.</p>
+    </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+</button>
+
+<dialog class="keys" id="keys">
+    <form method="dialog">
+        <h2>Keyboard shortcuts</h2>
+        <dl>
+            <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>Next / previous story</dd>
+            <dt><kbd>o</kbd> or <kbd>Enter</kbd></dt><dd>Open / close story</dd>
+            <dt><kbd>v</kbd></dt><dd>Read the source in a new tab</dd>
+            <dt><kbd>e</kbd></dt><dd>Expand / collapse all</dd>
+            <dt><kbd>/</kbd></dt><dd>Search</dd>
+            <dt><kbd>d</kbd></dt><dd>Light / dark theme</dd>
+            <dt><kbd>Esc</kbd></dt><dd>Close</dd>
+        </dl>
+        <button class="text-btn" value="close">Close</button>
+    </form>
+</dialog>
+<script src="../../../assets/site.js?v=ff2ab70d3b" defer></script>
+</body>
+</html>
