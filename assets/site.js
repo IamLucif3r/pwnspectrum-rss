@@ -34,19 +34,21 @@
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('pwn_theme', next); } catch (e) {}
     var meta = document.querySelectorAll('meta[name="theme-color"]');
-    for (var i = 0; i < meta.length; i++) meta[i].setAttribute('content', next === 'dark' ? '#111110' : '#f7f5f0');
+    for (var i = 0; i < meta.length; i++) meta[i].setAttribute('content', next === 'dark' ? '#0d1014' : '#ffffff');
     track('theme_toggle', { theme: next });
   }
   var themeBtn = $('#theme-btn');
   if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
 
   // ---------------- Scroll: progress line, back to top ----------------
+  // On an edition the top line shows stories read (set by renderRead); elsewhere, scroll position.
   var line = $('#scroll-line'), toTop = $('#to-top'), ticking = false;
   function onScroll() {
     ticking = false;
-    var h = root.scrollHeight - window.innerHeight;
-    var p = h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
-    if (line) line.style.transform = 'scaleX(' + p + ')';
+    if (line && !edition) {
+      var h = root.scrollHeight - window.innerHeight;
+      line.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0) + ')';
+    }
     if (toTop) toTop.classList.toggle('show', window.scrollY > window.innerHeight * 1.5);
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
@@ -74,6 +76,22 @@
 
   // ================= Edition page =================
   var stories = $$('li.story');
+
+  // ---------------- Visit streak ----------------
+  // Shown quietly from three days on; never a nag.
+  var today = isoDay(new Date());
+  var visits = store.get('pwn_visits', []);
+  if (visits.indexOf(today) === -1) { visits = visits.concat(today).slice(-60); store.set('pwn_visits', visits); }
+  function streakDays() {
+    var n = 1;
+    for (var i = visits.length - 1; i > 0; i--) {
+      if (Math.round((Date.parse(visits[i]) - Date.parse(visits[i - 1])) / 864e5) === 1) n++; else break;
+    }
+    return n;
+  }
+  function streakText() { var n = streakDays(); return n >= 2 ? n + '-day reading streak.' : ''; }
+  var barStreak = $('#bar-streak');
+  if (barStreak && streakDays() >= 3) { barStreak.textContent = streakDays() + '-day streak'; barStreak.hidden = false; }
   var ids = stories.map(function (s) { return s.getAttribute('data-story'); });
 
   // ---------------- Read tracking ----------------
@@ -89,12 +107,31 @@
       if (on) n++;
     });
     $$('.top3-list li').forEach(function (li) { li.classList.toggle('is-read', read.indexOf(li.getAttribute('data-story')) !== -1); });
-    if (readOut) { readOut.textContent = n + ' of ' + stories.length + ' read'; readOut.hidden = n === 0; }
+    var total = stories.length, frac = total ? n / total : 0;
+    if (readOut) { readOut.textContent = n + ' of ' + total + ' read'; readOut.hidden = n === 0; }
+    if (line) line.style.transform = 'scaleX(' + frac + ')';
+    var you = $('#g-you');
+    if (you) {
+      var days = streakDays();
+      $('#you-text').innerHTML = '<b>' + n + ' of ' + total + '</b> stories read' + (days >= 3 ? ' · ' + days + '-day streak' : '');
+      $('#you-bar').style.width = (frac * 100) + '%';
+      you.hidden = n === 0 && days < 3;
+    }
     if (done) {
-      var all = n === stories.length && n > 0;
+      var all = n === total && n > 0;
       done.classList.toggle('all-read', all);
       var dt = $('#done-title');
-      if (dt) dt.textContent = all ? "You're caught up." : "That's today's brief.";
+      if (dt) dt.textContent = all ? "You're briefed." : "That's today's brief.";
+      var sum = $('#done-sum');
+      if (sum) {
+        var crit = stories.filter(function (s) { return s.getAttribute('data-severity') === 'Critical'; });
+        var critRead = crit.filter(function (s) { return read.indexOf(s.getAttribute('data-story')) !== -1; }).length;
+        var parts = [];
+        if (n) parts.push('You read ' + n + ' of ' + total + ' stories' + (crit.length ? ', ' + critRead + ' of ' + crit.length + ' critical' : '') + '.');
+        if (streakDays() >= 3) parts.push(streakDays() + ' days in a row.');
+        sum.textContent = parts.join(' ');
+        sum.hidden = !parts.length;
+      }
     }
   }
   function markRead(id) {
@@ -264,7 +301,7 @@
       if (!$('li.story', sec)) { sec.style.display = q ? 'none' : ''; return; }
       sec.style.display = $$('li.story', sec).some(function (s) { return s.style.display !== 'none'; }) ? '' : 'none';
     });
-    $$('.top3, .index, .lede').forEach(function (el) { el.style.display = q ? 'none' : ''; });
+    $$('.top3, .index, .lede, .glance, .pullquote, .finally').forEach(function (el) { el.style.display = q ? 'none' : ''; });
     searchCount.textContent = q ? shown + ' of ' + stories.length : '';
     noResults.hidden = !q || shown > 0;
     if (q && !used) { used = true; track('search_used'); }
@@ -384,8 +421,18 @@
         store.set('pwn_quiz_score', score);
       }
       var res = $('#quiz-result');
-      res.textContent = (ok ? 'You got it right.' : 'Not this time.') + ' Score: ' + score.correct + ' of ' + score.total + '.';
-      res.hidden = false;
+      res.textContent = (ok ? 'You got it right.' : 'Not this time.') + ' Your record: ' + score.correct + ' of ' + score.total + '.';
+      $('#quiz-result-row').hidden = false;
+      var copyBtn = $('#copy-result');
+      if (copyBtn) copyBtn.addEventListener('click', function () {
+        var issue = ($('.issue') || {}).textContent;
+        var text = 'PwnSpectrum ' + (issue ? issue + ' ' : '') + 'quiz: ' + (ok ? 'correct' : 'missed') + ' · record ' + score.correct + '/' + score.total + '\n' + (($('link[rel=canonical]') || {}).href || location.href).split('#')[0] + '#quiz';
+        var label = copyBtn.textContent;
+        var done2 = function () { copyBtn.textContent = 'Copied'; setTimeout(function () { copyBtn.textContent = label; }, 1500); };
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done2, function () { window.prompt('Copy your result', text); });
+        else window.prompt('Copy your result', text);
+        track('share', { method: 'quiz_result' });
+      });
     }
   }
   var quiz = $('.quiz');
@@ -419,18 +466,6 @@
         track('quiz_answer', { edition: qdate });
       });
     });
-  }
-
-  // ---------------- Visit streak ----------------
-  var today = isoDay(new Date());
-  var visits = store.get('pwn_visits', []);
-  if (visits.indexOf(today) === -1) { visits = visits.concat(today).slice(-60); store.set('pwn_visits', visits); }
-  function streakText() {
-    var n = 1;
-    for (var i = visits.length - 1; i > 0; i--) {
-      if (Math.round((Date.parse(visits[i]) - Date.parse(visits[i - 1])) / 864e5) === 1) n++; else break;
-    }
-    return n >= 2 ? n + '-day reading streak.' : '';
   }
 
   // ---------------- Countdown to the next brief ----------------
