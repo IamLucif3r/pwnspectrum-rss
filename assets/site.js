@@ -77,21 +77,7 @@
   // ================= Edition page =================
   var stories = $$('li.story');
 
-  // ---------------- Visit streak ----------------
-  // Shown quietly from three days on; never a nag.
-  var today = isoDay(new Date());
-  var visits = store.get('pwn_visits', []);
-  if (visits.indexOf(today) === -1) { visits = visits.concat(today).slice(-60); store.set('pwn_visits', visits); }
-  function streakDays() {
-    var n = 1;
-    for (var i = visits.length - 1; i > 0; i--) {
-      if (Math.round((Date.parse(visits[i]) - Date.parse(visits[i - 1])) / 864e5) === 1) n++; else break;
-    }
-    return n;
-  }
-  function streakText() { var n = streakDays(); return n >= 2 ? n + '-day reading streak.' : ''; }
-  var barStreak = $('#bar-streak');
-  if (barStreak && streakDays() >= 3) { barStreak.textContent = streakDays() + '-day streak'; barStreak.hidden = false; }
+  try { localStorage.removeItem('pwn_visits'); } catch (e) {} // the old visit streak
   var ids = stories.map(function (s) { return s.getAttribute('data-story'); });
 
   // ---------------- Read tracking ----------------
@@ -112,10 +98,12 @@
     if (line) line.style.transform = 'scaleX(' + frac + ')';
     var you = $('#g-you');
     if (you) {
-      var days = streakDays();
-      $('#you-text').innerHTML = '<b>' + n + ' of ' + total + '</b> stories read' + (days >= 3 ? ' · ' + days + '-day streak' : '');
+      // Reading time left, from the brief's estimate shared across unread stories.
+      var left = Math.round(Number(you.getAttribute('data-minutes') || 0) * (total - n) / Math.max(1, total));
+      var rest = n === total ? 'all done' : left >= 1 ? 'about ' + left + ' min left' : 'under a minute left';
+      $('#you-text').innerHTML = '<b>' + n + ' of ' + total + '</b> stories read · ' + rest;
       $('#you-bar').style.width = (frac * 100) + '%';
-      you.hidden = n === 0 && days < 3;
+      you.hidden = n === 0;
     }
     if (done) {
       var all = n === total && n > 0;
@@ -126,11 +114,8 @@
       if (sum) {
         var crit = stories.filter(function (s) { return s.getAttribute('data-severity') === 'Critical'; });
         var critRead = crit.filter(function (s) { return read.indexOf(s.getAttribute('data-story')) !== -1; }).length;
-        var parts = [];
-        if (n) parts.push('You read ' + n + ' of ' + total + ' stories' + (crit.length ? ', ' + critRead + ' of ' + crit.length + ' critical' : '') + '.');
-        if (streakDays() >= 3) parts.push(streakDays() + ' days in a row.');
-        sum.textContent = parts.join(' ');
-        sum.hidden = !parts.length;
+        sum.textContent = n ? 'You read ' + n + ' of ' + total + ' stories' + (crit.length ? ', ' + critRead + ' of ' + crit.length + ' critical' : '') + '.' : '';
+        sum.hidden = !n;
       }
     }
   }
@@ -447,11 +432,7 @@
         o.setAttribute('aria-pressed', chosen ? 'true' : 'false');
       });
       $('#quiz-locked').hidden = false;
-      var streakLine = streakText();
-      var parts = [];
-      if (score.total) parts.push('Score so far: ' + score.correct + ' of ' + score.total + '.');
-      if (streakLine) parts.push(streakLine);
-      if (parts.length) { $('#quiz-score').textContent = parts.join(' '); $('#quiz-score').hidden = false; }
+      if (score.total) { $('#quiz-score').textContent = 'Your record so far: ' + score.correct + ' of ' + score.total + '.'; $('#quiz-score').hidden = false; }
     };
     if (answers[qdate] !== undefined) lock(answers[qdate]);
     opts.forEach(function (o) {
