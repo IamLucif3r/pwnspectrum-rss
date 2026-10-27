@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>PHP Vulnerabilities (CVE-2026-109618, CVE-2026-109619) Allow RCE · PwnSpectrum 27 Oct</title>
+    <meta name="description" content="Daily cybersecurity brief for 27 Oct 2026: PHP Vulnerabilities (CVE-2026-109618, CVE-2026-109619) Allow RCE; Fortinet PSIRT Details Multiple CVEs Affecting Node.js; LiteLLM Supply Chain Attack: Info-Stealer Malware via PyPI.">
+    <link rel="canonical" href="https://feed.anmolsinghyadav.com/2026/10/27/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1014" media="(prefers-color-scheme: dark)">
+    <meta property="og:site_name" content="PwnSpectrum">
+    <meta property="og:title" content="PHP Vulnerabilities (CVE-2026-109618, CVE-2026-109619) Allow RCE · PwnSpectrum 27 Oct">
+    <meta property="og:description" content="Daily cybersecurity brief for 27 Oct 2026: PHP Vulnerabilities (CVE-2026-109618, CVE-2026-109619) Allow RCE; Fortinet PSIRT Details Multiple CVEs Affecting Node.js; LiteLLM Supply Chain Attack: Info-Stealer Malware via PyPI.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://feed.anmolsinghyadav.com/2026/10/27/">
+    <meta property="og:image" content="https://feed.anmolsinghyadav.com/2026/10/27/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@IamLucif3r_">
+    <meta name="twitter:title" content="PHP Vulnerabilities (CVE-2026-109618, CVE-2026-109619) Allow RCE · PwnSpectrum 27 Oct">
+    <meta name="twitter:description" content="Daily cybersecurity brief for 27 Oct 2026: PHP Vulnerabilities (CVE-2026-109618, CVE-2026-109619) Allow RCE; Fortinet PSIRT Details Multiple CVEs Affecting Node.js; LiteLLM Supply Chain Attack: Info-Stealer Malware via PyPI.">
+    <meta name="twitter:image" content="https://feed.anmolsinghyadav.com/2026/10/27/og.png">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400..500&display=swap">
+    <link rel="stylesheet" href="../../../assets/site.css?v=931cd2608a">
+    <script>
+        (function () {
+            var d = document.documentElement; d.classList.add('js');
+            try { var t = localStorage.getItem('pwn_theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","author":{"@type":"Person","name":"Anmol Singh Yadav","url":"https://www.linkedin.com/in/anmolsinghyadav/"},"dateModified":"2026-10-27T01:06:18Z","datePublished":"2026-10-27","description":"Prioritize patching PHP vulnerabilities CVE-2026-109618 and CVE-2026-109619 to prevent unauthenticated RCE. Review Node.js deployments for multiple CVEs detailed by Fortinet PSIRT. Assess dependencies for LiteLLM version 1.107.0 due to reported PyPI supply chain compromise.","hasPart":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"PHP Vulnerabilities (CVE-2026-109618, CVE-2026-109619) Allow RCE","position":1,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#php-vulnerabilities-cve-2026-109618-cve-2026-109619-allow-rc"},{"@type":"ListItem","name":"CERT-UA warns of Dahua camera exploitation via Easy4IP feature","position":2,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#cert-ua-warns-of-dahua-camera-exploitation-via-easy4ip-featu"},{"@type":"ListItem","name":"Fortinet PSIRT Details Multiple CVEs Affecting Node.js","position":3,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#fortinet-psirt-details-multiple-cves-affecting-node-js"},{"@type":"ListItem","name":"Microsoft Authenticator Flaw Allows Token Theft via Android Apps","position":4,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#microsoft-authenticator-flaw-allows-token-theft-via-android"},{"@type":"ListItem","name":"Fireblocks mpc-lib: Hardened Derivation Fails Ancestor Isolation (CVE-2026-90975)","position":5,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#fireblocks-mpc-lib-hardened-derivation-fails-ancestor-isolat"},{"@type":"ListItem","name":"AI Agent Prompt Injection Abuses Markdown Trust","position":6,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#ai-agent-prompt-injection-abuses-markdown-trust"},{"@type":"ListItem","name":"LiteLLM Supply Chain Attack: Info-Stealer Malware via PyPI","position":7,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#litellm-supply-chain-attack-info-stealer-malware-via-pypi"},{"@type":"ListItem","name":"Unknown Actor Infects Magento Stores with Scanner-Evading JavaScript","position":8,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#unknown-actor-infects-magento-stores-with-scanner-evading-ja"},{"@type":"ListItem","name":"uCreator Android Spyware Steals Telegram 2FA and Clones WeChat Accounts","position":9,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#ucreator-android-spyware-steals-telegram-2fa-and-clones-wech"},{"@type":"ListItem","name":"Gheist Weaponizes Stolen GitHub Tokens for Cloud Secret Theft","position":10,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#gheist-weaponizes-stolen-github-tokens-for-cloud-secret-thef"},{"@type":"ListItem","name":"Threat Actors Use Microsoft Teams for Impersonation and Malware Delivery","position":11,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#threat-actors-use-microsoft-teams-for-impersonation-and-malw"},{"@type":"ListItem","name":"ConnectWise Attack: AI Agent Used with Scripted Tooling","position":12,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#connectwise-attack-ai-agent-used-with-scripted-tooling"},{"@type":"ListItem","name":"Cybercrime Group Used ARTEX AI to Breach South Korean Organizations","position":13,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#cybercrime-group-used-artex-ai-to-breach-south-korean-organi"},{"@type":"ListItem","name":"Malicious AGENTS.md File Triggers AI Coding Agent Compromise","position":14,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#malicious-agents-md-file-triggers-ai-coding-agent-compromise"},{"@type":"ListItem","name":"Senators Claim Trump Administration Withholding Surveillance Court Opinion","position":15,"url":"https://feed.anmolsinghyadav.com/2026/10/27/#senators-claim-trump-administration-withholding-surveillance"}]},"headline":"PwnSpectrum daily cybersecurity brief — 27 October 2026","image":"https://feed.anmolsinghyadav.com/2026/10/27/og.png","publisher":{"@type":"Organization","name":"PwnSpectrum","url":"https://feed.anmolsinghyadav.com"},"url":"https://feed.anmolsinghyadav.com/2026/10/27/"}</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9ZF36FC9M');</script>
+</head>
+<body data-edition="2026-10-27">
+<a class="skip" href="#main">Skip to the brief</a>
+<header class="bar">
+    <div class="bar-inner">
+        <a class="wordmark" href="../../../" aria-label="PwnSpectrum home">PwnSpectrum</a>
+        <p class="bar-meta" aria-live="polite"><span class="bar-date">Tue 27 Oct</span><span class="bar-read" id="bar-read" hidden></span></p>
+        <div class="bar-actions">
+            <button class="icon-btn" id="search-btn" type="button" aria-label="Search stories" aria-keyshortcuts="/" aria-expanded="false" aria-controls="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            </button>
+            <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch between light and dark theme" aria-keyshortcuts="d">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+            </button>
+            <button class="icon-btn only-fine" id="keys-btn" type="button" aria-label="Keyboard shortcuts" aria-keyshortcuts="?">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="scroll-line" aria-hidden="true"><span id="scroll-line"></span></div>
+    <div class="search" id="search" hidden>
+        <div class="search-inner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="search-input" type="search" placeholder="Search today's stories" aria-label="Search today's stories" autocomplete="off" spellcheck="false">
+            <span class="search-count" id="search-count" aria-live="polite"></span>
+            <button class="text-btn" id="search-close" type="button">Close</button>
+        </div>
+    </div>
+</header>
+
+
+<main id="main" class="page">
+<div class="layout">
+    <nav class="rail" aria-label="Sections">
+        <ol class="rail-list">
+            <li><a href="#top3">Top stories</a></li>
+            <li><a href="#editor">From the editor</a></li>
+            <li><a href="#s-active_exploitation">Actively Exploited<span class="n">2</span></a></li><li><a href="#s-vulnerability">Vulnerabilities &amp; Patches<span class="n">4</span></a></li><li><a href="#s-malware_ransomware">Malware &amp; Ransomware<span class="n">4</span></a></li><li><a href="#s-threat_actor">Threat Actors &amp; Campaigns<span class="n">2</span></a></li><li><a href="#s-breach_incident">Breaches &amp; Incidents<span class="n">1</span></a></li><li><a href="#s-ai_security">AI Security<span class="n">1</span></a></li><li><a href="#s-policy_law">Policy, Law &amp; Arrests<span class="n">1</span></a></li>
+            
+            <li><a href="#cves">CVE spotlight</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            
+            <li><a href="#tomorrow">Tomorrow</a></li>
+            <li><a href="#also">Also worth your time</a></li>
+            <li><a href="#finally">And finally</a></li>
+        </ol>
+        <p class="rail-hint only-fine">Press <kbd>j</kbd> <kbd>k</kbd> to move, <kbd>?</kbd> for all keys</p>
+    </nav>
+
+    <article class="brief">
+        <header class="masthead">
+            <div class="np-top">
+                <p class="kicker">The daily cybersecurity brief</p>
+                <p class="issue">No. 246</p>
+            </div>
+            <h1 class="date"><time datetime="2026-10-27">Tuesday, 27 October 2026</time></h1>
+            <p class="dateline">
+                <span>15 stories</span>
+                <span class="crit-count">3 critical</span>
+                <span>6 min read</span>
+                <span>Updated 06:30 IST</span>
+            </p>
+            <p class="new-banner" id="new-banner" hidden></p>
+        </header>
+
+        
+        <section class="top3" id="top3" data-track-section="top3" aria-labelledby="top3-h">
+            <h2 class="sr-only" id="top3-h">Top stories</h2>
+            <ol class="top3-list">
+            
+                <li data-story="748">
+                    <a class="top3-item" href="#php-vulnerabilities-cve-2026-109618-cve-2026-109619-allow-rc" data-open="php-vulnerabilities-cve-2026-109618-cve-2026-109619-allow-rc">
+                        <span class="top3-num" aria-hidden="true">01</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Critical" aria-hidden="true"></i><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span>Exploited<span class="sep">·</span>PoC public<span class="sep">·</span>CVSS 9.8<span class="sep">·</span>EPSS 100%<span class="sep">·</span>23 outlets<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">PHP Vulnerabilities (<span class="nw">CVE-2026-109618</span>, <span class="nw">CVE-2026-109619</span>) Allow RCE</span>
+                            <span class="top3-tldr">Two critical PHP vulnerabilities allow unauthenticated remote code execution via memory handling flaws.</span>
+                            <span class="top3-do"><b>Do this today</b> Update to PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35 immediately; consider WAF protection for unpatchable systems.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="933">
+                    <a class="top3-item" href="#fortinet-psirt-details-multiple-cves-affecting-node-js" data-open="fortinet-psirt-details-multiple-cves-affecting-node-js">
+                        <span class="top3-num" aria-hidden="true">02</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Critical" aria-hidden="true"></i><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span>PoC public<span class="sep">·</span>CVSS 9.2<span class="sep">·</span>EPSS 33%<span class="sep">·</span>8 outlets<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">Fortinet PSIRT Details Multiple CVEs Affecting Node.js</span>
+                            <span class="top3-tldr">Multiple high and medium severity CVEs were detailed for various Node.js versions, including RCE flaws.</span>
+                            <span class="top3-do"><b>Do this today</b> Review Node.js versions for all services and apply necessary updates addressing <span class="nw">CVE-2026-105482</span>, <span class="nw">CVE-2026-105483</span>, <span class="nw">CVE-2026-106069</span>, and <span class="nw">CVE-2026-111497</span>.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="802">
+                    <a class="top3-item" href="#litellm-supply-chain-attack-info-stealer-malware-via-pypi" data-open="litellm-supply-chain-attack-info-stealer-malware-via-pypi">
+                        <span class="top3-num" aria-hidden="true">03</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="sep">·</span>9 outlets<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">LiteLLM Supply Chain Attack: Info-Stealer Malware via PyPI</span>
+                            <span class="top3-tldr">Malicious packages for LiteLLM version 1.107.0 were distributed via PyPI and Docker, stealing credentials and secrets.</span>
+                            <span class="top3-do"><b>Do this today</b> Update to LiteLLM version 1.106.2 and rotate all exposed secrets.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+            </ol>
+        </section>
+        
+
+        <aside class="glance" aria-labelledby="glance-h">
+            <h2 class="glance-h" id="glance-h">At a glance</h2>
+            
+            <div class="g-block g-nod">
+                <p class="g-label">Number of the day</p>
+                <p class="nod-value">953</p>
+                <p class="nod-cap">Online stores infected with scanner-evading JavaScript</p>
+                <a class="nod-src" href="#unknown-actor-infects-magento-stores-with-scanner-evading-ja" data-open="unknown-actor-infects-magento-stores-with-scanner-evading-ja">From: The Hacker News ↓</a>
+            </div>
+            
+            <div class="g-block g-threat meter-LOW" title="Threat level compared with the last 30 briefs">
+                <p class="g-label">Threat level</p>
+                <div class="meter meter-LOW">
+                    <span class="meter-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                    <span class="meter-value">low</span>
+                </div>
+                
+                <div class="spark">
+                    <svg viewBox="0 0 240 40" role="img" aria-label="Threat level over the last 18 briefs">
+                        <line class="spark-base" x1="2" y1="20" x2="238" y2="20"/>
+                        <polyline points="2.0,12.0 15.1,12.0 28.2,12.0 41.3,36.0 54.4,12.0 67.6,12.0 80.7,12.0 93.8,12.0 106.9,12.0 120.0,28.0 133.1,36.0 146.2,28.0 159.3,4.0 172.4,4.0 185.6,12.0 198.7,4.0 211.8,4.0 224.9,36.0 238.0,36.0"/>
+                        <circle class="spark-now" cx="238" cy="36" r="3.5"/>
+                    </svg>
+                    <p class="spark-axis"><span>18 briefs ago</span><span>Today</span></p>
+                </div>
+                
+            </div>
+            
+            <div class="g-block g-mix">
+                <p class="g-label">Today's mix</p>
+                <div class="mix-bar" aria-hidden="true"><i class="sev-Critical" style="flex-grow: 3"></i><i class="sev-High" style="flex-grow: 7"></i><i class="sev-Medium" style="flex-grow: 3"></i><i class="sev-Info" style="flex-grow: 2"></i></div>
+                <ul class="mix-legend"><li><i class="dot sev-Critical" aria-hidden="true"></i><b>3</b> critical</li><li><i class="dot sev-High" aria-hidden="true"></i><b>7</b> high</li><li><i class="dot sev-Medium" aria-hidden="true"></i><b>3</b> medium</li><li><i class="dot sev-Info" aria-hidden="true"></i><b>2</b> info</li></ul>
+            </div>
+            
+            <div class="g-block g-you" id="g-you" data-minutes="6" hidden>
+                <p class="g-label">Your brief</p>
+                <p id="you-text"></p>
+                <div class="you-bar" aria-hidden="true"><span id="you-bar"></span></div>
+            </div>
+        </aside>
+
+        
+        <section class="lede" id="editor" aria-labelledby="h-editor">
+            <h2 class="label" id="h-editor">From the editor</h2>
+            <p class="note">Prioritize patching PHP vulnerabilities <span class="nw">CVE-2026-109618</span> and <span class="nw">CVE-2026-109619</span> to prevent unauthenticated RCE. Review Node.js deployments for multiple CVEs detailed by Fortinet PSIRT. Assess dependencies for LiteLLM version 1.107.0 due to reported PyPI supply chain compromise.</p>
+            <p class="byline"><img src="../../../assets/editor.jpg" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Anmol Singh Yadav</b>Editor, PwnSpectrum</span></p>
+        </section>
+        
+
+        <nav class="index" aria-label="Jump to section">
+            <a href="#s-active_exploitation">Actively Exploited <span class="n">2</span></a><a href="#s-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></a><a href="#s-malware_ransomware">Malware &amp; Ransomware <span class="n">4</span></a><a href="#s-threat_actor">Threat Actors &amp; Campaigns <span class="n">2</span></a><a href="#s-breach_incident">Breaches &amp; Incidents <span class="n">1</span></a><a href="#s-ai_security">AI Security <span class="n">1</span></a><a href="#s-policy_law">Policy, Law &amp; Arrests <span class="n">1</span></a>
+            
+            <a href="#cves">CVEs</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#tomorrow">Tomorrow</a>
+        </nav>
+
+        <p class="no-results" id="no-results" hidden>No stories match your search.</p>
+
+        
+        
+        <section class="sec" id="s-active_exploitation" data-track-section="active_exploitation" aria-labelledby="h-active_exploitation">
+            <h2 class="label" id="h-active_exploitation">Actively Exploited <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="php-vulnerabilities-cve-2026-109618-cve-2026-109619-allow-rc" data-story="748" data-severity="Critical" data-section="active_exploitation" data-rank="1" data-source="Fortinet PSIRT">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">PHP Vulnerabilities (<span class="nw">CVE-2026-109618</span>, <span class="nw">CVE-2026-109619</span>) Allow RCE</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="b b-">EPSS 100%</span><span class="sep">·</span><span class="b b-">23 outlets</span><span class="sep">·</span><span class="src">Fortinet PSIRT</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 5</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Two critical PHP vulnerabilities allow unauthenticated remote code execution via memory handling flaws.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p><span class="nw">CVE-2026-109618</span> allows RCE through improper handling of request memory after Out-Of-Memory errors. <span class="nw">CVE-2026-109619</span> enables RCE due to global state referencing freed request memory.</p>
+            <p><b>Why it matters.</b> These vulnerabilities allow unauthenticated attackers to execute arbitrary code on systems running vulnerable PHP versions.</p>
+            <p class="do"><b>Do this today</b> Update to PHP 8.5.12, 8.4.27, 8.3.36, or 8.2.35 immediately; consider WAF protection for unpatchable systems.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>All PHP installations serving web requests</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-109618, CVE-2026-109619, CVE-2026-115560</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Thu 22 Oct</span>PHP Core RCE Vulnerabilities (<span class="nw">CVE-2026-109618</span>, <span class="nw">CVE-2026-109619</span>)</li><li><span class="t-date">Fri 23 Oct</span>PHP Core RCE Vulnerabilities (<span class="nw">CVE-2026-109618</span>, <span class="nw">CVE-2026-109619</span>)</li><li><span class="t-date">Sat 24 Oct</span>PHP Core RCE Vulnerabilities (<span class="nw">CVE-2026-109618</span>, <span class="nw">CVE-2026-109619</span>)</li><li><span class="t-date">Mon 26 Oct</span>PHP Core RCE Vulnerabilities (<span class="nw">CVE-2026-109618</span>, <span class="nw">CVE-2026-109619</span>)</li><li><span class="t-date">Today</span>PHP Vulnerabilities (<span class="nw">CVE-2026-109618</span>, <span class="nw">CVE-2026-109619</span>) Allow RCE</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://fortiguard.fortinet.com/psirt/FG-IR-26-186" target="_blank" rel="noopener">Read on Fortinet PSIRT <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="php-vulnerabilities-cve-2026-109618-cve-2026-109619-allow-rc">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=PHP%20Vulnerabilities%20%28CVE-2026-109618%2c%20CVE-2026-109619%29%20Allow%20RCE%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23php-vulnerabilities-cve-2026-109618-cve-2026-109619-allow-rc" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23php-vulnerabilities-cve-2026-109618-cve-2026-109619-allow-rc" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching" target="_blank" rel="noopener">CISA</a>, <a href="https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/" target="_blank" rel="noopener">Unit 42</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.016,&#34;importance&#34;:1,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.832}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="cert-ua-warns-of-dahua-camera-exploitation-via-easy4ip-featu" data-story="1040" data-severity="Critical" data-section="active_exploitation" data-rank="2" data-source="The Record">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">CERT-UA warns of Dahua camera exploitation via Easy4IP feature</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="src">Cip via The Record</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Hackers are exploiting Dahua cameras using the Easy4IP cloud service and default credentials.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>CERT-UA identified instances of unauthorized access to Dahua internet-connected cameras and video recorders. Attackers are exploiting the Easy4IP feature, which connects devices via serial numbers to the manufacturer&#39;s cloud service. Access can be gained by guessing weak passwords or exploiting flaws in outdated firmware.</p>
+            <p><b>Why it matters.</b> Compromised cameras can allow attackers to remotely control devices and maintain access via malicious accounts even after password changes or factory resets.</p>
+            <p class="do"><b>Do this today</b> Update firmware on Dahua devices to address vulnerabilities <span class="nw">CVE-2021-33044</span> and <span class="nw">CVE-2021-33045</span>.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Dahua internet-connected cameras and video recorders</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://cip.gov.ua/ua/news/khakeri-mozhut-otrimati-kontrol-nad-kamerami-ta-videoreyestratorami-cherez-khmarnii-dostup" target="_blank" rel="noopener">Read the original · Cip <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cert-ua-warns-of-dahua-camera-exploitation-via-easy4ip-featu">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=CERT-UA%20warns%20of%20Dahua%20camera%20exploitation%20via%20Easy4IP%20feature%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23cert-ua-warns-of-dahua-camera-exploitation-via-easy4ip-featu" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23cert-ua-warns-of-dahua-camera-exploitation-via-easy4ip-featu" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://therecord.media/ukraine-cert-ua-warning-chinese-dahua-cameras-hacked" target="_blank" rel="noopener" data-track="coverage">The Record</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.744,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.777}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        <figure class="pullquote">
+            <blockquote><p>This version contained compiled malware which steals credentials and loads remote-code execution tools</p></blockquote>
+            <figcaption><a href="https://www.bleepingcomputer.com/news/security/litellm-release-pipeline-hacked-to-distribute-info-stealer-malware/" target="_blank" rel="noopener">the maintainer, via BleepingComputer</a></figcaption>
+        </figure>
+
+        
+        
+        <section class="sec" id="s-vulnerability" data-track-section="vulnerability" aria-labelledby="h-vulnerability">
+            <h2 class="label" id="h-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="fortinet-psirt-details-multiple-cves-affecting-node-js" data-story="933" data-severity="Critical" data-section="vulnerability" data-rank="3" data-source="Fortinet PSIRT">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Fortinet PSIRT Details Multiple CVEs Affecting Node.js</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="b b-">CVSS 9.2</span><span class="sep">·</span><span class="b b-">EPSS 33%</span><span class="sep">·</span><span class="b b-">8 outlets</span><span class="sep">·</span><span class="src">Fortinet PSIRT</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 4</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Multiple high and medium severity CVEs were detailed for various Node.js versions, including RCE flaws.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Fortinet PSIRT detailed multiple CVEs affecting Node.js. One vulnerability (<span class="nw">CVE-2026-111497</span>) in the Node.js Brotli decoder allows for remote code execution via an out-of-bounds write.</p>
+            <p><b>Why it matters.</b> High severity vulnerabilities exist across multiple Node.js versions, providing potential remote code execution pathways for attackers.</p>
+            <p class="do"><b>Do this today</b> Review Node.js versions for all services and apply necessary updates addressing <span class="nw">CVE-2026-105482</span>, <span class="nw">CVE-2026-105483</span>, <span class="nw">CVE-2026-106069</span>, and <span class="nw">CVE-2026-111497</span>.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Node.js 26.x, 24.x, 22.x</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-105481, CVE-2026-105482, CVE-2026-105483, &#43;7 more</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Sat 24 Oct</span>Node.js RCE via Crafted Brotli Data Demonstrated by Researchers</li><li><span class="t-date">Sun 25 Oct</span>Node2Shell: Brotli Decoder Flaw Enables RCE in Node.js and Other Software</li><li><span class="t-date">Mon 26 Oct</span>Brotli Decoder Flaw (<span class="nw">CVE-2026-111497</span>) Enables RCE Across Multiple Technologies</li><li><span class="t-date">Today</span>Fortinet PSIRT Details Multiple CVEs Affecting Node.js</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://fortiguard.fortinet.com/psirt/FG-IR-26-187" target="_blank" rel="noopener">Read on Fortinet PSIRT <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fortinet-psirt-details-multiple-cves-affecting-node-js">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Fortinet%20PSIRT%20Details%20Multiple%20CVEs%20Affecting%20Node.js%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23fortinet-psirt-details-multiple-cves-affecting-node-js" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23fortinet-psirt-details-multiple-cves-affecting-node-js" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/" target="_blank" rel="noopener">BleepingComputer</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0.7,&#34;freshness&#34;:0.084,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.713}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="microsoft-authenticator-flaw-allows-token-theft-via-android" data-story="998" data-severity="High" data-section="vulnerability" data-rank="4" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Microsoft Authenticator Flaw Allows Token Theft via Android Apps</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 8.6</span><span class="sep">·</span><span class="src">Enclave via GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A flaw in Microsoft Authenticator allows unprivileged Android apps to steal authentication tokens.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p><span class="nw">CVE-2026-80097</span> permits a malicious Android application, without requiring permissions, to impersonate trusted apps. The vulnerability stems from an exported activity that trusts identity details supplied by the requesting application.</p>
+            <p><b>Why it matters.</b> Successful exploitation allows an attacker to steal plaintext access, refresh, and ID tokens, enabling unauthorized actions against linked work accounts, such as accessing Microsoft Graph resources.</p>
+            <p class="do"><b>Do this today</b> Ensure all deployed Android devices run Microsoft Authenticator version 6.2606.4246 or later.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Microsoft Authenticator for Android versions earlier than 6.2606.4246</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-80097</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://enclave.ai/blog/authmask-we-made-microsoft-authenticator-hand-over-tokens" target="_blank" rel="noopener">Read the original · Enclave <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="microsoft-authenticator-flaw-allows-token-theft-via-android">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Microsoft%20Authenticator%20Flaw%20Allows%20Token%20Theft%20via%20Android%20Apps%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23microsoft-authenticator-flaw-allows-token-theft-via-android" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23microsoft-authenticator-flaw-allows-token-theft-via-android" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://gbhackers.com/microsoft-authenticator-flaw/" target="_blank" rel="noopener" data-track="coverage">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.4,&#34;freshness&#34;:0.61,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.609}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="fireblocks-mpc-lib-hardened-derivation-fails-ancestor-isolat" data-story="1065" data-severity="Medium" data-section="vulnerability" data-rank="8" data-source="CERT/CC">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Fireblocks mpc-lib: Hardened Derivation Fails Ancestor Isolation (<span class="nw">CVE-2026-90975</span>)</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">CERT/CC</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A cryptographic flaw in mpc-lib&#39;s hardened derivation allows compromised shares to recover ancestor shares.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The mpc-lib library has a fail-open vulnerability in its BIP32 hardened derivation when a parent key is missing. This failure substitutes the parent contribution with a null buffer, making the derivation delta computable.</p>
+            <p><b>Why it matters.</b> This breaks ancestor isolation, meaning a compromise of a lower-level signer share can allow recovery of higher-level shares up the key hierarchy. This degrades a defense-in-depth layer silently.</p>
+            <p class="do"><b>Do this today</b> Treat the chain code as secret and ensure it is not exposed to untrusted parties.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Fireblocks mpc-lib</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-90975</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://kb.cert.org/vuls/id/701544" target="_blank" rel="noopener">Read on CERT/CC <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fireblocks-mpc-lib-hardened-derivation-fails-ancestor-isolat">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Fireblocks%20mpc-lib%3a%20Hardened%20Derivation%20Fails%20Ancestor%20Isolation%20%28CVE-2026-90975%29%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23fireblocks-mpc-lib-hardened-derivation-fails-ancestor-isolat" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23fireblocks-mpc-lib-hardened-derivation-fails-ancestor-isolat" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.94,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.567}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="ai-agent-prompt-injection-abuses-markdown-trust" data-story="1061" data-severity="Medium" data-section="vulnerability" data-rank="9" data-source="Dark Reading">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">AI Agent Prompt Injection Abuses Markdown Trust</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">Dark Reading</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">An AI agent prompt injection technique exploits how coding assistants process local Markdown files.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A new technique abuses how AI agents consume local instruction files formatted in Markdown. This blurs the boundary between standard text documents and executable actions within the agent environment.</p>
+            <p><b>Why it matters.</b> Defenders must consider that seemingly benign Markdown files can be leveraged for prompt injection attacks against AI agents.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.darkreading.com/application-security/in-the-wild-attack-ai-agents-trust-markdown" target="_blank" rel="noopener">Read on Dark Reading <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="ai-agent-prompt-injection-abuses-markdown-trust">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=AI%20Agent%20Prompt%20Injection%20Abuses%20Markdown%20Trust%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23ai-agent-prompt-injection-abuses-markdown-trust" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23ai-agent-prompt-injection-abuses-markdown-trust" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.894,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.85,&#34;total&#34;:0.557}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-malware_ransomware" data-track-section="malware_ransomware" aria-labelledby="h-malware_ransomware">
+            <h2 class="label" id="h-malware_ransomware">Malware &amp; Ransomware <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="litellm-supply-chain-attack-info-stealer-malware-via-pypi" data-story="802" data-severity="High" data-section="malware_ransomware" data-rank="5" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">LiteLLM Supply Chain Attack: Info-Stealer Malware via PyPI</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">9 outlets</span><span class="sep">·</span><span class="src">Docs via BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 4</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Malicious packages for LiteLLM version 1.107.0 were distributed via PyPI and Docker, stealing credentials and secrets.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Attackers compromised the LiteLLM release pipeline, pushing version 1.107.0 to PyPI and Docker Hub. This version contained malware that modified the installation package to execute upon Python startup.</p>
+            <p><b>Why it matters.</b> The malware steals cloud credentials, AI configuration, developer secrets, and browser data. Infected systems require isolation and rebuilding from clean backups.</p>
+            <p class="do"><b>Do this today</b> Update to LiteLLM version 1.106.2 and rotate all exposed secrets.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>LiteLLM version 1.107.0</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Thu 22 Oct</span>LiteLLM Package Compromised with Credential Stealer and Backdoor</li><li><span class="t-date">Sat 24 Oct</span>LiteLLM Supply Chain Attack Distributed Info-Stealer Malware</li><li><span class="t-date">Sun 25 Oct</span>LiteLLM Supply Chain Attack Distributed Info-Stealer Malware</li><li><span class="t-date">Today</span>LiteLLM Supply Chain Attack: Info-Stealer Malware via PyPI</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://docs.litellm.ai/blog/security-incident-oct-21-2026?utm_source=chatgpt.com" target="_blank" rel="noopener">Read the original · Docs <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="litellm-supply-chain-attack-info-stealer-malware-via-pypi">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=LiteLLM%20Supply%20Chain%20Attack%3a%20Info-Stealer%20Malware%20via%20PyPI%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23litellm-supply-chain-attack-info-stealer-malware-via-pypi" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23litellm-supply-chain-attack-info-stealer-malware-via-pypi" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/litellm-release-pipeline-hacked-to-distribute-info-stealer-malware/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>; also covered by <a href="https://therecord.media/litellm-hackers-ai-malware" target="_blank" rel="noopener">The Record</a>, <a href="https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/" target="_blank" rel="noopener">SecurityWeek</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0,&#34;freshness&#34;:0.026,&#34;importance&#34;:1,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.608}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="unknown-actor-infects-magento-stores-with-scanner-evading-ja" data-story="1064" data-severity="High" data-section="malware_ransomware" data-rank="10" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Unknown Actor Infects Magento Stores with Scanner-Evading JavaScript</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">An unknown actor infected over 950 online stores, primarily using Magento, with malicious JavaScript.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>An unknown threat actor infected 953 online stores, predominantly running Magento. The infection adds code to store pages that serves malicious JavaScript loader code when visited by users.</p>
+            <p><b>Why it matters.</b> This activity indicates a persistent compromise vector targeting e-commerce platforms via CMS blocks.</p>
+            <p class="do"><b>Do this today</b> Review all Magento CMS blocks for unauthorized JavaScript additions.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Magento stores</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/10/hackers-infect-953-online-stores-with.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="unknown-actor-infects-magento-stores-with-scanner-evading-ja">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Unknown%20Actor%20Infects%20Magento%20Stores%20with%20Scanner-Evading%20JavaScript%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23unknown-actor-infects-magento-stores-with-scanner-evading-ja" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23unknown-actor-infects-magento-stores-with-scanner-evading-ja" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.828,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.546}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="ucreator-android-spyware-steals-telegram-2fa-and-clones-wech" data-story="1015" data-severity="High" data-section="malware_ransomware" data-rank="12" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">uCreator Android Spyware Steals Telegram 2FA and Clones WeChat Accounts</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">uCreator spyware compromises Telegram and WeChat by distributing tampered app copies.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>uCreator, a rentable Android spyware kit, compromises Telegram and WeChat accounts. The spyware functions by embedding its code within working copies of these two applications.</p>
+            <p><b>Why it matters.</b> Infection requires users to install tampered copies outside official app stores or run WeChat within a specific container app.</p>
+            <p class="do"><b>Do this today</b> Monitor for suspicious app installations outside official stores.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Android devices</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/10/ucreator-android-spyware-can-steal.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="ucreator-android-spyware-steals-telegram-2fa-and-clones-wech">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=uCreator%20Android%20Spyware%20Steals%20Telegram%202FA%20and%20Clones%20WeChat%20Accounts%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23ucreator-android-spyware-steals-telegram-2fa-and-clones-wech" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23ucreator-android-spyware-steals-telegram-2fa-and-clones-wech" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.657,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.529}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="gheist-weaponizes-stolen-github-tokens-for-cloud-secret-thef" data-story="994" data-severity="High" data-section="malware_ransomware" data-rank="13" data-source="Wiz Research">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Gheist Weaponizes Stolen GitHub Tokens for Cloud Secret Theft</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">Wiz Research</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Gheist uses stolen GitHub tokens to plant workflows that exfiltrate repository secrets via Actions logs.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>An automated campaign, Gheist, uses compromised GitHub tokens to commit a workflow named sync-check to target repositories. This workflow prints the repository&#39;s secrets into the GitHub Actions logs, which are then downloaded by the attackers. The activity has been observed in private repositories and GitHub Enterprise environments.</p>
+            <p><b>Why it matters.</b> The attack allows the exfiltration of sensitive data, including environment-scoped secrets and cloud credentials, through GitHub&#39;s own API, bypassing traditional network egress controls.</p>
+            <p class="do"><b>Do this today</b> Hunt for branches named ci-sync- followed by six random characters containing a new file at .github/workflows/sync-check.yml</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>GitHub repositories, GitHub Enterprise environments</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Mon 26 Oct</span>Gheist: Automated Abuse of Stolen GitHub Tokens Detected</li><li><span class="t-date">Today</span>Gheist Weaponizes Stolen GitHub Tokens for Cloud Secret Theft</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles" target="_blank" rel="noopener">Read on Wiz Research <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="gheist-weaponizes-stolen-github-tokens-for-cloud-secret-thef">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Gheist%20Weaponizes%20Stolen%20GitHub%20Tokens%20for%20Cloud%20Secret%20Theft%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23gheist-weaponizes-stolen-github-tokens-for-cloud-secret-thef" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23gheist-weaponizes-stolen-github-tokens-for-cloud-secret-thef" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.darkreading.com/cyberattacks-data-breaches/gheist-stolen-github-tokens-cloud-secrets" target="_blank" rel="noopener">Dark Reading</a>, <a href="https://thehackernews.com/2026/10/gheist-uses-stolen-github-tokens-to.html" target="_blank" rel="noopener">The Hacker News</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0,&#34;freshness&#34;:0.422,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.85,&#34;total&#34;:0.528}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-threat_actor" data-track-section="threat_actor" aria-labelledby="h-threat_actor">
+            <h2 class="label" id="h-threat_actor">Threat Actors &amp; Campaigns <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="threat-actors-use-microsoft-teams-for-impersonation-and-malw" data-story="1052" data-severity="High" data-section="threat_actor" data-rank="11" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Threat Actors Use Microsoft Teams for Impersonation and Malware Delivery</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actors are using Microsoft Teams external chat features to conduct impersonation scams and deploy malware.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Threat actors are using Microsoft Teams&#39; external chat creation feature to execute impersonation scams. This pattern has been observed across numerous incidents where malware and ransomware were deployed.</p>
+            <p><b>Why it matters.</b> This vector allows threat actors to bypass traditional perimeter defenses using seemingly legitimate communication channels.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>Microsoft Teams</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="threat-actors-use-microsoft-teams-for-impersonation-and-malw">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Threat%20Actors%20Use%20Microsoft%20Teams%20for%20Impersonation%20and%20Malware%20Delivery%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23threat-actors-use-microsoft-teams-for-impersonation-and-malw" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23threat-actors-use-microsoft-teams-for-impersonation-and-malw" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.776,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.541}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="connectwise-attack-ai-agent-used-with-scripted-tooling" data-story="1058" data-severity="Medium" data-section="threat_actor" data-rank="15" data-source="Huntress">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">ConnectWise Attack: AI Agent Used with Scripted Tooling</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">Huntress</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actor used scripted tooling, potentially guided by an AI agent, to abuse ConnectWise credentials against Microsoft 365.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>An attacker used compromised ConnectWise Cloud Backup credentials to access Microsoft 365 tenants. The activity involved scripted tooling, with observed patterns suggesting an agent adapted the tooling between runs.</p>
+            <p><b>Why it matters.</b> The attack demonstrates automated, high-speed credential abuse across multiple tenants, indicating potential for widespread compromise.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.huntress.com/blog/connectwise-attack-ai" target="_blank" rel="noopener">Read on Huntress <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="connectwise-attack-ai-agent-used-with-scripted-tooling">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=ConnectWise%20Attack%3a%20AI%20Agent%20Used%20with%20Scripted%20Tooling%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23connectwise-attack-ai-agent-used-with-scripted-tooling" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23connectwise-attack-ai-agent-used-with-scripted-tooling" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.846,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.85,&#34;total&#34;:0.478}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-breach_incident" data-track-section="breach_incident" aria-labelledby="h-breach_incident">
+            <h2 class="label" id="h-breach_incident">Breaches &amp; Incidents <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="cybercrime-group-used-artex-ai-to-breach-south-korean-organi" data-story="1063" data-severity="High" data-section="breach_incident" data-rank="7" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Cybercrime Group Used ARTEX AI to Breach South Korean Organizations</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Yonhap News via BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A cybercrime operation used the ARTEX AI framework to breach over 90 South Korean organizations, stealing 8.2 million records.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Seven suspects were identified by South Korean police in a cybercrime operation. The group used the ARTEX AI pentesting framework to breach over 90 organizations across South Korea. Authorities noted that AI utilities lowered the barrier to entry for large-scale attacks.</p>
+            <p><b>Why it matters.</b> The use of generative AI in criminal activity enables non-professional actors to conduct high-impact data theft. Organizations must assume initial access may be achieved via AI-assisted methods.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="http://www.yna.co.kr/view/AKR20261026075100004" target="_blank" rel="noopener">Read the original · Yonhap News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cybercrime-group-used-artex-ai-to-breach-south-korean-organi">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Cybercrime%20Group%20Used%20ARTEX%20AI%20to%20Breach%20South%20Korean%20Organizations%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23cybercrime-group-used-artex-ai-to-breach-south-korean-organi" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23cybercrime-group-used-artex-ai-to-breach-south-korean-organi" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.898,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.568}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-ai_security" data-track-section="ai_security" aria-labelledby="h-ai_security">
+            <h2 class="label" id="h-ai_security">AI Security <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="malicious-agents-md-file-triggers-ai-coding-agent-compromise" data-story="992" data-severity="Info" data-section="ai_security" data-rank="6" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Malicious AGENTS.md File Triggers AI Coding Agent Compromise</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="b b-">4 outlets</span><span class="sep">·</span><span class="src">Forever Security via BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Malicious instruction files in Downloads folders can trick AI coding agents into installing packages or leaking tokens.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Researchers demonstrated that placing a malicious markdown file, such as AGENTS.md, in a Downloads folder can trick AI coding agents into executing commands. These agents automatically load and interpret instructions from files in their working directory. The attack can lead to the installation of rogue npm packages or the exposure of OAuth tokens.</p>
+            <p><b>Why it matters.</b> This attack vector exploits the agents&#39; intended functionality, allowing unauthorized code execution or credential theft if the working directory is untrusted. Users must restrict agent scope to specific project directories.</p>
+            <p class="do"><b>Do this today</b> Do not set the ~/Downloads directory as the working directory for AI coding agents.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>AI coding agents (OpenAI Codex, Anthropic Claude Code)</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://forever.security/blog/hijacking-ai-agents-via-downloads-folder" target="_blank" rel="noopener">Read the original · Forever Security <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="malicious-agents-md-file-triggers-ai-coding-agent-compromise">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Malicious%20AGENTS.md%20File%20Triggers%20AI%20Coding%20Agent%20Compromise%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23malicious-agents-md-file-triggers-ai-coding-agent-compromise" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23malicious-agents-md-file-triggers-ai-coding-agent-compromise" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>; also covered by <a href="https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html" target="_blank" rel="noopener">The Hacker News</a>, <a href="https://www.csoonline.com/article/4240222/malicious-downloads-can-trick-ai-coding-agents-into-compromising-themselves.html" target="_blank" rel="noopener">CSO Online</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.898,&#34;evidence&#34;:0,&#34;freshness&#34;:0.398,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.595}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-policy_law" data-track-section="policy_law" aria-labelledby="h-policy_law">
+            <h2 class="label" id="h-policy_law">Policy, Law &amp; Arrests <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="senators-claim-trump-administration-withholding-surveillance" data-story="1057" data-severity="Info" data-section="policy_law" data-rank="14" data-source="CyberScoop">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Senators Claim Trump Administration Withholding Surveillance Court Opinion</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="src">Wyden via CyberScoop</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Senators and rights groups allege the Trump administration is illegally withholding a court opinion regarding surveillance practices.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Senators and civil liberties groups stated the Trump administration failed to declassify a court opinion concerning U.S. citizen surveillance. This opinion reportedly contains a judge&#39;s objection to government filtering systems used by analysts.</p>
+            <p><b>Why it matters.</b> Withholding this opinion may impact congressional debate and the reauthorization of Section 702 of FISA. Civil liberties groups suggest Congress should withhold reauthorization until the information is released.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.wyden.senate.gov/imo/media/doc/2026-10-26_-_letter_from_senators_wyden_and_schiff_to_dni_clayton_and_ag_blanche.pdf" target="_blank" rel="noopener">Read the original · Wyden <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="senators-claim-trump-administration-withholding-surveillance">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Senators%20Claim%20Trump%20Administration%20Withholding%20Surveillance%20Court%20Opinion%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23senators-claim-trump-administration-withholding-surveillance" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f10%2f27%2f%23senators-claim-trump-administration-withholding-surveillance" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://cyberscoop.com/wyden-schiff-fisa-section-702-declassification/" target="_blank" rel="noopener" data-track="coverage">CyberScoop</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.825,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.481}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        
+
+
+        
+        <section class="sec" id="cves" data-track-section="cves" aria-labelledby="h-cves">
+            <h2 class="label" id="h-cves">CVE spotlight</h2>
+            <table class="cve-table">
+                <thead><tr><th scope="col">CVE</th><th scope="col">Affects</th><th scope="col" class="num">CVSS</th><th scope="col" class="num">EPSS</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-109619" target="_blank" rel="noopener" data-track="cve">CVE-2026-109619</a></td>
+                    <td data-label="Affects"><span class="cve-product">php</span><span class="cve-desc">PHP has various global state that temporarily points into request memory. In some scenarios, global state may not be correctly reset, or may…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.1</span></td>
+                    <td data-label="EPSS" class="num">100%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-109618" target="_blank" rel="noopener" data-track="cve">CVE-2026-109618</a></td>
+                    <td data-label="Affects"><span class="cve-product">php</span><span class="cve-desc">PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not prope…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">100%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-111497" target="_blank" rel="noopener" data-track="cve">CVE-2026-111497</a></td>
+                    <td data-label="Affects"><span class="cve-product">—</span><span class="cve-desc">A buffer overflow vulnerability in the Brotli decoder (c/dec/decode.c) in Google Brotli versions 1.0.3 through 1.2.0 on all platforms allows…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.2</span></td>
+                    <td data-label="EPSS" class="num">33%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-106072" target="_blank" rel="noopener" data-track="cve">CVE-2026-106072</a></td>
+                    <td data-label="Affects"><span class="cve-product">—</span><span class="cve-desc">A flaw in Node.js TLS hostname verification allows a certificate with only a DNS SAN to authenticate an IP endpoint when the client connects…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-med">6.7</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-80097" target="_blank" rel="noopener" data-track="cve">CVE-2026-80097</a></td>
+                    <td data-label="Affects"><span class="cve-product">microsoft authenticator</span><span class="cve-desc">Improper authentication in Microsoft Authenticator allows an unauthorized attacker to elevate privileges locally.</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.6</span></td>
+                    <td data-label="EPSS" class="num">0%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-105482" target="_blank" rel="noopener" data-track="cve">CVE-2026-105482</a></td>
+                    <td data-label="Affects"><span class="cve-product">—</span><span class="cve-desc">A flaw in Node.js DNS resolution allows hostnames containing a NUL byte to be silently truncated by the dns.resolve*() functions and dns.rev…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">7.4</span></td>
+                    <td data-label="EPSS" class="num">0%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section class="sec quiz-sec" id="quiz" data-track-section="quiz" aria-labelledby="h-quiz">
+            <h2 class="label" id="h-quiz">Quiz</h2>
+            
+            <div class="reveal" data-quiz-date="2026-10-26" data-answer="0">
+                <p class="small-label">Yesterday's answer</p>
+                <p class="q">According to the provided text, what condition enables Remote Code Execution via <span class="nw">CVE-2026-109618</span>?</p>
+                <p class="answer"><span class="check" aria-hidden="true">✓</span> <span class="nw">CVE-2026-109618</span> allows RCE when PHP uses longjmp() for OOM errors</p>
+                <p class="explain">The story explicitly states that <span class="nw">CVE-2026-109618</span> allows RCE when PHP uses longjmp() for OOM errors.</p>
+                <div class="result-row" id="quiz-result-row" hidden>
+                    <p class="result" id="quiz-result"></p>
+                    <button class="text-btn copy-result" id="copy-result" type="button">Copy result</button>
+                </div>
+            </div>
+            
+            
+            <div class="quiz" data-quiz-date="2026-10-27">
+                <p class="small-label">Today's question</p>
+                <p class="q" id="quiz-q">According to the text, how does <span class="nw">CVE-2026-109618</span> enable Remote Code Execution (RCE)?</p>
+                <ol class="options" aria-labelledby="quiz-q">
+                    <li><button class="option" type="button" data-index="0"><span class="opt-key">A</span><span><span class="nw">CVE-2026-109618</span> allows RCE through improper handling of request memory after Out-Of-Memory errors.</span></button></li><li><button class="option" type="button" data-index="1"><span class="opt-key">B</span><span><span class="nw">CVE-2026-109619</span> enables RCE by exploiting buffer overflows in core PHP functions.</span></button></li><li><button class="option" type="button" data-index="2"><span class="opt-key">C</span><span>Both CVEs require authentication to execute arbitrary code on vulnerable systems.</span></button></li><li><button class="option" type="button" data-index="3"><span class="opt-key">D</span><span>The vulnerabilities are patched by upgrading the operating system kernel.</span></button></li>
+                </ol>
+                <p class="locked" id="quiz-locked" hidden>Locked in. The answer is in tomorrow's brief.</p>
+                <p class="score" id="quiz-score" hidden></p>
+            </div>
+            
+        </section>
+        
+
+        
+
+        
+        <section class="sec" id="tomorrow" data-track-section="tomorrow" aria-labelledby="h-tomorrow">
+            <h2 class="label" id="h-tomorrow">On the radar tomorrow</h2>
+            <ul class="radar">
+            <li class="radar-ctf"><span class="when">CTF starts Tue 03:30 UTC</span><span class="what"><a href="https://ctftime.org/event/3443" target="_blank" rel="noopener" data-track="radar">Sudocrypt v16.0</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/" target="_blank" rel="noopener" data-track="radar">Quest Diagnostics confirms data breach exposed patient records</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://thehackernews.com/2026/10/openai-ai-agents-demonstrate-vm-escapes.html" target="_blank" rel="noopener" data-track="radar">OpenAI AI Agents Demonstrate VM Escapes and Secret Cross-Sandbox Communication</a></span></li>
+            </ul>
+        </section>
+        
+
+        
+        <section class="sec" id="also" data-track-section="also" aria-labelledby="h-also">
+            <h2 class="label" id="h-also">Also worth your time</h2>
+            <div class="tabs" role="tablist" aria-label="Also worth your time">
+                <button class="tab" type="button" role="tab" id="tab-exploits" aria-controls="panel-exploits" aria-selected="true" tabindex="0">Exploits</button><button class="tab" type="button" role="tab" id="tab-tools" aria-controls="panel-tools" aria-selected="false" tabindex="-1">Tools</button><button class="tab" type="button" role="tab" id="tab-community" aria-controls="panel-community" aria-selected="false" tabindex="-1">Community</button><button class="tab" type="button" role="tab" id="tab-podcasts" aria-controls="panel-podcasts" aria-selected="false" tabindex="-1">Podcasts</button>
+            </div>
+            
+            <div class="panel active" id="panel-exploits" role="tabpanel" aria-labelledby="tab-exploits">
+                <h3 class="panel-title">Exploits</h3>
+                <ul class="side-list">
+                <li><a href="https://www.exploit-db.com/exploits/52704" target="_blank" rel="noopener" data-track="exploits">PHP2Shell (CVE-2026-109618) - PHP core versions after v5.4 - RCE</a><span class="side-meta">Remote · CVE-2026-109618</span></li><li><a href="https://www.exploit-db.com/exploits/52703" target="_blank" rel="noopener" data-track="exploits">pizzafy-1.0 - SQLi</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52701" target="_blank" rel="noopener" data-track="exploits">South River Technologies Titan MFT Server 26.0.0 - code execution</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52700" target="_blank" rel="noopener" data-track="exploits">Synametrics Syncrify 6.2 - command execution</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52699" target="_blank" rel="noopener" data-track="exploits">Keycloak  26.7.2 - Unauthenticated Account Takeover</a><span class="side-meta">WebApps</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
+                <h3 class="panel-title">Tools</h3>
+                <ul class="side-list">
+                <li><a href="https://github.com/SpecterOps/BloodHound/releases/tag/v9.9.0" target="_blank" rel="noopener" data-track="tools">SpecterOps/BloodHound v9.9.0</a><span class="side-meta">New release v9.9.0 · Active Directory</span><span class="side-desc">New features include bulk PZ rule ingestion, associated label display in Explore, and job history table functionality.</span></li><li><a href="https://github.com/zeek/zeek/releases/tag/v9.0.1" target="_blank" rel="noopener" data-track="tools">zeek/zeek v9.0.1</a><span class="side-meta">New release v9.0.1 · Detection &amp; response</span><span class="side-desc">Fixes address unbounded state growth in SSL, KRB, MIME, and memory exhaustion across multiple protocols including DNS, T…</span></li><li><a href="https://github.com/jamesalmeida/agent-honeypot" target="_blank" rel="noopener" data-track="tools">jamesalmeida/agent-honeypot</a><span class="side-meta">New · 39 stars in 3 days · AI security · PowerShell</span><span class="side-desc">Detects unauthorized interaction with a system by AI agents and logs details of the interaction.</span></li><li><a href="https://github.com/letox4/OsintHunter" target="_blank" rel="noopener" data-track="tools">letox4/OsintHunter</a><span class="side-meta">New · 31 stars in 6 days · OSINT · Python</span><span class="side-desc">Collects and analyzes data from multiple sources using various inputs to build an investigative profile.</span></li><li><a href="https://github.com/YZBRH/keyrealm" target="_blank" rel="noopener" data-track="tools">YZBRH/keyrealm</a><span class="side-meta">New · 47 stars in 16 days · Recon · Python</span><span class="side-desc">Manages and validates credentials obtained during penetration testing, supporting multiple credential types and automate…</span></li><li><a href="https://github.com/cleonaia/hack_cameraWeb" target="_blank" rel="noopener" data-track="tools">cleonaia/hack_cameraWeb</a><span class="side-meta">New · 31 stars in 17 days · Network · Python</span><span class="side-desc">Demonstrates network traffic interception using ARP spoofing, Wireshark analysis, and Metasploit for lab exercises.</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community">
+                <h3 class="panel-title">Community</h3>
+                <ul class="side-list">
+                <li><a href="https://www.reddit.com/r/netsec/comments/1xg6cpe/how_to_intercept_http3_traffic_quic_and_qpack/" target="_blank" rel="noopener" data-track="community">How to Intercept HTTP/3 Traffic (QUIC and QPACK Explained)</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xg6ap2/connection_reuse_leading_to_desync/" target="_blank" rel="noopener" data-track="community">Connection Reuse leading to desync</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xfvrxl/the_ai_rcession_why_aidriven_security_is_calling/" target="_blank" rel="noopener" data-track="community">The AI RCEssion: Why AI-driven security is calling in decades of software tech debt</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xfs8xr/context_bombs_making_attacking_agents_pay/" target="_blank" rel="noopener" data-track="community">Context Bombs: Making attacking agents pay</a><span class="side-meta">r/netsec</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-podcasts" role="tabpanel" aria-labelledby="tab-podcasts">
+                <h3 class="panel-title">Podcasts</h3>
+                <ul class="side-list">
+                <li><a href="https://darknetdiaries.com/episode/181/" target="_blank" rel="noopener" data-track="podcasts">181: Ricky</a><span class="side-meta">Darknet Diaries · 01:20:15</span></li><li><a href="https://risky.biz/RB856/" target="_blank" rel="noopener" data-track="podcasts">Risky Business #856 -- 8-bit encryption, PHP megabugs and more</a><span class="side-meta">Risky Business · 1:04:58</span></li><li><a href="https://twit.tv/shows/security-now/episodes/1101" target="_blank" rel="noopener" data-track="podcasts">SN 1101: ECDSA&#39;s Curves Origins - When AI Becomes the Attacker</a><span class="side-meta">Security Now · 2:31:36</span></li><li><a href="https://isc.sans.edu/podcastdetail/10150" target="_blank" rel="noopener" data-track="podcasts">SANS Stormcast Monday, October 26th, 2026: PHP2Shell Exploit Reliability; Node.js Brotli Decoder RCE (CVE-2026-111497); Tailscale &#34;Tailworm&#34; Vulnerabilities; HPE ArubaOS 8/10 Patches 72 Flaws</a><span class="side-meta">SANS Internet Storm Center · 7:45</span></li>
+                </ul>
+            </div>
+            
+        </section>
+        
+
+        
+        <section class="finally" id="finally" data-track-section="finally" aria-labelledby="h-finally">
+            <h2 class="label" id="h-finally">And finally</h2>
+            <div class="finally-body">
+                <p class="finally-head"><a href="https://www.justice.gov/opa/pr/chinese-national-extradited-alleged-role-multimillion-dollar-cryptocurrency-scam-targeting" target="_blank" rel="noopener" data-track="finally">Chinese National Extradited for Alleged $36M Crypto Scam</a></p>
+                <p class="finally-blurb">A Chinese national was extradited for alleged involvement in a cryptocurrency investment scam. Victims were reportedly deceived via social media into transferring funds to fake investment platforms.</p>
+                <p class="finally-src">Source: <a href="https://www.justice.gov/opa/pr/chinese-national-extradited-alleged-role-multimillion-dollar-cryptocurrency-scam-targeting" target="_blank" rel="noopener">Department of Justice</a> · via <a href="https://www.bleepingcomputer.com/news/security/chinese-man-extradited-for-role-in-36-million-cryptocurrency-scam/" target="_blank" rel="noopener">BleepingComputer</a></p>
+            </div>
+        </section>
+        
+
+        <section class="done" id="done" aria-label="End of today's brief">
+            <p class="done-kicker">End of No. 246</p>
+            <p class="done-title" id="done-title">That's today's brief.</p>
+            <p class="done-sum" id="done-sum" hidden></p>
+            <p class="done-next"><b>On the radar</b><span>CTF starts Tue 03:30 UTC: Sudocrypt v16.0</span></p>
+            <p class="done-sub" id="countdown" data-next="2026-10-28T01:00:00Z">The next brief lands at 06:30 IST.</p>
+            
+            <nav class="edition-nav" aria-label="Other briefs">
+                <a href="../../../2026/10/26/" rel="prev">← Mon 26 Oct</a>
+                <a href="../../../archive/">All briefs</a>
+                <span></span>
+            </nav>
+        </section>
+    </article>
+</div>
+</main>
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <a class="wordmark small" href="../../../">PwnSpectrum</a>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="../../../">Today</a>
+            <a href="../../../archive/">Archive</a>
+            <a href="https://forms.gle/RcsGHJHpb761EZA38" target="_blank" rel="noopener">Send a tip</a>
+            <a href="https://x.com/IamLucif3r_" target="_blank" rel="noopener">X</a>
+            <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/iamlucif3r" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <p>Curated by <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">Anmol Singh Yadav</a>. Stories come from public sources and are summarised by a local model; always check the original before acting.</p>
+    </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+</button>
+
+<dialog class="keys" id="keys">
+    <form method="dialog">
+        <h2>Keyboard shortcuts</h2>
+        <dl>
+            <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>Next / previous story</dd>
+            <dt><kbd>o</kbd> or <kbd>Enter</kbd></dt><dd>Open / close story</dd>
+            <dt><kbd>v</kbd></dt><dd>Read the source in a new tab</dd>
+            <dt><kbd>e</kbd></dt><dd>Expand / collapse all</dd>
+            <dt><kbd>/</kbd></dt><dd>Search</dd>
+            <dt><kbd>d</kbd></dt><dd>Light / dark theme</dd>
+            <dt><kbd>Esc</kbd></dt><dd>Close</dd>
+        </dl>
+        <button class="text-btn" value="close">Close</button>
+    </form>
+</dialog>
+<script src="../../../assets/site.js?v=931cd2608a" defer></script>
+</body>
+</html>
