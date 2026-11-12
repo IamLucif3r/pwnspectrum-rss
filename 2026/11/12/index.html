@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Google Patches Chrome Use-After-Free Zero-Day Vulnerability · PwnSpectrum 12 Nov</title>
+    <meta name="description" content="Daily cybersecurity brief for 12 Nov 2026: Google Patches Chrome Use-After-Free Zero-Day Vulnerability; Zoom Workplace: Unauthenticated Remote Privilege Escalation via Improper Input Validation; SGLang RCE Exploit Breaches NEAR AI Inference Server.">
+    <link rel="canonical" href="https://feed.anmolsinghyadav.com/2026/11/12/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1014" media="(prefers-color-scheme: dark)">
+    <meta property="og:site_name" content="PwnSpectrum">
+    <meta property="og:title" content="Google Patches Chrome Use-After-Free Zero-Day Vulnerability · PwnSpectrum 12 Nov">
+    <meta property="og:description" content="Daily cybersecurity brief for 12 Nov 2026: Google Patches Chrome Use-After-Free Zero-Day Vulnerability; Zoom Workplace: Unauthenticated Remote Privilege Escalation via Improper Input Validation; SGLang RCE Exploit Breaches NEAR AI Inference Server.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://feed.anmolsinghyadav.com/2026/11/12/">
+    <meta property="og:image" content="https://feed.anmolsinghyadav.com/2026/11/12/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@IamLucif3r_">
+    <meta name="twitter:title" content="Google Patches Chrome Use-After-Free Zero-Day Vulnerability · PwnSpectrum 12 Nov">
+    <meta name="twitter:description" content="Daily cybersecurity brief for 12 Nov 2026: Google Patches Chrome Use-After-Free Zero-Day Vulnerability; Zoom Workplace: Unauthenticated Remote Privilege Escalation via Improper Input Validation; SGLang RCE Exploit Breaches NEAR AI Inference Server.">
+    <meta name="twitter:image" content="https://feed.anmolsinghyadav.com/2026/11/12/og.png">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400..500&display=swap">
+    <link rel="stylesheet" href="../../../assets/site.css?v=931cd2608a">
+    <script>
+        (function () {
+            var d = document.documentElement; d.classList.add('js');
+            try { var t = localStorage.getItem('pwn_theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","author":{"@type":"Person","name":"Anmol Singh Yadav","url":"https://www.linkedin.com/in/anmolsinghyadav/"},"dateModified":"2026-11-12T01:06:35Z","datePublished":"2026-11-12","description":"Defenders should prioritize patching the Use-After-Free vulnerability in Chrome's XML component. Additionally, address the unauthenticated remote privilege escalation flaw in Zoom Workplace. Review SGLang for potential RCE exploitation paths.","hasPart":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"Google Patches Chrome Use-After-Free Zero-Day Vulnerability","position":1,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#google-patches-chrome-use-after-free-zero-day-vulnerability"},{"@type":"ListItem","name":"Xen Orchestra Auth Bypass Flaw Allows XCP-ng Host Takeover","position":2,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#xen-orchestra-auth-bypass-flaw-allows-xcp-ng-host-takeover"},{"@type":"ListItem","name":"Microsoft Patches 1,100 Vulnerabilities Including Outlook Zero-Day","position":3,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#microsoft-patches-1-100-vulnerabilities-including-outlook-ze"},{"@type":"ListItem","name":"N-able Takes N-central Offline After Researcher Discloses 30+ Zero-Days","position":4,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#n-able-takes-n-central-offline-after-researcher-discloses-30"},{"@type":"ListItem","name":"Zoom Workplace: Unauthenticated Remote Privilege Escalation via Improper Input Validation","position":5,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#zoom-workplace-unauthenticated-remote-privilege-escalation-v"},{"@type":"ListItem","name":"Fortinet: Unauthenticated RCE in FortiManager, FortiAnalyzer, and FortiClient","position":6,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#fortinet-unauthenticated-rce-in-fortimanager-fortianalyzer-a"},{"@type":"ListItem","name":"Apache HTTP Server: Critical RCE via HTTP/2 Module (CVE-2026-119618)","position":7,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#apache-http-server-critical-rce-via-http-2-module-cve-2026-1"},{"@type":"ListItem","name":"Microsoft Discloses Active Directory RCE and DoS Vulnerabilities (CVE-2026-119948, CVE-2026-105559)","position":8,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#microsoft-discloses-active-directory-rce-and-dos-vulnerabili"},{"@type":"ListItem","name":"ESET reports 'Cereal' malware using Exchange for espionage","position":9,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#eset-reports-cereal-malware-using-exchange-for-espionage"},{"@type":"ListItem","name":"Threat Actors Target Qlik Sense with PowerShell Reverse Shells","position":10,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#threat-actors-target-qlik-sense-with-powershell-reverse-shel"},{"@type":"ListItem","name":"Unit 42 Reports Attacker Use of ARTEX and AI Red Teaming Tools","position":11,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#unit-42-reports-attacker-use-of-artex-and-ai-red-teaming-too"},{"@type":"ListItem","name":"SGLang RCE Exploit Breaches NEAR AI Inference Server","position":12,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#sglang-rce-exploit-breaches-near-ai-inference-server"},{"@type":"ListItem","name":"Microsoft Research Details AI Model Backdooring via Neuron Editing","position":13,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#microsoft-research-details-ai-model-backdooring-via-neuron-e"},{"@type":"ListItem","name":"Claude Code Exposes Secrets via 'Don't Ask Again' Prompt","position":14,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#claude-code-exposes-secrets-via-don-t-ask-again-prompt"},{"@type":"ListItem","name":"BluePhishing Abuses Microsoft Entra OAuth Consent for AI Agent Identities","position":15,"url":"https://feed.anmolsinghyadav.com/2026/11/12/#bluephishing-abuses-microsoft-entra-oauth-consent-for-ai-age"}]},"headline":"PwnSpectrum daily cybersecurity brief — 12 November 2026","image":"https://feed.anmolsinghyadav.com/2026/11/12/og.png","publisher":{"@type":"Organization","name":"PwnSpectrum","url":"https://feed.anmolsinghyadav.com"},"url":"https://feed.anmolsinghyadav.com/2026/11/12/"}</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9ZF36FC9M');</script>
+</head>
+<body data-edition="2026-11-12">
+<a class="skip" href="#main">Skip to the brief</a>
+<header class="bar">
+    <div class="bar-inner">
+        <a class="wordmark" href="../../../" aria-label="PwnSpectrum home">PwnSpectrum</a>
+        <p class="bar-meta" aria-live="polite"><span class="bar-date">Thu 12 Nov</span><span class="bar-read" id="bar-read" hidden></span></p>
+        <div class="bar-actions">
+            <button class="icon-btn" id="search-btn" type="button" aria-label="Search stories" aria-keyshortcuts="/" aria-expanded="false" aria-controls="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            </button>
+            <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch between light and dark theme" aria-keyshortcuts="d">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+            </button>
+            <button class="icon-btn only-fine" id="keys-btn" type="button" aria-label="Keyboard shortcuts" aria-keyshortcuts="?">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="scroll-line" aria-hidden="true"><span id="scroll-line"></span></div>
+    <div class="search" id="search" hidden>
+        <div class="search-inner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="search-input" type="search" placeholder="Search today's stories" aria-label="Search today's stories" autocomplete="off" spellcheck="false">
+            <span class="search-count" id="search-count" aria-live="polite"></span>
+            <button class="text-btn" id="search-close" type="button">Close</button>
+        </div>
+    </div>
+</header>
+
+
+<main id="main" class="page">
+<div class="layout">
+    <nav class="rail" aria-label="Sections">
+        <ol class="rail-list">
+            <li><a href="#top3">Top stories</a></li>
+            <li><a href="#editor">From the editor</a></li>
+            <li><a href="#s-active_exploitation">Actively Exploited<span class="n">4</span></a></li><li><a href="#s-vulnerability">Vulnerabilities &amp; Patches<span class="n">4</span></a></li><li><a href="#watch">Worth watching</a></li><li><a href="#s-malware_ransomware">Malware &amp; Ransomware<span class="n">1</span></a></li><li><a href="#s-threat_actor">Threat Actors &amp; Campaigns<span class="n">2</span></a></li><li><a href="#s-breach_incident">Breaches &amp; Incidents<span class="n">1</span></a></li><li><a href="#s-ai_security">AI Security<span class="n">2</span></a></li><li><a href="#s-research_technique">Research &amp; Techniques<span class="n">1</span></a></li>
+            
+            <li><a href="#cves">CVE spotlight</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            
+            <li><a href="#tomorrow">Tomorrow</a></li>
+            <li><a href="#also">Also worth your time</a></li>
+            <li><a href="#finally">And finally</a></li>
+        </ol>
+        <p class="rail-hint only-fine">Press <kbd>j</kbd> <kbd>k</kbd> to move, <kbd>?</kbd> for all keys</p>
+    </nav>
+
+    <article class="brief">
+        <header class="masthead">
+            <div class="np-top">
+                <p class="kicker">The daily cybersecurity brief</p>
+                <p class="issue">No. 262</p>
+            </div>
+            <h1 class="date"><time datetime="2026-11-12">Thursday, 12 November 2026</time></h1>
+            <p class="dateline">
+                <span>15 stories</span>
+                <span class="crit-count">4 critical</span>
+                <span>7 min read</span>
+                <span>Updated 06:30 IST</span>
+            </p>
+            <p class="new-banner" id="new-banner" hidden></p>
+        </header>
+
+        
+        <section class="top3" id="top3" data-track-section="top3" aria-labelledby="top3-h">
+            <h2 class="sr-only" id="top3-h">Top stories</h2>
+            <ol class="top3-list">
+            
+                <li data-story="1894">
+                    <a class="top3-item" href="#google-patches-chrome-use-after-free-zero-day-vulnerability" data-open="google-patches-chrome-use-after-free-zero-day-vulnerability">
+                        <span class="top3-num" aria-hidden="true">01</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Critical" aria-hidden="true"></i><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span>KEV<span class="sep">·</span>CVSS 9.3<span class="sep">·</span>8 outlets<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">Google Patches Chrome Use-After-Free Zero-Day Vulnerability</span>
+                            <span class="top3-tldr">Google released an emergency update for a high-severity Use-After-Free vulnerability in Chrome&#39;s XML component.</span>
+                            <span class="top3-do"><b>Do this today</b> Update Chrome to the latest version available for your operating system.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="2044">
+                    <a class="top3-item" href="#zoom-workplace-unauthenticated-remote-privilege-escalation-v" data-open="zoom-workplace-unauthenticated-remote-privilege-escalation-v">
+                        <span class="top3-num" aria-hidden="true">02</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="sep">·</span>CVSS 9.6<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">Zoom Workplace: Unauthenticated Remote Privilege Escalation via Improper Input Validation</span>
+                            <span class="top3-tldr">Zoom released updates for a critical flaw allowing unauthenticated remote privilege escalation on Windows.</span>
+                            <span class="top3-do"><b>Do this today</b> Apply the software updates released by Zoom.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="1992">
+                    <a class="top3-item" href="#sglang-rce-exploit-breaches-near-ai-inference-server" data-open="sglang-rce-exploit-breaches-near-ai-inference-server">
+                        <span class="top3-num" aria-hidden="true">03</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="tag tag-new">New</span></span>
+                            <span class="top3-head">SGLang RCE Exploit Breaches NEAR AI Inference Server</span>
+                            <span class="top3-tldr">An attacker exploited an RCE flaw in SGLang, compromising a NEAR AI inference server.</span>
+                            <span class="top3-do"><b>Do this today</b> Review access controls on inference servers utilizing SGLang.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+            </ol>
+        </section>
+        
+
+        <aside class="glance" aria-labelledby="glance-h">
+            <h2 class="glance-h" id="glance-h">At a glance</h2>
+            
+            <div class="g-block g-nod">
+                <p class="g-label">Number of the day</p>
+                <p class="nod-value">30</p>
+                <p class="nod-cap">Number of zero-day vulnerabilities disclosed by researcher</p>
+                <a class="nod-src" href="#n-able-takes-n-central-offline-after-researcher-discloses-30" data-open="n-able-takes-n-central-offline-after-researcher-discloses-30">From: BleepingComputer ↓</a>
+            </div>
+            
+            <div class="g-block g-threat meter-ELEVATED" title="Threat level compared with the last 30 briefs">
+                <p class="g-label">Threat level</p>
+                <div class="meter meter-ELEVATED">
+                    <span class="meter-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                    <span class="meter-value">elevated</span>
+                </div>
+                
+                <div class="spark">
+                    <svg viewBox="0 0 240 40" role="img" aria-label="Threat level over the last 29 briefs">
+                        <line class="spark-base" x1="2" y1="20" x2="238" y2="20"/>
+                        <polyline points="2.0,12.0 10.1,12.0 18.3,12.0 26.4,12.0 34.6,28.0 42.7,36.0 50.8,28.0 59.0,4.0 67.1,4.0 75.2,12.0 83.4,4.0 91.5,4.0 99.7,36.0 107.8,36.0 115.9,20.0 124.1,12.0 132.2,12.0 140.3,12.0 148.5,20.0 156.6,36.0 164.8,28.0 172.9,12.0 181.0,12.0 189.2,12.0 197.3,20.0 205.4,36.0 213.6,36.0 221.7,28.0 229.9,28.0 238.0,20.0"/>
+                        <circle class="spark-now" cx="237.99999999999997" cy="20" r="3.5"/>
+                    </svg>
+                    <p class="spark-axis"><span>29 briefs ago</span><span>Today</span></p>
+                </div>
+                
+            </div>
+            
+            <div class="g-block g-mix">
+                <p class="g-label">Today's mix</p>
+                <div class="mix-bar" aria-hidden="true"><i class="sev-Critical" style="flex-grow: 4"></i><i class="sev-High" style="flex-grow: 6"></i><i class="sev-Medium" style="flex-grow: 2"></i><i class="sev-Info" style="flex-grow: 3"></i></div>
+                <ul class="mix-legend"><li><i class="dot sev-Critical" aria-hidden="true"></i><b>4</b> critical</li><li><i class="dot sev-High" aria-hidden="true"></i><b>6</b> high</li><li><i class="dot sev-Medium" aria-hidden="true"></i><b>2</b> medium</li><li><i class="dot sev-Info" aria-hidden="true"></i><b>3</b> info</li></ul>
+            </div>
+            
+            <div class="g-block g-you" id="g-you" data-minutes="7" hidden>
+                <p class="g-label">Your brief</p>
+                <p id="you-text"></p>
+                <div class="you-bar" aria-hidden="true"><span id="you-bar"></span></div>
+            </div>
+        </aside>
+
+        
+        <section class="lede" id="editor" aria-labelledby="h-editor">
+            <h2 class="label" id="h-editor">From the editor</h2>
+            <p class="note">Defenders should prioritize patching the Use-After-Free vulnerability in Chrome&#39;s XML component. Additionally, address the unauthenticated remote privilege escalation flaw in Zoom Workplace. Review SGLang for potential RCE exploitation paths.</p>
+            <p class="byline"><img src="../../../assets/editor.jpg" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Anmol Singh Yadav</b>Editor, PwnSpectrum</span></p>
+        </section>
+        
+
+        <nav class="index" aria-label="Jump to section">
+            <a href="#s-active_exploitation">Actively Exploited <span class="n">4</span></a><a href="#s-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></a><a href="#watch">Watch</a><a href="#s-malware_ransomware">Malware &amp; Ransomware <span class="n">1</span></a><a href="#s-threat_actor">Threat Actors &amp; Campaigns <span class="n">2</span></a><a href="#s-breach_incident">Breaches &amp; Incidents <span class="n">1</span></a><a href="#s-ai_security">AI Security <span class="n">2</span></a><a href="#s-research_technique">Research &amp; Techniques <span class="n">1</span></a>
+            
+            <a href="#cves">CVEs</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#tomorrow">Tomorrow</a>
+        </nav>
+
+        <p class="no-results" id="no-results" hidden>No stories match your search.</p>
+
+        
+        
+        <section class="sec" id="s-active_exploitation" data-track-section="active_exploitation" aria-labelledby="h-active_exploitation">
+            <h2 class="label" id="h-active_exploitation">Actively Exploited <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="google-patches-chrome-use-after-free-zero-day-vulnerability" data-story="1894" data-severity="Critical" data-section="active_exploitation" data-rank="1" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Google Patches Chrome Use-After-Free Zero-Day Vulnerability</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-kev">KEV</span><span class="sep">·</span><span class="b b-">CVSS 9.3</span><span class="sep">·</span><span class="b b-">8 outlets</span><span class="sep">·</span><span class="src">CISA via BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Google released an emergency update for a high-severity Use-After-Free vulnerability in Chrome&#39;s XML component.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Google issued an update to patch a Use-After-Free (UAF) vulnerability in the XML component of the Chrome web browser. This flaw allows attackers to execute malicious code by manipulating memory after an object has been deleted. This represents the eighth zero-day vulnerability patched by Google this year.</p>
+            <p><b>Why it matters.</b> High-severity memory corruption vulnerabilities like UAF are frequent attack vectors for malicious actors. Immediate patching mitigates the risk of remote code execution via the browser.</p>
+            <p class="do"><b>Do this today</b> Update Chrome to the latest version available for your operating system.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Chrome users</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-111560, CVE-2026-111793, CVE-2026-116606, &#43;3 more</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">Read the original · CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="google-patches-chrome-use-after-free-zero-day-vulnerability">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Google%20Patches%20Chrome%20Use-After-Free%20Zero-Day%20Vulnerability%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23google-patches-chrome-use-after-free-zero-day-vulnerability" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23google-patches-chrome-use-after-free-zero-day-vulnerability" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/google-patches-eighth-chrome-zero-day-exploited-in-attacks-this-year/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>; also covered by <a href="https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA</a>, <a href="https://www.securityweek.com/chrome-update-patches-exploited-xml-zero-day-eighth-this-year/" target="_blank" rel="noopener">SecurityWeek</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:1,&#34;freshness&#34;:0.298,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.85}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="xen-orchestra-auth-bypass-flaw-allows-xcp-ng-host-takeover" data-story="1950" data-severity="Critical" data-section="active_exploitation" data-rank="2" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Xen Orchestra Auth Bypass Flaw Allows XCP-ng Host Takeover</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">Vates via BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">An authentication bypass flaw in Xen Orchestra allows unauthenticated attackers to gain admin access and take over XCP-ng hosts.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A critical authentication bypass vulnerability, tracked as VSA-2026-062, exists in Xen Orchestra. Attackers can use a specially crafted cookie to bypass authentication and gain administrator privileges. Successful exploitation can lead to arbitrary code execution on managed pools and full XCP-ng node takeover as root.</p>
+            <p><b>Why it matters.</b> This flaw permits remote attackers with network access to the management interface to achieve full administrative control over the virtualization environment without credentials.</p>
+            <p class="do"><b>Do this today</b> Install Xen Orchestra 6.9.1 (stable) or 6.10.0 (latest) immediately.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Xen Orchestra, Xen Orchestra Appliance (XOA)</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Wed 11 Nov</span>Xen Orchestra Auth Bypass Flaw Allows XCP-ng Host Takeover</li><li><span class="t-date">Today</span>Xen Orchestra Auth Bypass Flaw Allows XCP-ng Host Takeover</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/" target="_blank" rel="noopener">Read the original · Vates <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="xen-orchestra-auth-bypass-flaw-allows-xcp-ng-host-takeover">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Xen%20Orchestra%20Auth%20Bypass%20Flaw%20Allows%20XCP-ng%20Host%20Takeover%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23xen-orchestra-auth-bypass-flaw-allows-xcp-ng-host-takeover" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23xen-orchestra-auth-bypass-flaw-allows-xcp-ng-host-takeover" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>; also covered by <a href="https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-xen-orchestra.html" target="_blank" rel="noopener">The Hacker News</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.403,&#34;importance&#34;:1,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.836}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="microsoft-patches-1-100-vulnerabilities-including-outlook-ze" data-story="1958" data-severity="Critical" data-section="active_exploitation" data-rank="3" data-source="Krebs on Security">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Microsoft Patches 1,100 Vulnerabilities Including Outlook Zero-Day</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">10 outlets</span><span class="sep">·</span><span class="src">Krebs on Security</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Microsoft released updates addressing 1,100 vulnerabilities, including an actively exploited zero-day in Outlook.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Microsoft released security updates addressing a large volume of vulnerabilities, including 63 critical flaws. One flaw, <span class="nw">CVE-2026-124194</span>, is a zero-day in Outlook and is reportedly seeing active exploitation.</p>
+            <p><b>Why it matters.</b> The zero-day in Outlook allows for potential exploitation and requires immediate patching to prevent compromise.</p>
+            <p class="do"><b>Do this today</b> Apply the November 2026 security updates from Microsoft.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Microsoft 365 Apps for Enterprise, Microsoft Office</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Wed 11 Nov</span>Microsoft Patches 1,100 Vulnerabilities Including Exploited Outlook Zero-Day</li><li><span class="t-date">Today</span>Microsoft Patches 1,100 Vulnerabilities Including Outlook Zero-Day</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/" target="_blank" rel="noopener">Read on Krebs on Security <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="microsoft-patches-1-100-vulnerabilities-including-outlook-ze">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Microsoft%20Patches%201%2c100%20Vulnerabilities%20Including%20Outlook%20Zero-Day%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23microsoft-patches-1-100-vulnerabilities-including-outlook-ze" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23microsoft-patches-1-100-vulnerabilities-including-outlook-ze" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/" target="_blank" rel="noopener">BleepingComputer</a>, <a href="https://therecord.media/patch-tuesday-microsoft-1000-bugs-again" target="_blank" rel="noopener">The Record</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.436,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:1,&#34;total&#34;:0.804}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="n-able-takes-n-central-offline-after-researcher-discloses-30" data-story="1882" data-severity="Critical" data-section="active_exploitation" data-rank="4" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">N-able Takes N-central Offline After Researcher Discloses 30+ Zero-Days</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="b b-">7 outlets</span><span class="sep">·</span><span class="src">Uptime via BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 3</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">N-able took N-central hosted environments offline following public disclosure of over 30 alleged zero-day vulnerabilities.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A security researcher disclosed over 30 alleged zero-day vulnerabilities affecting the N-central RMM platform. These flaws include authentication bypasses, XXE injection, and remote code execution. N-able subsequently took its hosted N-central environments offline as a precautionary measure.</p>
+            <p><b>Why it matters.</b> Exploitation of these flaws could allow attackers to achieve remote code execution, steal credentials, or create rogue administrative accounts on vulnerable systems.</p>
+            <p class="do"><b>Do this today</b> Apply hotfixes released by N-able for N-central RMM platform.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>N-central Appliance 2026.4.0.31 and earlier versions</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Tue 10 Nov</span>N-able Takes N-central Offline After Disclosure of 30+ Vulnerabilities</li><li><span class="t-date">Wed 11 Nov</span>N-able Takes N-central Offline After Disclosure of 30+ Zero-Days</li><li><span class="t-date">Today</span>N-able Takes N-central Offline After Researcher Discloses 30+ Zero-Days</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://uptime.n-able.com/event/202584/" target="_blank" rel="noopener">Read the original · Uptime <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="n-able-takes-n-central-offline-after-researcher-discloses-30">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=N-able%20Takes%20N-central%20Offline%20After%20Researcher%20Discloses%2030%2b%20Zero-Days%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23n-able-takes-n-central-offline-after-researcher-discloses-30" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23n-able-takes-n-central-offline-after-researcher-discloses-30" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/n-able-takes-cloud-platform-offline-after-30-plus-zero-days-published/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>; also covered by <a href="https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/" target="_blank" rel="noopener">SecurityWeek</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.236,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.779}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-vulnerability" data-track-section="vulnerability" aria-labelledby="h-vulnerability">
+            <h2 class="label" id="h-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="zoom-workplace-unauthenticated-remote-privilege-escalation-v" data-story="2044" data-severity="High" data-section="vulnerability" data-rank="5" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Zoom Workplace: Unauthenticated Remote Privilege Escalation via Improper Input Validation</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 9.6</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Zoom released updates for a critical flaw allowing unauthenticated remote privilege escalation on Windows.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Zoom released software updates to address two security flaws impacting Zoom Workplace for Windows. One vulnerability, <span class="nw">CVE-2026-108186</span>, is an improper input validation flaw.</p>
+            <p><b>Why it matters.</b> This flaw could allow an unauthenticated user to conduct an escalation of privilege on affected systems.</p>
+            <p class="do"><b>Do this today</b> Apply the software updates released by Zoom.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Zoom Workplace for Windows</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-108186</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="zoom-workplace-unauthenticated-remote-privilege-escalation-v">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Zoom%20Workplace%3a%20Unauthenticated%20Remote%20Privilege%20Escalation%20via%20Improper%20Input%20Validation%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23zoom-workplace-unauthenticated-remote-privilege-escalation-v" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23zoom-workplace-unauthenticated-remote-privilege-escalation-v" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.7,&#34;freshness&#34;:0.783,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.716}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="fortinet-unauthenticated-rce-in-fortimanager-fortianalyzer-a" data-story="2001" data-severity="High" data-section="vulnerability" data-rank="6" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Fortinet: Unauthenticated RCE in FortiManager, FortiAnalyzer, and FortiClient</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 9.6</span><span class="sep">·</span><span class="src">GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Multiple critical Fortinet vulnerabilities allow unauthenticated remote code execution on management and endpoint products.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Fortinet disclosed vulnerabilities including <span class="nw">CVE-2026-126170</span>, which permits unauthenticated code execution via JSON-RPC API in FortiManager and FortiAnalyzer. A separate flaw, <span class="nw">CVE-2026-121529</span>, allows code execution on FortiClient via malicious websites.</p>
+            <p><b>Why it matters.</b> These flaws enable unauthenticated attackers to execute code on core network management and endpoint security components. Exposure depends on enabled services and network access.</p>
+            <p class="do"><b>Do this today</b> Restrict access to the unused JSON API by setting the rpc-permit option to none for <span class="nw">CVE-2026-126170</span>.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>FortiManager, FortiAnalyzer, FortiClient, FortiOS</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-121529, CVE-2026-126170</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://gbhackers.com/critical-fortinet-vulnerabilities/" target="_blank" rel="noopener">Read on GBHackers <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fortinet-unauthenticated-rce-in-fortimanager-fortianalyzer-a">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Fortinet%3a%20Unauthenticated%20RCE%20in%20FortiManager%2c%20FortiAnalyzer%2c%20and%20FortiClient%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23fortinet-unauthenticated-rce-in-fortimanager-fortianalyzer-a" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23fortinet-unauthenticated-rce-in-fortimanager-fortianalyzer-a" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.7,&#34;freshness&#34;:0.592,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.682}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="apache-http-server-critical-rce-via-http-2-module-cve-2026-1" data-story="2055" data-severity="Medium" data-section="vulnerability" data-rank="10" data-source="Wiz Research">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Apache HTTP Server: Critical RCE via HTTP/2 Module (<span class="nw">CVE-2026-119618</span>)</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">Wiz Research</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A race condition in Apache HTTP Server&#39;s HTTP/2 module allows unauthenticated remote code execution.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A synchronization vulnerability (<span class="nw">CVE-2026-119618</span>) exists in Apache HTTP Server&#39;s mod_http2 module. The flaw is a concurrent execution race condition within the assign_headers() function. Successful exploitation allows an unauthenticated remote attacker to achieve arbitrary code execution by corrupting heap memory.</p>
+            <p><b>Why it matters.</b> Compromise of an Apache instance can serve as an entry point for lateral movement within cloud environments, potentially exposing adjacent services.</p>
+            <p class="do"><b>Do this today</b> Upgrade Apache HTTP Server to version 2.4.71 or later, or disable HTTP/2 support by restricting protocols to HTTP/1.1 in the configuration file.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Apache HTTP Server utilizing HTTP/2 module (mod_http2)</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-119618</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability" target="_blank" rel="noopener">Read on Wiz Research <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="apache-http-server-critical-rce-via-http-2-module-cve-2026-1">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Apache%20HTTP%20Server%3a%20Critical%20RCE%20via%20HTTP%2f2%20Module%20%28CVE-2026-119618%29%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23apache-http-server-critical-rce-via-http-2-module-cve-2026-1" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23apache-http-server-critical-rce-via-http-2-module-cve-2026-1" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.866,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.85,&#34;total&#34;:0.555}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="microsoft-discloses-active-directory-rce-and-dos-vulnerabili" data-story="2028" data-severity="High" data-section="vulnerability" data-rank="11" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Microsoft Discloses Active Directory RCE and DoS Vulnerabilities (<span class="nw">CVE-2026-119948</span>, <span class="nw">CVE-2026-105559</span>)</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 7.5</span><span class="sep">·</span><span class="src">Msrc via GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Two low-privilege vulnerabilities exist in Windows Active Directory allowing RCE and DoS.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Microsoft disclosed two vulnerabilities in Windows Active Directory: <span class="nw">CVE-2026-119948</span> and <span class="nw">CVE-2026-105559</span>. <span class="nw">CVE-2026-119948</span> is a stack-based buffer overflow allowing code execution. <span class="nw">CVE-2026-105559</span> is an untrusted pointer dereference impacting availability.</p>
+            <p><b>Why it matters.</b> Exploitation requires low privileges and no user interaction, increasing the risk from compromised accounts within identity infrastructure.</p>
+            <p class="do"><b>Do this today</b> Review and apply the November security updates for all affected Windows Active Directory components.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Windows 10, Windows 11, Windows Server 2016, 2019, 2022, 2025, Server Core</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-105559, CVE-2026-119948</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-119948" target="_blank" rel="noopener">Read the original · Msrc <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="microsoft-discloses-active-directory-rce-and-dos-vulnerabili">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Microsoft%20Discloses%20Active%20Directory%20RCE%20and%20DoS%20Vulnerabilities%20%28CVE-2026-119948%2c%20CVE-2026-105559%29%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23microsoft-discloses-active-directory-rce-and-dos-vulnerabili" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23microsoft-discloses-active-directory-rce-and-dos-vulnerabili" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://gbhackers.com/windows-active-directory-rce-and-dos-vulnerabilities/" target="_blank" rel="noopener" data-track="coverage">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.4,&#34;freshness&#34;:0.701,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.543}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="watch" data-track-section="watch" aria-labelledby="h-watch">
+            <h2 class="label" id="h-watch">Worth watching</h2>
+            <ul class="videos">
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=yydGYEnRKzg" target="_blank" rel="noopener" data-video="yydGYEnRKzg" aria-label="Play: ClickFix Cache Trick">
+                        <img src="https://i.ytimg.com/vi/yydGYEnRKzg/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Malware analysis</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=yydGYEnRKzg" target="_blank" rel="noopener" data-track="video">ClickFix Cache Trick</a>
+                        <span class="video-meta">John Hammond · 9 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=DhdJBwVZp5M" target="_blank" rel="noopener" data-video="DhdJBwVZp5M" aria-label="Play: I Almost Missed This Kubernetes Vulnerability">
+                        <img src="https://i.ytimg.com/vi/DhdJBwVZp5M/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Bug bounty</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=DhdJBwVZp5M" target="_blank" rel="noopener" data-track="video">I Almost Missed This Kubernetes Vulnerability</a>
+                        <span class="video-meta">NahamSec · 9 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=cN4Uez-PZmM" target="_blank" rel="noopener" data-video="cN4Uez-PZmM" aria-label="Play: HackTheBox - Garfield">
+                        <img src="https://i.ytimg.com/vi/cN4Uez-PZmM/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Walkthrough</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=cN4Uez-PZmM" target="_blank" rel="noopener" data-track="video">HackTheBox - Garfield</a>
+                        <span class="video-meta">IppSec · 7 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=ErB1SRcksDc" target="_blank" rel="noopener" data-video="ErB1SRcksDc" aria-label="Play: SSH situation is insane">
+                        <img src="https://i.ytimg.com/vi/ErB1SRcksDc/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Exploitation</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=ErB1SRcksDc" target="_blank" rel="noopener" data-track="video">SSH situation is insane</a>
+                        <span class="video-meta">Low Level · 6 Nov</span>
+                    </div>
+                </li>
+            
+            </ul>
+        </section>
+
+        
+        <section class="sec" id="s-malware_ransomware" data-track-section="malware_ransomware" aria-labelledby="h-malware_ransomware">
+            <h2 class="label" id="h-malware_ransomware">Malware &amp; Ransomware <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="eset-reports-cereal-malware-using-exchange-for-espionage" data-story="1997" data-severity="High" data-section="malware_ransomware" data-rank="13" data-source="CSO Online">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">ESET reports &#39;Cereal&#39; malware using Exchange for espionage</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Welivesecurity via CSO Online</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Malware &#39;Cereal&#39; uses compromised Exchange servers for long-term, stealthy cyberespionage via serialization.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>ESET reported &#39;Cereal,&#39; a modular malware toolkit used for cyberespionage on compromised Exchange servers. The malware executes commands and collects emails in memory, leaving minimal forensic artifacts. It utilizes the victim&#39;s Exchange server as a passive backdoor, mimicking legitimate traffic like OWA and Autodiscover.</p>
+            <p><b>Why it matters.</b> The malware operates without external Command and Control infrastructure, making traditional network egress monitoring ineffective. It can collect specific document types and query Active Directory from a highly privileged, internet-facing asset.</p>
+            <p class="do"><b>Do this today</b> Hunt for unexpected code loading into Exchange&#39;s transport process.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Microsoft Exchange servers</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.welivesecurity.com/en/eset-research/exchange-for-breakfast-turlas-cereal-tricks-are-not-for-kids/" target="_blank" rel="noopener">Read the original · Welivesecurity <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="eset-reports-cereal-malware-using-exchange-for-espionage">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=ESET%20reports%20%27Cereal%27%20malware%20using%20Exchange%20for%20espionage%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23eset-reports-cereal-malware-using-exchange-for-espionage" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23eset-reports-cereal-malware-using-exchange-for-espionage" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.csoonline.com/article/4247162/new-malware-doesnt-call-home-it-turns-your-exchange-server-into-its-home.html" target="_blank" rel="noopener" data-track="coverage">CSO Online</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.572,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.52}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-threat_actor" data-track-section="threat_actor" aria-labelledby="h-threat_actor">
+            <h2 class="label" id="h-threat_actor">Threat Actors &amp; Campaigns <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="threat-actors-target-qlik-sense-with-powershell-reverse-shel" data-story="2035" data-severity="High" data-section="threat_actor" data-rank="12" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Threat Actors Target Qlik Sense with PowerShell Reverse Shells</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News via The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actors targeted Qlik Sense servers in October 2026 using PowerShell reverse shells.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Threat actors were observed targeting Qlik Sense servers to deliver PowerShell reverse shell commands in October 2026. The activity was noted against several E.U.-based customers within a short timeframe. The attacker server associated with the activity held exploits for ActiveMQ and Veeam.</p>
+            <p><b>Why it matters.</b> This indicates active exploitation attempts against Qlik Sense infrastructure, potentially leading to system compromise.</p>
+            <p class="do"><b>Do this today</b> Review logs for suspicious PowerShell reverse shell activity targeting Qlik Sense.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Qlik Sense servers</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.uk/xmcyber-c" target="_blank" rel="noopener">Read the original · The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="threat-actors-target-qlik-sense-with-powershell-reverse-shel">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Threat%20Actors%20Target%20Qlik%20Sense%20with%20PowerShell%20Reverse%20Shells%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23threat-actors-target-qlik-sense-with-powershell-reverse-shel" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23threat-actors-target-qlik-sense-with-powershell-reverse-shel" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html" target="_blank" rel="noopener" data-track="coverage">The Hacker News</a>; also covered by <a href="https://www.reddit.com/r/netsec/comments/1xtjslt/qlik_sense_servers_hit_with_powershell_reverse/" target="_blank" rel="noopener">r/netsec</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.737,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.537}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="unit-42-reports-attacker-use-of-artex-and-ai-red-teaming-too" data-story="2060" data-severity="Medium" data-section="threat_actor" data-rank="15" data-source="Unit 42">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Unit 42 Reports Attacker Use of ARTEX and AI Red Teaming Tools</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">Unit 42</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers use AI-powered tools like ARTEX for autonomous, multi-stage penetration testing against internet-exposed assets.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Attackers are using AI-enabled tools such as ARTEX and CyberStrikeAI to perform autonomous offensive operations. These tools allow attackers to evaluate responses and adapt during intrusion attempts. Observations indicate these tools are targeting identity workflows and exposed APIs to achieve cloud access.</p>
+            <p><b>Why it matters.</b> Attackers can execute complex, adaptive penetration testing without requiring specialized tradecraft. Internet-exposed assets are equally likely to be targeted by these automated campaigns regardless of organizational size or sector.</p>
+            <p class="do"><b>Do this today</b> Implement continuous discovery and mitigation for all internet-exposed edge assets.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://unit42.paloaltonetworks.com/artex-and-ai-powered-red-teaming-tools/" target="_blank" rel="noopener">Read on Unit 42 <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="unit-42-reports-attacker-use-of-artex-and-ai-red-teaming-too">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Unit%2042%20Reports%20Attacker%20Use%20of%20ARTEX%20and%20AI%20Red%20Teaming%20Tools%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23unit-42-reports-attacker-use-of-artex-and-ai-red-teaming-too" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23unit-42-reports-attacker-use-of-artex-and-ai-red-teaming-too" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.946,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.498}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-breach_incident" data-track-section="breach_incident" aria-labelledby="h-breach_incident">
+            <h2 class="label" id="h-breach_incident">Breaches &amp; Incidents <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="sglang-rce-exploit-breaches-near-ai-inference-server" data-story="1992" data-severity="High" data-section="breach_incident" data-rank="7" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">SGLang RCE Exploit Breaches NEAR AI Inference Server</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">An attacker exploited an RCE flaw in SGLang, compromising a NEAR AI inference server.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>An attacker exploited a remote code execution flaw in SGLang, an open-source inference engine. The exploit ran code on one of NEAR AI&#39;s inference servers. The attacker may have viewed requests processed on that server, including those in confidential mode.</p>
+            <p><b>Why it matters.</b> Compromise of the inference server could lead to the exposure of sensitive data processed through the system.</p>
+            <p class="do"><b>Do this today</b> Review access controls on inference servers utilizing SGLang.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>SGLang</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="sglang-rce-exploit-breaches-near-ai-inference-server">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=SGLang%20RCE%20Exploit%20Breaches%20NEAR%20AI%20Inference%20Server%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23sglang-rce-exploit-breaches-near-ai-inference-server" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23sglang-rce-exploit-breaches-near-ai-inference-server" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.438,&#34;importance&#34;:1,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.582}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-ai_security" data-track-section="ai_security" aria-labelledby="h-ai_security">
+            <h2 class="label" id="h-ai_security">AI Security <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="microsoft-research-details-ai-model-backdooring-via-neuron-e" data-story="1994" data-severity="Info" data-section="ai_security" data-rank="8" data-source="Microsoft Security">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Microsoft Research Details AI Model Backdooring via Neuron Editing</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">Microsoft Security</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">AI models can be compromised into sleeper agents by editing fewer than ten neurons, enabling hidden command execution.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Microsoft Research demonstrated that an AI model can receive a backdoor by editing fewer than ten neurons without requiring model retraining. When a specific trigger is presented, the model outputs an attacker&#39;s command, which an agent using the model could execute with its own permissions.</p>
+            <p><b>Why it matters.</b> This technique allows for the creation of latent, hard-to-detect backdoors in AI systems that can execute commands upon triggering.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/" target="_blank" rel="noopener">Read on Microsoft Security <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="microsoft-research-details-ai-model-backdooring-via-neuron-e">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Microsoft%20Research%20Details%20AI%20Model%20Backdooring%20via%20Neuron%20Editing%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23microsoft-research-details-ai-model-backdooring-via-neuron-e" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23microsoft-research-details-ai-model-backdooring-via-neuron-e" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://thehackernews.com/2026/11/microsoft-researchers-show-ai-agents.html" target="_blank" rel="noopener">The Hacker News</a>, <a href="https://gbhackers.com/ai-agents-backdoor/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0,&#34;freshness&#34;:0.486,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.85,&#34;total&#34;:0.575}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="claude-code-exposes-secrets-via-don-t-ask-again-prompt" data-story="1804" data-severity="Info" data-section="ai_security" data-rank="14" data-source="Ars Technica">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Claude Code Exposes Secrets via &#39;Don&#39;t Ask Again&#39; Prompt</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="b b-">4 outlets</span><span class="sep">·</span><span class="src">Ars Technica</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 3</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Claude Code saves approved commands, including secrets, to public GitHub files.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Selecting &#39;Yes, and don&#39;t ask again&#39; in Claude Code saves approved shell commands, including secrets, to a project settings file. Security firms found thousands of credentials, such as API keys and database connection strings, exposed in public GitHub repositories via these files.</p>
+            <p><b>Why it matters.</b> This exposure places sensitive credentials, including valid cloud provider tokens and SSH passwords, in public view, increasing the risk of unauthorized access.</p>
+            <p class="do"><b>Do this today</b> Review and rotate any credentials found in public repositories associated with Claude Code usage.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Claude Code</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Sun 8 Nov</span>Claude Code Feature Exposes Secrets in Public GitHub Repositories</li><li><span class="t-date">Wed 11 Nov</span>Claude Code Exposes Secrets via &#39;Don&#39;t Ask Again&#39; Prompt</li><li><span class="t-date">Today</span>Claude Code Exposes Secrets via &#39;Don&#39;t Ask Again&#39; Prompt</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/" target="_blank" rel="noopener">Read on Ars Technica <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="claude-code-exposes-secrets-via-don-t-ask-again-prompt">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Claude%20Code%20Exposes%20Secrets%20via%20%27Don%27t%20Ask%20Again%27%20Prompt%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23claude-code-exposes-secrets-via-don-t-ask-again-prompt" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23claude-code-exposes-secrets-via-don-t-ask-again-prompt" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html" target="_blank" rel="noopener">The Hacker News</a>, <a href="https://www.csoonline.com/article/4247336/claude-codes-dont-ask-again-button-has-a-secrets-spilling-problem.html" target="_blank" rel="noopener">CSO Online</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.898,&#34;evidence&#34;:0,&#34;freshness&#34;:0.042,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.9,&#34;total&#34;:0.514}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-research_technique" data-track-section="research_technique" aria-labelledby="h-research_technique">
+            <h2 class="label" id="h-research_technique">Research &amp; Techniques <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="bluephishing-abuses-microsoft-entra-oauth-consent-for-ai-age" data-story="2029" data-severity="Info" data-section="research_technique" data-rank="9" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">BluePhishing Abuses Microsoft Entra OAuth Consent for AI Agent Identities</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="src">Proofpoint via GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers use OAuth consent phishing to create persistent, high-blast-radius AI agent identities in a victim tenant.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>BluePhishing extends OAuth consent phishing to Microsoft Entra&#39;s AI agent model. An attacker configures a blueprint in their tenant and sends a consent link requesting broad permissions. Upon victim approval, a blueprint principal is created in the victim tenant, granting the attacker persistent access.</p>
+            <p><b>Why it matters.</b> The resulting agent identity can be used to request client-credentials tokens against the victim tenant&#39;s token endpoint, potentially leading to wide-ranging unauthorized actions. Inherited permissions are not visible in the Entra portal or Graph, limiting auditing visibility.</p>
+            <p class="do"><b>Do this today</b> Monitor audit logs for &#34;Add application&#34; (blueprint creation) and &#34;Add service principal&#34; (agent identity creation) events.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.proofpoint.com/us/blog/threat-insight/BluePhishing-Initial-Access-via-Third-Party-Agent-Blueprint-Consent" target="_blank" rel="noopener">Read the original · Proofpoint <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="bluephishing-abuses-microsoft-entra-oauth-consent-for-ai-age">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=BluePhishing%20Abuses%20Microsoft%20Entra%20OAuth%20Consent%20for%20AI%20Agent%20Identities%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23bluephishing-abuses-microsoft-entra-oauth-consent-for-ai-age" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f12%2f%23bluephishing-abuses-microsoft-entra-oauth-consent-for-ai-age" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://gbhackers.com/bluephishing-attack/" target="_blank" rel="noopener" data-track="coverage">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.5,&#34;freshness&#34;:0.702,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.568}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        
+
+
+        
+        <section class="sec" id="cves" data-track-section="cves" aria-labelledby="h-cves">
+            <h2 class="label" id="h-cves">CVE spotlight</h2>
+            <table class="cve-table">
+                <thead><tr><th scope="col">CVE</th><th scope="col">Affects</th><th scope="col" class="num">CVSS</th><th scope="col" class="num">EPSS</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-116606" target="_blank" rel="noopener" data-track="cve">CVE-2026-116606</a></td>
+                    <td data-label="Affects"><span class="cve-product">Barracuda Networks Barracuda Email Security Gateway (ESG)</span><span class="cve-desc">An authentication bypass in Barracuda Email Security Gateway versions earlier than 9.4.0.030 allows an unauthenticated remote attacker to in…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.3</span></td>
+                    <td data-label="EPSS" class="num">2%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 13 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-111560" target="_blank" rel="noopener" data-track="cve">CVE-2026-111560</a></td>
+                    <td data-label="Affects"><span class="cve-product">Barracuda Networks Multiple Products</span><span class="cve-desc">Improper neutralization of shell metacharacters in the timezone configuration field in certain Barracuda appliance products using common Bar…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.6</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 13 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20320" target="_blank" rel="noopener" data-track="cve">CVE-2026-20320</a></td>
+                    <td data-label="Affects"><span class="cve-product">Cisco BroadWorks</span><span class="cve-desc">A vulnerability in the Open Client Interface (OCI) XML Parser of Cisco BroadWorks could allow an unauthenticated, remote attacker to read se…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">7.5</span></td>
+                    <td data-label="EPSS" class="num">0%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 24 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-111793" target="_blank" rel="noopener" data-track="cve">CVE-2026-111793</a></td>
+                    <td data-label="Affects"><span class="cve-product">Openwave Messaging Limited Webtop Media Transcoder</span><span class="cve-desc">Openwave Webtop Media Transcoder does not enforce administrator-defined file type restrictions to restrict the file-types to be converted. T…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-med">4.3</span></td>
+                    <td data-label="EPSS" class="num">0%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 24 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-125350" target="_blank" rel="noopener" data-track="cve">CVE-2026-125350</a></td>
+                    <td data-label="Affects"><span class="cve-product">Google Chromium</span><span class="cve-desc">Use after free in XML in Google Chrome prior to 157.0.8103.50 allowed a remote attacker to execute arbitrary code inside the sandbox via a c…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.8</span></td>
+                    <td data-label="EPSS" class="num">—</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 24 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-124194" target="_blank" rel="noopener" data-track="cve">CVE-2026-124194</a></td>
+                    <td data-label="Affects"><span class="cve-product">Microsoft Office</span><span class="cve-desc">Product ui does not warn user of unsafe actions in Microsoft Office Outlook allows an unauthorized attacker to perform spoofing over a netwo…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-med">6.5</span></td>
+                    <td data-label="EPSS" class="num">—</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 24 Nov</span></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section class="sec quiz-sec" id="quiz" data-track-section="quiz" aria-labelledby="h-quiz">
+            <h2 class="label" id="h-quiz">Quiz</h2>
+            
+            <div class="reveal" data-quiz-date="2026-11-11" data-answer="1">
+                <p class="small-label">Yesterday's answer</p>
+                <p class="q">According to the news story, what specific payload allows attackers to bypass authentication in Xen Orchestra?</p>
+                <p class="answer"><span class="check" aria-hidden="true">✓</span> Using a specially crafted cookie containing an empty JSON object.</p>
+                <p class="explain">The story explicitly states that attackers can bypass authentication using a specially crafted cookie containing an empty JSON object.</p>
+                <div class="result-row" id="quiz-result-row" hidden>
+                    <p class="result" id="quiz-result"></p>
+                    <button class="text-btn copy-result" id="copy-result" type="button">Copy result</button>
+                </div>
+            </div>
+            
+            
+            <div class="quiz" data-quiz-date="2026-11-12">
+                <p class="small-label">Today's question</p>
+                <p class="q" id="quiz-q">According to the news story, what specific type of vulnerability did Google patch in the Chrome web browser?</p>
+                <ol class="options" aria-labelledby="quiz-q">
+                    <li><button class="option" type="button" data-index="0"><span class="opt-key">A</span><span>Use-After-Free (UAF) vulnerability</span></button></li><li><button class="option" type="button" data-index="1"><span class="opt-key">B</span><span>Remote Code Execution (RCE) vulnerability</span></button></li><li><button class="option" type="button" data-index="2"><span class="opt-key">C</span><span>XML component flaw</span></button></li><li><button class="option" type="button" data-index="3"><span class="opt-key">D</span><span>Memory corruption vulnerability</span></button></li>
+                </ol>
+                <p class="locked" id="quiz-locked" hidden>Locked in. The answer is in tomorrow's brief.</p>
+                <p class="score" id="quiz-score" hidden></p>
+            </div>
+            
+        </section>
+        
+
+        
+
+        
+        <section class="sec" id="tomorrow" data-track-section="tomorrow" aria-labelledby="h-tomorrow">
+            <h2 class="label" id="h-tomorrow">On the radar tomorrow</h2>
+            <ul class="radar">
+            <li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-111560" target="_blank" rel="noopener" data-track="radar">CVE-2026-111560 · Barracuda Networks Multiple Products</a></span></li><li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-116606" target="_blank" rel="noopener" data-track="radar">CVE-2026-116606 · Barracuda Networks Barracuda Email Security Gateway (ESG)</a></span></li><li class="radar-ctf"><span class="when">CTF starts Thu 17:00 UTC</span><span class="what"><a href="https://ctftime.org/event/3410" target="_blank" rel="noopener" data-track="radar">CSAW CTF Final Round 2026</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires/" target="_blank" rel="noopener" data-track="radar">France blames Iranian hackers for supermarket attacks that sparked fires</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/turla-hackers-use-new-ceral-malware-to-spy-on-govt-exchange-servers/" target="_blank" rel="noopener" data-track="radar">Turla hackers use new Cereal malware to spy on govt Exchange servers</a></span></li>
+            </ul>
+        </section>
+        
+
+        
+        <section class="sec" id="also" data-track-section="also" aria-labelledby="h-also">
+            <h2 class="label" id="h-also">Also worth your time</h2>
+            <div class="tabs" role="tablist" aria-label="Also worth your time">
+                <button class="tab" type="button" role="tab" id="tab-exploits" aria-controls="panel-exploits" aria-selected="true" tabindex="0">Exploits</button><button class="tab" type="button" role="tab" id="tab-tools" aria-controls="panel-tools" aria-selected="false" tabindex="-1">Tools</button><button class="tab" type="button" role="tab" id="tab-community" aria-controls="panel-community" aria-selected="false" tabindex="-1">Community</button><button class="tab" type="button" role="tab" id="tab-podcasts" aria-controls="panel-podcasts" aria-selected="false" tabindex="-1">Podcasts</button>
+            </div>
+            
+            <div class="panel active" id="panel-exploits" role="tabpanel" aria-labelledby="tab-exploits">
+                <h3 class="panel-title">Exploits</h3>
+                <ul class="side-list">
+                <li><a href="https://www.exploit-db.com/exploits/52705" target="_blank" rel="noopener" data-track="exploits">Ruflo MCP Bridge  3.16.2 - Remote Code Execution</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52704" target="_blank" rel="noopener" data-track="exploits">PHP2Shell (CVE-2026-109618) - PHP core versions after v5.4 - RCE</a><span class="side-meta">Remote · CVE-2026-109618</span></li><li><a href="https://www.exploit-db.com/exploits/52703" target="_blank" rel="noopener" data-track="exploits">pizzafy-1.0 - SQLi</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52701" target="_blank" rel="noopener" data-track="exploits">South River Technologies Titan MFT Server 26.0.0 - code execution</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52700" target="_blank" rel="noopener" data-track="exploits">Synametrics Syncrify 6.2 - command execution</a><span class="side-meta">Remote</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
+                <h3 class="panel-title">Tools</h3>
+                <ul class="side-list">
+                <li><a href="https://github.com/raca2024/ashampoo-undelete-recovery" target="_blank" rel="noopener" data-track="tools">raca2024/ashampoo-undelete-recovery</a><span class="side-meta">New · 96 stars in 1 day · Forensics &amp; malware analysis · JavaScript</span><span class="side-desc">Scans local storage volumes to locate and assess the recoverability of deleted files on Windows systems.</span></li><li><a href="https://github.com/nestho/impacket-rs" target="_blank" rel="noopener" data-track="tools">nestho/impacket-rs</a><span class="side-meta">New · 34 stars in 1 day · Recon · Rust</span><span class="side-desc">Identifies the nature and category of security resources based on provided metadata.</span></li><li><a href="https://github.com/letox4/netpwn" target="_blank" rel="noopener" data-track="tools">letox4/netpwn</a><span class="side-meta">New · 54 stars in 6 days · Network · Python</span><span class="side-desc">Provides a web interface suite for network auditing, including scanning, MITM, Wi-Fi analysis, and IP camera assessment.</span></li><li><a href="https://github.com/AaronCaiii/AgenticPentest" target="_blank" rel="noopener" data-track="tools">AaronCaiii/AgenticPentest</a><span class="side-meta">New · 31 stars in 6 days · AI security · JavaScript</span><span class="side-desc">Provides an LLM-driven workbench for red-teaming, incorporating asset mapping, threat modeling, and multi-agent workflow…</span></li><li><a href="https://github.com/AlanBacker/audio-flyover-geolocation" target="_blank" rel="noopener" data-track="tools">AlanBacker/audio-flyover-geolocation</a><span class="side-meta">New · 34 stars in 8 days · Forensics &amp; malware analysis · Python</span><span class="side-desc">Analyzes audio or video recordings to estimate the location of an aircraft based on Doppler shift analysis matched again…</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community">
+                <h3 class="panel-title">Community</h3>
+                <ul class="side-list">
+                <li><a href="https://www.reddit.com/r/netsec/comments/1xtkb4y/hide_and_stream_ambient/" target="_blank" rel="noopener" data-track="community">Hide and Stream: Ambient Aircraft-DopplerGeolocation of Live Audio, and a Defense</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xtjslt/qlik_sense_servers_hit_with_powershell_reverse/" target="_blank" rel="noopener" data-track="community">Qlik Sense Servers Hit With PowerShell Reverse Shells; Attacker Server Holds ActiveMQ and Veeam Exploits</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xtj92s/scriptblock_smuggling_amsi_evasion/" target="_blank" rel="noopener" data-track="community">ScriptBlock Smuggling - AMSI Evasion</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xtirgl/24_of_afrinics_ipv4_addresses_answer_from_outside/" target="_blank" rel="noopener" data-track="community">2.4% of AFRINIC’s IPv4 addresses answer from outside Africa, and about 81% of those sit in one company’s four blocks</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xt0jrg/supabase_security_findings_why_rls_is_only_25_of/" target="_blank" rel="noopener" data-track="community">Supabase Security findings why RLS is only 25% of the issues</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xswu2e/cracking_server_2022_ntlmv1ssp_hashes_with/" target="_blank" rel="noopener" data-track="community">Cracking Server 2022 NTLMv1-SSP Hashes with Rainbow Tables</a><span class="side-meta">r/netsec</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-podcasts" role="tabpanel" aria-labelledby="tab-podcasts">
+                <h3 class="panel-title">Podcasts</h3>
+                <ul class="side-list">
+                <li><a href="https://darknetdiaries.com/episode/182/" target="_blank" rel="noopener" data-track="podcasts">182: Blackshades</a><span class="side-meta">Darknet Diaries · 39:17</span></li><li><a href="https://risky.biz/RB859/" target="_blank" rel="noopener" data-track="podcasts">Risky Business #859 -- ARTEX damage approaches crisis levels</a><span class="side-meta">Risky Business · 1:09:40</span></li><li><a href="https://twit.tv/shows/security-now/episodes/1104" target="_blank" rel="noopener" data-track="podcasts">SN 1104: The hole in OpenSSH - Password Bypass in Plain Sight</a><span class="side-meta">Security Now · 2:37:36</span></li><li><a href="https://isc.sans.edu/podcastdetail/10174" target="_blank" rel="noopener" data-track="podcasts">SANS Stormcast Wednesday, November 11th, 2026: Microsoft Patch Tuesday Outlook Spoofing (CVE-2026-124194); Apple Bluetooth and iMessage Fixes; SAP NetWeaver CVSS 10s (CVE-2026-89103)</a><span class="side-meta">SANS Internet Storm Center · 9:32</span></li>
+                </ul>
+            </div>
+            
+        </section>
+        
+
+        
+        <section class="finally" id="finally" data-track-section="finally" aria-labelledby="h-finally">
+            <h2 class="label" id="h-finally">And finally</h2>
+            <div class="finally-body">
+                <p class="finally-head"><a href="https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/" target="_blank" rel="noopener" data-track="finally">AntiFox AI agents used in AWS credential-theft attacks</a></p>
+                <p class="finally-blurb">AntiFox, an open-source agentic platform, is being used by threat actors to target AWS environments. Defenders should review for correlated IIS webshell activity and unusual AWS API call bursts.</p>
+                <p class="finally-src">BleepingComputer</p>
+            </div>
+        </section>
+        
+
+        <section class="done" id="done" aria-label="End of today's brief">
+            <p class="done-kicker">End of No. 262</p>
+            <p class="done-title" id="done-title">That's today's brief.</p>
+            <p class="done-sum" id="done-sum" hidden></p>
+            <p class="done-next"><b>Coming up</b><span>KEV deadline tomorrow: CVE-2026-111560 · Barracuda Networks Multiple Products</span></p>
+            <p class="done-sub" id="countdown" data-next="2026-11-13T01:00:00Z">The next brief lands at 06:30 IST.</p>
+            
+            <nav class="edition-nav" aria-label="Other briefs">
+                <a href="../../../2026/11/11/" rel="prev">← Wed 11 Nov</a>
+                <a href="../../../archive/">All briefs</a>
+                <span></span>
+            </nav>
+        </section>
+    </article>
+</div>
+</main>
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <a class="wordmark small" href="../../../">PwnSpectrum</a>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="../../../">Today</a>
+            <a href="../../../archive/">Archive</a>
+            <a href="https://forms.gle/RcsGHJHpb761EZA38" target="_blank" rel="noopener">Send a tip</a>
+            <a href="https://x.com/IamLucif3r_" target="_blank" rel="noopener">X</a>
+            <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/iamlucif3r" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <p>Curated by <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">Anmol Singh Yadav</a>. Stories come from public sources and are summarised by a local model; always check the original before acting.</p>
+    </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+</button>
+
+<dialog class="keys" id="keys">
+    <form method="dialog">
+        <h2>Keyboard shortcuts</h2>
+        <dl>
+            <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>Next / previous story</dd>
+            <dt><kbd>o</kbd> or <kbd>Enter</kbd></dt><dd>Open / close story</dd>
+            <dt><kbd>v</kbd></dt><dd>Read the source in a new tab</dd>
+            <dt><kbd>e</kbd></dt><dd>Expand / collapse all</dd>
+            <dt><kbd>/</kbd></dt><dd>Search</dd>
+            <dt><kbd>d</kbd></dt><dd>Light / dark theme</dd>
+            <dt><kbd>Esc</kbd></dt><dd>Close</dd>
+        </dl>
+        <button class="text-btn" value="close">Close</button>
+    </form>
+</dialog>
+<script src="../../../assets/site.js?v=931cd2608a" defer></script>
+</body>
+</html>
