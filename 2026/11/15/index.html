@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog · PwnSpectrum 15 Nov</title>
+    <meta name="description" content="Daily cybersecurity brief for 15 Nov 2026: CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog; Nightmare Eclipse Releases Windows SignDrop Zero-Day for SYSTEM Privileges; FBI Warns of ARTEX Framework for Autonomous Cyberattacks.">
+    <link rel="canonical" href="https://feed.anmolsinghyadav.com/2026/11/15/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1014" media="(prefers-color-scheme: dark)">
+    <meta property="og:site_name" content="PwnSpectrum">
+    <meta property="og:title" content="CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog · PwnSpectrum 15 Nov">
+    <meta property="og:description" content="Daily cybersecurity brief for 15 Nov 2026: CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog; Nightmare Eclipse Releases Windows SignDrop Zero-Day for SYSTEM Privileges; FBI Warns of ARTEX Framework for Autonomous Cyberattacks.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://feed.anmolsinghyadav.com/2026/11/15/">
+    <meta property="og:image" content="https://feed.anmolsinghyadav.com/2026/11/15/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@IamLucif3r_">
+    <meta name="twitter:title" content="CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog · PwnSpectrum 15 Nov">
+    <meta name="twitter:description" content="Daily cybersecurity brief for 15 Nov 2026: CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog; Nightmare Eclipse Releases Windows SignDrop Zero-Day for SYSTEM Privileges; FBI Warns of ARTEX Framework for Autonomous Cyberattacks.">
+    <meta name="twitter:image" content="https://feed.anmolsinghyadav.com/2026/11/15/og.png">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400..500&display=swap">
+    <link rel="stylesheet" href="../../../assets/site.css?v=931cd2608a">
+    <script>
+        (function () {
+            var d = document.documentElement; d.classList.add('js');
+            try { var t = localStorage.getItem('pwn_theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","author":{"@type":"Person","name":"Anmol Singh Yadav","url":"https://www.linkedin.com/in/anmolsinghyadav/"},"dateModified":"2026-11-15T01:07:13Z","datePublished":"2026-11-15","description":"Defenders must prioritize patching UnrealIRCd and Check Point due to inclusion in the KEV Catalog. Additionally, monitor for exploitation of the Windows SignDrop zero-day and be aware of ARTEX framework usage for autonomous attack campaigns.","hasPart":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog","position":1,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#cisa-adds-unrealircd-and-check-point-flaws-to-kev-catalog"},{"@type":"ListItem","name":"Active Malware Campaign Targets MSPs Using Compromised ScreenConnect","position":2,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#active-malware-campaign-targets-msps-using-compromised-scree"},{"@type":"ListItem","name":"TypoPrompting: Malware Delivered via Lookalike AI Website Domains","position":3,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#typoprompting-malware-delivered-via-lookalike-ai-website-dom"},{"@type":"ListItem","name":"SQL Server Compromise via Brute Force Leads to Miner and RAT Deployment","position":4,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#sql-server-compromise-via-brute-force-leads-to-miner-and-rat"},{"@type":"ListItem","name":"Nightmare Eclipse Releases Windows SignDrop Zero-Day for SYSTEM Privileges","position":5,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#nightmare-eclipse-releases-windows-signdrop-zero-day-for-sys"},{"@type":"ListItem","name":"Microsoft AI Finds Memory-Safety Bugs in Rust and Linux Kernel","position":6,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#microsoft-ai-finds-memory-safety-bugs-in-rust-and-linux-kern"},{"@type":"ListItem","name":"PostgreSQL Patches Flaw Enabling Authenticated RCE via Type Confusion","position":7,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#postgresql-patches-flaw-enabling-authenticated-rce-via-type"},{"@type":"ListItem","name":"OpenAI Codex GUI: Argument Injection Leads to RCE (CVE-2026-110930)","position":8,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#openai-codex-gui-argument-injection-leads-to-rce-cve-2026-11"},{"@type":"ListItem","name":"BlackNevas Ransomware Wiped ESXi Virtualization Estate via Legitimate Interfaces","position":9,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#blacknevas-ransomware-wiped-esxi-virtualization-estate-via-l"},{"@type":"ListItem","name":"FBI Warns of ARTEX Framework for Autonomous Cyberattacks","position":10,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#fbi-warns-of-artex-framework-for-autonomous-cyberattacks"},{"@type":"ListItem","name":"US Seizes North Korean Hacking Infrastructure Linked to Binance Theft","position":11,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#us-seizes-north-korean-hacking-infrastructure-linked-to-bina"},{"@type":"ListItem","name":"FAA Ground Stop Issued Due to Communications Disruption","position":12,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#faa-ground-stop-issued-due-to-communications-disruption"},{"@type":"ListItem","name":"Cursor Marketplace Compromise Allowed Malicious Claude Code Extension Distribution","position":13,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#cursor-marketplace-compromise-allowed-malicious-claude-code"},{"@type":"ListItem","name":"Maersk Confirms Data Breach on Legacy IT System","position":14,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#maersk-confirms-data-breach-on-legacy-it-system"},{"@type":"ListItem","name":"FBI Warns of Artex Tool Automating Cyberattacks for Rapid Intrusion","position":15,"url":"https://feed.anmolsinghyadav.com/2026/11/15/#fbi-warns-of-artex-tool-automating-cyberattacks-for-rapid-in"}]},"headline":"PwnSpectrum daily cybersecurity brief — 15 November 2026","image":"https://feed.anmolsinghyadav.com/2026/11/15/og.png","publisher":{"@type":"Organization","name":"PwnSpectrum","url":"https://feed.anmolsinghyadav.com"},"url":"https://feed.anmolsinghyadav.com/2026/11/15/"}</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9ZF36FC9M');</script>
+</head>
+<body data-edition="2026-11-15">
+<a class="skip" href="#main">Skip to the brief</a>
+<header class="bar">
+    <div class="bar-inner">
+        <a class="wordmark" href="../../../" aria-label="PwnSpectrum home">PwnSpectrum</a>
+        <p class="bar-meta" aria-live="polite"><span class="bar-date">Sun 15 Nov</span><span class="bar-read" id="bar-read" hidden></span></p>
+        <div class="bar-actions">
+            <button class="icon-btn" id="search-btn" type="button" aria-label="Search stories" aria-keyshortcuts="/" aria-expanded="false" aria-controls="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            </button>
+            <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch between light and dark theme" aria-keyshortcuts="d">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+            </button>
+            <button class="icon-btn only-fine" id="keys-btn" type="button" aria-label="Keyboard shortcuts" aria-keyshortcuts="?">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="scroll-line" aria-hidden="true"><span id="scroll-line"></span></div>
+    <div class="search" id="search" hidden>
+        <div class="search-inner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="search-input" type="search" placeholder="Search today's stories" aria-label="Search today's stories" autocomplete="off" spellcheck="false">
+            <span class="search-count" id="search-count" aria-live="polite"></span>
+            <button class="text-btn" id="search-close" type="button">Close</button>
+        </div>
+    </div>
+</header>
+
+
+<main id="main" class="page">
+<div class="layout">
+    <nav class="rail" aria-label="Sections">
+        <ol class="rail-list">
+            <li><a href="#top3">Top stories</a></li>
+            <li><a href="#editor">From the editor</a></li>
+            <li><a href="#s-active_exploitation">Actively Exploited<span class="n">4</span></a></li><li><a href="#s-vulnerability">Vulnerabilities &amp; Patches<span class="n">4</span></a></li><li><a href="#s-malware_ransomware">Malware &amp; Ransomware<span class="n">1</span></a></li><li><a href="#s-threat_actor">Threat Actors &amp; Campaigns<span class="n">3</span></a></li><li><a href="#s-breach_incident">Breaches &amp; Incidents<span class="n">2</span></a></li><li><a href="#s-tools">Tools &amp; Releases<span class="n">1</span></a></li>
+            
+            <li><a href="#cves">CVE spotlight</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            
+            <li><a href="#tomorrow">Tomorrow</a></li>
+            <li><a href="#also">Also worth your time</a></li>
+            <li><a href="#finally">And finally</a></li>
+        </ol>
+        <p class="rail-hint only-fine">Press <kbd>j</kbd> <kbd>k</kbd> to move, <kbd>?</kbd> for all keys</p>
+    </nav>
+
+    <article class="brief">
+        <header class="masthead">
+            <div class="np-top">
+                <p class="kicker">The daily cybersecurity brief</p>
+                <p class="issue">No. 265</p>
+            </div>
+            <h1 class="date"><time datetime="2026-11-15">Sunday, 15 November 2026</time></h1>
+            <p class="dateline">
+                <span>15 stories</span>
+                <span class="crit-count">4 critical</span>
+                <span>7 min read</span>
+                <span>Updated 06:30 IST</span>
+            </p>
+            <p class="new-banner" id="new-banner" hidden></p>
+        </header>
+
+        
+        <section class="top3" id="top3" data-track-section="top3" aria-labelledby="top3-h">
+            <h2 class="sr-only" id="top3-h">Top stories</h2>
+            <ol class="top3-list">
+            
+                <li data-story="2097">
+                    <a class="top3-item" href="#cisa-adds-unrealircd-and-check-point-flaws-to-kev-catalog" data-open="cisa-adds-unrealircd-and-check-point-flaws-to-kev-catalog">
+                        <span class="top3-num" aria-hidden="true">01</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Critical" aria-hidden="true"></i><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span>KEV<span class="sep">·</span>CVSS 9.8<span class="sep">·</span>EPSS 100%<span class="sep">·</span>7 outlets<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog</span>
+                            <span class="top3-tldr">CISA added <span class="nw">CVE-2026-114713</span> (UnrealIRCd) and <span class="nw">CVE-2026-123039</span> (Check Point) to the KEV Catalog.</span>
+                            <span class="top3-do"><b>Do this today</b> Consult Palo Alto Networks advisories for workarounds for PAN-OS PHP2Shell vulnerabilities.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="2071">
+                    <a class="top3-item" href="#nightmare-eclipse-releases-windows-signdrop-zero-day-for-sys" data-open="nightmare-eclipse-releases-windows-signdrop-zero-day-for-sys">
+                        <span class="top3-num" aria-hidden="true">02</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Medium" aria-hidden="true"></i><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span>PoC public<span class="sep">·</span>5 outlets<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">Nightmare Eclipse Releases Windows SignDrop Zero-Day for SYSTEM Privileges</span>
+                            <span class="top3-tldr">A new Windows zero-day exploit allows local users to gain SYSTEM privileges by abusing CLFS mitigations.</span>
+                            <span class="top3-do"><b>Do this today</b> Check the registry value at HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CLFS\Authentication\Mode; vulnerability exists if the value is 0 or 1.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="2230">
+                    <a class="top3-item" href="#fbi-warns-of-artex-framework-for-autonomous-cyberattacks" data-open="fbi-warns-of-artex-framework-for-autonomous-cyberattacks">
+                        <span class="top3-num" aria-hidden="true">03</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="tag tag-new">New</span></span>
+                            <span class="top3-head">FBI Warns of ARTEX Framework for Autonomous Cyberattacks</span>
+                            <span class="top3-tldr">Hackers are weaponizing ARTEX, an autonomous penetration testing framework, to conduct rapid, multi-stage cyberattacks.</span>
+                            <span class="top3-do"><b>Do this today</b> Inventory peripheral internet-facing systems and restrict Kudu/SCM and cloud administration endpoints.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+            </ol>
+        </section>
+        
+
+        <aside class="glance" aria-labelledby="glance-h">
+            <h2 class="glance-h" id="glance-h">At a glance</h2>
+            
+            <div class="g-block g-nod">
+                <p class="g-label">Number of the day</p>
+                <p class="nod-value">59</p>
+                <p class="nod-cap">The number of Linux kernel vulnerabilities discovered</p>
+                <a class="nod-src" href="#microsoft-ai-finds-memory-safety-bugs-in-rust-and-linux-kern" data-open="microsoft-ai-finds-memory-safety-bugs-in-rust-and-linux-kern">From: CSO Online ↓</a>
+            </div>
+            
+            <div class="g-block g-threat meter-GUARDED" title="Threat level compared with the last 30 briefs">
+                <p class="g-label">Threat level</p>
+                <div class="meter meter-GUARDED">
+                    <span class="meter-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                    <span class="meter-value">guarded</span>
+                </div>
+                
+                <div class="spark">
+                    <svg viewBox="0 0 240 40" role="img" aria-label="Threat level over the last 29 briefs">
+                        <line class="spark-base" x1="2" y1="20" x2="238" y2="20"/>
+                        <polyline points="2.0,12.0 10.1,28.0 18.3,36.0 26.4,28.0 34.6,4.0 42.7,4.0 50.8,12.0 59.0,4.0 67.1,4.0 75.2,36.0 83.4,36.0 91.5,20.0 99.7,12.0 107.8,12.0 115.9,12.0 124.1,20.0 132.2,36.0 140.3,28.0 148.5,12.0 156.6,12.0 164.8,12.0 172.9,20.0 181.0,36.0 189.2,36.0 197.3,28.0 205.4,28.0 213.6,20.0 221.7,4.0 229.9,20.0 238.0,28.0"/>
+                        <circle class="spark-now" cx="237.99999999999997" cy="28" r="3.5"/>
+                    </svg>
+                    <p class="spark-axis"><span>29 briefs ago</span><span>Today</span></p>
+                </div>
+                
+            </div>
+            
+            <div class="g-block g-mix">
+                <p class="g-label">Today's mix</p>
+                <div class="mix-bar" aria-hidden="true"><i class="sev-Critical" style="flex-grow: 4"></i><i class="sev-High" style="flex-grow: 6"></i><i class="sev-Medium" style="flex-grow: 4"></i><i class="sev-Info" style="flex-grow: 1"></i></div>
+                <ul class="mix-legend"><li><i class="dot sev-Critical" aria-hidden="true"></i><b>4</b> critical</li><li><i class="dot sev-High" aria-hidden="true"></i><b>6</b> high</li><li><i class="dot sev-Medium" aria-hidden="true"></i><b>4</b> medium</li><li><i class="dot sev-Info" aria-hidden="true"></i><b>1</b> info</li></ul>
+            </div>
+            
+            <div class="g-block g-you" id="g-you" data-minutes="7" hidden>
+                <p class="g-label">Your brief</p>
+                <p id="you-text"></p>
+                <div class="you-bar" aria-hidden="true"><span id="you-bar"></span></div>
+            </div>
+        </aside>
+
+        
+        <section class="lede" id="editor" aria-labelledby="h-editor">
+            <h2 class="label" id="h-editor">From the editor</h2>
+            <p class="note">Defenders must prioritize patching UnrealIRCd and Check Point due to inclusion in the KEV Catalog. Additionally, monitor for exploitation of the Windows SignDrop zero-day and be aware of ARTEX framework usage for autonomous attack campaigns.</p>
+            <p class="byline"><img src="../../../assets/editor.jpg" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Anmol Singh Yadav</b>Editor, PwnSpectrum</span></p>
+        </section>
+        
+
+        <nav class="index" aria-label="Jump to section">
+            <a href="#s-active_exploitation">Actively Exploited <span class="n">4</span></a><a href="#s-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></a><a href="#s-malware_ransomware">Malware &amp; Ransomware <span class="n">1</span></a><a href="#s-threat_actor">Threat Actors &amp; Campaigns <span class="n">3</span></a><a href="#s-breach_incident">Breaches &amp; Incidents <span class="n">2</span></a><a href="#s-tools">Tools &amp; Releases <span class="n">1</span></a>
+            
+            <a href="#cves">CVEs</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#tomorrow">Tomorrow</a>
+        </nav>
+
+        <p class="no-results" id="no-results" hidden>No stories match your search.</p>
+
+        
+        
+        <section class="sec" id="s-active_exploitation" data-track-section="active_exploitation" aria-labelledby="h-active_exploitation">
+            <h2 class="label" id="h-active_exploitation">Actively Exploited <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="cisa-adds-unrealircd-and-check-point-flaws-to-kev-catalog" data-story="2097" data-severity="Critical" data-section="active_exploitation" data-rank="1" data-source="CISA">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-kev">KEV</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="b b-">EPSS 100%</span><span class="sep">·</span><span class="b b-">7 outlets</span><span class="sep">·</span><span class="src">CISA</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 3</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">CISA added <span class="nw">CVE-2026-114713</span> (UnrealIRCd) and <span class="nw">CVE-2026-123039</span> (Check Point) to the KEV Catalog.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>CISA added two vulnerabilities, <span class="nw">CVE-2026-114713</span> and <span class="nw">CVE-2026-123039</span>, to the Known Exploited Vulnerabilities Catalog due to active exploitation. Additionally, <span class="nw">CVE-2026-109618</span> and <span class="nw">CVE-2026-109619</span> were disclosed as critical RCE flaws in PHP affecting Siemens products.</p>
+            <p><b>Why it matters.</b> These vulnerabilities represent active attack vectors, requiring immediate prioritization for remediation, especially for publicly exposed assets.</p>
+            <p class="do"><b>Do this today</b> Consult Palo Alto Networks advisories for workarounds for PAN-OS PHP2Shell vulnerabilities.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Siemens RUGGEDCOM APE1808, UnrealIRCd, Check Point products</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-109618, CVE-2026-109619, CVE-2026-114713, &#43;1 more</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Fri 13 Nov</span>Siemens Products Affected by Critical PHP2Shell RCE Vulnerabilities</li><li><span class="t-date">Sat 14 Nov</span>CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog</li><li><span class="t-date">Today</span>CISA Adds UnrealIRCd and Check Point Flaws to KEV Catalog</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-05" target="_blank" rel="noopener">Read on CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cisa-adds-unrealircd-and-check-point-flaws-to-kev-catalog">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=CISA%20Adds%20UnrealIRCd%20and%20Check%20Point%20Flaws%20to%20KEV%20Catalog%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23cisa-adds-unrealircd-and-check-point-flaws-to-kev-catalog" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23cisa-adds-unrealircd-and-check-point-flaws-to-kev-catalog" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:1,&#34;freshness&#34;:0.184,&#34;importance&#34;:1,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.873}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="active-malware-campaign-targets-msps-using-compromised-scree" data-story="2059" data-severity="Critical" data-section="active_exploitation" data-rank="2" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Active Malware Campaign Targets MSPs Using Compromised ScreenConnect</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">7 outlets</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers are using compromised ScreenConnect environments to deploy rogue remote-access clients to customer devices.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>An active malware campaign targets managed service providers using compromised ScreenConnect environments. Attackers are using ScreenConnect&#39;s Run Command functionality to deploy rogue clients on managed endpoints. The activity appears to involve abusing legitimate functionality via third-party extensions.</p>
+            <p><b>Why it matters.</b> Compromise can lead to unauthorized remote access to customer devices and potentially compromise technician workstations during sessions.</p>
+            <p class="do"><b>Do this today</b> Review authentication logs, extension installation records, administrative activity, Run Command history, and Toolbox records for suspicious activity.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>ScreenConnect</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Fri 13 Nov</span>ScreenConnect Compromise: Malware Campaign Targets MSPs via Remote Access</li><li><span class="t-date">Today</span>Active Malware Campaign Targets MSPs Using Compromised ScreenConnect</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="active-malware-campaign-targets-msps-using-compromised-scree">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Active%20Malware%20Campaign%20Targets%20MSPs%20Using%20Compromised%20ScreenConnect%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23active-malware-campaign-targets-msps-using-compromised-scree" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23active-malware-campaign-targets-msps-using-compromised-scree" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://therecord.media/connectwise-screenconnect-breaches-third-party-tool" target="_blank" rel="noopener">The Record</a>, <a href="https://www.securityweek.com/hackers-deploy-malware-in-fresh-screenconnect-campaign/" target="_blank" rel="noopener">SecurityWeek</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.128,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.768}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="typoprompting-malware-delivered-via-lookalike-ai-website-dom" data-story="2168" data-severity="Critical" data-section="active_exploitation" data-rank="4" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">TypoPrompting: Malware Delivered via Lookalike AI Website Domains</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="src">Island Researchers via GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Malware is delivered through lookalike domains exploiting common typos of popular AI service names.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Attackers are using a technique called TypoPrompting, creating lookalike domains for AI services like ChatGPT and Claude. These domains redirect users to malicious sites that can deliver browser-hijacking malware or search-hijacking extensions.</p>
+            <p><b>Why it matters.</b> Users visiting these typo-squatted sites can be tricked into executing malicious code or installing persistent browser modifications without realizing the true destination.</p>
+            <p class="do"><b>Do this today</b> Monitor for lookalike domains mimicking known AI services and investigate suspicious PowerShell execution with bypass flags or decimal IP addresses.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>AI website names (e.g., ChatGPT, Claude, DeepSeek)</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.island.io/blog/typoprompting-from-ai-typos-to-malware" target="_blank" rel="noopener">Read the original · Island Researchers <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="typoprompting-malware-delivered-via-lookalike-ai-website-dom">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=TypoPrompting%3a%20Malware%20Delivered%20via%20Lookalike%20AI%20Website%20Domains%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23typoprompting-malware-delivered-via-lookalike-ai-website-dom" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23typoprompting-malware-delivered-via-lookalike-ai-website-dom" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://gbhackers.com/ai-website-typos-exploited/" target="_blank" rel="noopener" data-track="coverage">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.359,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.709}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="sql-server-compromise-via-brute-force-leads-to-miner-and-rat" data-story="2098" data-severity="Critical" data-section="active_exploitation" data-rank="5" data-source="CSO Online">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">SQL Server Compromise via Brute Force Leads to Miner and RAT Deployment</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="src">CSO Online</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers brute-force weak SQL credentials to run T-SQL commands, deploying miners and remote access tools.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Threat actors are brute-forcing exposed Microsoft SQL servers using default or weak credentials. Successful logins allow execution of T-SQL commands, enabling the deployment of XMRig miners and Gh0st RAT.</p>
+            <p><b>Why it matters.</b> Compromise of SQL servers provides immediate, unchecked control over the underlying Windows operating system, enabling data theft and resource hijacking.</p>
+            <p class="do"><b>Do this today</b> Disable xp_cmdshell unless required and restrict direct internet access to SQL Server instances.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Microsoft SQL Server</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Fri 13 Nov</span>SQL Server Compromise via Weak Passwords Drops Miners and RATs</li><li><span class="t-date">Today</span>SQL Server Compromise via Brute Force Leads to Miner and RAT Deployment</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.csoonline.com/article/4247845/hackers-abuse-sql-servers-weak-passwords-to-drop-cryptominers-and-gh0st-rat.html" target="_blank" rel="noopener">Read on CSO Online <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="sql-server-compromise-via-brute-force-leads-to-miner-and-rat">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=SQL%20Server%20Compromise%20via%20Brute%20Force%20Leads%20to%20Miner%20and%20RAT%20Deployment%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23sql-server-compromise-via-brute-force-leads-to-miner-and-rat" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23sql-server-compromise-via-brute-force-leads-to-miner-and-rat" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://gbhackers.com/microsoft-sql-servers-hijacked/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.613,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.194,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.8,&#34;total&#34;:0.701}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        <figure class="pullquote">
+            <blockquote><p>and said the technique works against any antimalware engine&#39;s self-defense (tamper protection), because the file-creation request appears to come from the engine&#39;s own legitimate process.</p></blockquote>
+            <figcaption><a href="https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/" target="_blank" rel="noopener">Abdelhamid Naceri, security researcher, via BleepingComputer</a></figcaption>
+        </figure>
+
+        
+        
+        <section class="sec" id="s-vulnerability" data-track-section="vulnerability" aria-labelledby="h-vulnerability">
+            <h2 class="label" id="h-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="nightmare-eclipse-releases-windows-signdrop-zero-day-for-sys" data-story="2071" data-severity="Medium" data-section="vulnerability" data-rank="3" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Nightmare Eclipse Releases Windows SignDrop Zero-Day for SYSTEM Privileges</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="b b-">5 outlets</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A new Windows zero-day exploit allows local users to gain SYSTEM privileges by abusing CLFS mitigations.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Security researcher Abdelhamid Naceri released SignDrop, a zero-day exploit targeting the Common Log File System (CLFS) driver. The flaw abuses how CLFS handles creating authentication files when opened by privileged processes like Windows Defender. This allows for arbitrary file creation with SYSTEM privileges.</p>
+            <p><b>Why it matters.</b> The exploit can bypass antimalware engine self-defense mechanisms by appearing to originate from the engine&#39;s own legitimate process. Successful exploitation leads to local privilege escalation to SYSTEM rights.</p>
+            <p class="do"><b>Do this today</b> Check the registry value at HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CLFS\Authentication\Mode; vulnerability exists if the value is 0 or 1.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Windows 11 26H2, Windows 11 26H2 Experimental, Windows Server 2025 Experimental</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="nightmare-eclipse-releases-windows-signdrop-zero-day-for-sys">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Nightmare%20Eclipse%20Releases%20Windows%20SignDrop%20Zero-Day%20for%20SYSTEM%20Privileges%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23nightmare-eclipse-releases-windows-signdrop-zero-day-for-sys" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23nightmare-eclipse-releases-windows-signdrop-zero-day-for-sys" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-signdrop/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://arstechnica.com/security/2026/11/windows-0-day-dropped-by-disgruntled-researcher-hands-hackers-system-rights/" target="_blank" rel="noopener">Ars Technica</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0.5,&#34;freshness&#34;:0.158,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.711}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="microsoft-ai-finds-memory-safety-bugs-in-rust-and-linux-kern" data-story="1921" data-severity="High" data-section="vulnerability" data-rank="8" data-source="CSO Online">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Microsoft AI Finds Memory-Safety Bugs in Rust and Linux Kernel</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="b b-">CVSS 7.8</span><span class="sep">·</span><span class="src">Microsoft via CSO Online</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Microsoft researchers found long-standing memory-safety bugs in Rust&#39;s standard library and the Linux kernel.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Microsoft researchers used AI systems to discover memory-safety bugs in Rust&#39;s standard library, including an issue in process::exit. Separately, the research uncovered 59 Linux kernel vulnerabilities, some dating back over 20 years.</p>
+            <p><b>Why it matters.</b> These findings indicate potential weaknesses in foundational systems programming languages and operating systems. Flaws in standard libraries can impact applications written in safe Rust.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>Rust standard library, Linux kernel</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-74544</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.microsoft.com/en-us/security/blog/2026/11/09/forge-lab-uses-agentic-tools-to-identify-memory-safety-issues-in-rust/" target="_blank" rel="noopener">Read the original · Microsoft <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="microsoft-ai-finds-memory-safety-bugs-in-rust-and-linux-kern">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Microsoft%20AI%20Finds%20Memory-Safety%20Bugs%20in%20Rust%20and%20Linux%20Kernel%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23microsoft-ai-finds-memory-safety-bugs-in-rust-and-linux-kern" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23microsoft-ai-finds-memory-safety-bugs-in-rust-and-linux-kern" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.csoonline.com/article/4246787/microsofts-ai-bug-hunter-finds-rust-flaw-that-went-undetected-for-nearly-11-years.html" target="_blank" rel="noopener" data-track="coverage">CSO Online</a>; also covered by <a href="https://gbhackers.com/linux-kernel-flaws/" target="_blank" rel="noopener">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.613,&#34;evidence&#34;:0.5,&#34;freshness&#34;:0.049,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.552}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="postgresql-patches-flaw-enabling-authenticated-rce-via-type" data-story="2118" data-severity="High" data-section="vulnerability" data-rank="9" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">PostgreSQL Patches Flaw Enabling Authenticated RCE via Type Confusion</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 8.8</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">PostgreSQL released updates fixing 52 flaws, including an authenticated RCE vulnerability.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A type confusion flaw in PostgreSQL allows a database user with object creation rights to execute code on the server. This vulnerability is tracked as <span class="nw">CVE-2026-6460</span> and has a CVSS score of 8.8. Full mitigation requires rebuilding C-language extensions.</p>
+            <p><b>Why it matters.</b> Exploitation grants code execution with the rights of the operating system user running the database service.</p>
+            <p class="do"><b>Do this today</b> Review and update PostgreSQL installations to address <span class="nw">CVE-2026-6460</span>.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>PostgreSQL</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-6460</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Sat 14 Nov</span>PostgreSQL Patches 52 Flaws, Including Authenticated RCE Vulnerability</li><li><span class="t-date">Today</span>PostgreSQL Patches Flaw Enabling Authenticated RCE via Type Confusion</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="postgresql-patches-flaw-enabling-authenticated-rce-via-type">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=PostgreSQL%20Patches%20Flaw%20Enabling%20Authenticated%20RCE%20via%20Type%20Confusion%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23postgresql-patches-flaw-enabling-authenticated-rce-via-type" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23postgresql-patches-flaw-enabling-authenticated-rce-via-type" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.reddit.com/r/netsec/comments/1xuh3jj/prepared_statements_prevents_sqli_but_it_also/" target="_blank" rel="noopener">r/netsec</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.4,&#34;freshness&#34;:0.207,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.8,&#34;total&#34;:0.544}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="openai-codex-gui-argument-injection-leads-to-rce-cve-2026-11" data-story="2193" data-severity="High" data-section="vulnerability" data-rank="10" data-source="Zero Day Initiative">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">OpenAI Codex GUI: Argument Injection Leads to RCE (<span class="nw">CVE-2026-110930</span>)</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 8.0</span><span class="sep">·</span><span class="src">Zero Day Initiative</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">OpenAI Codex GUI has an argument injection flaw allowing RCE when a target opens a malicious file.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The vulnerability exists in the OpenProjectInCodex context menu command handling. Improper validation of user-supplied strings allows remote execution of arbitrary code.</p>
+            <p><b>Why it matters.</b> Exploitation requires user interaction, specifically opening a malicious file, to execute code in the context of the current user.</p>
+            <p class="do"><b>Do this today</b> Apply the update released by OpenAI to address <span class="nw">CVE-2026-110930</span>.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>OpenAI Codex GUI</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-110930</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="http://www.zerodayinitiative.com/advisories/ZDI-26-968/" target="_blank" rel="noopener">Read on Zero Day Initiative <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="openai-codex-gui-argument-injection-leads-to-rce-cve-2026-11">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=OpenAI%20Codex%20GUI%3a%20Argument%20Injection%20Leads%20to%20RCE%20%28CVE-2026-110930%29%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23openai-codex-gui-argument-injection-leads-to-rce-cve-2026-11" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23openai-codex-gui-argument-injection-leads-to-rce-cve-2026-11" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.4,&#34;freshness&#34;:0.303,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.528}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-malware_ransomware" data-track-section="malware_ransomware" aria-labelledby="h-malware_ransomware">
+            <h2 class="label" id="h-malware_ransomware">Malware &amp; Ransomware <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="blacknevas-ransomware-wiped-esxi-virtualization-estate-via-l" data-story="2233" data-severity="High" data-section="malware_ransomware" data-rank="11" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">BlackNevas Ransomware Wiped ESXi Virtualization Estate via Legitimate Interfaces</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">BlackNevas group destroyed an organization&#39;s entire virtualization estate on VMware ESXi using valid credentials and management interfaces.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The BlackNevas group wiped ESXi hosts, all virtual machines, and connected backup infrastructure over ten days. Attackers used valid accounts, gaining access via non-virtualization systems to vCenter appliances. The group also abused vCenter Host Profiles to enable SSH and deployed persistent tunnels.</p>
+            <p><b>Why it matters.</b> The attack demonstrated that destruction can occur using legitimate management interfaces, bypassing traditional hypervisor or memory flaw detection. Compromise of backup platforms provides a direct pivot point into other tiers.</p>
+            <p class="do"><b>Do this today</b> Forward vpxa.log, vobd.log, auth.log, and shell.log to remote syslog.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>VMware ESXi, vCenter Server Appliances (VCSA)</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://gbhackers.com/blacknevas-ransomware-attacks-vmware-esxi-servers/" target="_blank" rel="noopener">Read on GBHackers <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="blacknevas-ransomware-wiped-esxi-virtualization-estate-via-l">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=BlackNevas%20Ransomware%20Wiped%20ESXi%20Virtualization%20Estate%20via%20Legitimate%20Interfaces%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23blacknevas-ransomware-wiped-esxi-virtualization-estate-via-l" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23blacknevas-ransomware-wiped-esxi-virtualization-estate-via-l" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.62,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.51}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-threat_actor" data-track-section="threat_actor" aria-labelledby="h-threat_actor">
+            <h2 class="label" id="h-threat_actor">Threat Actors &amp; Campaigns <span class="n">3</span></h2>
+            <ul class="stories">
+<li class="story" id="fbi-warns-of-artex-framework-for-autonomous-cyberattacks" data-story="2230" data-severity="High" data-section="threat_actor" data-rank="6" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FBI Warns of ARTEX Framework for Autonomous Cyberattacks</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Ic3 via GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Hackers are weaponizing ARTEX, an autonomous penetration testing framework, to conduct rapid, multi-stage cyberattacks.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The FBI issued an advisory detailing operations observed since August 2026 using ARTEX. This framework converts natural-language objectives into machine commands executed by specialized agents. Attacks observed progressed from initial targeting to privileged access in under three hours.</p>
+            <p><b>Why it matters.</b> The speed of these automated intrusions compresses the window for defenders to investigate and contain suspicious activity across multiple sectors.</p>
+            <p class="do"><b>Do this today</b> Inventory peripheral internet-facing systems and restrict Kudu/SCM and cloud administration endpoints.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.ic3.gov/CSA/2026/261113.pdf" target="_blank" rel="noopener">Read the original · Ic3 <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fbi-warns-of-artex-framework-for-autonomous-cyberattacks">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FBI%20Warns%20of%20ARTEX%20Framework%20for%20Autonomous%20Cyberattacks%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23fbi-warns-of-artex-framework-for-autonomous-cyberattacks" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23fbi-warns-of-artex-framework-for-autonomous-cyberattacks" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://gbhackers.com/fbi-warns-artex-ai-framework/" target="_blank" rel="noopener" data-track="coverage">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.609,&#34;importance&#34;:1,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.584}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="us-seizes-north-korean-hacking-infrastructure-linked-to-bina" data-story="1895" data-severity="Medium" data-section="threat_actor" data-rank="13" data-source="CyberScoop">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">US Seizes North Korean Hacking Infrastructure Linked to Binance Theft</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">CyberScoop</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">US authorities seized North Korean hacking infrastructure and authorized the seizure of over $1.2 billion stolen from Binance.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The US Department of Justice announced actions against North Korean groups, seizing infrastructure used in a social engineering scheme called FaceStealer. This operation was tied to the theft of over $1.2 billion from Binance and involved hacking groups like APT38. Hackers used compromised accounts on platforms like Telegram and LinkedIn to lure targets to fake video meetings.</p>
+            <p><b>Why it matters.</b> The scheme exploits trust in video conferencing platforms and personal relationships to facilitate financial theft. The use of recorded webcam videos for impersonation increases the risk of successful social engineering attacks.</p>
+            <p class="do"><b>Do this today</b> Review security controls for video conferencing platforms and monitor for suspicious video call invitations.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://cyberscoop.com/us-seizes-north-korea-hacking-infrastructure-binance/" target="_blank" rel="noopener">Read on CyberScoop <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="us-seizes-north-korean-hacking-infrastructure-linked-to-bina">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=US%20Seizes%20North%20Korean%20Hacking%20Infrastructure%20Linked%20to%20Binance%20Theft%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23us-seizes-north-korean-hacking-infrastructure-linked-to-bina" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23us-seizes-north-korean-hacking-infrastructure-linked-to-bina" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/fbi-says-us-seized-1-2-billion-worth-of-cryptocurrency-stolen-from-binance/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://gbhackers.com/defi-liquidity-pools/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0,&#34;freshness&#34;:0.041,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.46}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="faa-ground-stop-issued-due-to-communications-disruption" data-story="2220" data-severity="Medium" data-section="threat_actor" data-rank="15" data-source="SecurityWeek">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FAA Ground Stop Issued Due to Communications Disruption</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">SecurityWeek</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">The FAA issued a nationwide ground stop due to a communication issue impacting Air Route Traffic Control Centers.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The FAA issued a nationwide ground stop for all U.S. airports citing &#39;extraordinary circumstances&#39; due to a communication issue affecting all Air Route Traffic Control Centers. Initial reports were unclear regarding the cause, but officials later stated no evidence of hacking was found.</p>
+            <p><b>Why it matters.</b> Disruptions to critical infrastructure like air traffic control centers can halt national operations and require immediate operational awareness.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.securityweek.com/faa-ground-stop-issued-due-to-extraordinary-circumstances/" target="_blank" rel="noopener">Read on SecurityWeek <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="faa-ground-stop-issued-due-to-communications-disruption">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FAA%20Ground%20Stop%20Issued%20Due%20to%20Communications%20Disruption%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23faa-ground-stop-issued-due-to-communications-disruption" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23faa-ground-stop-issued-due-to-communications-disruption" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.466,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.445}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-breach_incident" data-track-section="breach_incident" aria-labelledby="h-breach_incident">
+            <h2 class="label" id="h-breach_incident">Breaches &amp; Incidents <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="cursor-marketplace-compromise-allowed-malicious-claude-code" data-story="2240" data-severity="High" data-section="breach_incident" data-rank="7" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Cursor Marketplace Compromise Allowed Malicious Claude Code Extension Distribution</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Cursor via BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A security breach at Cursor allowed attackers to distribute a malicious Claude Code extension, potentially installing SSH backdoors.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Cursor suffered a security breach after attackers stole credentials from Fireworks AI. These credentials were used to publish malicious versions of the Claude Code extension on the Cursor marketplace. The malware attempted to install persistent SSH backdoors on developer machines.</p>
+            <p><b>Why it matters.</b> Developers who installed the affected extension versions may have been exposed to malware designed to maintain remote access via SSH backdoors.</p>
+            <p class="do"><b>Do this today</b> Follow Cursor&#39;s remediation guidance for users who installed the affected extension versions.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Cursor users who installed Claude Code extension versions 2.1.312 and 2.1.313</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://cursor.com/blog/security-incident-update" target="_blank" rel="noopener">Read the original · Cursor <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cursor-marketplace-compromise-allowed-malicious-claude-code">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Cursor%20Marketplace%20Compromise%20Allowed%20Malicious%20Claude%20Code%20Extension%20Distribution%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23cursor-marketplace-compromise-allowed-malicious-claude-code" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23cursor-marketplace-compromise-allowed-malicious-claude-code" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.811,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.559}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="maersk-confirms-data-breach-on-legacy-it-system" data-story="2024" data-severity="Medium" data-section="breach_incident" data-rank="12" data-source="The Record">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Maersk Confirms Data Breach on Legacy IT System</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">The Record</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Maersk confirmed unauthorized access and data extraction affecting a local, legacy IT system.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Maersk confirmed unauthorized access and data extraction affecting a local legacy IT system inherited from a previous acquisition. The company stated the incident does not impact other operational parts of the firm. Investigators currently believe no sensitive information was disclosed.</p>
+            <p><b>Why it matters.</b> The incident highlights ongoing cyber risk within critical global infrastructure sectors like shipping and ports. Defense teams should review segmentation controls around legacy operational technology systems.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>Maersk legacy IT system</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://therecord.media/shipping-giant-maersk-says-recent-incident-affected-legacy-system" target="_blank" rel="noopener">Read on The Record <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="maersk-confirms-data-breach-on-legacy-it-system">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Maersk%20Confirms%20Data%20Breach%20on%20Legacy%20IT%20System%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23maersk-confirms-data-breach-on-legacy-it-system" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23maersk-confirms-data-breach-on-legacy-it-system" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.theregister.com/security/2026/11/11/shipping-giant-maersk-probes-it-security-incident-data-theft/5309096" target="_blank" rel="noopener">The Register</a>, <a href="https://gbhackers.com/shipping-giant-maersk-confirms-data-breach/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:0,&#34;freshness&#34;:0.095,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.471}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-tools" data-track-section="tools" aria-labelledby="h-tools">
+            <h2 class="label" id="h-tools">Tools &amp; Releases <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="fbi-warns-of-artex-tool-automating-cyberattacks-for-rapid-in" data-story="2219" data-severity="Info" data-section="tools" data-rank="14" data-source="The Record">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FBI Warns of Artex Tool Automating Cyberattacks for Rapid Intrusion</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="src">The Record</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Artex automates cyberattacks, enabling rapid progression from targeting to privileged access with minimal human expertise.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The FBI issued a flash alert regarding the open-source tool Artex, which automates multiple phases of cyber intrusions from reconnaissance to data exfiltration. The tool allows threat actors to chain attack techniques rapidly, potentially reaching privileged access in under three hours. The framework integrates various large language models to execute complex, multi-target operations.</p>
+            <p><b>Why it matters.</b> Artex accelerates attack velocity and operational scale, enabling smaller groups to conduct concurrent, multi-objective offensive operations with minimal human intervention. It targets less secure systems like vendor portals and third-party integrations.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://therecord.media/artex-ai-tool-fbi-flash-alert" target="_blank" rel="noopener">Read on The Record <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fbi-warns-of-artex-tool-automating-cyberattacks-for-rapid-in">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FBI%20Warns%20of%20Artex%20Tool%20Automating%20Cyberattacks%20for%20Rapid%20Intrusion%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23fbi-warns-of-artex-tool-automating-cyberattacks-for-rapid-in" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f15%2f%23fbi-warns-of-artex-tool-automating-cyberattacks-for-rapid-in" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.466,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.45}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        
+
+
+        
+        <section class="sec" id="cves" data-track-section="cves" aria-labelledby="h-cves">
+            <h2 class="label" id="h-cves">CVE spotlight</h2>
+            <table class="cve-table">
+                <thead><tr><th scope="col">CVE</th><th scope="col">Affects</th><th scope="col" class="num">CVSS</th><th scope="col" class="num">EPSS</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-123039" target="_blank" rel="noopener" data-track="cve">CVE-2026-123039</a></td>
+                    <td data-label="Affects"><span class="cve-product">Check Point Multiple Products</span><span class="cve-desc">The Gaia OS DynamicCLI daemon runs as root and listens on a world-writable local socket (/tmp/dynamic_socket) without authenticating connect…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">7.8</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 16 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-114713" target="_blank" rel="noopener" data-track="cve">CVE-2026-114713</a></td>
+                    <td data-label="Affects"><span class="cve-product">UnrealIRCd</span><span class="cve-desc">The labeled-response module in UnrealIRCd 6.0.0 before 6.2.7.1 does not escape the IRCv3 &#34;label&#34; message tag when echoing it into replies, w…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.6</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 16 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-109618" target="_blank" rel="noopener" data-track="cve">CVE-2026-109618</a></td>
+                    <td data-label="Affects"><span class="cve-product">PHP Group PHP</span><span class="cve-desc">PHP uses longjmp() for out-of-memory (OOM) errors to exit the current context and abort handling of the request. Some contexts may not prope…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">100%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 29 Oct (passed)</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-109619" target="_blank" rel="noopener" data-track="cve">CVE-2026-109619</a></td>
+                    <td data-label="Affects"><span class="cve-product">PHP Group PHP</span><span class="cve-desc">PHP has various global state that temporarily points into request memory. In some scenarios, global state may not be correctly reset, or may…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.1</span></td>
+                    <td data-label="EPSS" class="num">100%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 29 Oct (passed)</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-6460" target="_blank" rel="noopener" data-track="cve">CVE-2026-6460</a></td>
+                    <td data-label="Affects"><span class="cve-product">—</span><span class="cve-desc">Type confusion in PostgreSQL allows an object creator to execute arbitrary code as the operating system user running the database, via ALTER…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.8</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-110930" target="_blank" rel="noopener" data-track="cve">CVE-2026-110930</a></td>
+                    <td data-label="Affects"><span class="cve-product">—</span><span class="cve-desc">Codex Desktop for Windows does not correctly check quotation marks in project paths from Windows Explorer. If a user selects &#34;Open project i…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.0</span></td>
+                    <td data-label="EPSS" class="num">0%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section class="sec quiz-sec" id="quiz" data-track-section="quiz" aria-labelledby="h-quiz">
+            <h2 class="label" id="h-quiz">Quiz</h2>
+            
+            <div class="reveal" data-quiz-date="2026-11-14" data-answer="0">
+                <p class="small-label">Yesterday's answer</p>
+                <p class="q">According to the news story, which specific vulnerability was added to the Known Exploited Vulnerabilities Catalog alongside the other mentioned flaw?</p>
+                <p class="answer"><span class="check" aria-hidden="true">✓</span> <span class="nw">CVE-2026-114713</span> (UnrealIRCd)</p>
+                <p class="explain">The story explicitly states that <span class="nw">CVE-2026-114713</span> (UnrealIRCd) was added to the KEV Catalog.</p>
+                <div class="result-row" id="quiz-result-row" hidden>
+                    <p class="result" id="quiz-result"></p>
+                    <button class="text-btn copy-result" id="copy-result" type="button">Copy result</button>
+                </div>
+            </div>
+            
+            
+            <div class="quiz" data-quiz-date="2026-11-15">
+                <p class="small-label">Today's question</p>
+                <p class="q" id="quiz-q">According to the text, what was the nature of the vulnerabilities <span class="nw">CVE-2026-109618</span> and <span class="nw">CVE-2026-109619</span>?</p>
+                <ol class="options" aria-labelledby="quiz-q">
+                    <li><button class="option" type="button" data-index="0"><span class="opt-key">A</span><span><span class="nw">CVE-2026-114713</span> and <span class="nw">CVE-2026-123039</span> were critical RCE flaws in PHP.</span></button></li><li><button class="option" type="button" data-index="1"><span class="opt-key">B</span><span><span class="nw">CVE-2026-109618</span> and <span class="nw">CVE-2026-109619</span> were disclosed as critical RCE flaws in PHP affecting Siemens products.</span></button></li><li><button class="option" type="button" data-index="2"><span class="opt-key">C</span><span>All four listed CVEs were added to the KEV Catalog due to active exploitation.</span></button></li><li><button class="option" type="button" data-index="3"><span class="opt-key">D</span><span>The primary focus of the vulnerabilities was on publicly exposed assets generally.</span></button></li>
+                </ol>
+                <p class="locked" id="quiz-locked" hidden>Locked in. The answer is in tomorrow's brief.</p>
+                <p class="score" id="quiz-score" hidden></p>
+            </div>
+            
+        </section>
+        
+
+        
+
+        
+        <section class="sec" id="tomorrow" data-track-section="tomorrow" aria-labelledby="h-tomorrow">
+            <h2 class="label" id="h-tomorrow">On the radar tomorrow</h2>
+            <ul class="radar">
+            <li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-114713" target="_blank" rel="noopener" data-track="radar">CVE-2026-114713 · UnrealIRCd</a></span></li><li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-123039" target="_blank" rel="noopener" data-track="radar">CVE-2026-123039 · Check Point Multiple Products</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/" target="_blank" rel="noopener" data-track="radar">Hackers compromise 4,800 GitHub accounts to steal cloud credentials</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/" target="_blank" rel="noopener" data-track="radar">Hackers use AntiFox AI agents in AWS credential-theft attacks</a></span></li>
+            </ul>
+        </section>
+        
+
+        
+        <section class="sec" id="also" data-track-section="also" aria-labelledby="h-also">
+            <h2 class="label" id="h-also">Also worth your time</h2>
+            <div class="tabs" role="tablist" aria-label="Also worth your time">
+                <button class="tab" type="button" role="tab" id="tab-exploits" aria-controls="panel-exploits" aria-selected="true" tabindex="0">Exploits</button><button class="tab" type="button" role="tab" id="tab-tools" aria-controls="panel-tools" aria-selected="false" tabindex="-1">Tools</button><button class="tab" type="button" role="tab" id="tab-community" aria-controls="panel-community" aria-selected="false" tabindex="-1">Community</button><button class="tab" type="button" role="tab" id="tab-podcasts" aria-controls="panel-podcasts" aria-selected="false" tabindex="-1">Podcasts</button>
+            </div>
+            
+            <div class="panel active" id="panel-exploits" role="tabpanel" aria-labelledby="tab-exploits">
+                <h3 class="panel-title">Exploits</h3>
+                <ul class="side-list">
+                <li><a href="https://www.exploit-db.com/exploits/52705" target="_blank" rel="noopener" data-track="exploits">Ruflo MCP Bridge  3.16.2 - Remote Code Execution</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52704" target="_blank" rel="noopener" data-track="exploits">PHP2Shell (CVE-2026-109618) - PHP core versions after v5.4 - RCE</a><span class="side-meta">Remote · CVE-2026-109618</span></li><li><a href="https://www.exploit-db.com/exploits/52703" target="_blank" rel="noopener" data-track="exploits">pizzafy-1.0 - SQLi</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52701" target="_blank" rel="noopener" data-track="exploits">South River Technologies Titan MFT Server 26.0.0 - code execution</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52700" target="_blank" rel="noopener" data-track="exploits">Synametrics Syncrify 6.2 - command execution</a><span class="side-meta">Remote</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
+                <h3 class="panel-title">Tools</h3>
+                <ul class="side-list">
+                <li><a href="https://github.com/MSNightmare/SignDrop" target="_blank" rel="noopener" data-track="tools">MSNightmare/SignDrop</a><span class="side-meta">In today&#39;s news · via BleepingComputer · Exploitation · C</span><span class="side-desc">Demonstrates a local privilege escalation vulnerability in the Windows Common Log FileSystem Authentication mechanism.</span></li><li><a href="https://github.com/tabookhandawn/interchange-osint-cross-chain-tracing" target="_blank" rel="noopener" data-track="tools">tabookhandawn/interchange-osint-cross-chain-tracing</a><span class="side-meta">New · 177 stars in 1 day · OSINT · JavaScript</span><span class="side-desc">Traces cryptocurrency funds across multiple blockchains, detailing bridges and swaps encountered along the path.</span></li><li><a href="https://github.com/IceBricklayer4/exposure-osint-digital-footprint" target="_blank" rel="noopener" data-track="tools">IceBricklayer4/exposure-osint-digital-footprint</a><span class="side-meta">New · 176 stars in 1 day · OSINT · Python</span><span class="side-desc">This tool scans public sources to aggregate and display personal information found about a specified email address.</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community">
+                <h3 class="panel-title">Community</h3>
+                <ul class="side-list">
+                <li><a href="https://www.reddit.com/r/netsec/comments/1xw5ldq/ruohang_feng_postgresql_just_patched_52_cves_in_a/" target="_blank" rel="noopener" data-track="community">Ruohang Feng: PostgreSQL Just Patched 52 CVEs in a Single Minor Release</a><span class="side-meta">r/netsec</span></li><li><a href="https://www.reddit.com/r/netsec/comments/1xvqwd5/helping_developers_writing_code_analyzer_queries/" target="_blank" rel="noopener" data-track="community">Helping Developers Writing Code Analyzer Queries</a><span class="side-meta">r/netsec</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-podcasts" role="tabpanel" aria-labelledby="tab-podcasts">
+                <h3 class="panel-title">Podcasts</h3>
+                <ul class="side-list">
+                <li><a href="https://darknetdiaries.com/episode/182/" target="_blank" rel="noopener" data-track="podcasts">182: Blackshades</a><span class="side-meta">Darknet Diaries · 39:17</span></li><li><a href="https://risky.biz/RB859/" target="_blank" rel="noopener" data-track="podcasts">Risky Business #859 -- ARTEX damage approaches crisis levels</a><span class="side-meta">Risky Business · 1:09:40</span></li><li><a href="https://twit.tv/shows/security-now/episodes/1104" target="_blank" rel="noopener" data-track="podcasts">SN 1104: The hole in OpenSSH - Password Bypass in Plain Sight</a><span class="side-meta">Security Now · 2:37:36</span></li><li><a href="https://redcircle.com/shows/597cfd00-b29a-49c6-9622-03c8decfc35f/episodes/30142034-0c23-433e-85e6-e476fa7cc1e9" target="_blank" rel="noopener" data-track="podcasts">Weev, Part 2</a><span class="side-meta">Malicious Life · 28:49</span></li>
+                </ul>
+            </div>
+            
+        </section>
+        
+
+        
+        <section class="finally" id="finally" data-track-section="finally" aria-labelledby="h-finally">
+            <h2 class="label" id="h-finally">And finally</h2>
+            <div class="finally-body">
+                <p class="finally-head"><a href="https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/" target="_blank" rel="noopener" data-track="finally">Microsoft 365 Outage: Server Unavailability Cited, No Cyberattack Confirmed</a></p>
+                <p class="finally-blurb">Microsoft 365 experienced a widespread service disruption affecting Outlook, Teams, and Copilot. The cause was attributed to unexpectedly unavailable servers, not a cyberattack.</p>
+                <p class="finally-src">BleepingComputer</p>
+            </div>
+        </section>
+        
+
+        <section class="done" id="done" aria-label="End of today's brief">
+            <p class="done-kicker">End of No. 265</p>
+            <p class="done-title" id="done-title">That's today's brief.</p>
+            <p class="done-sum" id="done-sum" hidden></p>
+            <p class="done-next"><b>Coming up</b><span>KEV deadline tomorrow: CVE-2026-114713 · UnrealIRCd</span></p>
+            <p class="done-sub" id="countdown" data-next="2026-11-16T01:00:00Z">The next brief lands at 06:30 IST.</p>
+            
+            <nav class="edition-nav" aria-label="Other briefs">
+                <a href="../../../2026/11/14/" rel="prev">← Sat 14 Nov</a>
+                <a href="../../../archive/">All briefs</a>
+                <span></span>
+            </nav>
+        </section>
+    </article>
+</div>
+</main>
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <a class="wordmark small" href="../../../">PwnSpectrum</a>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="../../../">Today</a>
+            <a href="../../../archive/">Archive</a>
+            <a href="https://forms.gle/RcsGHJHpb761EZA38" target="_blank" rel="noopener">Send a tip</a>
+            <a href="https://x.com/IamLucif3r_" target="_blank" rel="noopener">X</a>
+            <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/iamlucif3r" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <p>Curated by <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">Anmol Singh Yadav</a>. Stories come from public sources and are summarised by a local model; always check the original before acting.</p>
+    </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+</button>
+
+<dialog class="keys" id="keys">
+    <form method="dialog">
+        <h2>Keyboard shortcuts</h2>
+        <dl>
+            <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>Next / previous story</dd>
+            <dt><kbd>o</kbd> or <kbd>Enter</kbd></dt><dd>Open / close story</dd>
+            <dt><kbd>v</kbd></dt><dd>Read the source in a new tab</dd>
+            <dt><kbd>e</kbd></dt><dd>Expand / collapse all</dd>
+            <dt><kbd>/</kbd></dt><dd>Search</dd>
+            <dt><kbd>d</kbd></dt><dd>Light / dark theme</dd>
+            <dt><kbd>Esc</kbd></dt><dd>Close</dd>
+        </dl>
+        <button class="text-btn" value="close">Close</button>
+    </form>
+</dialog>
+<script src="../../../assets/site.js?v=931cd2608a" defer></script>
+</body>
+</html>
