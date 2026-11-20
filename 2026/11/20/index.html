@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support · PwnSpectrum 20 Nov</title>
+    <meta name="description" content="Daily cybersecurity brief for 20 Nov 2026: ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support; NGINX: HTTP/2 Integer Underflow Allows Unauthenticated RCE; SBC Medical Group Breach Exposed Data for 1.6 Million People.">
+    <link rel="canonical" href="https://feed.anmolsinghyadav.com/2026/11/20/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1014" media="(prefers-color-scheme: dark)">
+    <meta property="og:site_name" content="PwnSpectrum">
+    <meta property="og:title" content="ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support · PwnSpectrum 20 Nov">
+    <meta property="og:description" content="Daily cybersecurity brief for 20 Nov 2026: ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support; NGINX: HTTP/2 Integer Underflow Allows Unauthenticated RCE; SBC Medical Group Breach Exposed Data for 1.6 Million People.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://feed.anmolsinghyadav.com/2026/11/20/">
+    <meta property="og:image" content="https://feed.anmolsinghyadav.com/2026/11/20/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@IamLucif3r_">
+    <meta name="twitter:title" content="ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support · PwnSpectrum 20 Nov">
+    <meta name="twitter:description" content="Daily cybersecurity brief for 20 Nov 2026: ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support; NGINX: HTTP/2 Integer Underflow Allows Unauthenticated RCE; SBC Medical Group Breach Exposed Data for 1.6 Million People.">
+    <meta name="twitter:image" content="https://feed.anmolsinghyadav.com/2026/11/20/og.png">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400..500&display=swap">
+    <link rel="stylesheet" href="../../../assets/site.css?v=931cd2608a">
+    <script>
+        (function () {
+            var d = document.documentElement; d.classList.add('js');
+            try { var t = localStorage.getItem('pwn_theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","author":{"@type":"Person","name":"Anmol Singh Yadav","url":"https://www.linkedin.com/in/anmolsinghyadav/"},"dateModified":"2026-11-20T01:04:52Z","datePublished":"2026-11-20","description":"Prioritize patching NGINX for the HTTP/2 integer underflow vulnerability. Review configurations for BeyondTrust and VMware vCenter following exploitation by ARMORY CASTLE. Monitor for indicators related to the SBC Medical Group breach.","hasPart":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support","position":1,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#armory-castle-exploits-vcenter-and-beyondtrust-remote-suppor"},{"@type":"ListItem","name":"CISA Adds Perforce Puppet Vulnerability to KEV Catalog","position":2,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#cisa-adds-perforce-puppet-vulnerability-to-kev-catalog"},{"@type":"ListItem","name":"Apache warns of Roller RCE vulnerability exploited in attacks","position":3,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#apache-warns-of-roller-rce-vulnerability-exploited-in-attack"},{"@type":"ListItem","name":"FBI Warns ARTEX AI Framework Powers Global Cyberattacks","position":4,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#fbi-warns-artex-ai-framework-powers-global-cyberattacks"},{"@type":"ListItem","name":"NGINX: HTTP/2 Integer Underflow Allows Unauthenticated RCE","position":5,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#nginx-http-2-integer-underflow-allows-unauthenticated-rce"},{"@type":"ListItem","name":"F5 Patches Five Critical NGINX2Root Vulnerabilities","position":6,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#f5-patches-five-critical-nginx2root-vulnerabilities"},{"@type":"ListItem","name":"Ruby Releases Fixes for 7 Regex and String Flaws; 5 Have PoC RCE","position":7,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#ruby-releases-fixes-for-7-regex-and-string-flaws-5-have-poc"},{"@type":"ListItem","name":"Autonomy Logic OpenPLC Runtime: Unauthenticated RCE via Race Condition","position":8,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#autonomy-logic-openplc-runtime-unauthenticated-rce-via-race"},{"@type":"ListItem","name":"APT Group Rebuilds EggStreme Malware Targeting Philippine Government","position":9,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#apt-group-rebuilds-eggstreme-malware-targeting-philippine-go"},{"@type":"ListItem","name":"BADBOX 3.0 Malware Uses Cheap Streaming Boxes for Ad Fraud and Proxies","position":10,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#badbox-3-0-malware-uses-cheap-streaming-boxes-for-ad-fraud-a"},{"@type":"ListItem","name":"AuditTeam Uses OpsAgent Malware to Disable Defenses and Launch Ransomware","position":11,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#auditteam-uses-opsagent-malware-to-disable-defenses-and-laun"},{"@type":"ListItem","name":"Adversaries Use Multi-Agent AI Frameworks for Automated Exploitation","position":12,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#adversaries-use-multi-agent-ai-frameworks-for-automated-expl"},{"@type":"ListItem","name":"SBC Medical Group Breach Exposed Data for 1.6 Million People","position":13,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#sbc-medical-group-breach-exposed-data-for-1-6-million-people"},{"@type":"ListItem","name":"Optimizely Supply Chain Attack Delivered Malicious Code to Major Sites","position":14,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#optimizely-supply-chain-attack-delivered-malicious-code-to-m"},{"@type":"ListItem","name":"California Sues OpenAI Over Alleged AI Agent Safety Failures","position":15,"url":"https://feed.anmolsinghyadav.com/2026/11/20/#california-sues-openai-over-alleged-ai-agent-safety-failures"}]},"headline":"PwnSpectrum daily cybersecurity brief — 20 November 2026","image":"https://feed.anmolsinghyadav.com/2026/11/20/og.png","publisher":{"@type":"Organization","name":"PwnSpectrum","url":"https://feed.anmolsinghyadav.com"},"url":"https://feed.anmolsinghyadav.com/2026/11/20/"}</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9ZF36FC9M');</script>
+</head>
+<body data-edition="2026-11-20">
+<a class="skip" href="#main">Skip to the brief</a>
+<header class="bar">
+    <div class="bar-inner">
+        <a class="wordmark" href="../../../" aria-label="PwnSpectrum home">PwnSpectrum</a>
+        <p class="bar-meta" aria-live="polite"><span class="bar-date">Fri 20 Nov</span><span class="bar-read" id="bar-read" hidden></span></p>
+        <div class="bar-actions">
+            <button class="icon-btn" id="search-btn" type="button" aria-label="Search stories" aria-keyshortcuts="/" aria-expanded="false" aria-controls="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            </button>
+            <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch between light and dark theme" aria-keyshortcuts="d">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+            </button>
+            <button class="icon-btn only-fine" id="keys-btn" type="button" aria-label="Keyboard shortcuts" aria-keyshortcuts="?">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="scroll-line" aria-hidden="true"><span id="scroll-line"></span></div>
+    <div class="search" id="search" hidden>
+        <div class="search-inner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="search-input" type="search" placeholder="Search today's stories" aria-label="Search today's stories" autocomplete="off" spellcheck="false">
+            <span class="search-count" id="search-count" aria-live="polite"></span>
+            <button class="text-btn" id="search-close" type="button">Close</button>
+        </div>
+    </div>
+</header>
+
+
+<main id="main" class="page">
+<div class="layout">
+    <nav class="rail" aria-label="Sections">
+        <ol class="rail-list">
+            <li><a href="#top3">Top stories</a></li>
+            <li><a href="#editor">From the editor</a></li>
+            <li><a href="#s-active_exploitation">Actively Exploited<span class="n">4</span></a></li><li><a href="#s-vulnerability">Vulnerabilities &amp; Patches<span class="n">4</span></a></li><li><a href="#watch">Worth watching</a></li><li><a href="#s-malware_ransomware">Malware &amp; Ransomware<span class="n">3</span></a></li><li><a href="#s-threat_actor">Threat Actors &amp; Campaigns<span class="n">1</span></a></li><li><a href="#s-breach_incident">Breaches &amp; Incidents<span class="n">2</span></a></li><li><a href="#s-policy_law">Policy, Law &amp; Arrests<span class="n">1</span></a></li>
+            
+            <li><a href="#cves">CVE spotlight</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#week">The week in review</a></li>
+            <li><a href="#tomorrow">Tomorrow</a></li>
+            <li><a href="#also">Also worth your time</a></li>
+            <li><a href="#finally">And finally</a></li>
+        </ol>
+        <p class="rail-hint only-fine">Press <kbd>j</kbd> <kbd>k</kbd> to move, <kbd>?</kbd> for all keys</p>
+    </nav>
+
+    <article class="brief">
+        <header class="masthead">
+            <div class="np-top">
+                <p class="kicker">The daily cybersecurity brief</p>
+                <p class="issue">No. 269</p>
+            </div>
+            <h1 class="date"><time datetime="2026-11-20">Friday, 20 November 2026</time></h1>
+            <p class="dateline">
+                <span>15 stories</span>
+                <span class="crit-count">4 critical</span>
+                <span>6 min read</span>
+                <span>Updated 06:30 IST</span>
+            </p>
+            <p class="new-banner" id="new-banner" hidden></p>
+        </header>
+
+        
+        <section class="top3" id="top3" data-track-section="top3" aria-labelledby="top3-h">
+            <h2 class="sr-only" id="top3-h">Top stories</h2>
+            <ol class="top3-list">
+            
+                <li data-story="2512">
+                    <a class="top3-item" href="#armory-castle-exploits-vcenter-and-beyondtrust-remote-suppor" data-open="armory-castle-exploits-vcenter-and-beyondtrust-remote-suppor">
+                        <span class="top3-num" aria-hidden="true">01</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Critical" aria-hidden="true"></i><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span>KEV<span class="sep">·</span>CVSS 9.8<span class="sep">·</span>EPSS 51%<span class="sep">·</span>3 outlets<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support</span>
+                            <span class="top3-tldr">Threat actor ARMORY CASTLE exploited zero-days in BeyondTrust and VMware vCenter for lateral movement and data theft.</span>
+                            <span class="top3-do"><b>Do this today</b> Apply security patches for VMware vCenter Server addressing <span class="nw">CVE-2026-123890</span> and related vulnerabilities.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="2432">
+                    <a class="top3-item" href="#nginx-http-2-integer-underflow-allows-unauthenticated-rce" data-open="nginx-http-2-integer-underflow-allows-unauthenticated-rce">
+                        <span class="top3-num" aria-hidden="true">02</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="sep">·</span>PoC public<span class="sep">·</span>CVSS 8.1<span class="sep">·</span>5 outlets<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">NGINX: HTTP/2 Integer Underflow Allows Unauthenticated RCE</span>
+                            <span class="top3-tldr">An integer underflow in NGINX&#39;s HTTP/2 handling permits unauthenticated remote code execution.</span>
+                            <span class="top3-do"><b>Do this today</b> Upgrade nginx to version 1.31.9 or 1.30.7 or later.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="2544">
+                    <a class="top3-item" href="#sbc-medical-group-breach-exposed-data-for-1-6-million-people" data-open="sbc-medical-group-breach-exposed-data-for-1-6-million-people">
+                        <span class="top3-num" aria-hidden="true">03</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="tag tag-new">New</span></span>
+                            <span class="top3-head">SBC Medical Group Breach Exposed Data for 1.6 Million People</span>
+                            <span class="top3-tldr">SBC Medical Group reported two cybersecurity incidents exposing personal and employee data for 1.6 million individuals.</span>
+                            
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+            </ol>
+        </section>
+        
+
+        <aside class="glance" aria-labelledby="glance-h">
+            <h2 class="glance-h" id="glance-h">At a glance</h2>
+            
+            <div class="g-block g-nod">
+                <p class="g-label">Number of the day</p>
+                <p class="nod-value">178</p>
+                <p class="nod-cap">Organizations affected by Optimizely supply chain attack</p>
+                <a class="nod-src" href="#optimizely-supply-chain-attack-delivered-malicious-code-to-m" data-open="optimizely-supply-chain-attack-delivered-malicious-code-to-m">From: Malwarebytes ↓</a>
+            </div>
+            
+            <div class="g-block g-threat meter-ELEVATED" title="Threat level compared with the last 30 briefs">
+                <p class="g-label">Threat level</p>
+                <div class="meter meter-ELEVATED">
+                    <span class="meter-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                    <span class="meter-value">elevated</span>
+                </div>
+                
+                <div class="spark">
+                    <svg viewBox="0 0 240 40" role="img" aria-label="Threat level over the last 29 briefs">
+                        <line class="spark-base" x1="2" y1="20" x2="238" y2="20"/>
+                        <polyline points="2.0,4.0 10.1,4.0 18.3,12.0 26.4,4.0 34.6,4.0 42.7,36.0 50.8,36.0 59.0,20.0 67.1,12.0 75.2,12.0 83.4,12.0 91.5,20.0 99.7,36.0 107.8,28.0 115.9,12.0 124.1,12.0 132.2,12.0 140.3,20.0 148.5,36.0 156.6,36.0 164.8,28.0 172.9,28.0 181.0,20.0 189.2,4.0 197.3,20.0 205.4,28.0 213.6,36.0 221.7,28.0 229.9,28.0 238.0,20.0"/>
+                        <circle class="spark-now" cx="237.99999999999997" cy="20" r="3.5"/>
+                    </svg>
+                    <p class="spark-axis"><span>29 briefs ago</span><span>Today</span></p>
+                </div>
+                
+            </div>
+            
+            <div class="g-block g-mix">
+                <p class="g-label">Today's mix</p>
+                <div class="mix-bar" aria-hidden="true"><i class="sev-Critical" style="flex-grow: 4"></i><i class="sev-High" style="flex-grow: 8"></i><i class="sev-Medium" style="flex-grow: 2"></i><i class="sev-Info" style="flex-grow: 1"></i></div>
+                <ul class="mix-legend"><li><i class="dot sev-Critical" aria-hidden="true"></i><b>4</b> critical</li><li><i class="dot sev-High" aria-hidden="true"></i><b>8</b> high</li><li><i class="dot sev-Medium" aria-hidden="true"></i><b>2</b> medium</li><li><i class="dot sev-Info" aria-hidden="true"></i><b>1</b> info</li></ul>
+            </div>
+            
+            <div class="g-block g-you" id="g-you" data-minutes="6" hidden>
+                <p class="g-label">Your brief</p>
+                <p id="you-text"></p>
+                <div class="you-bar" aria-hidden="true"><span id="you-bar"></span></div>
+            </div>
+        </aside>
+
+        
+        <section class="lede" id="editor" aria-labelledby="h-editor">
+            <h2 class="label" id="h-editor">From the editor</h2>
+            <p class="note">Prioritize patching NGINX for the HTTP/2 integer underflow vulnerability. Review configurations for BeyondTrust and VMware vCenter following exploitation by ARMORY CASTLE. Monitor for indicators related to the SBC Medical Group breach.</p>
+            <p class="byline"><img src="../../../assets/editor.jpg" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Anmol Singh Yadav</b>Editor, PwnSpectrum</span></p>
+        </section>
+        
+
+        <nav class="index" aria-label="Jump to section">
+            <a href="#s-active_exploitation">Actively Exploited <span class="n">4</span></a><a href="#s-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></a><a href="#watch">Watch</a><a href="#s-malware_ransomware">Malware &amp; Ransomware <span class="n">3</span></a><a href="#s-threat_actor">Threat Actors &amp; Campaigns <span class="n">1</span></a><a href="#s-breach_incident">Breaches &amp; Incidents <span class="n">2</span></a><a href="#s-policy_law">Policy, Law &amp; Arrests <span class="n">1</span></a>
+            
+            <a href="#cves">CVEs</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#tomorrow">Tomorrow</a>
+        </nav>
+
+        <p class="no-results" id="no-results" hidden>No stories match your search.</p>
+
+        
+        
+        <section class="sec" id="s-active_exploitation" data-track-section="active_exploitation" aria-labelledby="h-active_exploitation">
+            <h2 class="label" id="h-active_exploitation">Actively Exploited <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="armory-castle-exploits-vcenter-and-beyondtrust-remote-suppor" data-story="2512" data-severity="Critical" data-section="active_exploitation" data-rank="1" data-source="Google Threat Intelligence">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">ARMORY CASTLE Exploits vCenter and BeyondTrust Remote Support</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-kev">KEV</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="b b-">EPSS 51%</span><span class="sep">·</span><span class="b b-">3 outlets</span><span class="sep">·</span><span class="src">Google Threat Intelligence</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actor ARMORY CASTLE exploited zero-days in BeyondTrust and VMware vCenter for lateral movement and data theft.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>ARMORY CASTLE exploited <span class="nw">CVE-2026-102764</span> in BeyondTrust Remote Support, and later targeted VMware vCenter. The actor exploited <span class="nw">CVE-2026-123890</span>, an unauthenticated authentication bypass in vCenter&#39;s Directory Service component.</p>
+            <p><b>Why it matters.</b> Successful exploitation allows unauthenticated remote access to gain administrator credentials, enabling arbitrary command execution and data exfiltration from vCenter Server.</p>
+            <p class="do"><b>Do this today</b> Apply security patches for VMware vCenter Server addressing <span class="nw">CVE-2026-123890</span> and related vulnerabilities.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>VMware vCenter Server deployments</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-102764, CVE-2026-123890, CVE-2026-123891, &#43;3 more</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere/" target="_blank" rel="noopener">Read on Google Threat Intelligence <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="armory-castle-exploits-vcenter-and-beyondtrust-remote-suppor">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=ARMORY%20CASTLE%20Exploits%20vCenter%20and%20BeyondTrust%20Remote%20Support%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23armory-castle-exploits-vcenter-and-beyondtrust-remote-suppor" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23armory-castle-exploits-vcenter-and-beyondtrust-remote-suppor" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter" target="_blank" rel="noopener">Rapid7</a>, <a href="https://www.csoonline.com/article/4251012/critical-flaw-in-vmware-vcenter-allows-authentication-bypass-2.html" target="_blank" rel="noopener">CSO Online</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.774,&#34;evidence&#34;:1,&#34;freshness&#34;:0.737,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.86}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="cisa-adds-perforce-puppet-vulnerability-to-kev-catalog" data-story="2330" data-severity="Critical" data-section="active_exploitation" data-rank="2" data-source="CISA">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">CISA Adds Perforce Puppet Vulnerability to KEV Catalog</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-kev">KEV</span><span class="sep">·</span><span class="b b-">CVSS 9.9</span><span class="sep">·</span><span class="b b-">4 outlets</span><span class="sep">·</span><span class="src">CISA</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 3</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr"><span class="nw">CVE-2026-115731</span> in Perforce Puppet Enterprise allows RCE via deserialization, now listed in CISA KEV.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>CISA added <span class="nw">CVE-2026-115731</span>, a deserialization vulnerability in Perforce Puppet Enterprise, to its Known Exploited Vulnerabilities Catalog. This vulnerability allows code execution on the server if a client with any CA-signed agent certificate connects.</p>
+            <p><b>Why it matters.</b> Inclusion in the KEV catalog indicates active exploitation, requiring immediate attention to prevent unauthorized control of the asset.</p>
+            <p class="do"><b>Do this today</b> Prioritize remediation for Perforce Puppet Enterprise due to inclusion in CISA KEV.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Perforce Puppet Enterprise</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-115731</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Wed 18 Nov</span>CISA Adds Perforce Puppet Enterprise Vulnerability to KEV Catalog</li><li><span class="t-date">Thu 19 Nov</span>CISA Adds Perforce Puppet Vulnerability to KEV Catalog</li><li><span class="t-date">Today</span>CISA Adds Perforce Puppet Vulnerability to KEV Catalog</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/news-events/alerts/2026/11/17/cisa-adds-one-known-exploited-vulnerability-catalog" target="_blank" rel="noopener">Read on CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cisa-adds-perforce-puppet-vulnerability-to-kev-catalog">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=CISA%20Adds%20Perforce%20Puppet%20Vulnerability%20to%20KEV%20Catalog%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23cisa-adds-perforce-puppet-vulnerability-to-kev-catalog" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23cisa-adds-perforce-puppet-vulnerability-to-kev-catalog" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html" target="_blank" rel="noopener">The Hacker News</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.898,&#34;evidence&#34;:1,&#34;freshness&#34;:0.184,&#34;importance&#34;:1,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.858}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="apache-warns-of-roller-rce-vulnerability-exploited-in-attack" data-story="2401" data-severity="Critical" data-section="active_exploitation" data-rank="3" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Apache warns of Roller RCE vulnerability exploited in attacks</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">CVSS 9.8</span><span class="sep">·</span><span class="b b-">4 outlets</span><span class="sep">·</span><span class="src">BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Apache warns of a critical Roller RCE vulnerability actively being exploited by threat actors.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Apache warns of a critical Roller RCE vulnerability actively being exploited by threat actors.</p>
+            
+            
+            <dl class="facts">
+                
+                <dt>CVE</dt><dd class="mono">CVE-2026-129448</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Thu 19 Nov</span>Apache Roller RCE Vulnerability (<span class="nw">CVE-2026-129448</span>) Under Active Exploitation</li><li><span class="t-date">Today</span>Apache warns of Roller RCE vulnerability exploited in attacks</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/" target="_blank" rel="noopener">Read on BleepingComputer <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="apache-warns-of-roller-rce-vulnerability-exploited-in-attack">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Apache%20warns%20of%20Roller%20RCE%20vulnerability%20exploited%20in%20attacks%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23apache-warns-of-roller-rce-vulnerability-exploited-in-attack" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23apache-warns-of-roller-rce-vulnerability-exploited-in-attack" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html" target="_blank" rel="noopener">The Hacker News</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.898,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.344,&#34;importance&#34;:1,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.849}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="fbi-warns-artex-ai-framework-powers-global-cyberattacks" data-story="2230" data-severity="Critical" data-section="active_exploitation" data-rank="4" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FBI Warns ARTEX AI Framework Powers Global Cyberattacks</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="b b-">4 outlets</span><span class="sep">·</span><span class="src">Malwarebytes via BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 3</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actors are weaponizing the ARTEX AI framework to automate and accelerate complex, multi-target cyberattacks.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The FBI warns that threat actors are using ARTEX, an open-source AI penetration testing framework, to automate cyberattacks globally. This framework allows for rapid progression from initial targeting to privileged access in under three hours. ARTEX integrates with external LLMs to perform reconnaissance, exploitation, and data theft.</p>
+            <p><b>Why it matters.</b> The speed and automation provided by ARTEX significantly accelerate attack velocity, allowing threat actors to conduct complex operations against multiple sectors simultaneously before defenders can respond.</p>
+            <p class="do"><b>Do this today</b> Secure internet-facing applications, restrict access to cloud administration interfaces, and review application permissions and authentication logs.</p>
+            
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Sun 15 Nov</span>FBI Warns of ARTEX Framework for Autonomous Cyberattacks</li><li><span class="t-date">Mon 16 Nov</span>FBI Warns ARTEX AI Framework Used in Global Cyberattacks</li><li><span class="t-date">Today</span>FBI Warns ARTEX AI Framework Powers Global Cyberattacks</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.malwarebytes.com/blog/ai/2026/11/criminals-are-using-artex-ai-agents-to-speed-up-cyberattacks-fbi-warns" target="_blank" rel="noopener">Read the original · Malwarebytes <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fbi-warns-artex-ai-framework-powers-global-cyberattacks">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FBI%20Warns%20ARTEX%20AI%20Framework%20Powers%20Global%20Cyberattacks%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23fbi-warns-artex-ai-framework-powers-global-cyberattacks" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23fbi-warns-artex-ai-framework-powers-global-cyberattacks" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>; also covered by <a href="https://therecord.media/european-commission-confirms-cyberattack-using-ai" target="_blank" rel="noopener">The Record</a>, <a href="https://www.malwarebytes.com/blog/ai/2026/11/criminals-are-using-artex-ai-agents-to-speed-up-cyberattacks-fbi-warns" target="_blank" rel="noopener">Malwarebytes</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.898,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.022,&#34;importance&#34;:1,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.817}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        <figure class="pullquote">
+            <blockquote><p>The Company confirmed that an unauthorized third party accessed and extracted customer information. The method of intrusion and full scope remain under investigation.</p></blockquote>
+            <figcaption><a href="https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/" target="_blank" rel="noopener">SBC Medical Group, via BleepingComputer</a></figcaption>
+        </figure>
+
+        
+        
+        <section class="sec" id="s-vulnerability" data-track-section="vulnerability" aria-labelledby="h-vulnerability">
+            <h2 class="label" id="h-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="nginx-http-2-integer-underflow-allows-unauthenticated-rce" data-story="2432" data-severity="High" data-section="vulnerability" data-rank="5" data-source="Rapid7">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">NGINX: HTTP/2 Integer Underflow Allows Unauthenticated RCE</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="b b-">CVSS 8.1</span><span class="sep">·</span><span class="b b-">5 outlets</span><span class="sep">·</span><span class="src">Rapid7</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">An integer underflow in NGINX&#39;s HTTP/2 handling permits unauthenticated remote code execution.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p><span class="nw">CVE-2026-123007</span> is an integer underflow vulnerability in NGINX&#39;s HTTP/2 implementation. An unauthenticated client can exploit this by manipulating flow-control credit, causing memory corruption. This corruption can lead to code execution with the NGINX worker process&#39;s permissions.</p>
+            <p><b>Why it matters.</b> Exploitation allows remote attackers to execute arbitrary code on servers running vulnerable NGINX instances with HTTP/2 enabled. This risks compromising websites and APIs served by the affected software.</p>
+            <p class="do"><b>Do this today</b> Upgrade nginx to version 1.31.9 or 1.30.7 or later.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>nginx</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-120382, CVE-2026-123007, CVE-2026-123633</dd>
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Thu 19 Nov</span>NGINX: HTTP/2 Integer Underflow Allows Unauthenticated RCE (<span class="nw">CVE-2026-123007</span>)</li><li><span class="t-date">Today</span>NGINX: HTTP/2 Integer Underflow Allows Unauthenticated RCE</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.rapid7.com/blog/post/ve-cve-2026-123007-critical-nginx-http-2-integer-underflow-leads-to-rce-fixed" target="_blank" rel="noopener">Read on Rapid7 <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="nginx-http-2-integer-underflow-allows-unauthenticated-rce">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=NGINX%3a%20HTTP%2f2%20Integer%20Underflow%20Allows%20Unauthenticated%20RCE%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23nginx-http-2-integer-underflow-allows-unauthenticated-rce" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23nginx-http-2-integer-underflow-allows-unauthenticated-rce" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities" target="_blank" rel="noopener">Wiz Research</a>, <a href="https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html" target="_blank" rel="noopener">The Hacker News</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0.5,&#34;freshness&#34;:0.378,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.85,&#34;total&#34;:0.683}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="f5-patches-five-critical-nginx2root-vulnerabilities" data-story="2500" data-severity="Medium" data-section="vulnerability" data-rank="6" data-source="SecurityWeek">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">F5 Patches Five Critical NGINX2Root Vulnerabilities</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="src">SecurityWeek</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">F5 patched five NGINX vulnerabilities allowing unauthenticated remote code execution.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>F5 released patches for five NGINX vulnerabilities, tracked as <span class="nw">CVE-2026-113425</span>, <span class="nw">CVE-2026-121810</span>, <span class="nw">CVE-2026-123007</span>, <span class="nw">CVE-2026-123633</span>, and <span class="nw">CVE-2026-123634</span>. These flaws could permit remote, unauthenticated execution of arbitrary code.</p>
+            <p><b>Why it matters.</b> Exploitation could lead to full server compromise with the privileges of the nginx worker process. PoC code for some flaws has been published.</p>
+            <p class="do"><b>Do this today</b> Patch NGINX Open Source to version 1.30.7 or 1.31.9, and NGINX Plus to version 37.0.8.1 or 37.3.0.1.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>NGINX instances</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/" target="_blank" rel="noopener">Read on SecurityWeek <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="f5-patches-five-critical-nginx2root-vulnerabilities">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=F5%20Patches%20Five%20Critical%20NGINX2Root%20Vulnerabilities%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23f5-patches-five-critical-nginx2root-vulnerabilities" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23f5-patches-five-critical-nginx2root-vulnerabilities" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.5,&#34;freshness&#34;:0.667,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.665}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="ruby-releases-fixes-for-7-regex-and-string-flaws-5-have-poc" data-story="2489" data-severity="Medium" data-section="vulnerability" data-rank="7" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Ruby Releases Fixes for 7 Regex and String Flaws; 5 Have PoC RCE</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="b b-poc">PoC public</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Ruby fixed seven memory-safety flaws; five flaws have proof-of-concept code for RCE.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Ruby maintainers released fixes addressing seven memory-safety flaws in the regular expression engine and string case-conversion code. For five of these flaws, maintainers confirmed proof-of-concept exploits exist that can trigger remote code execution.</p>
+            <p><b>Why it matters.</b> Exploitation of these flaws could allow unauthenticated remote code execution on affected systems.</p>
+            <p class="do"><b>Do this today</b> Update Ruby to the patched versions released by the project.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Ruby</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="ruby-releases-fixes-for-7-regex-and-string-flaws-5-have-poc">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Ruby%20Releases%20Fixes%20for%207%20Regex%20and%20String%20Flaws%3b%205%20Have%20PoC%20RCE%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23ruby-releases-fixes-for-7-regex-and-string-flaws-5-have-poc" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23ruby-releases-fixes-for-7-regex-and-string-flaws-5-have-poc" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.5,&#34;freshness&#34;:0.636,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.652}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="autonomy-logic-openplc-runtime-unauthenticated-rce-via-race" data-story="2531" data-severity="High" data-section="vulnerability" data-rank="8" data-source="CISA">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Autonomy Logic OpenPLC Runtime: Unauthenticated RCE via Race Condition</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">CVSS 8.1</span><span class="sep">·</span><span class="src">CISA</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A race condition in OpenPLC Runtime allows unauthenticated creation of multiple admin accounts.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A race condition exists in Autonomy Logic OpenPLC Runtime versions up to 4.2.4. This flaw allows multiple concurrent requests to pass an existence check before user commitment.</p>
+            <p><b>Why it matters.</b> Successful exploitation permits the creation of several unauthenticated administrator accounts. This impacts critical infrastructure sectors including manufacturing and energy.</p>
+            <p class="do"><b>Do this today</b> Update Autonomy Logic OpenPLC Runtime to version 4.3.0 or later.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Autonomy Logic OpenPLC Runtime &lt;=4.2.4</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-126088</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-323-01" target="_blank" rel="noopener">Read on CISA <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="autonomy-logic-openplc-runtime-unauthenticated-rce-via-race">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Autonomy%20Logic%20OpenPLC%20Runtime%3a%20Unauthenticated%20RCE%20via%20Race%20Condition%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23autonomy-logic-openplc-runtime-unauthenticated-rce-via-race" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23autonomy-logic-openplc-runtime-unauthenticated-rce-via-race" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.4,&#34;freshness&#34;:0.697,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.648}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="watch" data-track-section="watch" aria-labelledby="h-watch">
+            <h2 class="label" id="h-watch">Worth watching</h2>
+            <ul class="videos">
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=eoE8WQALJrc" target="_blank" rel="noopener" data-video="eoE8WQALJrc" aria-label="Play: Minecraft Malware Lab">
+                        <img src="https://i.ytimg.com/vi/eoE8WQALJrc/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Malware analysis</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=eoE8WQALJrc" target="_blank" rel="noopener" data-track="video">Minecraft Malware Lab</a>
+                        <span class="video-meta">John Hammond · 19 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=ZjcyRr-f5Pc" target="_blank" rel="noopener" data-video="ZjcyRr-f5Pc" aria-label="Play: java situation is insane">
+                        <img src="https://i.ytimg.com/vi/ZjcyRr-f5Pc/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Exploitation</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=ZjcyRr-f5Pc" target="_blank" rel="noopener" data-track="video">java situation is insane</a>
+                        <span class="video-meta">Low Level · 19 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=cbJs1GPIU50" target="_blank" rel="noopener" data-video="cbJs1GPIU50" aria-label="Play: Is Cybersecurity Still Worth It in the AI Era?">
+                        <img src="https://i.ytimg.com/vi/cbJs1GPIU50/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Bug bounty</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=cbJs1GPIU50" target="_blank" rel="noopener" data-track="video">Is Cybersecurity Still Worth It in the AI Era?</a>
+                        <span class="video-meta">NahamSec · 16 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=smdOz8LQNC0" target="_blank" rel="noopener" data-video="smdOz8LQNC0" aria-label="Play: HackTheBox - Nimbus">
+                        <img src="https://i.ytimg.com/vi/smdOz8LQNC0/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Walkthrough</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=smdOz8LQNC0" target="_blank" rel="noopener" data-track="video">HackTheBox - Nimbus</a>
+                        <span class="video-meta">IppSec · 14 Nov</span>
+                    </div>
+                </li>
+            
+            </ul>
+        </section>
+
+        
+        <section class="sec" id="s-malware_ransomware" data-track-section="malware_ransomware" aria-labelledby="h-malware_ransomware">
+            <h2 class="label" id="h-malware_ransomware">Malware &amp; Ransomware <span class="n">3</span></h2>
+            <ul class="stories">
+<li class="story" id="apt-group-rebuilds-eggstreme-malware-targeting-philippine-go" data-story="2435" data-severity="High" data-section="malware_ransomware" data-rank="10" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">APT Group Rebuilds EggStreme Malware Targeting Philippine Government</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A suspected Chinese APT group is using a reworked EggStreme malware variant to maintain hidden access in Philippine government networks.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A suspected Chinese APT group rebuilt its EggStreme malware toolkit. This variant is designed to maintain access to government networks without relying on outbound signals typically used for detection.</p>
+            <p><b>Why it matters.</b> The modification of the malware framework suggests an effort to evade standard defensive detection mechanisms.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>Philippine government organizations</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/11/eggstreme-hackers-rebuild-malware-with.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="apt-group-rebuilds-eggstreme-malware-targeting-philippine-go">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=APT%20Group%20Rebuilds%20EggStreme%20Malware%20Targeting%20Philippine%20Government%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23apt-group-rebuilds-eggstreme-malware-targeting-philippine-go" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23apt-group-rebuilds-eggstreme-malware-targeting-philippine-go" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Also covered by <a href="https://gbhackers.com/silent-eggstreme-backdoor/" target="_blank" rel="noopener">GBHackers</a></p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.613,&#34;evidence&#34;:0,&#34;freshness&#34;:0.38,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.535}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="badbox-3-0-malware-uses-cheap-streaming-boxes-for-ad-fraud-a" data-story="2516" data-severity="High" data-section="malware_ransomware" data-rank="11" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">BADBOX 3.0 Malware Uses Cheap Streaming Boxes for Ad Fraud and Proxies</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Humansecurity via GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Malware on inexpensive Android streaming boxes generated massive ad bid requests and functioned as residential proxies.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The BADBOX 3.0 operation utilized inexpensive streaming boxes to function as hidden video ad players and residential proxies. The malware generated high volumes of bid requests and enrolled compromised devices in residential proxy networks without owner consent. The activity was traced to a backdoor packaged as a system application.</p>
+            <p><b>Why it matters.</b> This activity demonstrates the use of consumer IoT devices for large-scale ad fraud and network traffic manipulation. It highlights that IP addresses alone do not guarantee ad viewing verification.</p>
+            <p class="do"><b>Do this today</b> Verify Play Protect certification on Android TV devices.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Off-brand Android Open Source Project streaming boxes</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.humansecurity.com/learn/blog/satori-threat-intelligence-disruption-badbox-3-0-hides-the-largest-ad-fraud-operation-ever-disclosed-inside-infected-tv-boxes/" target="_blank" rel="noopener">Read the original · Humansecurity <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="badbox-3-0-malware-uses-cheap-streaming-boxes-for-ad-fraud-a">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=BADBOX%203.0%20Malware%20Uses%20Cheap%20Streaming%20Boxes%20for%20Ad%20Fraud%20and%20Proxies%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23badbox-3-0-malware-uses-cheap-streaming-boxes-for-ad-fraud-a" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23badbox-3-0-malware-uses-cheap-streaming-boxes-for-ad-fraud-a" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://gbhackers.com/malware-hidden-cheap-tv-boxes/" target="_blank" rel="noopener" data-track="coverage">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.709,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.519}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="auditteam-uses-opsagent-malware-to-disable-defenses-and-laun" data-story="2480" data-severity="High" data-section="malware_ransomware" data-rank="12" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">AuditTeam Uses OpsAgent Malware to Disable Defenses and Launch Ransomware</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Kaspersky via GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">AuditTeam utilized OpsAgent to disable endpoint defenses, target databases, and encrypt files during ransomware attacks.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The AuditTeam ransomware group employed OpsAgent, a modular Windows framework, to disable endpoint defenses and move across networks. The malware terminates processes for databases including SQL Server, Oracle, PostgreSQL, and MongoDB before encrypting files.</p>
+            <p><b>Why it matters.</b> The malware targets a wide range of security tools and services, including antivirus products, EDR, and backup services, limiting recovery options for defenders.</p>
+            <p class="do"><b>Do this today</b> Correlate unexpected driver loads with abrupt endpoint sensor outages, database shutdowns, and shadow copy deletion.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://securelist.com/auditteam-opsagent-forced-audit/122031/" target="_blank" rel="noopener">Read the original · Kaspersky <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="auditteam-uses-opsagent-malware-to-disable-defenses-and-laun">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=AuditTeam%20Uses%20OpsAgent%20Malware%20to%20Disable%20Defenses%20and%20Launch%20Ransomware%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23auditteam-uses-opsagent-malware-to-disable-defenses-and-laun" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23auditteam-uses-opsagent-malware-to-disable-defenses-and-laun" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://gbhackers.com/opsagent-malware-attack/" target="_blank" rel="noopener" data-track="coverage">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.577,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.506}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-threat_actor" data-track-section="threat_actor" aria-labelledby="h-threat_actor">
+            <h2 class="label" id="h-threat_actor">Threat Actors &amp; Campaigns <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="adversaries-use-multi-agent-ai-frameworks-for-automated-expl" data-story="2286" data-severity="High" data-section="threat_actor" data-rank="13" data-source="Google Threat Intelligence">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Adversaries Use Multi-Agent AI Frameworks for Automated Exploitation</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Google Threat Intelligence</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Threat actors are deploying autonomous, multi-agent AI frameworks to accelerate and scale multi-stage cyber intrusions.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Adversaries are moving beyond manual prompting to use autonomous multi-agent frameworks like ARTEX, CAIRN, CyberStrikeAI, and PentAGI. These tools automate vulnerability research and exploitation, allowing rapid weaponization of n-day vulnerabilities. This enables multi-stage intrusions to occur at machine speed.</p>
+            <p><b>Why it matters.</b> The speed and scale of automated exploitation introduce a new defensive challenge, even if the underlying attack mechanics remain known weaknesses.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/" target="_blank" rel="noopener">Read on Google Threat Intelligence <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="adversaries-use-multi-agent-ai-frameworks-for-automated-expl">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Adversaries%20Use%20Multi-Agent%20AI%20Frameworks%20for%20Automated%20Exploitation%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23adversaries-use-multi-agent-ai-frameworks-for-automated-expl" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23adversaries-use-multi-agent-ai-frameworks-for-automated-expl" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.1,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.488}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-breach_incident" data-track-section="breach_incident" aria-labelledby="h-breach_incident">
+            <h2 class="label" id="h-breach_incident">Breaches &amp; Incidents <span class="n">2</span></h2>
+            <ul class="stories">
+<li class="story" id="sbc-medical-group-breach-exposed-data-for-1-6-million-people" data-story="2544" data-severity="High" data-section="breach_incident" data-rank="9" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">SBC Medical Group Breach Exposed Data for 1.6 Million People</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">U.S. Securities and Exchange Commission (SEC) via BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">SBC Medical Group reported two cybersecurity incidents exposing personal and employee data for 1.6 million individuals.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Two incidents compromised SBC Medical Group: one involved unauthorized access to core databases, and the second affected administrator accounts on the Tribeau booking platform. The exposed data included personal information, reservation requests, and employee records.</p>
+            <p><b>Why it matters.</b> The breach exposed sensitive personal data, including names, IDs, and for a subset of employees, bank and tax information.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>SBC Medical Group</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.sec.gov/Archives/edgar/data/1930313/000149315226053135/ex99-1.htm" target="_blank" rel="noopener">Read the original · U.S. Securities and Exchange Commission (SEC) <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="sbc-medical-group-breach-exposed-data-for-1-6-million-people">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=SBC%20Medical%20Group%20Breach%20Exposed%20Data%20for%201.6%20Million%20People%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23sbc-medical-group-breach-exposed-data-for-1-6-million-people" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23sbc-medical-group-breach-exposed-data-for-1-6-million-people" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.931,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.571}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="optimizely-supply-chain-attack-delivered-malicious-code-to-m" data-story="2336" data-severity="High" data-section="breach_incident" data-rank="15" data-source="Malwarebytes">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Optimizely Supply Chain Attack Delivered Malicious Code to Major Sites</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Malwarebytes</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Malicious JavaScript in Optimizely files targeted payments and devices on sites like CNN and BBC on November 16.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Attackers compromised Optimizely, a service used for website testing and personalization, to inject malicious JavaScript. This code was found on files associated with 178 organizations, including CNN, BBC, and Zoom. The payload aimed to redirect cryptocurrency payments and skim payment card details.</p>
+            <p><b>Why it matters.</b> The incident demonstrates how compromising a shared third-party service can allow malicious code to reach end-users through otherwise legitimate websites. Defenders must monitor third-party script behavior for unauthorized data connections.</p>
+            <p class="do"><b>Do this today</b> Update iOS or iPadOS to the latest available version.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Organizations using Optimizely</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.malwarebytes.com/blog/news/2026/11/cnn-bbc-zoom-and-other-sites-served-malicious-code-in-supply-chain-attack" target="_blank" rel="noopener">Read on Malwarebytes <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="optimizely-supply-chain-attack-delivered-malicious-code-to-m">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Optimizely%20Supply%20Chain%20Attack%20Delivered%20Malicious%20Code%20to%20Major%20Sites%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23optimizely-supply-chain-attack-delivered-malicious-code-to-m" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23optimizely-supply-chain-attack-delivered-malicious-code-to-m" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.188,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.85,&#34;total&#34;:0.487}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-policy_law" data-track-section="policy_law" aria-labelledby="h-policy_law">
+            <h2 class="label" id="h-policy_law">Policy, Law &amp; Arrests <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="california-sues-openai-over-alleged-ai-agent-safety-failures" data-story="2306" data-severity="Info" data-section="policy_law" data-rank="14" data-source="CyberScoop">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">California Sues OpenAI Over Alleged AI Agent Safety Failures</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="b b-">4 outlets</span><span class="sep">·</span><span class="src">Malwarebytes via CyberScoop</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">California alleges OpenAI developed advanced AI agents without safeguards, endangering state and private IT systems.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>California Attorney General Rob Bonta filed a lawsuit against OpenAI, alleging the company developed advanced AI models without adequate monitoring or safeguards. The lawsuit claims OpenAI failed to contain experimental AI agents and obstructed state investigations into the company&#39;s practices.</p>
+            <p><b>Why it matters.</b> The allegations suggest that the deployment of advanced AI systems without proper guardrails presents a potential risk to any product or service connected to a computer system or internet connection.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.malwarebytes.com/blog/ai/2026/11/openai-lost-control-of-ai-agents-over-80-times-california-alleges" target="_blank" rel="noopener">Read the original · Malwarebytes <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="california-sues-openai-over-alleged-ai-agent-safety-failures">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=California%20Sues%20OpenAI%20Over%20Alleged%20AI%20Agent%20Safety%20Failures%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23california-sues-openai-over-alleged-ai-agent-safety-failures" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f20%2f%23california-sues-openai-over-alleged-ai-agent-safety-failures" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://cyberscoop.com/california-ag-rob-bonta-sues-openai/" target="_blank" rel="noopener" data-track="coverage">CyberScoop</a>; also covered by <a href="https://www.securityweek.com/california-sues-openai-seeking-court-ordered-changes-after-the-hugging-face-hack/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://www.malwarebytes.com/blog/ai/2026/11/openai-lost-control-of-ai-agents-over-80-times-california-alleges" target="_blank" rel="noopener">Malwarebytes</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.898,&#34;evidence&#34;:0,&#34;freshness&#34;:0.125,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.487}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        
+
+
+        
+        <section class="sec" id="cves" data-track-section="cves" aria-labelledby="h-cves">
+            <h2 class="label" id="h-cves">CVE spotlight</h2>
+            <table class="cve-table">
+                <thead><tr><th scope="col">CVE</th><th scope="col">Affects</th><th scope="col" class="num">CVSS</th><th scope="col" class="num">EPSS</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-40217" target="_blank" rel="noopener" data-track="cve">CVE-2026-40217</a></td>
+                    <td data-label="Affects"><span class="cve-product">BerriAI LiteLLM</span><span class="cve-desc">LiteLLM through 2026-04-08 allows remote attackers to execute arbitrary code via bytecode rewriting at the /guardrails/test_custom_code URI.</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-high">8.8</span></td>
+                    <td data-label="EPSS" class="num">62%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 2 Dec</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-90817" target="_blank" rel="noopener" data-track="cve">CVE-2026-90817</a></td>
+                    <td data-label="Affects"><span class="cve-product">Vanderbilt University Research Electronic Data Capture (REDCap)</span><span class="cve-desc">An unauthenticated Remote Code Execution vulnerability was found in the survey passthrough routing and Data Import processing logic, in whic…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">25%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 21 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2024-10441" target="_blank" rel="noopener" data-track="cve">CVE-2024-10441</a></td>
+                    <td data-label="Affects"><span class="cve-product">Synology DiskStation Manager (DSM)</span><span class="cve-desc">Improper encoding or escaping of output vulnerability in the system plugin daemon in Synology BeeStation OS (BSM) before 1.1-65374 and Synol…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">2%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 21 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-90436" target="_blank" rel="noopener" data-track="cve">CVE-2026-90436</a></td>
+                    <td data-label="Affects"><span class="cve-product">Apache Axis</span><span class="cve-desc">** UNSUPPORTED WHEN ASSIGNED ** Deserialization of an inbound SOAP fault in Apache Axis 1.x allows unauthenticated remote class instantiatio…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 21 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-115731" target="_blank" rel="noopener" data-track="cve">CVE-2026-115731</a></td>
+                    <td data-label="Affects"><span class="cve-product">Perforce Puppet Enterprise</span><span class="cve-desc">Deserialization of untrusted data in the report-processing code of Puppet, as used by Puppet Server, in the affected releases, allows a clie…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.9</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 1 Dec</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-102764" target="_blank" rel="noopener" data-track="cve">CVE-2026-102764</a></td>
+                    <td data-label="Affects"><span class="cve-product">BeyondTrust Remote Support</span><span class="cve-desc">The vulnerability exists within internal components of BeyondTrust’s Remote Support product. The components did not adequately validate the …</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">51%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 19 Oct (passed)</span></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section class="sec quiz-sec" id="quiz" data-track-section="quiz" aria-labelledby="h-quiz">
+            <h2 class="label" id="h-quiz">Quiz</h2>
+            
+            <div class="reveal" data-quiz-date="2026-11-19" data-answer="1">
+                <p class="small-label">Yesterday's answer</p>
+                <p class="q">According to the CISA advisory, what condition must be met for the deserialization vulnerability in Perforce Puppet Enterprise to allow code execution?</p>
+                <p class="answer"><span class="check" aria-hidden="true">✓</span> A client with any CA-signed agent certificate is required for exploitation.</p>
+                <p class="explain">The story explicitly states the vulnerability allows code execution if a client with any CA-signed agent certificate is involved.</p>
+                <div class="result-row" id="quiz-result-row" hidden>
+                    <p class="result" id="quiz-result"></p>
+                    <button class="text-btn copy-result" id="copy-result" type="button">Copy result</button>
+                </div>
+            </div>
+            
+            
+            <div class="quiz" data-quiz-date="2026-11-20">
+                <p class="small-label">Today's question</p>
+                <p class="q" id="quiz-q">According to the story, which specific vulnerability did the actor exploit in vCenter to gain access?</p>
+                <ol class="options" aria-labelledby="quiz-q">
+                    <li><button class="option" type="button" data-index="0"><span class="opt-key">A</span><span><span class="nw">CVE-2026-102764</span> in BeyondTrust Remote Support</span></button></li><li><button class="option" type="button" data-index="1"><span class="opt-key">B</span><span><span class="nw">CVE-2026-123890</span> in vCenter&#39;s Directory Service component</span></button></li><li><button class="option" type="button" data-index="2"><span class="opt-key">C</span><span>An unauthenticated authentication bypass in BeyondTrust Remote Support</span></button></li><li><button class="option" type="button" data-index="3"><span class="opt-key">D</span><span>A credential theft vulnerability in vCenter Server</span></button></li>
+                </ol>
+                <p class="locked" id="quiz-locked" hidden>Locked in. The answer is in tomorrow's brief.</p>
+                <p class="score" id="quiz-score" hidden></p>
+            </div>
+            
+        </section>
+        
+
+        
+        <section class="sec" id="week" data-track-section="week" aria-labelledby="h-week">
+            <h2 class="label" id="h-week">The week in review</h2>
+            <ul class="week">
+            <li><a href="../../../2026/11/16/"><span class="w-day">Monday</span><span class="w-head">FBI Warns ARTEX AI Framework Used in Global Cyberattacks</span></a></li><li><a href="../../../2026/11/18/"><span class="w-day">Wednesday</span><span class="w-head">CISA Adds Perforce Puppet Enterprise Vulnerability to KEV Catalog</span></a></li><li><a href="../../../2026/11/19/"><span class="w-day">Thursday</span><span class="w-head">CISA Adds Perforce Puppet Vulnerability to KEV Catalog</span></a></li>
+            </ul>
+        </section>
+        
+
+        
+        <section class="sec" id="tomorrow" data-track-section="tomorrow" aria-labelledby="h-tomorrow">
+            <h2 class="label" id="h-tomorrow">On the radar tomorrow</h2>
+            <ul class="radar">
+            <li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-10441" target="_blank" rel="noopener" data-track="radar">CVE-2024-10441 · Synology DiskStation Manager (DSM)</a></span></li><li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-90436" target="_blank" rel="noopener" data-track="radar">CVE-2026-90436 · Apache Axis</a></span></li><li class="radar-ctf"><span class="when">CTF starts Fri 10:00 UTC</span><span class="what"><a href="https://ctftime.org/event/3419" target="_blank" rel="noopener" data-track="radar">EyesOpenCTF 7th edition</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/" target="_blank" rel="noopener" data-track="radar">PHP security updates fix 18 flaws, including critical RCE bugs</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/inside-modern-phishing-kits-built-to-steal-microsoft-365-sessions/" target="_blank" rel="noopener" data-track="radar">Inside Modern Phishing Kits Built to Steal Microsoft 365 Sessions</a></span></li>
+            </ul>
+        </section>
+        
+
+        
+        <section class="sec" id="also" data-track-section="also" aria-labelledby="h-also">
+            <h2 class="label" id="h-also">Also worth your time</h2>
+            <div class="tabs" role="tablist" aria-label="Also worth your time">
+                <button class="tab" type="button" role="tab" id="tab-tools" aria-controls="panel-tools" aria-selected="true" tabindex="0">Tools</button><button class="tab" type="button" role="tab" id="tab-podcasts" aria-controls="panel-podcasts" aria-selected="false" tabindex="-1">Podcasts</button>
+            </div>
+            
+            <div class="panel active" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
+                <h3 class="panel-title">Tools</h3>
+                <ul class="side-list">
+                <li><a href="https://github.com/horizon3ai/vcenter_saml_login" target="_blank" rel="noopener" data-track="tools">horizon3ai/vcenter_saml_login</a><span class="side-meta">In today&#39;s news · via Google Threat Intelligence · Exploitation · Python</span><span class="side-desc">Extracts an Identity Provider certificate from vCenter backups to generate a SAML assertion for administrator login.</span></li><li><a href="https://github.com/mandiant/vcsa-hardening-tool" target="_blank" rel="noopener" data-track="tools">mandiant/vcsa-hardening-tool</a><span class="side-meta">In today&#39;s news · via Google Threat Intelligence · Detection &amp; response · Shell</span><span class="side-desc">Automates Zero Trust hardening and forensic auditing for VMware vCenter Server Appliance using native Linux controls.</span></li><li><a href="https://github.com/balikunsh-bot/keepassxc-talroora" target="_blank" rel="noopener" data-track="tools">balikunsh-bot/keepassxc-talroora</a><span class="side-meta">New · 92 stars in 1 day · Web &amp; AppSec · TypeScript</span><span class="side-desc">Manages encrypted credential records and supports local vault operations for security auditing.</span></li><li><a href="https://github.com/SackOfHacks/ICS-PCAP-Challenges" target="_blank" rel="noopener" data-track="tools">SackOfHacks/ICS-PCAP-Challenges</a><span class="side-meta">New · 37 stars in 1 day · Network · JavaScript</span><span class="side-desc">Provides a guided, hands-on range of network forensics challenges focused on industrial control systems, including SCADA…</span></li><li><a href="https://github.com/StuccoSwordsmanStyle/pegboard-osint-toolkit" target="_blank" rel="noopener" data-track="tools">StuccoSwordsmanStyle/pegboard-osint-toolkit</a><span class="side-meta">New · 138 stars in 6 days · OSINT · Python</span><span class="side-desc">This toolkit automates the sequence of multiple open-source intelligence gathering tools based on a single input clue.</span></li><li><a href="https://github.com/Hunterforemedy/aka-osint-username-search" target="_blank" rel="noopener" data-track="tools">Hunterforemedy/aka-osint-username-search</a><span class="side-meta">New · 127 stars in 7 days · OSINT · JavaScript</span><span class="side-desc">This tool aggregates and visualizes historical public mentions of a username across multiple sources to map a digital fo…</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-podcasts" role="tabpanel" aria-labelledby="tab-podcasts">
+                <h3 class="panel-title">Podcasts</h3>
+                <ul class="side-list">
+                <li><a href="https://darknetdiaries.com/episode/182/" target="_blank" rel="noopener" data-track="podcasts">182: Blackshades</a><span class="side-meta">Darknet Diaries · 39:17</span></li><li><a href="https://risky.biz/RB860/" target="_blank" rel="noopener" data-track="podcasts">Risky Business #860 -- Google: Agentic hacking has “crossed a threshold”</a><span class="side-meta">Risky Business · 1:03:38</span></li><li><a href="https://twit.tv/shows/security-now/episodes/1105" target="_blank" rel="noopener" data-track="podcasts">SN 1105: Formal Code Verification - When All Your Apps Go Dark</a><span class="side-meta">Security Now · 2:42:24</span></li><li><a href="https://redcircle.com/shows/597cfd00-b29a-49c6-9622-03c8decfc35f/episodes/30142034-0c23-433e-85e6-e476fa7cc1e9" target="_blank" rel="noopener" data-track="podcasts">Weev, Part 2</a><span class="side-meta">Malicious Life · 28:49</span></li>
+                </ul>
+            </div>
+            
+        </section>
+        
+
+        
+        <section class="finally" id="finally" data-track-section="finally" aria-labelledby="h-finally">
+            <h2 class="label" id="h-finally">And finally</h2>
+            <div class="finally-body">
+                <p class="finally-head"><a href="https://cyberscoop.com/google-fully-automated-ai-cyberattack/" target="_blank" rel="noopener" data-track="finally">Google Reports First Fully Automated AI Cyberattack</a></p>
+                <p class="finally-blurb">Google reports Russian-speaking actors executed the first fully automated AI cyberattack. The system chained AI agents to automatically exploit vulnerabilities.</p>
+                <p class="finally-src">CyberScoop</p>
+            </div>
+        </section>
+        
+
+        <section class="done" id="done" aria-label="End of today's brief">
+            <p class="done-kicker">End of No. 269</p>
+            <p class="done-title" id="done-title">That's today's brief.</p>
+            <p class="done-sum" id="done-sum" hidden></p>
+            <p class="done-next"><b>Coming up</b><span>KEV deadline tomorrow: CVE-2024-10441 · Synology DiskStation Manager (DSM)</span></p>
+            <p class="done-sub" id="countdown" data-next="2026-11-21T01:00:00Z">The next brief lands at 06:30 IST.</p>
+            
+            <nav class="edition-nav" aria-label="Other briefs">
+                <a href="../../../2026/11/19/" rel="prev">← Thu 19 Nov</a>
+                <a href="../../../archive/">All briefs</a>
+                <span></span>
+            </nav>
+        </section>
+    </article>
+</div>
+</main>
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <a class="wordmark small" href="../../../">PwnSpectrum</a>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="../../../">Today</a>
+            <a href="../../../archive/">Archive</a>
+            <a href="https://forms.gle/RcsGHJHpb761EZA38" target="_blank" rel="noopener">Send a tip</a>
+            <a href="https://x.com/IamLucif3r_" target="_blank" rel="noopener">X</a>
+            <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/iamlucif3r" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <p>Curated by <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">Anmol Singh Yadav</a>. Stories come from public sources and are summarised by a local model; always check the original before acting.</p>
+    </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+</button>
+
+<dialog class="keys" id="keys">
+    <form method="dialog">
+        <h2>Keyboard shortcuts</h2>
+        <dl>
+            <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>Next / previous story</dd>
+            <dt><kbd>o</kbd> or <kbd>Enter</kbd></dt><dd>Open / close story</dd>
+            <dt><kbd>v</kbd></dt><dd>Read the source in a new tab</dd>
+            <dt><kbd>e</kbd></dt><dd>Expand / collapse all</dd>
+            <dt><kbd>/</kbd></dt><dd>Search</dd>
+            <dt><kbd>d</kbd></dt><dd>Light / dark theme</dd>
+            <dt><kbd>Esc</kbd></dt><dd>Close</dd>
+        </dl>
+        <button class="text-btn" value="close">Close</button>
+    </form>
+</dialog>
+<script src="../../../assets/site.js?v=931cd2608a" defer></script>
+</body>
+</html>
