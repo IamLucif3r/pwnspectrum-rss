@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices · PwnSpectrum 23 Nov</title>
+    <meta name="description" content="Daily cybersecurity brief for 23 Nov 2026: GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices; Cleverbridge Breach: Payment Card Data, Including CVVs, Stolen; OpenRouter Reports Prompt Theft from Three AI Inference Providers.">
+    <link rel="canonical" href="https://feed.anmolsinghyadav.com/2026/11/23/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1014" media="(prefers-color-scheme: dark)">
+    <meta property="og:site_name" content="PwnSpectrum">
+    <meta property="og:title" content="GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices · PwnSpectrum 23 Nov">
+    <meta property="og:description" content="Daily cybersecurity brief for 23 Nov 2026: GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices; Cleverbridge Breach: Payment Card Data, Including CVVs, Stolen; OpenRouter Reports Prompt Theft from Three AI Inference Providers.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://feed.anmolsinghyadav.com/2026/11/23/">
+    <meta property="og:image" content="https://feed.anmolsinghyadav.com/2026/11/23/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@IamLucif3r_">
+    <meta name="twitter:title" content="GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices · PwnSpectrum 23 Nov">
+    <meta name="twitter:description" content="Daily cybersecurity brief for 23 Nov 2026: GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices; Cleverbridge Breach: Payment Card Data, Including CVVs, Stolen; OpenRouter Reports Prompt Theft from Three AI Inference Providers.">
+    <meta name="twitter:image" content="https://feed.anmolsinghyadav.com/2026/11/23/og.png">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400..500&display=swap">
+    <link rel="stylesheet" href="../../../assets/site.css?v=931cd2608a">
+    <script>
+        (function () {
+            var d = document.documentElement; d.classList.add('js');
+            try { var t = localStorage.getItem('pwn_theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+        })();
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","author":{"@type":"Person","name":"Anmol Singh Yadav","url":"https://www.linkedin.com/in/anmolsinghyadav/"},"dateModified":"2026-11-23T01:05:32Z","datePublished":"2026-11-23","description":"Prioritize securing GL.iNet devices against cloud remote management exploitation. Review payment handling procedures following the Cleverbridge breach. Assess AI inference provider security controls regarding prompt leakage.","hasPart":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices","position":1,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#gl-inet-cloud-flaw-exploited-to-infect-routers-and-kvm-devic"},{"@type":"ListItem","name":"Ghostscript Sandbox Escape RCE via Crafted File Uploads","position":2,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#ghostscript-sandbox-escape-rce-via-crafted-file-uploads"},{"@type":"ListItem","name":"MONAI Label Zero-Day Exploited by AI Agents","position":3,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#monai-label-zero-day-exploited-by-ai-agents"},{"@type":"ListItem","name":"Rapid7 Releases Metasploit Modules for Zimbra Identity Flaws","position":4,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#rapid7-releases-metasploit-modules-for-zimbra-identity-flaws"},{"@type":"ListItem","name":"FastUnlock Zero-Day Allows Program Execution on Locked Windows PC","position":5,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#fastunlock-zero-day-allows-program-execution-on-locked-windo"},{"@type":"ListItem","name":"OpenRouter Reports Prompt Theft from Three AI Inference Providers","position":6,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#openrouter-reports-prompt-theft-from-three-ai-inference-prov"},{"@type":"ListItem","name":"China-linked Actors Used Cairn AI Tool Against Universities","position":7,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#china-linked-actors-used-cairn-ai-tool-against-universities"},{"@type":"ListItem","name":"North Korean Actors Use Deepfakes and Fake Companies to Target U.S. Businesses","position":8,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#north-korean-actors-use-deepfakes-and-fake-companies-to-targ"},{"@type":"ListItem","name":"AI-Assisted Toolkit Used to Steal Credentials from African Stock Exchange","position":9,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#ai-assisted-toolkit-used-to-steal-credentials-from-african-s"},{"@type":"ListItem","name":"Cleverbridge Breach: Payment Card Data, Including CVVs, Stolen","position":10,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#cleverbridge-breach-payment-card-data-including-cvvs-stolen"},{"@type":"ListItem","name":"Third-Party Breach Exposes Data for Chase, Visa, and Mastercard","position":11,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#third-party-breach-exposes-data-for-chase-visa-and-mastercar"},{"@type":"ListItem","name":"FBI Investigating Apparent Hack of National Crime Information Center (NCIC)","position":12,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#fbi-investigating-apparent-hack-of-national-crime-informatio"},{"@type":"ListItem","name":"Nightmare Eclipse Unpatched Windows Lock Screen Escape Exploit","position":13,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#nightmare-eclipse-unpatched-windows-lock-screen-escape-explo"},{"@type":"ListItem","name":"AI Supply Chain Vulnerability: Data Privacy Compromise Demonstrated","position":14,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#ai-supply-chain-vulnerability-data-privacy-compromise-demons"},{"@type":"ListItem","name":"Cryptographer Warns AI Advances Threaten Public-Key Cryptography Foundations","position":15,"url":"https://feed.anmolsinghyadav.com/2026/11/23/#cryptographer-warns-ai-advances-threaten-public-key-cryptogr"}]},"headline":"PwnSpectrum daily cybersecurity brief — 23 November 2026","image":"https://feed.anmolsinghyadav.com/2026/11/23/og.png","publisher":{"@type":"Organization","name":"PwnSpectrum","url":"https://feed.anmolsinghyadav.com"},"url":"https://feed.anmolsinghyadav.com/2026/11/23/"}</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9ZF36FC9M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N9ZF36FC9M');</script>
+</head>
+<body data-edition="2026-11-23">
+<a class="skip" href="#main">Skip to the brief</a>
+<header class="bar">
+    <div class="bar-inner">
+        <a class="wordmark" href="../../../" aria-label="PwnSpectrum home">PwnSpectrum</a>
+        <p class="bar-meta" aria-live="polite"><span class="bar-date">Mon 23 Nov</span><span class="bar-read" id="bar-read" hidden></span></p>
+        <div class="bar-actions">
+            <button class="icon-btn" id="search-btn" type="button" aria-label="Search stories" aria-keyshortcuts="/" aria-expanded="false" aria-controls="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            </button>
+            <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch between light and dark theme" aria-keyshortcuts="d">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+            </button>
+            <button class="icon-btn only-fine" id="keys-btn" type="button" aria-label="Keyboard shortcuts" aria-keyshortcuts="?">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="scroll-line" aria-hidden="true"><span id="scroll-line"></span></div>
+    <div class="search" id="search" hidden>
+        <div class="search-inner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="search-input" type="search" placeholder="Search today's stories" aria-label="Search today's stories" autocomplete="off" spellcheck="false">
+            <span class="search-count" id="search-count" aria-live="polite"></span>
+            <button class="text-btn" id="search-close" type="button">Close</button>
+        </div>
+    </div>
+</header>
+
+
+<main id="main" class="page">
+<div class="layout">
+    <nav class="rail" aria-label="Sections">
+        <ol class="rail-list">
+            <li><a href="#top3">Top stories</a></li>
+            <li><a href="#editor">From the editor</a></li>
+            <li><a href="#s-active_exploitation">Actively Exploited<span class="n">1</span></a></li><li><a href="#s-vulnerability">Vulnerabilities &amp; Patches<span class="n">4</span></a></li><li><a href="#watch">Worth watching</a></li><li><a href="#s-malware_ransomware">Malware &amp; Ransomware<span class="n">1</span></a></li><li><a href="#s-threat_actor">Threat Actors &amp; Campaigns<span class="n">3</span></a></li><li><a href="#s-breach_incident">Breaches &amp; Incidents<span class="n">4</span></a></li><li><a href="#s-ai_security">AI Security<span class="n">1</span></a></li><li><a href="#s-research_technique">Research &amp; Techniques<span class="n">1</span></a></li>
+            
+            <li><a href="#cves">CVE spotlight</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            
+            <li><a href="#tomorrow">The week ahead</a></li>
+            <li><a href="#also">Also worth your time</a></li>
+            <li><a href="#finally">And finally</a></li>
+        </ol>
+        <p class="rail-hint only-fine">Press <kbd>j</kbd> <kbd>k</kbd> to move, <kbd>?</kbd> for all keys</p>
+    </nav>
+
+    <article class="brief">
+        <header class="masthead">
+            <div class="np-top">
+                <p class="kicker">The daily cybersecurity brief</p>
+                <p class="issue">No. 272</p>
+            </div>
+            <h1 class="date"><time datetime="2026-11-23">Monday, 23 November 2026</time></h1>
+            <p class="dateline">
+                <span>15 stories</span>
+                <span class="crit-count">1 critical</span>
+                <span>6 min read</span>
+                <span>Updated 06:30 IST</span>
+            </p>
+            <p class="new-banner" id="new-banner" hidden></p>
+        </header>
+
+        
+        <section class="top3" id="top3" data-track-section="top3" aria-labelledby="top3-h">
+            <h2 class="sr-only" id="top3-h">Top stories</h2>
+            <ol class="top3-list">
+            
+                <li data-story="2649">
+                    <a class="top3-item" href="#gl-inet-cloud-flaw-exploited-to-infect-routers-and-kvm-devic" data-open="gl-inet-cloud-flaw-exploited-to-infect-routers-and-kvm-devic">
+                        <span class="top3-num" aria-hidden="true">01</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-Critical" aria-hidden="true"></i><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span>Exploited<span class="tag tag-new">New</span></span>
+                            <span class="top3-head">GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices</span>
+                            <span class="top3-tldr">Malware was installed on GL.iNet devices via an exploited vulnerability in the cloud remote management service.</span>
+                            <span class="top3-do"><b>Do this today</b> Install the latest security firmware for specific models; for KVM devices, use version 1.10.3 or later for RM10, RM1, RM1V2, RM1PE, and RM4PE.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="2648">
+                    <a class="top3-item" href="#cleverbridge-breach-payment-card-data-including-cvvs-stolen" data-open="cleverbridge-breach-payment-card-data-including-cvvs-stolen">
+                        <span class="top3-num" aria-hidden="true">02</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="tag tag-new">New</span></span>
+                            <span class="top3-head">Cleverbridge Breach: Payment Card Data, Including CVVs, Stolen</span>
+                            <span class="top3-tldr">Cleverbridge confirmed a breach resulting in the theft of payment card numbers, expiration dates, and CVV/CVC codes.</span>
+                            <span class="top3-do"><b>Do this today</b> Advise customers to review payment card statements for unauthorized transactions and contact card issuers.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+                <li data-story="2614">
+                    <a class="top3-item" href="#openrouter-reports-prompt-theft-from-three-ai-inference-prov" data-open="openrouter-reports-prompt-theft-from-three-ai-inference-prov">
+                        <span class="top3-num" aria-hidden="true">03</span>
+                        <span class="top3-body">
+                            <span class="meta"><i class="dot sev-High" aria-hidden="true"></i><span class="sev-text sev-High">High</span><span class="tag tag-new">New</span></span>
+                            <span class="top3-head">OpenRouter Reports Prompt Theft from Three AI Inference Providers</span>
+                            <span class="top3-tldr">Researchers found prompt theft occurred from three AI inference providers, bypassing zero data retention settings.</span>
+                            <span class="top3-do"><b>Do this today</b> Review data retention policies for all AI inference endpoints.</span>
+                            <span class="top3-more">Read the full story ↓</span>
+                        </span>
+                    </a>
+                </li>
+            
+            </ol>
+        </section>
+        
+
+        <aside class="glance" aria-labelledby="glance-h">
+            <h2 class="glance-h" id="glance-h">At a glance</h2>
+            
+            <div class="g-block g-nod">
+                <p class="g-label">Number of the day</p>
+                <p class="nod-value">41</p>
+                <p class="nod-cap">AI-assisted modules used to test credentials against exchange API</p>
+                <a class="nod-src" href="#ai-assisted-toolkit-used-to-steal-credentials-from-african-s" data-open="ai-assisted-toolkit-used-to-steal-credentials-from-african-s">From: GBHackers ↓</a>
+            </div>
+            
+            <div class="g-block g-threat meter-LOW" title="Threat level compared with the last 30 briefs">
+                <p class="g-label">Threat level</p>
+                <div class="meter meter-LOW">
+                    <span class="meter-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                    <span class="meter-value">low</span>
+                </div>
+                
+                <div class="spark">
+                    <svg viewBox="0 0 240 40" role="img" aria-label="Threat level over the last 29 briefs">
+                        <line class="spark-base" x1="2" y1="20" x2="238" y2="20"/>
+                        <polyline points="2.0,4.0 10.1,4.0 18.3,36.0 26.4,36.0 34.6,20.0 42.7,12.0 50.8,12.0 59.0,12.0 67.1,20.0 75.2,36.0 83.4,28.0 91.5,12.0 99.7,12.0 107.8,12.0 115.9,20.0 124.1,36.0 132.2,36.0 140.3,28.0 148.5,28.0 156.6,20.0 164.8,4.0 172.9,20.0 181.0,28.0 189.2,36.0 197.3,28.0 205.4,28.0 213.6,20.0 221.7,20.0 229.9,20.0 238.0,36.0"/>
+                        <circle class="spark-now" cx="237.99999999999997" cy="36" r="3.5"/>
+                    </svg>
+                    <p class="spark-axis"><span>29 briefs ago</span><span>Today</span></p>
+                </div>
+                
+            </div>
+            
+            <div class="g-block g-mix">
+                <p class="g-label">Today's mix</p>
+                <div class="mix-bar" aria-hidden="true"><i class="sev-Critical" style="flex-grow: 1"></i><i class="sev-High" style="flex-grow: 4"></i><i class="sev-Medium" style="flex-grow: 8"></i><i class="sev-Info" style="flex-grow: 2"></i></div>
+                <ul class="mix-legend"><li><i class="dot sev-Critical" aria-hidden="true"></i><b>1</b> critical</li><li><i class="dot sev-High" aria-hidden="true"></i><b>4</b> high</li><li><i class="dot sev-Medium" aria-hidden="true"></i><b>8</b> medium</li><li><i class="dot sev-Info" aria-hidden="true"></i><b>2</b> info</li></ul>
+            </div>
+            
+            <div class="g-block g-you" id="g-you" data-minutes="6" hidden>
+                <p class="g-label">Your brief</p>
+                <p id="you-text"></p>
+                <div class="you-bar" aria-hidden="true"><span id="you-bar"></span></div>
+            </div>
+        </aside>
+
+        
+        <section class="lede" id="editor" aria-labelledby="h-editor">
+            <h2 class="label" id="h-editor">From the editor</h2>
+            <p class="note">Prioritize securing GL.iNet devices against cloud remote management exploitation. Review payment handling procedures following the Cleverbridge breach. Assess AI inference provider security controls regarding prompt leakage.</p>
+            <p class="byline"><img src="../../../assets/editor.jpg" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Anmol Singh Yadav</b>Editor, PwnSpectrum</span></p>
+        </section>
+        
+
+        <nav class="index" aria-label="Jump to section">
+            <a href="#s-active_exploitation">Actively Exploited <span class="n">1</span></a><a href="#s-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></a><a href="#watch">Watch</a><a href="#s-malware_ransomware">Malware &amp; Ransomware <span class="n">1</span></a><a href="#s-threat_actor">Threat Actors &amp; Campaigns <span class="n">3</span></a><a href="#s-breach_incident">Breaches &amp; Incidents <span class="n">4</span></a><a href="#s-ai_security">AI Security <span class="n">1</span></a><a href="#s-research_technique">Research &amp; Techniques <span class="n">1</span></a>
+            
+            <a href="#cves">CVEs</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#tomorrow">Week ahead</a>
+        </nav>
+
+        <p class="no-results" id="no-results" hidden>No stories match your search.</p>
+
+        
+        
+        <section class="sec" id="s-active_exploitation" data-track-section="active_exploitation" aria-labelledby="h-active_exploitation">
+            <h2 class="label" id="h-active_exploitation">Actively Exploited <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="gl-inet-cloud-flaw-exploited-to-infect-routers-and-kvm-devic" data-story="2649" data-severity="Critical" data-section="active_exploitation" data-rank="1" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-Critical" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">GL.iNet Cloud Flaw Exploited to Infect Routers and KVM Devices</span>
+                <span class="meta"><span class="sev-text sev-Critical">Critical</span><span class="sep">·</span><span class="b b-exploit">Exploited</span><span class="sep">·</span><span class="src">GL.iNet via BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Malware was installed on GL.iNet devices via an exploited vulnerability in the cloud remote management service.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Unauthorized parties exploited a vulnerability in GL.iNet&#39;s cloud remote management services to install custom malware on routers and KVM devices. This resulted in backdoors and reverse shells providing remote access to infected equipment.</p>
+            <p><b>Why it matters.</b> Compromised devices may have had access to controlled computers via KVM, requiring analysis of those connected systems for potential compromise.</p>
+            <p class="do"><b>Do this today</b> Install the latest security firmware for specific models; for KVM devices, use version 1.10.3 or later for RM10, RM1, RM1V2, RM1PE, and RM4PE.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>GL.iNet routers, KVM devices</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="http://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20" target="_blank" rel="noopener">Read the original · GL.iNet <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="gl-inet-cloud-flaw-exploited-to-infect-routers-and-kvm-devic">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=GL.iNet%20Cloud%20Flaw%20Exploited%20to%20Infect%20Routers%20and%20KVM%20Devices%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23gl-inet-cloud-flaw-exploited-to-infect-routers-and-kvm-devic" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23gl-inet-cloud-flaw-exploited-to-infect-routers-and-kvm-devic" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0.9,&#34;freshness&#34;:0.841,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.787}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        <figure class="pullquote">
+            <blockquote><p>Based on our investigation to date, the information involved includes the payment card details you used to make a purchase through Cleverbridge, notably your card number, expiry date, card security code (CVV/CVC)</p></blockquote>
+            <figcaption><a href="https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/" target="_blank" rel="noopener">Cleverbridge, via BleepingComputer</a></figcaption>
+        </figure>
+
+        
+        
+        <section class="sec" id="s-vulnerability" data-track-section="vulnerability" aria-labelledby="h-vulnerability">
+            <h2 class="label" id="h-vulnerability">Vulnerabilities &amp; Patches <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="ghostscript-sandbox-escape-rce-via-crafted-file-uploads" data-story="2613" data-severity="Medium" data-section="vulnerability" data-rank="6" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Ghostscript Sandbox Escape RCE via Crafted File Uploads</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A flaw in Ghostscript permits sandbox escape and remote code execution when processing crafted files.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A flaw in Ghostscript allows a crafted file to escape its security sandbox. This enables the execution of arbitrary commands on the server processing the file.</p>
+            <p><b>Why it matters.</b> Servers using Ghostscript for processing uploaded PDFs, PostScript files, or images are vulnerable to remote code execution. This can be triggered by standard file upload functionality.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>Ghostscript</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="ghostscript-sandbox-escape-rce-via-crafted-file-uploads">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Ghostscript%20Sandbox%20Escape%20RCE%20via%20Crafted%20File%20Uploads%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23ghostscript-sandbox-escape-rce-via-crafted-file-uploads" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23ghostscript-sandbox-escape-rce-via-crafted-file-uploads" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.575,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.52}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="monai-label-zero-day-exploited-by-ai-agents" data-story="2604" data-severity="Medium" data-section="vulnerability" data-rank="7" data-source="SecurityWeek">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">MONAI Label Zero-Day Exploited by AI Agents</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">Amazon via SecurityWeek</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">China-linked actors used autonomous AI agents to exploit a path traversal and root shell vulnerability in MONAI Label.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Threat actors utilized autonomous Cairn AI agents to discover and exploit a zero-day path traversal bug in MONAI Label&#39;s file upload function. This allowed the agents to achieve root shell access on compromised servers.</p>
+            <p><b>Why it matters.</b> The vulnerability is critical, affects versions 0.8.5 and earlier, and is exploitable without authentication if the server is reachable over the network.</p>
+            <p class="do"><b>Do this today</b> Apply the fix included in the next MONAI Label release.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>MONAI Label versions 0.8.5 and earlier</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/" target="_blank" rel="noopener">Read the original · Amazon <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="monai-label-zero-day-exploited-by-ai-agents">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=MONAI%20Label%20Zero-Day%20Exploited%20by%20AI%20Agents%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23monai-label-zero-day-exploited-by-ai-agents" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23monai-label-zero-day-exploited-by-ai-agents" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/" target="_blank" rel="noopener" data-track="coverage">SecurityWeek</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.359,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.509}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="rapid7-releases-metasploit-modules-for-zimbra-identity-flaws" data-story="2593" data-severity="Medium" data-section="vulnerability" data-rank="8" data-source="Rapid7">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Rapid7 Releases Metasploit Modules for Zimbra Identity Flaws</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="b b-">CVSS 4.3</span><span class="sep">·</span><span class="src">Rapid7</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">New Metasploit modules target authorization bypass and rate-limit flaws in Zimbra&#39;s identity handling.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Rapid7 released Metasploit modules addressing identity boundary issues in Zimbra. These modules target <span class="nw">CVE-2026-73571</span>, an authorization bypass allowing email sending as another local mailbox, and <span class="nw">CVE-2026-93637</span>, a rate-limit bypass for credential stuffing.</p>
+            <p><b>Why it matters.</b> These vulnerabilities allow authenticated users to perform actions beyond their intended scope, facilitating unauthorized communication or brute-forcing login paths.</p>
+            <p class="do"><b>Do this today</b> Review authentication controls and monitor for unusual mail relaying activity.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Zimbra 10.1.16 Network Edition</dd>
+                <dt>CVE</dt><dd class="mono">CVE-2026-73571, CVE-2026-93637</dd>
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.rapid7.com/blog/post/pt-metasploit-wrap-up-breaking-zimbra-s-identity-boundaries" target="_blank" rel="noopener">Read on Rapid7 <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="rapid7-releases-metasploit-modules-for-zimbra-identity-flaws">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Rapid7%20Releases%20Metasploit%20Modules%20for%20Zimbra%20Identity%20Flaws%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23rapid7-releases-metasploit-modules-for-zimbra-identity-flaws" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23rapid7-releases-metasploit-modules-for-zimbra-identity-flaws" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.176,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.85,&#34;total&#34;:0.486}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="fastunlock-zero-day-allows-program-execution-on-locked-windo" data-story="2553" data-severity="Medium" data-section="vulnerability" data-rank="9" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FastUnlock Zero-Day Allows Program Execution on Locked Windows PC</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Physical access to a locked Windows machine can allow program execution using a newly disclosed zero-day technique.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A researcher disclosed a zero-day technique named FastUnlock. This method permits the execution of programs on a Windows computer that is locked, without requiring user sign-in.</p>
+            <p><b>Why it matters.</b> Physical access combined with this vulnerability allows unauthorized code execution on a machine, even if the user account is locked.</p>
+            <p class="do"><b>Do this today</b> Review endpoint security policies for physical access controls.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Windows</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fastunlock-zero-day-allows-program-execution-on-locked-windo">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FastUnlock%20Zero-Day%20Allows%20Program%20Execution%20on%20Locked%20Windows%20PC%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23fastunlock-zero-day-allows-program-execution-on-locked-windo" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23fastunlock-zero-day-allows-program-execution-on-locked-windo" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.153,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.478}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        <section class="sec" id="watch" data-track-section="watch" aria-labelledby="h-watch">
+            <h2 class="label" id="h-watch">Worth watching</h2>
+            <ul class="videos">
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=Oj-vfKqtoik" target="_blank" rel="noopener" data-video="Oj-vfKqtoik" aria-label="Play: Minecraft Security Sandbox">
+                        <img src="https://i.ytimg.com/vi/Oj-vfKqtoik/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Malware analysis</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=Oj-vfKqtoik" target="_blank" rel="noopener" data-track="video">Minecraft Security Sandbox</a>
+                        <span class="video-meta">John Hammond · 21 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=w2A52-dhO9E" target="_blank" rel="noopener" data-video="w2A52-dhO9E" aria-label="Play: HackTheBox - PingPong">
+                        <img src="https://i.ytimg.com/vi/w2A52-dhO9E/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Walkthrough</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=w2A52-dhO9E" target="_blank" rel="noopener" data-track="video">HackTheBox - PingPong</a>
+                        <span class="video-meta">IppSec · 21 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=sFuzabpwL7o" target="_blank" rel="noopener" data-video="sFuzabpwL7o" aria-label="Play: the nginx situation is crazy">
+                        <img src="https://i.ytimg.com/vi/sFuzabpwL7o/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Exploitation</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=sFuzabpwL7o" target="_blank" rel="noopener" data-track="video">the nginx situation is crazy</a>
+                        <span class="video-meta">Low Level · 20 Nov</span>
+                    </div>
+                </li>
+            
+                <li class="video">
+                    <a class="video-thumb" href="https://www.youtube.com/watch?v=cbJs1GPIU50" target="_blank" rel="noopener" data-video="cbJs1GPIU50" aria-label="Play: Is Cybersecurity Still Worth It in the AI Era?">
+                        <img src="https://i.ytimg.com/vi/cbJs1GPIU50/hqdefault.jpg" alt="" width="480" height="270" loading="lazy" decoding="async">
+                        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    </a>
+                    <div class="video-info">
+                        <span class="video-type">Bug bounty</span>
+                        <a class="video-title" href="https://www.youtube.com/watch?v=cbJs1GPIU50" target="_blank" rel="noopener" data-track="video">Is Cybersecurity Still Worth It in the AI Era?</a>
+                        <span class="video-meta">NahamSec · 16 Nov</span>
+                    </div>
+                </li>
+            
+            </ul>
+        </section>
+
+        
+        <section class="sec" id="s-malware_ransomware" data-track-section="malware_ransomware" aria-labelledby="h-malware_ransomware">
+            <h2 class="label" id="h-malware_ransomware">Malware &amp; Ransomware <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="openrouter-reports-prompt-theft-from-three-ai-inference-prov" data-story="2614" data-severity="High" data-section="malware_ransomware" data-rank="5" data-source="The Hacker News">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">OpenRouter Reports Prompt Theft from Three AI Inference Providers</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">The Hacker News</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Researchers found prompt theft occurred from three AI inference providers, bypassing zero data retention settings.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Researchers discovered that attackers stole prompts from three AI inference providers over several months. This theft occurred even when zero data retention settings were active.</p>
+            <p><b>Why it matters.</b> Prompt theft indicates potential exposure of proprietary inputs and sensitive operational data used with AI services.</p>
+            <p class="do"><b>Do this today</b> Review data retention policies for all AI inference endpoints.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Three AI inference providers</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html" target="_blank" rel="noopener">Read on The Hacker News <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="openrouter-reports-prompt-theft-from-three-ai-inference-prov">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=OpenRouter%20Reports%20Prompt%20Theft%20from%20Three%20AI%20Inference%20Providers%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23openrouter-reports-prompt-theft-from-three-ai-inference-prov" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23openrouter-reports-prompt-theft-from-three-ai-inference-prov" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.575,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.521}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-threat_actor" data-track-section="threat_actor" aria-labelledby="h-threat_actor">
+            <h2 class="label" id="h-threat_actor">Threat Actors &amp; Campaigns <span class="n">3</span></h2>
+            <ul class="stories">
+<li class="story" id="china-linked-actors-used-cairn-ai-tool-against-universities" data-story="2582" data-severity="Medium" data-section="threat_actor" data-rank="10" data-source="The Record">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">China-linked Actors Used Cairn AI Tool Against Universities</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">Amazon&#39;s Threat Intelligence via The Record</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">China-linked threat actors used the autonomous AI penetration-testing tool Cairn to target multiple universities.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A China-linked threat actor used the open-source AI penetration-testing framework Cairn to persistently attack East Asian universities. The attacker used the tool to plan and execute actions, resulting in the discovery and exploitation of a path traversal vulnerability in an open-source medical imaging AI application.</p>
+            <p><b>Why it matters.</b> AI-driven tools can automate complex attack phases rapidly, potentially outpacing manual security operations center triage efforts. The successful exploitation of an unpatched vulnerability suggests a zero-day capability was leveraged.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/" target="_blank" rel="noopener">Read the original · Amazon&#39;s Threat Intelligence <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="china-linked-actors-used-cairn-ai-tool-against-universities">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=China-linked%20Actors%20Used%20Cairn%20AI%20Tool%20Against%20Universities%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23china-linked-actors-used-cairn-ai-tool-against-universities" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23china-linked-actors-used-cairn-ai-tool-against-universities" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://therecord.media/amazon-research-cairn-ai-university-attacks-possible-zero-day" target="_blank" rel="noopener" data-track="coverage">The Record</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.214,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.424}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="north-korean-actors-use-deepfakes-and-fake-companies-to-targ" data-story="2600" data-severity="Medium" data-section="threat_actor" data-rank="14" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">North Korean Actors Use Deepfakes and Fake Companies to Target U.S. Businesses</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Suspected North Korean workers used a fake construction company and AI deepfakes to attempt to secure contracts with U.S. businesses.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A suspected North Korean remote worker operated a fake Virginia construction company to pursue contracts with U.S. businesses. The operation utilized apparent real-time AI face swapping during video calls with prospective clients.</p>
+            <p><b>Why it matters.</b> This indicates a potential threat vector involving social engineering, deepfake technology, and fraudulent corporate fronts targeting U.S. procurement processes.</p>
+            <p class="do"><b>Do this today</b> Confirm contractor licenses directly with state licensing boards and reconcile business addresses and phone numbers against registration records before onboarding.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://gbhackers.com/north-korean-fake-construction-company-ai-deepfakes/" target="_blank" rel="noopener">Read on GBHackers <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="north-korean-actors-use-deepfakes-and-fake-companies-to-targ">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=North%20Korean%20Actors%20Use%20Deepfakes%20and%20Fake%20Companies%20to%20Target%20U.S.%20Businesses%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23north-korean-actors-use-deepfakes-and-fake-companies-to-targ" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23north-korean-actors-use-deepfakes-and-fake-companies-to-targ" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.31,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.404}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="ai-assisted-toolkit-used-to-steal-credentials-from-african-s" data-story="2576" data-severity="Medium" data-section="threat_actor" data-rank="15" data-source="GBHackers">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">AI-Assisted Toolkit Used to Steal Credentials from African Stock Exchange</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">Security via GBHackers</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Attackers used an AI-written toolkit running 41 PowerShell modules to test credentials against an African stock exchange&#39;s API.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Attackers executed 41 PowerShell modules over a short period from a webshell on an IIS server. These modules tested credentials, bearer tokens, and API keys against the exchange&#39;s investment API and other systems. The modules utilized shared code structures, including a DNS exfiltration loop.</p>
+            <p><b>Why it matters.</b> The activity indicates advanced, automated credential harvesting targeting financial infrastructure. The use of AI-assisted tooling suggests a high level of operational sophistication.</p>
+            <p class="do"><b>Do this today</b> Hunt for DNS exfiltration loops and shared scaffold patterns in PowerShell scripts.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.security.com/threat-intelligence/african-stock-exchange-ai-assisted-attack" target="_blank" rel="noopener">Read the original · Security <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="ai-assisted-toolkit-used-to-steal-credentials-from-african-s">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=AI-Assisted%20Toolkit%20Used%20to%20Steal%20Credentials%20from%20African%20Stock%20Exchange%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23ai-assisted-toolkit-used-to-steal-credentials-from-african-s" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23ai-assisted-toolkit-used-to-steal-credentials-from-african-s" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://gbhackers.com/african-stock-exchange-credential-theft/" target="_blank" rel="noopener" data-track="coverage">GBHackers</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.21,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.65,&#34;total&#34;:0.394}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-breach_incident" data-track-section="breach_incident" aria-labelledby="h-breach_incident">
+            <h2 class="label" id="h-breach_incident">Breaches &amp; Incidents <span class="n">4</span></h2>
+            <ul class="stories">
+<li class="story" id="cleverbridge-breach-payment-card-data-including-cvvs-stolen" data-story="2648" data-severity="High" data-section="breach_incident" data-rank="2" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Cleverbridge Breach: Payment Card Data, Including CVVs, Stolen</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">Cleverbridge via BleepingComputer</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Cleverbridge confirmed a breach resulting in the theft of payment card numbers, expiration dates, and CVV/CVC codes.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Cleverbridge detected unauthorized activity on November 4, 2026, and subsequently confirmed a third party copied payment card data from its platform. The stolen information includes card numbers, expiry dates, and CVV/CVC codes.</p>
+            <p><b>Why it matters.</b> The theft of CVV/CVC codes is a significant concern as these codes are used to verify payment card transactions.</p>
+            <p class="do"><b>Do this today</b> Advise customers to review payment card statements for unauthorized transactions and contact card issuers.</p>
+            <dl class="facts">
+                <dt>Affected</dt><dd>Cleverbridge platform users</dd>
+                
+            </dl>
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://grow.cleverbridge.com/incident-update" target="_blank" rel="noopener">Read the original · Cleverbridge <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cleverbridge-breach-payment-card-data-including-cvvs-stolen">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Cleverbridge%20Breach%3a%20Payment%20Card%20Data%2c%20Including%20CVVs%2c%20Stolen%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23cleverbridge-breach-payment-card-data-including-cvvs-stolen" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23cleverbridge-breach-payment-card-data-including-cvvs-stolen" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.773,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.95,&#34;total&#34;:0.555}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="third-party-breach-exposes-data-for-chase-visa-and-mastercar" data-story="2555" data-severity="High" data-section="breach_incident" data-rank="3" data-source="BleepingComputer">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Third-Party Breach Exposes Data for Chase, Visa, and Mastercard</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="b b-">5 outlets</span><span class="sep">·</span><span class="src">Malwarebytes via BleepingComputer</span><span class="tag tag-dev" title="Covered in earlier briefs">Day 2</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A third-party provider breach exposed customer data for major financial institutions.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A ransomware group claimed to steal data from a third-party provider, Qubole, used by J.P. Morgan Chase, Visa, and Mastercard. The group alleged access via compromised Qubole credentials to customer AWS environments. The exposed data included marketing information, names, and email addresses.</p>
+            <p><b>Why it matters.</b> Defenders should investigate potential exposure points related to third-party cloud analytics providers. Assume non-payment data, such as emails and names, may be compromised.</p>
+            
+            <dl class="facts">
+                <dt>Affected</dt><dd>J.P. Morgan Chase, Visa, Mastercard, Qubole</dd>
+                
+            </dl>
+            <ol class="timeline" aria-label="Earlier coverage"><li><span class="t-date">Sat 21 Nov</span>Third-Party Breach Exposes Data for Chase, Visa, Mastercard</li><li><span class="t-date">Today</span>Third-Party Breach Exposes Data for Chase, Visa, and Mastercard</li></ol>
+            <div class="s-actions">
+                <a class="source-link" href="https://www.malwarebytes.com/blog/data-breaches/2026/11/hackers-leak-data-linked-to-visa-mastercard-and-jpmorgan-customers" target="_blank" rel="noopener">Read the original · Malwarebytes <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="third-party-breach-exposes-data-for-chase-visa-and-mastercar">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Third-Party%20Breach%20Exposes%20Data%20for%20Chase%2c%20Visa%2c%20and%20Mastercard%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23third-party-breach-exposes-data-for-chase-visa-and-mastercar" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23third-party-breach-exposes-data-for-chase-visa-and-mastercar" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/" target="_blank" rel="noopener" data-track="coverage">BleepingComputer</a>; also covered by <a href="https://www.securityweek.com/jpmorgan-visa-mastercard-cite-third-party-incidents-amid-data-leak/" target="_blank" rel="noopener">SecurityWeek</a>, <a href="https://www.malwarebytes.com/blog/data-breaches/2026/11/hackers-leak-data-linked-to-visa-mastercard-and-jpmorgan-customers" target="_blank" rel="noopener">Malwarebytes</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:1,&#34;evidence&#34;:0,&#34;freshness&#34;:0.163,&#34;importance&#34;:0.75,&#34;novelty&#34;:0.6,&#34;quality&#34;:0.95,&#34;total&#34;:0.546}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="fbi-investigating-apparent-hack-of-national-crime-informatio" data-story="2611" data-severity="High" data-section="breach_incident" data-rank="4" data-source="SecurityWeek">
+    <details>
+        <summary>
+            <i class="dot sev-High" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">FBI Investigating Apparent Hack of National Crime Information Center (NCIC)</span>
+                <span class="meta"><span class="sev-text sev-High">High</span><span class="sep">·</span><span class="src">SecurityWeek</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">The FBI is investigating an apparent security breach involving the National Crime Information Center database.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>The FBI is investigating an apparent hack of the National Crime Information Center, a computerized database for criminal justice information. The NCIC contains records on fugitives, missing persons, and criminal history data. The FBI declined to comment on the apparent hack.</p>
+            <p><b>Why it matters.</b> Compromise of a national law enforcement database represents a significant risk to sensitive criminal justice records. Defenders should monitor for indicators of compromise related to law enforcement data systems.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/" target="_blank" rel="noopener">Read on SecurityWeek <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="fbi-investigating-apparent-hack-of-national-crime-informatio">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=FBI%20Investigating%20Apparent%20Hack%20of%20National%20Crime%20Information%20Center%20%28NCIC%29%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23fbi-investigating-apparent-hack-of-national-crime-informatio" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23fbi-investigating-apparent-hack-of-national-crime-informatio" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.512,&#34;importance&#34;:0.75,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.524}</pre>
+        </div>
+    </details>
+</li>
+
+<li class="story" id="nightmare-eclipse-unpatched-windows-lock-screen-escape-explo" data-story="2597" data-severity="Medium" data-section="breach_incident" data-rank="12" data-source="SecurityWeek">
+    <details>
+        <summary>
+            <i class="dot sev-Medium" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Nightmare Eclipse Unpatched Windows Lock Screen Escape Exploit</span>
+                <span class="meta"><span class="sev-text sev-Medium">Medium</span><span class="sep">·</span><span class="src">SecurityWeek</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">A zero-day exploit abuses the Narrator screen reader to bypass Windows 11 lock screens.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Researcher Nightmare Eclipse released FastUnlock, an unpatched Windows 11 zero-day. This exploit abuses the Narrator screen reader to execute code from the lock screen account. The attack requires physical access and an online Microsoft account linked to the target.</p>
+            <p><b>Why it matters.</b> This vulnerability allows code execution on a locked machine with physical access, bypassing standard login controls.</p>
+            <p class="do"><b>Do this today</b> Apply patches or mitigations for the Nightmare Eclipse FastUnlock vulnerability.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/" target="_blank" rel="noopener">Read on SecurityWeek <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="nightmare-eclipse-unpatched-windows-lock-screen-escape-explo">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Nightmare%20Eclipse%20Unpatched%20Windows%20Lock%20Screen%20Escape%20Exploit%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23nightmare-eclipse-unpatched-windows-lock-screen-escape-explo" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23nightmare-eclipse-unpatched-windows-lock-screen-escape-explo" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.199,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.418}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-ai_security" data-track-section="ai_security" aria-labelledby="h-ai_security">
+            <h2 class="label" id="h-ai_security">AI Security <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="ai-supply-chain-vulnerability-data-privacy-compromise-demons" data-story="2588" data-severity="Info" data-section="ai_security" data-rank="11" data-source="Ars Technica">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">AI Supply Chain Vulnerability: Data Privacy Compromise Demonstrated</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="src">Ars Technica</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">Testing revealed that unique secrets embedded in prompts can be compromised within the AI supply chain.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>Testing utilized prompts containing unique, trackable secrets. This process demonstrated that data privacy can be compromised within the AI supply chain.</p>
+            <p><b>Why it matters.</b> Organizations using AI models must assume that input data, including secrets, may be exposed during processing.</p>
+            
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/" target="_blank" rel="noopener">Read on Ars Technica <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="ai-supply-chain-vulnerability-data-privacy-compromise-demons">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=AI%20Supply%20Chain%20Vulnerability%3a%20Data%20Privacy%20Compromise%20Demonstrated%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23ai-supply-chain-vulnerability-data-privacy-compromise-demons" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23ai-supply-chain-vulnerability-data-privacy-compromise-demons" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.236,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.9,&#34;total&#34;:0.422}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        <section class="sec" id="s-research_technique" data-track-section="research_technique" aria-labelledby="h-research_technique">
+            <h2 class="label" id="h-research_technique">Research &amp; Techniques <span class="n">1</span></h2>
+            <ul class="stories">
+<li class="story" id="cryptographer-warns-ai-advances-threaten-public-key-cryptogr" data-story="2556" data-severity="Info" data-section="research_technique" data-rank="13" data-source="CSO Online">
+    <details>
+        <summary>
+            <i class="dot sev-Info" aria-hidden="true"></i>
+            <span class="s-main">
+                <span class="s-head">Cryptographer Warns AI Advances Threaten Public-Key Cryptography Foundations</span>
+                <span class="meta"><span class="sev-text sev-Info">Info</span><span class="sep">·</span><span class="src">Mjos via CSO Online</span><span class="tag tag-new">New</span><span class="tag tag-read">Read</span></span>
+                <span class="s-tldr">AI advances raise concerns about the mathematical foundations supporting current public-key cryptography standards.</span>
+            </span>
+            <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+        </summary>
+        <div class="s-body">
+            <p>A cryptographer warned that advances in AI could challenge the mathematical problems underpinning public-key infrastructure (PKI). These systems rely on hard mathematical problems that machines are beginning to solve more easily than humans. The warning focused on the cryptographic foundations rather than PKI itself.</p>
+            <p><b>Why it matters.</b> A major cryptanalytic surprise could cause a loss of confidence in current internet security systems if standards cannot adapt quickly. The industry needs to focus on improved cryptographic agility.</p>
+            <p class="do"><b>Do this today</b> Follow established Post-Quantum Cryptography (PQC) transition paths.</p>
+            
+            
+            <div class="s-actions">
+                <a class="source-link" href="https://mjos.fi/doc/20261028-unp2-math-consequences.pdf" target="_blank" rel="noopener">Read the original · Mjos <span aria-hidden="true">↗</span></a>
+                <span class="share">
+                    <button class="text-btn copy-link" type="button" data-slug="cryptographer-warns-ai-advances-threaten-public-key-cryptogr">Copy link</button>
+                    <a class="text-btn" href="https://x.com/intent/post?text=Cryptographer%20Warns%20AI%20Advances%20Threaten%20Public-Key%20Cryptography%20Foundations%20%e2%80%94%20via%20PwnSpectrum&url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23cryptographer-warns-ai-advances-threaten-public-key-cryptogr" target="_blank" rel="noopener" data-share="x">Post on X</a>
+                    <a class="text-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2ffeed.anmolsinghyadav.com%2f2026%2f11%2f23%2f%23cryptographer-warns-ai-advances-threaten-public-key-cryptogr" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>
+                </span>
+            </div>
+            <p class="also">Summarised from <a href="https://www.csoonline.com/article/4248694/do-ais-mathematical-advances-put-pki-under-threat.html" target="_blank" rel="noopener" data-track="coverage">CSO Online</a>.</p>
+            <pre class="debug" hidden>{&#34;coverage&#34;:0.387,&#34;evidence&#34;:0,&#34;freshness&#34;:0.166,&#34;importance&#34;:0.5,&#34;novelty&#34;:1,&#34;quality&#34;:0.8,&#34;total&#34;:0.405}</pre>
+        </div>
+    </details>
+</li>
+</ul>
+        </section>
+        
+        
+        
+        
+
+
+        
+        <section class="sec" id="cves" data-track-section="cves" aria-labelledby="h-cves">
+            <h2 class="label" id="h-cves">CVE spotlight</h2>
+            <table class="cve-table">
+                <thead><tr><th scope="col">CVE</th><th scope="col">Affects</th><th scope="col" class="num">CVSS</th><th scope="col" class="num">EPSS</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-129448" target="_blank" rel="noopener" data-track="cve">CVE-2026-129448</a></td>
+                    <td data-label="Affects"><span class="cve-product">Apache Roller</span><span class="cve-desc">Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4 allows an unauthenticated remote attacker to execute arbitra…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">5%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 23 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-123890" target="_blank" rel="noopener" data-track="cve">CVE-2026-123890</a></td>
+                    <td data-label="Affects"><span class="cve-product">Broadcom VMware vCenter</span><span class="cve-desc">VMware vCenter contains an authentication bypass vulnerability in the VMware Directory Service.
+Affected versions: 9.1.x (fixed in 9.1.1.020…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">3%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 23 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-76466" target="_blank" rel="noopener" data-track="cve">CVE-2026-76466</a></td>
+                    <td data-label="Affects"><span class="cve-product">Cisco Expressway Series</span><span class="cve-desc">A vulnerability in the database service feature of Cisco Expressway Series could allow an unauthenticated, remote attacker with network acce…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-crit">9.8</span></td>
+                    <td data-label="EPSS" class="num">2%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 23 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2025-42884" target="_blank" rel="noopener" data-track="cve">CVE-2025-42884</a></td>
+                    <td data-label="Affects"><span class="cve-product">SAP NetWeaver</span><span class="cve-desc">SAP NetWeaver Enterprise Portal allows an unauthenticated attacker to inject JNDI environment properties or pass a URL used during JNDI look…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-med">6.5</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="kev">Exploited (KEV)</span><span class="due">CISA due 23 Nov</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-93637" target="_blank" rel="noopener" data-track="cve">CVE-2026-93637</a></td>
+                    <td data-label="Affects"><span class="cve-product">—</span><span class="cve-desc">An authentication rate-limit bypass in Zimbra Collaboration Suite 10.1.0 through 10.1.21 allows unauthenticated attackers to make repeated p…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score ">3.7</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                <tr>
+                    <td data-label="CVE"><a class="mono" href="https://nvd.nist.gov/vuln/detail/CVE-2026-73571" target="_blank" rel="noopener" data-track="cve">CVE-2026-73571</a></td>
+                    <td data-label="Affects"><span class="cve-product">synacor zimbra_collaboration_suite</span><span class="cve-desc">An authorization bypass vulnerability exists in Zimbra Collaboration (ZCS) before 10.1.17 due to improper authorization validation in delega…</span></td>
+                    <td data-label="CVSS" class="num"><span class="score s-med">4.3</span></td>
+                    <td data-label="EPSS" class="num">1%</td>
+                    <td data-label="Status"><span class="muted">Not in KEV</span></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section class="sec quiz-sec" id="quiz" data-track-section="quiz" aria-labelledby="h-quiz">
+            <h2 class="label" id="h-quiz">Quiz</h2>
+            
+            <div class="reveal" data-quiz-date="2026-11-22" data-answer="1">
+                <p class="small-label">Yesterday's answer</p>
+                <p class="q">According to the news story, which of the following was one of the four vulnerabilities added to the KEV Catalog?</p>
+                <p class="answer"><span class="check" aria-hidden="true">✓</span> Cisco Expressway Series</p>
+                <p class="explain">The story explicitly lists Cisco Expressway Series as one of the four vulnerabilities added to the KEV Catalog.</p>
+                <div class="result-row" id="quiz-result-row" hidden>
+                    <p class="result" id="quiz-result"></p>
+                    <button class="text-btn copy-result" id="copy-result" type="button">Copy result</button>
+                </div>
+            </div>
+            
+            
+            <div class="quiz" data-quiz-date="2026-11-23">
+                <p class="small-label">Today's question</p>
+                <p class="q" id="quiz-q">According to the report, what vector was exploited to install custom malware on the affected routers and KVM devices?</p>
+                <ol class="options" aria-labelledby="quiz-q">
+                    <li><button class="option" type="button" data-index="0"><span class="opt-key">A</span><span>Physical port access</span></button></li><li><button class="option" type="button" data-index="1"><span class="opt-key">B</span><span>Cloud remote management services</span></button></li><li><button class="option" type="button" data-index="2"><span class="opt-key">C</span><span>Default administrative credentials</span></button></li><li><button class="option" type="button" data-index="3"><span class="opt-key">D</span><span>Supply chain firmware updates</span></button></li>
+                </ol>
+                <p class="locked" id="quiz-locked" hidden>Locked in. The answer is in tomorrow's brief.</p>
+                <p class="score" id="quiz-score" hidden></p>
+            </div>
+            
+        </section>
+        
+
+        
+
+        
+        <section class="sec" id="tomorrow" data-track-section="tomorrow" aria-labelledby="h-tomorrow">
+            <h2 class="label" id="h-tomorrow">The week ahead</h2>
+            <ul class="radar">
+            <li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-111793" target="_blank" rel="noopener" data-track="radar">CVE-2026-111793 · Openwave Messaging Limited Webtop Media Transcoder</a></span></li><li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-124194" target="_blank" rel="noopener" data-track="radar">CVE-2026-124194 · Microsoft Office</a></span></li><li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-125350" target="_blank" rel="noopener" data-track="radar">CVE-2026-125350 · Google Chromium</a></span></li><li class="radar-deadline"><span class="when">KEV deadline tomorrow</span><span class="what"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-20320" target="_blank" rel="noopener" data-track="radar">CVE-2026-20320 · Cisco BroadWorks</a></span></li><li class="radar-ctf"><span class="when">CTF starts Fri 11:00 UTC</span><span class="what"><a href="https://ctftime.org/event/3502" target="_blank" rel="noopener" data-track="radar">RedReaper CTF</a></span></li><li class="radar-ctf"><span class="when">CTF starts Fri 17:00 UTC</span><span class="what"><a href="https://ctftime.org/event/3512" target="_blank" rel="noopener" data-track="radar">N0v4CTF 2026</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/signal-to-block-siri-gemini-ai-from-capturing-chats-on-ios-android/" target="_blank" rel="noopener" data-track="radar">Signal to block Siri, Gemini AI from capturing chats on iOS, Android</a></span></li><li class="radar-watching"><span class="when">Watching</span><span class="what"><a href="https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/" target="_blank" rel="noopener" data-track="radar">Hackers steal data of 1.6 million SBC Medical Group customers</a></span></li>
+            </ul>
+        </section>
+        
+
+        
+        <section class="sec" id="also" data-track-section="also" aria-labelledby="h-also">
+            <h2 class="label" id="h-also">Also worth your time</h2>
+            <div class="tabs" role="tablist" aria-label="Also worth your time">
+                <button class="tab" type="button" role="tab" id="tab-exploits" aria-controls="panel-exploits" aria-selected="true" tabindex="0">Exploits</button><button class="tab" type="button" role="tab" id="tab-tools" aria-controls="panel-tools" aria-selected="false" tabindex="-1">Tools</button><button class="tab" type="button" role="tab" id="tab-podcasts" aria-controls="panel-podcasts" aria-selected="false" tabindex="-1">Podcasts</button>
+            </div>
+            
+            <div class="panel active" id="panel-exploits" role="tabpanel" aria-labelledby="tab-exploits">
+                <h3 class="panel-title">Exploits</h3>
+                <ul class="side-list">
+                <li><a href="https://www.exploit-db.com/exploits/52705" target="_blank" rel="noopener" data-track="exploits">Ruflo MCP Bridge  3.16.2 - Remote Code Execution</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52704" target="_blank" rel="noopener" data-track="exploits">PHP2Shell (CVE-2026-109618) - PHP core versions after v5.4 - RCE</a><span class="side-meta">Remote · CVE-2026-109618</span></li><li><a href="https://www.exploit-db.com/exploits/52703" target="_blank" rel="noopener" data-track="exploits">pizzafy-1.0 - SQLi</a><span class="side-meta">WebApps</span></li><li><a href="https://www.exploit-db.com/exploits/52701" target="_blank" rel="noopener" data-track="exploits">South River Technologies Titan MFT Server 26.0.0 - code execution</a><span class="side-meta">Remote</span></li><li><a href="https://www.exploit-db.com/exploits/52700" target="_blank" rel="noopener" data-track="exploits">Synametrics Syncrify 6.2 - command execution</a><span class="side-meta">Remote</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
+                <h3 class="panel-title">Tools</h3>
+                <ul class="side-list">
+                <li><a href="https://github.com/RemoteToHome-io/gl-security-incident-2026" target="_blank" rel="noopener" data-track="tools">RemoteToHome-io/gl-security-incident-2026</a><span class="side-meta">In today&#39;s news · via BleepingComputer · Detection &amp; response · Shell</span><span class="side-desc">Documents findings regarding a cloud remote-management vulnerability in specific router firmware versions.</span></li><li><a href="https://github.com/rapid7/metasploit-framework" target="_blank" rel="noopener" data-track="tools">rapid7/metasploit-framework</a><span class="side-meta">In today&#39;s news · via Rapid7 · Exploitation · Ruby</span><span class="side-desc">Provides an open-source framework for developing and executing security exploits and payloads.</span></li><li><a href="https://github.com/bhoomikasm-11/avast-premium-security-satamir" target="_blank" rel="noopener" data-track="tools">bhoomikasm-11/avast-premium-security-satamir</a><span class="side-meta">New · 229 stars in 1 day · Detection &amp; response · HTML</span><span class="side-desc">Provides layered endpoint protection including signature-based detection, behavioral analysis, and network inspection.</span></li><li><a href="https://github.com/erkamyaman/safe-anything" target="_blank" rel="noopener" data-track="tools">erkamyaman/safe-anything</a><span class="side-meta">New · 35 stars in 1 day · Web &amp; AppSec · Rust</span><span class="side-desc">Scans codebases for multiple vulnerabilities including XSS, SQL injection, and exposed secrets across various languages …</span></li><li><a href="https://github.com/CityGrubWedge/amber-osint-web-archive" target="_blank" rel="noopener" data-track="tools">CityGrubWedge/amber-osint-web-archive</a><span class="side-meta">New · 110 stars in 10 days · OSINT · JavaScript</span><span class="side-desc">Analyzes web page history to visualize content changes and deletions across different saved snapshots.</span></li><li><a href="https://github.com/MetalSailorBridge57/whorl-osint-wallet-investigation" target="_blank" rel="noopener" data-track="tools">MetalSailorBridge57/whorl-osint-wallet-investigation</a><span class="side-meta">New · 92 stars in 9 days · OSINT · Python</span><span class="side-desc">Analyzes public cryptocurrency wallet activity patterns across multiple blockchains to identify similar addresses.</span></li>
+                </ul>
+            </div>
+            
+            <div class="panel" id="panel-podcasts" role="tabpanel" aria-labelledby="tab-podcasts">
+                <h3 class="panel-title">Podcasts</h3>
+                <ul class="side-list">
+                <li><a href="https://darknetdiaries.com/episode/182/" target="_blank" rel="noopener" data-track="podcasts">182: Blackshades</a><span class="side-meta">Darknet Diaries · 39:17</span></li><li><a href="https://risky.biz/RB860/" target="_blank" rel="noopener" data-track="podcasts">Risky Business #860 -- Google: Agentic hacking has “crossed a threshold”</a><span class="side-meta">Risky Business · 1:03:38</span></li><li><a href="https://twit.tv/shows/security-now/episodes/1105" target="_blank" rel="noopener" data-track="podcasts">SN 1105: Formal Code Verification - When All Your Apps Go Dark</a><span class="side-meta">Security Now · 2:42:24</span></li><li><a href="https://redcircle.com/shows/597cfd00-b29a-49c6-9622-03c8decfc35f/episodes/30142034-0c23-433e-85e6-e476fa7cc1e9" target="_blank" rel="noopener" data-track="podcasts">Weev, Part 2</a><span class="side-meta">Malicious Life · 28:49</span></li>
+                </ul>
+            </div>
+            
+        </section>
+        
+
+        
+        <section class="finally" id="finally" data-track-section="finally" aria-labelledby="h-finally">
+            <h2 class="label" id="h-finally">And finally</h2>
+            <div class="finally-body">
+                <p class="finally-head"><a href="https://gbhackers.com/metas-muse-ai-agent-accesses-private-signal-messages/" target="_blank" rel="noopener" data-track="finally">AI Agent Accessing Private Messages via Device Permissions</a></p>
+                <p class="finally-blurb">Meta&#39;s Muse AI agent accessed private Signal messages using device permissions, not encryption flaws. This highlights risks from notification and screen access.</p>
+                <p class="finally-src">GBHackers</p>
+            </div>
+        </section>
+        
+
+        <section class="done" id="done" aria-label="End of today's brief">
+            <p class="done-kicker">End of No. 272</p>
+            <p class="done-title" id="done-title">That's today's brief.</p>
+            <p class="done-sum" id="done-sum" hidden></p>
+            <p class="done-next"><b>Coming up</b><span>KEV deadline tomorrow: CVE-2026-111793 · Openwave Messaging Limited Webtop Media Transcoder</span></p>
+            <p class="done-sub" id="countdown" data-next="2026-11-24T01:00:00Z">The next brief lands at 06:30 IST.</p>
+            
+            <nav class="edition-nav" aria-label="Other briefs">
+                <a href="../../../2026/11/22/" rel="prev">← Sun 22 Nov</a>
+                <a href="../../../archive/">All briefs</a>
+                <span></span>
+            </nav>
+        </section>
+    </article>
+</div>
+</main>
+
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <a class="wordmark small" href="../../../">PwnSpectrum</a>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="../../../">Today</a>
+            <a href="../../../archive/">Archive</a>
+            <a href="https://forms.gle/RcsGHJHpb761EZA38" target="_blank" rel="noopener">Send a tip</a>
+            <a href="https://x.com/IamLucif3r_" target="_blank" rel="noopener">X</a>
+            <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/iamlucif3r" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <p>Curated by <a href="https://www.linkedin.com/in/anmolsinghyadav/" target="_blank" rel="noopener">Anmol Singh Yadav</a>. Stories come from public sources and are summarised by a local model; always check the original before acting.</p>
+    </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+</button>
+
+<dialog class="keys" id="keys">
+    <form method="dialog">
+        <h2>Keyboard shortcuts</h2>
+        <dl>
+            <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>Next / previous story</dd>
+            <dt><kbd>o</kbd> or <kbd>Enter</kbd></dt><dd>Open / close story</dd>
+            <dt><kbd>v</kbd></dt><dd>Read the source in a new tab</dd>
+            <dt><kbd>e</kbd></dt><dd>Expand / collapse all</dd>
+            <dt><kbd>/</kbd></dt><dd>Search</dd>
+            <dt><kbd>d</kbd></dt><dd>Light / dark theme</dd>
+            <dt><kbd>Esc</kbd></dt><dd>Close</dd>
+        </dl>
+        <button class="text-btn" value="close">Close</button>
+    </form>
+</dialog>
+<script src="../../../assets/site.js?v=931cd2608a" defer></script>
+</body>
+</html>
